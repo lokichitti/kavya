@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="end">
+          <ion-button [routerLink]="['/login']">
+            <ion-icon slot="icon-only" name="log-in"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+            <ion-button [routerLink]="['/info']">
+              <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+      <ion-title size="large" text-center>Me&MyShop</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" text-center color="danger"> 
+    <div text-center> Welcome</div>
+    <div text-center>This is a single platform where you can buy as well as sell within your circle</div>
+  <div>
+    <!-- Searchbar with a placeholder -->
+<ion-searchbar shape="round" placeholder="Items/services near by"></ion-searchbar>
+  </div>
+    <div>
+  <button fill="outline" shape="round" expand="block" [routerLink]="['/map']" class = "button button-full"> 
+      map
+   </button>
+  </div>
+<div>
+  <button shape="round" [routerLink]="['/sign-up']" class = "button button-full"> 
+      Register
+    </button>
+  </div>
+</ion-content>
