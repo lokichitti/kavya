@@ -61,8 +61,8 @@ export class MapPage implements OnInit {
     let watch = this.geolocation.watchPosition();
     watch.subscribe((data) => {
       // data can be a set of coordinates, or an error (if an error occurred).
-      // data.coords.latitude
-      // data.coords.longitude
+       data.coords.latitude
+       data.coords.longitude
       let options: NativeGeocoderOptions = {
         useLocale: true,
         maxResults: 5
