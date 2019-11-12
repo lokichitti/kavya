@@ -207,7 +207,7 @@ export class RegisterPage implements OnInit {
 
   onSubmit(values){
     console.log(values);
-    this.router.navigate(["/user"]);
+    this.router.navigate(["/myshop"]);
   }
 
 }
