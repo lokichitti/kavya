@@ -38,7 +38,13 @@ var map = {
 	],
 	"./register/register.module": [
 		"./src/app/register/register.module.ts",
+		"default~register-register-module~sign-in-sign-in-module",
 		"register-register-module"
+	],
+	"./sign-in/sign-in.module": [
+		"./src/app/sign-in/sign-in.module.ts",
+		"default~register-register-module~sign-in-sign-in-module",
+		"sign-in-sign-in-module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -51,7 +57,7 @@ function webpackAsyncContext(req) {
 	}
 
 	var ids = map[req], id = ids[0];
-	return __webpack_require__.e(ids[1]).then(function() {
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
 		return __webpack_require__(id);
 	});
 }
@@ -512,6 +518,7 @@ const routes = [
     { path: 'main-page', loadChildren: './main-page/main-page.module#MainPagePageModule' },
     { path: 'map', loadChildren: './map/map.module#MapPageModule' },
     { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
+    { path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule' },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -554,6 +561,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
+/* harmony import */ var _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/google-maps */ "./node_modules/@ionic-native/google-maps/index.js");
+
 
 
 
@@ -568,6 +577,12 @@ let AppComponent = class AppComponent {
     }
     initializeApp() {
         this.platform.ready().then(() => {
+            _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_5__["Environment"].setEnv({
+                // api key for server
+                'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyBHSK40wgWSOtksVfjDtxAAlIxyUiAFwME',
+                // api key for local development
+                'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyBHSK40wgWSOtksVfjDtxAAlIxyUiAFwME'
+            });
             this.statusBar.styleDefault();
             this.splashScreen.hide();
         });
@@ -612,6 +627,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
+/* harmony import */ var _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/native-geocoder/ngx */ "./node_modules/@ionic-native/native-geocoder/ngx/index.js");
+
+
 
 
 
@@ -631,6 +650,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providers: [
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
+            _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__["Geolocation"],
+            _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_10__["NativeGeocoder"],
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
@@ -702,7 +723,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/hmecd001523/ionic-dont-delete/current/kavya/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/lokesh/IONIC/lokappa/kavya/src/main.ts */"./src/main.ts");
 
 
 /***/ })

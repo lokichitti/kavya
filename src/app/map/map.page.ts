@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgZone } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder,NativeGeocoderOptions,NativeGeocoderResult } from '@ionic-native/native-geocoder/ngx';
 import {
@@ -13,6 +14,7 @@ import {
   GoogleMapsAnimation,
   MyLocation
 } from '@ionic-native/google-maps';
+declare var google;
 
 @Component({
   selector: 'app-map',
@@ -21,81 +23,130 @@ import {
 })
 export class MapPage implements OnInit {
 
-  geoLatitude: number;
-  geoLongitude: number;
-  geoAccuracy:number;
-  geoAddress: string;
+  userLocation;
+  userCity;
+  lat;
+  lng;
+  location;
+  latLngResult;
+  userLocationFromLatLng;
+  constructor(public zone: NgZone, public geolocation: Geolocation, private nativeGeocoder: NativeGeocoder, private platform: Platform) {
+    this.initializeApp();
+  }
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.getUserLocation();
+    });
+  }
+  getUserLocation() {
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.getGeoLocation(resp.coords.latitude, resp.coords.longitude)
+      if (this.platform.is('cordova')) {
+        let options: NativeGeocoderOptions = {
+          useLocale: true,
+          maxResults: 5
+        };
+        this.nativeGeocoder.reverseGeocode(resp.coords.latitude, resp.coords.longitude, options)
+          .then((result: any) => {
+            console.log(result)
+            this.userLocation = result[0]
+            console.log(this.userLocation)
+          })
+          .catch((error: any) => console.log(error));
+      } else {
+        this.getGeoLocation(resp.coords.latitude, resp.coords.longitude)
+      }
+    }).catch((error) => {
+    });
+    let watch = this.geolocation.watchPosition();
+    watch.subscribe((data) => {
+      // data can be a set of coordinates, or an error (if an error occurred).
+      // data.coords.latitude
+      // data.coords.longitude
+      let options: NativeGeocoderOptions = {
+        useLocale: true,
+        maxResults: 5
+      };
+      if (this.platform.is('cordova')) {
+        let options: NativeGeocoderOptions = {
+          useLocale: true,
+          maxResults: 5
+        };
+        this.nativeGeocoder.reverseGeocode(data.coords.latitude, data.coords.longitude, options)
+          .then((result: NativeGeocoderResult[]) => {
+            console.log(result)
+            this.userLocation = result[0]
+            console.log(this.userLocation)
+          })
+          .catch((error: any) => console.log(error));
+      } else {
+        console.log('not cordove')
+        this.getGeoLocation(data.coords.latitude, data.coords.longitude)
+      }
+    });
+  }
+  async getGeoLocation(lat: number, lng: number, type?) {
+    if (navigator.geolocation) {
+      let geocoder = await new google.maps.Geocoder();
+      let latlng = await new google.maps.LatLng(lat, lng);
+      let request = { latLng: latlng };
 
-  watchLocationUpdates:any;
-  loading:any;
-  isWatching:boolean;
-
-  //Geocoder configuration
-  geoencoderOptions: NativeGeocoderOptions = {
-    useLocale: true,
-    maxResults: 5
-  };
-  constructor(
-    private geolocation: Geolocation,
-    private nativeGeocoder: NativeGeocoder
-  ) {  }
-
+      await geocoder.geocode(request, (results, status) => {
+        if (status == google.maps.GeocoderStatus.OK) {
+          let result = results[0];
+          this.zone.run(() => {
+            if (result != null) {
+              this.userCity = result.formatted_address;
+              if (type === 'reverseGeocode') {
+                this.latLngResult = result.formatted_address;
+              }
+            }
+          })
+        }
+      });
+    }
+  }
+  reverseGeocode(lat, lng) {
+    if (this.platform.is('cordova')) {
+      let options: NativeGeocoderOptions = {
+        useLocale: true,
+        maxResults: 5
+      };
+      this.nativeGeocoder.reverseGeocode(lat, lng, options)
+        .then((result: NativeGeocoderResult[]) => this.userLocationFromLatLng = result[0])
+        .catch((error: any) => console.log(error));
+    } else {
+      this.getGeoLocation(lat, lng, 'reverseGeocode');
+    }
+  }
+  forwardGeocode(address) {
+    if (this.platform.is('cordova')) {
+      let options: NativeGeocoderOptions = {
+        useLocale: true,
+        maxResults: 5
+      };
+      this.nativeGeocoder.forwardGeocode(address, options)
+        .then((result: NativeGeocoderResult[]) => {
+          this.zone.run(() => {
+            this.lat = result[0].latitude;
+            this.lng = result[0].longitude;
+          })
+        })
+        .catch((error: any) => console.log(error));
+    } else {
+      let geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'address': address }, (results, status) => {
+        if (status == google.maps.GeocoderStatus.OK) {
+          this.zone.run(() => {
+            this.lat = results[0].geometry.location.lat();
+            this.lng = results[0].geometry.location.lng();
+          })
+        } else {
+          alert('Error - ' + results + ' & Status - ' + status)
+        }
+      });
+    }
+  }
   ngOnInit() {
   }
- 
-    //Get current coordinates of device
-    getGeolocation(){
-      this.geolocation.getCurrentPosition().then((resp) => {
-        this.geoLatitude = resp.coords.latitude;
-        this.geoLongitude = resp.coords.longitude;
-        this.geoAccuracy = resp.coords.accuracy;
-        this.getGeoencoder(this.geoLatitude,this.geoLongitude);
-       }).catch((error) => {
-         alert('Error getting location'+ JSON.stringify(error));
-       });
-    }
- 
-    //geocoder method to fetch address from coordinates passed as arguments
-    getGeoencoder(latitude,longitude){
-      this.nativeGeocoder.reverseGeocode(latitude, longitude, this.geoencoderOptions)
-      .then((result: NativeGeocoderResult[]) => {
-        this.geoAddress = this.generateAddress(result[0]);
-      })
-      .catch((error: any) => {
-        alert('Error getting location'+ JSON.stringify(error));
-      });
-    }
- 
-    //Return Comma saperated address
-    generateAddress(addressObj){
-        let obj = [];
-        let address = "";
-        for (let key in addressObj) {
-          obj.push(addressObj[key]);
-        }
-        obj.reverse();
-        for (let val in obj) {
-          if(obj[val].length)
-          address += obj[val]+', ';
-        }
-      return address.slice(0, -2);
-    }
- 
- 
-    //Start location update watch
-    watchLocation(){
-      this.isWatching = true;
-      this.watchLocationUpdates = this.geolocation.watchPosition();
-      this.watchLocationUpdates.subscribe((resp) => {
-        this.geoLatitude = resp.coords.latitude;
-        this.geoLongitude = resp.coords.longitude;
-        this.getGeoencoder(this.geoLatitude,this.geoLongitude);
-      });
-    }
- 
-    //Stop location update watch
-    stopLocationWatch(){
-      this.isWatching = false;
-      this.watchLocationUpdates.unsubscribe();
-    }
 }

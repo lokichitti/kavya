@@ -1,16 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["register-register-module"],{
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/register/register.page.html":
-/*!***********************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/register/register.page.html ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>register</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n"
-
-/***/ }),
-
 /***/ "./src/app/register/register.module.ts":
 /*!*********************************************!*\
   !*** ./src/app/register/register.module.ts ***!
@@ -35,6 +24,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const routes = [
     {
         path: '',
@@ -49,54 +39,12 @@ RegisterPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
         ],
         declarations: [_register_page__WEBPACK_IMPORTED_MODULE_6__["RegisterPage"]]
     })
 ], RegisterPageModule);
-
-
-
-/***/ }),
-
-/***/ "./src/app/register/register.page.scss":
-/*!*********************************************!*\
-  !*** ./src/app/register/register.page.scss ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3JlZ2lzdGVyL3JlZ2lzdGVyLnBhZ2Uuc2NzcyJ9 */"
-
-/***/ }),
-
-/***/ "./src/app/register/register.page.ts":
-/*!*******************************************!*\
-  !*** ./src/app/register/register.page.ts ***!
-  \*******************************************/
-/*! exports provided: RegisterPage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPage", function() { return RegisterPage; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-let RegisterPage = class RegisterPage {
-    constructor() { }
-    ngOnInit() {
-    }
-};
-RegisterPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-register',
-        template: __webpack_require__(/*! raw-loader!./register.page.html */ "./node_modules/raw-loader/index.js!./src/app/register/register.page.html"),
-        styles: [__webpack_require__(/*! ./register.page.scss */ "./src/app/register/register.page.scss")]
-    }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-], RegisterPage);
 
 
 
