@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
       <ion-buttons slot="end">
-          <ion-button [routerLink]="['/login']">
+          <ion-button [routerLink]="['/sign-in']">
             <ion-icon slot="icon-only" name="log-in"></ion-icon>
           </ion-button>
         </ion-buttons>
@@ -23,11 +23,11 @@
   </div>
     <div>
   <button fill="outline" shape="round" expand="block" [routerLink]="['/map']" class = "button button-full"> 
-      map
+      get current location
    </button>
   </div>
 <div>
-  <button shape="round" [routerLink]="['/sign-up']" class = "button button-full"> 
+  <button shape="round" [routerLink]="['/register']" class = "button button-full"> 
       Register
     </button>
   </div>
