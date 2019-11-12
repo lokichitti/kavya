@@ -34,9 +34,6 @@ export class LoginPage implements OnInit {
   ]
  };
  constructor(
-) { }
- ngOnInit() {}
-/* constructor(
   //private authService: AuthService,
   private formBuilder: FormBuilder,
   private router: Router
@@ -72,5 +69,5 @@ tryLogin(value){
 goRegisterPage(){
   this.router.navigate(["/sign-up"]);
 }
-*/
+
 }
