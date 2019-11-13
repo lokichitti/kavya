@@ -5,6 +5,8 @@ import libphonenumber from 'google-libphonenumber';
 import { CountryPhone } from './country-phone.model';
 import { Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase/app';
+import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
 
 export class UsernameValidator {
 
@@ -108,7 +110,8 @@ export class RegisterPage implements OnInit {
 
   constructor(
     public formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private firebaseAuthentication: FirebaseAuthentication
   ) { }
 
   ngOnInit() {
@@ -205,9 +208,11 @@ export class RegisterPage implements OnInit {
     ],
   };
 
-  onSubmit(values){
-    console.log(values);
-    this.router.navigate(["/myshop"]);
-  }
+  onSubmit(value){
+    console.log("MAMA MACHA MAMA MACHA MAMA MACHA HE");
+    this.firebaseAuthentication.createUserWithEmailAndPassword('test@gmail.com', '123')
+  .then((res: any) => console.log(res))
+  .catch((error: any) => console.error(error));
+   }
 
 }

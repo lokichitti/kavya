@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { RegisterPage } from './register.page';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
 
 const routes: Routes = [
   {

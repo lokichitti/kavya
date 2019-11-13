@@ -100,6 +100,9 @@ ext {
 // PLUGIN GRADLE EXTENSIONS START
 apply from: "../cordova-plugin-googlemaps/starter-tbxml-android.gradle"
 apply from: "../cordova-plugin-googlemaps/starter-apikey.gradle"
+apply from: "../cordova-plugin-telerik-imagepicker/starter-ignorelinterrors.gradle"
+apply from: "../cordova-plugin-telerik-imagepicker/starter-androidtarget.gradle"
+apply from: "../cordova-support-google-services/starter-build.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -299,6 +302,8 @@ dependencies {
     implementation "com.google.android.gms:play-services-maps:15.0.1"
     implementation "com.google.android.gms:play-services-location:15.0.1"
     implementation "com.android.support:support-core-utils:27.+"
+    implementation "com.android.support:appcompat-v7:23+"
+    implementation "com.google.firebase:firebase-auth:18.0.+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

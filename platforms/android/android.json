@@ -106,6 +106,14 @@
             {
               "xml": "<feature name=\"PluginStreetViewPanorama\"><param name=\"android-package\" value=\"plugin.google.maps.PluginStreetViewPanorama\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"ImagePicker\"><param name=\"android-package\" value=\"com.synconset.ImagePicker\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"FirebaseAuthentication\"><param name=\"android-package\" value=\"by.chemerisuk.cordova.firebase.FirebaseAuthenticationPlugin\" /><param name=\"onload\" value=\"false\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -188,6 +196,10 @@
             {
               "xml": "<uses-library android:name=\"org.apache.http.legacy\" android:required=\"false\" />",
               "count": 1
+            },
+            {
+              "xml": "<activity android:label=\"@string/multi_app_name\" android:name=\"com.synconset.MultiImageChooserActivity\" android:theme=\"@style/Theme.AppCompat.Light\"></activity>",
+              "count": 1
             }
           ],
           "/manifest": [
@@ -217,6 +229,10 @@
             },
             {
               "xml": "<uses-feature android:name=\"android.hardware.location.gps\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
               "count": 1
             }
           ]
@@ -253,6 +269,19 @@
     "cordova-plugin-googlemaps": {
       "PLAY_SERVICES_VERSION": "15.0.1",
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-telerik-imagepicker": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-support-android-plugin": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-support-google-services": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-firebase-authentication": {
+      "FIREBASE_AUTH_VERSION": "18.0.+",
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },
@@ -548,6 +577,22 @@
       "file": "plugins/cordova-plugin-googlemaps/www/js_CordovaGoogleMaps-for-android_ios.js",
       "pluginId": "cordova-plugin-googlemaps",
       "runs": true
+    },
+    {
+      "id": "cordova-plugin-telerik-imagepicker.ImagePicker",
+      "file": "plugins/cordova-plugin-telerik-imagepicker/www/imagepicker.js",
+      "pluginId": "cordova-plugin-telerik-imagepicker",
+      "clobbers": [
+        "plugins.imagePicker"
+      ]
+    },
+    {
+      "id": "cordova-plugin-firebase-authentication.FirebaseAuthentication",
+      "file": "plugins/cordova-plugin-firebase-authentication/www/FirebaseAuthentication.js",
+      "pluginId": "cordova-plugin-firebase-authentication",
+      "merges": [
+        "cordova.plugins.firebase.auth"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -559,6 +604,10 @@
     "cordova-plugin-ionic-keyboard": "2.2.0",
     "cordova-plugin-geolocation": "4.0.2",
     "cordova-plugin-nativegeocoder": "3.2.2",
-    "cordova-plugin-googlemaps": "2.6.2"
+    "cordova-plugin-googlemaps": "2.6.2",
+    "cordova-plugin-telerik-imagepicker": "2.3.3",
+    "cordova-support-android-plugin": "1.0.1",
+    "cordova-support-google-services": "1.3.2",
+    "cordova-plugin-firebase-authentication": "3.0.0"
   }
 }

@@ -4,7 +4,8 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Environment } from '@ionic-native/google-maps';
-
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -17,6 +18,8 @@ export class AppComponent {
     private statusBar: StatusBar
   ) {
     this.initializeApp();
+    AngularFireModule.initializeApp(environment.firebaseConfig);
+    console.log("HELLO HELLO HELLO");
   }
 
   initializeApp() {
