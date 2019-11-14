@@ -106,7 +106,7 @@ let MapPage = class MapPage {
     }
     getUserLocation() {
         this.geolocation.getCurrentPosition().then((resp) => {
-            // this.getGeoLocation(resp.coords.latitude, resp.coords.longitude)
+            this.getGeoLocation(resp.coords.latitude, resp.coords.longitude);
             if (this.platform.is('cordova')) {
                 let options = {
                     useLocale: true,
@@ -128,8 +128,8 @@ let MapPage = class MapPage {
         let watch = this.geolocation.watchPosition();
         watch.subscribe((data) => {
             // data can be a set of coordinates, or an error (if an error occurred).
-            // data.coords.latitude
-            // data.coords.longitude
+            data.coords.latitude;
+            data.coords.longitude;
             let options = {
                 useLocale: true,
                 maxResults: 5

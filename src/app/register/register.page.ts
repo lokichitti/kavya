@@ -5,6 +5,7 @@ import libphonenumber from 'google-libphonenumber';
 import { CountryPhone } from './country-phone.model';
 import { Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 export class UsernameValidator {
 
@@ -108,7 +109,8 @@ export class RegisterPage implements OnInit {
 
   constructor(
     public formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private angularFireAuth: AngularFireAuth
   ) { }
 
   ngOnInit() {
@@ -205,9 +207,15 @@ export class RegisterPage implements OnInit {
     ],
   };
 
-  onSubmit(values){
+  async onSubmit(values){
     console.log(values);
-    this.router.navigate(["/myshop"]);
+    try{
+      const result = await this.angularFireAuth.auth.createUserWithEmailAndPassword(values.email, values.matching_passwords.password);
+      console.log(result);
+    }
+    catch(e){
+      console.error(e);
+    }
   }
 
 }

@@ -12,11 +12,20 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx'
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 import libphonenumber from 'google-libphonenumber';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
+  ],
   providers: [
     StatusBar,
     SplashScreen,

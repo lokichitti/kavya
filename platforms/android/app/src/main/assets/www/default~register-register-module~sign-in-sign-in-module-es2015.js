@@ -7556,6 +7556,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var google_libphonenumber__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(google_libphonenumber__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _country_phone_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./country-phone.model */ "./src/app/register/country-phone.model.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! angularfire2/auth */ "./node_modules/angularfire2/auth/index.js");
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(angularfire2_auth__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -7638,9 +7641,10 @@ class PasswordValidator {
     }
 }
 let RegisterPage = class RegisterPage {
-    constructor(formBuilder, router) {
+    constructor(formBuilder, router, angularFireAuth) {
         this.formBuilder = formBuilder;
         this.router = router;
+        this.angularFireAuth = angularFireAuth;
         this.validation_messages = {
             'username': [
                 { type: 'required', message: 'Username is required.' },
@@ -7731,13 +7735,22 @@ let RegisterPage = class RegisterPage {
         });
     }
     onSubmit(values) {
-        console.log(values);
-        this.router.navigate(["/myshop"]);
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            console.log(values);
+            try {
+                const result = yield this.angularFireAuth.auth.createUserWithEmailAndPassword('test@gmail.com', 'password');
+                console.log(result);
+            }
+            catch (e) {
+                console.error(e);
+            }
+        });
     }
 };
 RegisterPage.ctorParameters = () => [
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
+    { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_6__["AngularFireAuth"] }
 ];
 RegisterPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -7746,7 +7759,8 @@ RegisterPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [__webpack_require__(/*! ./register.page.scss */ "./src/app/register/register.page.scss")]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
+        angularfire2_auth__WEBPACK_IMPORTED_MODULE_6__["AngularFireAuth"]])
 ], RegisterPage);
 
 

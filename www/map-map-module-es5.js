@@ -111,7 +111,7 @@ var MapPage = /** @class */ (function () {
     MapPage.prototype.getUserLocation = function () {
         var _this = this;
         this.geolocation.getCurrentPosition().then(function (resp) {
-            // this.getGeoLocation(resp.coords.latitude, resp.coords.longitude)
+            _this.getGeoLocation(resp.coords.latitude, resp.coords.longitude);
             if (_this.platform.is('cordova')) {
                 var options = {
                     useLocale: true,
@@ -133,8 +133,8 @@ var MapPage = /** @class */ (function () {
         var watch = this.geolocation.watchPosition();
         watch.subscribe(function (data) {
             // data can be a set of coordinates, or an error (if an error occurred).
-            // data.coords.latitude
-            // data.coords.longitude
+            data.coords.latitude;
+            data.coords.longitude;
             var options = {
                 useLocale: true,
                 maxResults: 5
