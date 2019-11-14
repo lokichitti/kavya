@@ -6,6 +6,7 @@ import { CountryPhone } from '../register/country-phone.model'
 import { UsernameValidator,PhoneValidator,PasswordValidator } from '../register/register.page'
 import { Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
+import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
 
 @Component({
   selector: 'app-sign-in',
@@ -22,7 +23,8 @@ export class SignInPage implements OnInit {
 
   constructor(
     public formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private firebaseAuthentication: FirebaseAuthentication
   ) { }
   ngOnInit() {  
     //  We just use a few random countries, however, you can use the countries you need by just adding them to this list.
@@ -84,4 +86,20 @@ export class SignInPage implements OnInit {
       { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number.' }
     ],
   };
+  forgotPassword(){
+    this.firebaseAuthentication.sendPasswordResetEmail('email@gmail.com')
+.then((res: any) => console.log(res))
+.catch((error: any) => console.error(error));
+  }
+  tryLogin(){
+    this.firebaseAuthentication.signInWithEmailAndPassword('test@gmail.com', '123')
+.then((res: any) => console.log(res))
+.catch((error: any) => console.error(error));
+  }
+
+  signOut(){
+    this.firebaseAuthentication.signOut().then(function() {
+      // user was signed out
+      });
+  }
 }

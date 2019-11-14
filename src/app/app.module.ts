@@ -12,7 +12,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx'
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 import libphonenumber from 'google-libphonenumber';
-
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

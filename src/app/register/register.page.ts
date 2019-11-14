@@ -5,7 +5,7 @@ import libphonenumber from 'google-libphonenumber';
 import { CountryPhone } from './country-phone.model';
 import { Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
 export class UsernameValidator {
 
   static validUsername(fc: FormControl){
@@ -108,8 +108,9 @@ export class RegisterPage implements OnInit {
 
   constructor(
     public formBuilder: FormBuilder,
-    private router: Router
-  ) { }
+    private router: Router,
+    private firebaseAuthentication: FirebaseAuthentication
+    ) { }
 
   ngOnInit() {
     //  We just use a few random countries, however, you can use the countries you need by just adding them to this list.
@@ -206,8 +207,19 @@ export class RegisterPage implements OnInit {
   };
 
   onSubmit(values){
-    console.log(values);
-    this.router.navigate(["/myshop"]);
+    console.log("values function called register");
+    this.firebaseAuthentication.createUserWithEmailAndPassword('admin@enappd.com', '123')
+.then((res: any) => console.log(res))
+.catch((error: any) => console.error(error));
+
+this.firebaseAuthentication.sendEmailVerification()
+.then((res: any) => console.log(res))
+.catch((error: any) => console.error(error));
+  }
+  verifyPhoneNumber(Number){
+    this.firebaseAuthentication.verifyPhoneNumber('+123456789', Number)
+.then((res: any) => console.log(res))
+.catch((error: any) => console.error(error));
   }
 
 }
