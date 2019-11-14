@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "437027548468",
+    "firebase_url": "https://meandmyshop.firebaseio.com",
+    "project_id": "meandmyshop",
+    "storage_bucket": "meandmyshop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437027548468:android:5c8ec65de2b3af40da0961",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437027548468-ddviu9r5pr8o6d02kiuhficmpd1st5fh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHSK40wgWSOtksVfjDtxAAlIxyUiAFwME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437027548468-ddviu9r5pr8o6d02kiuhficmpd1st5fh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
