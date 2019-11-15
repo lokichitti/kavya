@@ -20,7 +20,7 @@ ngOnInit() {
 
 async tryLogin(user: User){
     try{
-      const result= await this.angularFireAuth.auth.signInWithEmailAndPassword(user.email,user.password)
+      const result= await this.angularFireAuth.auth.signInWithEmailAndPassword(user.email,user.password);
       console.log(result);
       this.router.navigate(["/home"]);
     }
