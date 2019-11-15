@@ -6,6 +6,7 @@ import { CountryPhone } from './country-phone.model';
 import { Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 export class UsernameValidator {
 
@@ -110,7 +111,8 @@ export class RegisterPage implements OnInit {
   constructor(
     public formBuilder: FormBuilder,
     private router: Router,
-    private angularFireAuth: AngularFireAuth
+    private angularFireAuth: AngularFireAuth,
+    private angularFireDatabase: AngularFireDatabase
   ) { }
 
   ngOnInit() {
@@ -207,11 +209,19 @@ export class RegisterPage implements OnInit {
     ],
   };
 
+  createProfile(values)
+  {
+    /*this.angularFireAuth.authState.subscribe(auth=>{
+      this.angularFireDatabase.list(`profile/${auth.uid}`).push
+    });*/
+  }
   async onSubmit(values){
     console.log(values);
     try{
       const result = await this.angularFireAuth.auth.createUserWithEmailAndPassword(values.email, values.matching_passwords.password);
       console.log(result);
+      this.createProfile(values);
+      this.router.navigate(["/main-page"]);
     }
     catch(e){
       console.error(e);

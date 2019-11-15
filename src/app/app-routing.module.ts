@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'map', loadChildren: './map/map.module#MapPageModule' },
   { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
   { path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule' },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
 ];
 
 @NgModule({

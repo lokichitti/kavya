@@ -1,44 +1,19 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Ionic 4 Forms</ion-title>
+    <ion-title>Sign In</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding class="form-content">
-  <form [formGroup]="validations_form"  (ngSubmit)="onSubmit(validations_form.value)">
-    <ion-item>
-      <ion-label position="floating" color="primary">Username</ion-label>
-      <ion-input type="text" formControlName="username"></ion-input>
-    </ion-item>
-    <div class="validation-errors">
-      <ng-container *ngFor="let validation of validation_messages.username">
-        <div class="error-message" *ngIf="validations_form.get('username').hasError(validation.type) && (validations_form.get('username').dirty || validations_form.get('username').touched)">
-          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
-        </div>
-      </ng-container>
-    </div>
-    <ion-item>
-      <ion-label position="floating" color="primary">Email</ion-label>
-      <ion-input type="text" formControlName="email"></ion-input>
-    </ion-item>
-    <div class="validation-errors">
-      <ng-container *ngFor="let validation of validation_messages.email">
-        <div class="error-message" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
-          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
-        </div>
-      </ng-container>
-    </div>
-     <ion-item>
-      <ion-label position="floating" color="primary">Email</ion-label>
-      <ion-input type="text" formControlName="email"></ion-input>
-    </ion-item>
-    <div class="validation-errors">
-      <ng-container *ngFor="let validation of validation_messages.email">
-        <div class="error-message" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
-          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
-        </div>
-      </ng-container>
-    </div>
-    <ion-button color="primary" class="submit-btn" expand="full" type="submit" [disabled]="!validations_form.valid">Submit data</ion-button>
-  </form>
+<ion-content padding>
+  <ion-item>
+    <ion-label floating> Email Address</ion-label>
+    <ion-input type="text"[(ngModel)]=user.email></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating> Password</ion-label>
+    <ion-input type="text"[(ngModel)]=user.password></ion-input>
+  </ion-item>
+  <button ion-button (click)="tryLogin()">Login</button>
+  <button ion-button (click)="goToRegisterPage()">Register</button>
+
 </ion-content>

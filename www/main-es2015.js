@@ -32,18 +32,20 @@ var map = {
 		"./src/app/private-shop/private-shop.module.ts",
 		"private-shop-private-shop-module"
 	],
+	"./profile/profile.module": [
+		"./src/app/profile/profile.module.ts",
+		"profile-profile-module"
+	],
 	"./public-shop/public-shop.module": [
 		"./src/app/public-shop/public-shop.module.ts",
 		"public-shop-public-shop-module"
 	],
 	"./register/register.module": [
 		"./src/app/register/register.module.ts",
-		"default~register-register-module~sign-in-sign-in-module",
 		"register-register-module"
 	],
 	"./sign-in/sign-in.module": [
 		"./src/app/sign-in/sign-in.module.ts",
-		"default~register-register-module~sign-in-sign-in-module",
 		"sign-in-sign-in-module"
 	]
 };
@@ -57,7 +59,7 @@ function webpackAsyncContext(req) {
 	}
 
 	var ids = map[req], id = ids[0];
-	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
+	return __webpack_require__.e(ids[1]).then(function() {
 		return __webpack_require__(id);
 	});
 }
@@ -519,6 +521,7 @@ const routes = [
     { path: 'map', loadChildren: './map/map.module#MapPageModule' },
     { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
     { path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule' },
+    { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -634,6 +637,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! angularfire2/auth */ "./node_modules/angularfire2/auth/index.js");
 /* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(angularfire2_auth__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
+/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_14__);
+
 
 
 
@@ -659,6 +665,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
             _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"],
             angularfire2_auth__WEBPACK_IMPORTED_MODULE_13__["AngularFireAuthModule"],
+            angularfire2_database__WEBPACK_IMPORTED_MODULE_14__["AngularFireDatabaseModule"],
             angularfire2__WEBPACK_IMPORTED_MODULE_11__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_12__["environment"].firebaseConfig)
         ],
         providers: [
@@ -747,7 +754,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/lokesh/IONIC/lokappa/kavya/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/hmecd001523/ionic-dont-delete/firebase-working/progress/src/main.ts */"./src/main.ts");
 
 
 /***/ })

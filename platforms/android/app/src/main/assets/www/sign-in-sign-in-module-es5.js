@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar color=\"primary\">\n    <ion-title>Ionic 4 Forms</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding class=\"form-content\">\n  <form [formGroup]=\"validations_form\"  (ngSubmit)=\"onSubmit(validations_form.value)\">\n    <ion-item>\n      <ion-label position=\"floating\" color=\"primary\">Username</ion-label>\n      <ion-input type=\"text\" formControlName=\"username\"></ion-input>\n    </ion-item>\n    <div class=\"validation-errors\">\n      <ng-container *ngFor=\"let validation of validation_messages.username\">\n        <div class=\"error-message\" *ngIf=\"validations_form.get('username').hasError(validation.type) && (validations_form.get('username').dirty || validations_form.get('username').touched)\">\n          <ion-icon name=\"information-circle-outline\"></ion-icon> {{ validation.message }}\n        </div>\n      </ng-container>\n    </div>\n    <ion-item>\n      <ion-label position=\"floating\" color=\"primary\">Email</ion-label>\n      <ion-input type=\"text\" formControlName=\"email\"></ion-input>\n    </ion-item>\n    <div class=\"validation-errors\">\n      <ng-container *ngFor=\"let validation of validation_messages.email\">\n        <div class=\"error-message\" *ngIf=\"validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)\">\n          <ion-icon name=\"information-circle-outline\"></ion-icon> {{ validation.message }}\n        </div>\n      </ng-container>\n    </div>\n     <ion-item>\n      <ion-label position=\"floating\" color=\"primary\">Email</ion-label>\n      <ion-input type=\"text\" formControlName=\"email\"></ion-input>\n    </ion-item>\n    <div class=\"validation-errors\">\n      <ng-container *ngFor=\"let validation of validation_messages.email\">\n        <div class=\"error-message\" *ngIf=\"validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)\">\n          <ion-icon name=\"information-circle-outline\"></ion-icon> {{ validation.message }}\n        </div>\n      </ng-container>\n    </div>\n    <ion-button color=\"primary\" class=\"submit-btn\" expand=\"full\" type=\"submit\" [disabled]=\"!validations_form.valid\">Submit data</ion-button>\n  </form>\n</ion-content>"
+module.exports = "<ion-header>\n  <ion-toolbar color=\"primary\">\n    <ion-title>Sign In</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-item>\n    <ion-label floating> Email Address</ion-label>\n    <ion-input type=\"text\"[(ngModel)]=user.email></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label floating> Password</ion-label>\n    <ion-input type=\"text\"[(ngModel)]=user.password></ion-input>\n  </ion-item>\n  <button ion-button (click)=\"tryLogin()\">Login</button>\n  <button ion-button (click)=\"goToRegisterPage()\">Register</button>\n\n</ion-content>"
 
 /***/ }),
 
@@ -71,7 +71,7 @@ var SignInPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".require {\n  color: #f10101;\n}\n\n.error-message {\n  font-size: smaller;\n  padding-left: 15px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9JT05JQy9sb2thcHBhL2thdnlhL3NyYy9hcHAvc2lnbi1pbi9zaWduLWluLnBhZ2Uuc2NzcyIsInNyYy9hcHAvc2lnbi1pbi9zaWduLWluLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQUE7QUNDSjs7QURFRTtFQUNFLGtCQUFBO0VBQ0Esa0JBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3NpZ24taW4vc2lnbi1pbi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucmVxdWlyZSB7XG4gICAgY29sb3I6IHJnYigyNDEsIDEsIDEpO1xuICB9XG4gIFxuICAuZXJyb3ItbWVzc2FnZSB7XG4gICAgZm9udC1zaXplOiBzbWFsbGVyO1xuICAgIHBhZGRpbmctbGVmdDogMTVweDtcbiAgfSIsIi5yZXF1aXJlIHtcbiAgY29sb3I6ICNmMTAxMDE7XG59XG5cbi5lcnJvci1tZXNzYWdlIHtcbiAgZm9udC1zaXplOiBzbWFsbGVyO1xuICBwYWRkaW5nLWxlZnQ6IDE1cHg7XG59Il19 */"
+module.exports = ".require {\n  color: #f10101;\n}\n\n.error-message {\n  font-size: smaller;\n  padding-left: 15px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2htZWNkMDAxNTIzL2lvbmljLWRvbnQtZGVsZXRlL2ZpcmViYXNlLXdvcmtpbmcvcHJvZ3Jlc3Mvc3JjL2FwcC9zaWduLWluL3NpZ24taW4ucGFnZS5zY3NzIiwic3JjL2FwcC9zaWduLWluL3NpZ24taW4ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksY0FBQTtBQ0NKOztBREVFO0VBQ0Usa0JBQUE7RUFDQSxrQkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvc2lnbi1pbi9zaWduLWluLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yZXF1aXJlIHtcbiAgICBjb2xvcjogcmdiKDI0MSwgMSwgMSk7XG4gIH1cbiAgXG4gIC5lcnJvci1tZXNzYWdlIHtcbiAgICBmb250LXNpemU6IHNtYWxsZXI7XG4gICAgcGFkZGluZy1sZWZ0OiAxNXB4O1xuICB9IiwiLnJlcXVpcmUge1xuICBjb2xvcjogI2YxMDEwMTtcbn1cblxuLmVycm9yLW1lc3NhZ2Uge1xuICBmb250LXNpemU6IHNtYWxsZXI7XG4gIHBhZGRpbmctbGVmdDogMTVweDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -87,84 +87,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignInPage", function() { return SignInPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _register_country_phone_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../register/country-phone.model */ "./src/app/register/country-phone.model.ts");
-/* harmony import */ var _register_register_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../register/register.page */ "./src/app/register/register.page.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-
-
-
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angularfire2/auth */ "./node_modules/angularfire2/auth/index.js");
+/* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angularfire2_auth__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
 
 var SignInPage = /** @class */ (function () {
-    function SignInPage(formBuilder, router) {
-        this.formBuilder = formBuilder;
+    function SignInPage(router, angularFireAuth) {
         this.router = router;
-        this.validation_messages = {
-            'username': [
-                { type: 'required', message: 'Username is required.' },
-                { type: 'minlength', message: 'Username must be at least 5 characters long.' },
-                { type: 'maxlength', message: 'Username cannot be more than 25 characters long.' },
-                { type: 'pattern', message: 'Your username must contain only numbers and letters.' },
-                { type: 'validUsername', message: 'Your username has already been taken.' }
-            ],
-            'email': [
-                { type: 'required', message: 'Email is required.' },
-                { type: 'pattern', message: 'Please wnter a valid email.' }
-            ],
-            'phone': [
-                { type: 'required', message: 'Phone is required.' },
-                { type: 'validCountryPhone', message: 'The phone is incorrect for the selected country.' }
-            ],
-            'password': [
-                { type: 'required', message: 'Password is required.' },
-                { type: 'minlength', message: 'Password must be at least 5 characters long.' },
-                { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number.' }
-            ],
-        };
+        this.angularFireAuth = angularFireAuth;
+        this.user = {};
     }
     SignInPage.prototype.ngOnInit = function () {
-        //  We just use a few random countries, however, you can use the countries you need by just adding them to this list.
-        // also you can use a library to get all the countries from the world.
-        this.countries = [
-            new _register_country_phone_model__WEBPACK_IMPORTED_MODULE_3__["CountryPhone"]('IN', 'India'),
-            new _register_country_phone_model__WEBPACK_IMPORTED_MODULE_3__["CountryPhone"]('US', 'United States'),
-            new _register_country_phone_model__WEBPACK_IMPORTED_MODULE_3__["CountryPhone"]('BR', 'Brasil')
-        ];
-        var country = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](this.countries[0], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required);
-        var phone = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
-            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
-            _register_register_page__WEBPACK_IMPORTED_MODULE_4__["PhoneValidator"].validCountryPhone(country)
-        ]));
-        this.country_phone_group = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
-            country: country,
-            phone: phone
-        });
-        this.validations_form = this.formBuilder.group({
-            username: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
-                _register_register_page__WEBPACK_IMPORTED_MODULE_4__["UsernameValidator"].validUsername,
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(25),
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(5),
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required
-            ])),
-            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(5),
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
-            ])),
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-            ])),
-            country_phone: this.country_phone_group,
+    };
+    SignInPage.prototype.tryLogin = function (user) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var result, e_1;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.angularFireAuth.auth.signInWithEmailAndPassword(user.email, user.password)];
+                    case 1:
+                        result = _a.sent();
+                        console.log(result);
+                        this.router.navigate(["/home"]);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        e_1 = _a.sent();
+                        console.error(e_1);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
         });
     };
+    SignInPage.prototype.goToRegisterPage = function () {
+        this.router.navigate(["/register"]);
+    };
     SignInPage.ctorParameters = function () { return [
-        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+        { type: angularfire2_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"] }
     ]; };
     SignInPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -172,8 +137,8 @@ var SignInPage = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./sign-in.page.html */ "./node_modules/raw-loader/index.js!./src/app/sign-in/sign-in.page.html"),
             styles: [__webpack_require__(/*! ./sign-in.page.scss */ "./src/app/sign-in/sign-in.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            angularfire2_auth__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuth"]])
     ], SignInPage);
     return SignInPage;
 }());
