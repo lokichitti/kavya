@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar color=\"primary\">\n    <ion-title>Sign In</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-item>\n    <ion-label floating> Email Address</ion-label>\n    <ion-input type=\"text\"[(ngModel)]=user.email></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label floating> Password</ion-label>\n    <ion-input type=\"text\"[(ngModel)]=user.password></ion-input>\n  </ion-item>\n  <button ion-button (click)=\"tryLogin()\">Login</button>\n  <button ion-button (click)=\"goToRegisterPage()\">Register</button>\n\n</ion-content>"
+module.exports = "<ion-header>\n  <ion-toolbar color=\"primary\">\n    <ion-title>Sign In</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n  <ion-item>\n    <ion-label position=\"floating\" color=\"primary\"> Registered Email</ion-label>\n    <ion-input type=\"text\"[(ngModel)]=\"user.email\"></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label position=\"floating\" color=\"primary\"> Password</ion-label>\n    <ion-input type=\"password\"[(ngModel)]=\"user.password\"></ion-input>\n  </ion-item>\n\n   <ion-item> \n  <button align=\"center\" ion-button (click)=\"tryLogin(user)\">Login</button>\n  </ion-item>\n  <ion-item>\n    <ion-label position=\"floating\" color=\"primary\">Registered mobile</ion-label>\n    <ion-input type=\"number\"[(ngModel)]=\"user.phone\"></ion-input>\n  </ion-item>\n\n  <ion-item>\n  <button ion-button (click)=\"goToRegisterPage()\">Not have an account? Register</button>\n</ion-item>\n</ion-content>"
 
 /***/ }),
 
@@ -71,7 +71,7 @@ var SignInPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".require {\n  color: #f10101;\n}\n\n.error-message {\n  font-size: smaller;\n  padding-left: 15px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2htZWNkMDAxNTIzL2lvbmljLWRvbnQtZGVsZXRlL2ZpcmViYXNlLXdvcmtpbmcvcHJvZ3Jlc3Mvc3JjL2FwcC9zaWduLWluL3NpZ24taW4ucGFnZS5zY3NzIiwic3JjL2FwcC9zaWduLWluL3NpZ24taW4ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksY0FBQTtBQ0NKOztBREVFO0VBQ0Usa0JBQUE7RUFDQSxrQkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvc2lnbi1pbi9zaWduLWluLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yZXF1aXJlIHtcbiAgICBjb2xvcjogcmdiKDI0MSwgMSwgMSk7XG4gIH1cbiAgXG4gIC5lcnJvci1tZXNzYWdlIHtcbiAgICBmb250LXNpemU6IHNtYWxsZXI7XG4gICAgcGFkZGluZy1sZWZ0OiAxNXB4O1xuICB9IiwiLnJlcXVpcmUge1xuICBjb2xvcjogI2YxMDEwMTtcbn1cblxuLmVycm9yLW1lc3NhZ2Uge1xuICBmb250LXNpemU6IHNtYWxsZXI7XG4gIHBhZGRpbmctbGVmdDogMTVweDtcbn0iXX0= */"
+module.exports = ".require {\n  color: #f10101;\n}\n\n.error-message {\n  font-size: smaller;\n  padding-left: 15px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9JT05JQy9sb2thcHBhL2thdnlhL3NyYy9hcHAvc2lnbi1pbi9zaWduLWluLnBhZ2Uuc2NzcyIsInNyYy9hcHAvc2lnbi1pbi9zaWduLWluLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQUE7QUNDSjs7QURFRTtFQUNFLGtCQUFBO0VBQ0Esa0JBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3NpZ24taW4vc2lnbi1pbi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucmVxdWlyZSB7XG4gICAgY29sb3I6IHJnYigyNDEsIDEsIDEpO1xuICB9XG4gIFxuICAuZXJyb3ItbWVzc2FnZSB7XG4gICAgZm9udC1zaXplOiBzbWFsbGVyO1xuICAgIHBhZGRpbmctbGVmdDogMTVweDtcbiAgfSIsIi5yZXF1aXJlIHtcbiAgY29sb3I6ICNmMTAxMDE7XG59XG5cbi5lcnJvci1tZXNzYWdlIHtcbiAgZm9udC1zaXplOiBzbWFsbGVyO1xuICBwYWRkaW5nLWxlZnQ6IDE1cHg7XG59Il19 */"
 
 /***/ }),
 
@@ -113,7 +113,7 @@ var SignInPage = /** @class */ (function () {
                     case 1:
                         result = _a.sent();
                         console.log(result);
-                        this.router.navigate(["/home"]);
+                        this.router.navigate(["/main-page"]);
                         return [3 /*break*/, 3];
                     case 2:
                         e_1 = _a.sent();
