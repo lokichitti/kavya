@@ -75,5 +75,13 @@
       "API_KEY_FOR_ANDROID": "AIzaSyBHSK40wgWSOtksVfjDtxAAlIxyUiAFwME",
       "API_KEY_FOR_IOS": "AIzaSyBHSK40wgWSOtksVfjDtxAAlIxyUiAFwME"
     }
+  },
+  "cordova-plugin-firebase": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/jestcastro/cordova-plugin-firebase.git"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

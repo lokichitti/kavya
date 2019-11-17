@@ -7,35 +7,34 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "io.ionic.starter"
+      "PACKAGE_NAME": "com.loki.meandmyshop"
     },
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-ionic-webview": {
-      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-ionic-keyboard": {
-      "PACKAGE_NAME": "io.ionic.starter"
+    "cordova-plugin-firebase": {
+      "PACKAGE_NAME": "com.loki.meandmyshop"
     },
     "cordova-plugin-geolocation": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-nativegeocoder": {
-      "PACKAGE_NAME": "io.ionic.starter"
+      "PACKAGE_NAME": "com.loki.meandmyshop"
     },
     "cordova-plugin-googlemaps": {
       "PLAY_SERVICES_VERSION": "15.0.1",
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
-      "PACKAGE_NAME": "io.ionic.starter"
+      "PACKAGE_NAME": "com.loki.meandmyshop"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.loki.meandmyshop"
+    },
+    "cordova-plugin-nativegeocoder": {
+      "PACKAGE_NAME": "com.loki.meandmyshop"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.loki.meandmyshop"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.loki.meandmyshop"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.loki.meandmyshop"
     }
   },
   "dependent_plugins": {}

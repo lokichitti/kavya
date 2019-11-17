@@ -14,6 +14,8 @@ const routes: Routes = [
   { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
   { path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+  { path: 'ph-login', loadChildren: './ph-login/ph-login.module#PhLoginPageModule' },
+  { path: 'ph-register', loadChildren: './ph-register/ph-register.module#PhRegisterPageModule' },
 ];
 
 @NgModule({
