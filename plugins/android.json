@@ -57,7 +57,18 @@
     },
     "cordova-plugin-androidx-adapter": {
       "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-firebase-authentication": {
+      "FIREBASE_AUTH_VERSION": "18.0.+",
+      "PACKAGE_NAME": "com.loki.meandmyshop"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-support-android-plugin": {
+      "PACKAGE_NAME": "com.loki.meandmyshop"
+    },
+    "cordova-support-google-services": {
+      "PACKAGE_NAME": "com.loki.meandmyshop"
+    }
+  }
 }

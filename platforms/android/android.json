@@ -110,6 +110,10 @@
             {
               "xml": "<feature name=\"FirebasePlugin\"><param name=\"android-package\" value=\"org.apache.cordova.firebase.FirebasePlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"FirebaseAuthentication\"><param name=\"android-package\" value=\"by.chemerisuk.cordova.firebase.FirebaseAuthenticationPlugin\" /><param name=\"onload\" value=\"false\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -317,6 +321,16 @@
       "ANDROID_CRASHLYTICS_VERSION": "2.10.1",
       "ANDROID_CRASHLYTICS_NDK_VERSION": "2.1.1",
       "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-support-android-plugin": {
+      "PACKAGE_NAME": "com.loki.meandmyshop"
+    },
+    "cordova-support-google-services": {
+      "PACKAGE_NAME": "com.loki.meandmyshop"
+    },
+    "cordova-plugin-firebase-authentication": {
+      "FIREBASE_AUTH_VERSION": "18.0.+",
+      "PACKAGE_NAME": "com.loki.meandmyshop"
     }
   },
   "dependent_plugins": {},
@@ -619,6 +633,14 @@
       "clobbers": [
         "FirebasePlugin"
       ]
+    },
+    {
+      "id": "cordova-plugin-firebase-authentication.FirebaseAuthentication",
+      "file": "plugins/cordova-plugin-firebase-authentication/www/FirebaseAuthentication.js",
+      "pluginId": "cordova-plugin-firebase-authentication",
+      "merges": [
+        "cordova.plugins.firebase.auth"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -633,6 +655,9 @@
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-plugin-androidx": "1.0.2",
     "cordova-plugin-androidx-adapter": "1.1.0",
-    "cordova-plugin-firebasex": "7.0.1"
+    "cordova-plugin-firebasex": "7.0.1",
+    "cordova-support-android-plugin": "1.0.1",
+    "cordova-support-google-services": "1.3.2",
+    "cordova-plugin-firebase-authentication": "3.0.0"
   }
 }
