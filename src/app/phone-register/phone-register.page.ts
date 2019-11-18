@@ -11,11 +11,9 @@ import {
   UsernameValidator, 
   PhoneValidator, 
   PasswordValidator } from '../models/validators';
+  import * as firebase from 'firebase';
 
-  var number = '+918073990063';
-    var timeOutDuration = 60;
-    var fakeVerificationCode = '123456';
-    var verificationId;
+
 @Component({
   selector: 'app-phone-register',
   templateUrl: './phone-register.page.html',
@@ -23,8 +21,9 @@ import {
 })
 export class PhoneRegisterPage implements OnInit {
 
+  signInWithVerificationId: string;
   verificationId: any;
-  code = '';
+  code: number;
   validations_form: FormGroup;
   country_phone_group: FormGroup;
 
@@ -57,17 +56,6 @@ export class PhoneRegisterPage implements OnInit {
     this.validations_form = this.formBuilder.group({
       country_phone: this.country_phone_group
     });
-  
-
-    this.firebaseX.getToken()
-  .then(token => console.log(`The token is ${token}`)) // save the token server-side and use it to push notifications to this device
-  .catch(error => console.error('Error getting token', error));
-
-this.firebaseX.onMessageReceived()
-  .subscribe(data => console.log(`User opened a notification ${data}`));
-
-this.firebaseX.onTokenRefresh()
-  .subscribe((token: string) => console.log(`Got a new token ${token}`));
 }
 
 
@@ -83,16 +71,17 @@ createProfile(values)
       this.angularFireDatabase.list(`profile/${auth.uid}`).push
     });*/
   }
-  getOTP(values){    
-    this.firebaseAuthentication.verifyPhoneNumber("+918073990063", 3000);
-    this.firebaseAuthentication.createUserWithEmailAndPassword('muski@gmail.com', '123');
-  }
+  getOTP(values){
+    console.log("Get OTP called");
+    this.firebaseAuthentication.verifyPhoneNumber("+918073990063", 3000).then (function(verificationId) {
+    this.verificationId = verificationId.verificationId;
+    console.log("OTP Successfully Sent");
+    }); 
+}
 
   verify(){
-   /*   let signInCredential = firebase.auth.PhoneAuthProvider.credential(this.verificationId, this.code);
-      firebase.auth().signInWithCredential(signInCredential).then((info) => { console.log(info);}, (error) => {
-      console.log(error);
-    })*/
+    this.firebaseAuthentication.signInWithVerificationId(this.verificationId , this.code);
+  
   }
 
 

@@ -115,9 +115,7 @@
       },
       "cordova-plugin-androidx": {},
       "cordova-plugin-androidx-adapter": {},
-      "cordova-plugin-firebase-authentication": {
-        "FIREBASE_AUTH_VERSION": "18.0.+"
-      }
+      "cordova-plugin-firebase-authentication": {}
     },
     "platforms": [
       "android"

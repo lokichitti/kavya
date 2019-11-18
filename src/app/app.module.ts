@@ -19,7 +19,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FirebaseX } from "@ionic-native/firebase-x/ngx";
 import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
 import { Validators, FormBuilder} from '@angular/forms';
-
+import * as firebase from 'firebase';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

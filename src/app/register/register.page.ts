@@ -20,6 +20,7 @@ import {
 })
 export class RegisterPage implements OnInit {
 
+  
   validations_form: FormGroup;
   matching_passwords_group: FormGroup;
   country_phone_group: FormGroup;
@@ -146,5 +147,6 @@ export class RegisterPage implements OnInit {
       console.error(e);
     }
   }
+  
 
 }
