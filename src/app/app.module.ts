@@ -16,6 +16,9 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { FirebaseX } from "@ionic-native/firebase-x/ngx";
+import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
+import { Validators, FormBuilder} from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +36,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     SplashScreen,
     Geolocation,
     NativeGeocoder,
+    FirebaseAuthentication,
+    FirebaseX,
+    FormBuilder,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -8,6 +8,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./google-maps/google-maps.module": [
+		"./src/app/google-maps/google-maps.module.ts",
+		"google-maps-google-maps-module"
+	],
 	"./info/info.module": [
 		"./src/app/info/info.module.ts",
 		"info-info-module"
@@ -28,6 +32,15 @@ var map = {
 		"./src/app/myshop/myshop.module.ts",
 		"myshop-myshop-module"
 	],
+	"./phone-login/phone-login.module": [
+		"./src/app/phone-login/phone-login.module.ts",
+		"phone-login-phone-login-module"
+	],
+	"./phone-register/phone-register.module": [
+		"./src/app/phone-register/phone-register.module.ts",
+		"default~phone-register-phone-register-module~register-register-module",
+		"phone-register-phone-register-module"
+	],
 	"./private-shop/private-shop.module": [
 		"./src/app/private-shop/private-shop.module.ts",
 		"private-shop-private-shop-module"
@@ -42,6 +55,7 @@ var map = {
 	],
 	"./register/register.module": [
 		"./src/app/register/register.module.ts",
+		"default~phone-register-phone-register-module~register-register-module",
 		"register-register-module"
 	],
 	"./sign-in/sign-in.module": [
@@ -59,7 +73,7 @@ function webpackAsyncContext(req) {
 	}
 
 	var ids = map[req], id = ids[0];
-	return __webpack_require__.e(ids[1]).then(function() {
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
 		return __webpack_require__(id);
 	});
 }
@@ -522,6 +536,9 @@ const routes = [
     { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
     { path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule' },
     { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+    { path: 'phone-login', loadChildren: './phone-login/phone-login.module#PhoneLoginPageModule' },
+    { path: 'google-maps', loadChildren: './google-maps/google-maps.module#GoogleMapsPageModule' },
+    { path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -639,6 +656,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angularfire2_auth__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(angularfire2_auth__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
 /* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _ionic_native_firebase_x_ngx__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ionic-native/firebase-x/ngx */ "./node_modules/@ionic-native/firebase-x/ngx/index.js");
+/* harmony import */ var _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic-native/firebase-authentication/ngx */ "./node_modules/@ionic-native/firebase-authentication/ngx/index.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+
+
+
 
 
 
@@ -673,6 +696,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
             _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_9__["Geolocation"],
             _ionic_native_native_geocoder_ngx__WEBPACK_IMPORTED_MODULE_10__["NativeGeocoder"],
+            _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_16__["FirebaseAuthentication"],
+            _ionic_native_firebase_x_ngx__WEBPACK_IMPORTED_MODULE_15__["FirebaseX"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_17__["FormBuilder"],
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
@@ -754,7 +780,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/lokesh/IONIC/lokappa/kavya/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/hmecd001523/ionic-dont-delete/firebase-working/progress/src/main.ts */"./src/main.ts");
 
 
 /***/ })

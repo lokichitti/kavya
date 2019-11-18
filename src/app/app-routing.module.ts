@@ -14,6 +14,9 @@ const routes: Routes = [
   { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
   { path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+  { path: 'phone-login', loadChildren: './phone-login/phone-login.module#PhoneLoginPageModule' },
+  { path: 'google-maps', loadChildren: './google-maps/google-maps.module#GoogleMapsPageModule' },
+  { path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
 ];
 
 @NgModule({
