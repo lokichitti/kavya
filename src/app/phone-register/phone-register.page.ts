@@ -12,6 +12,10 @@ import {
   PhoneValidator, 
   PasswordValidator } from '../models/validators';
 
+  var number = '+918073990063';
+    var timeOutDuration = 60;
+    var fakeVerificationCode = '123456';
+    var verificationId;
 @Component({
   selector: 'app-phone-register',
   templateUrl: './phone-register.page.html',
@@ -64,15 +68,6 @@ this.firebaseX.onMessageReceived()
 
 this.firebaseX.onTokenRefresh()
   .subscribe((token: string) => console.log(`Got a new token ${token}`));
-  
-  this.firebaseAuthentication.createUserWithEmailAndPassword('test@gmail.com', '123')
-  .then((res: any) => console.log(res))
-  .catch((error: any) => console.error(error));
-
-  this.firebaseAuthentication.verifyPhoneNumber("+123456789", 30000).then(function(verificationId) {
-    // pass verificationId to signInWithVerificationId
-});
-
 }
 
 
@@ -88,15 +83,9 @@ createProfile(values)
       this.angularFireDatabase.list(`profile/${auth.uid}`).push
     });*/
   }
-  onSubmit(values){
-   // console.log(values);
-   // (<any>window).FirebasePlugin.verfyPhoneNumber("+918073990063"/*values.country_phone.phone*/, 60, ( credential ) => {
-     /* alert("OTP Sent Successfully");
-      console.log(credential);
-      this.verificationId = credential.verificationId;
-    }, (error) =>{
-      console.error(error);
-    });*/
+  getOTP(values){    
+    this.firebaseAuthentication.verifyPhoneNumber("+918073990063", 3000);
+    this.firebaseAuthentication.createUserWithEmailAndPassword('muski@gmail.com', '123');
   }
 
   verify(){
