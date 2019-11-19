@@ -306,6 +306,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "merges": [
         "cordova.plugins.firebase.auth"
       ]
+    },
+    {
+      "id": "cordova-plugin-sms-receive.SMSReceive",
+      "file": "plugins/cordova-plugin-sms-receive/www/SMSReceive.js",
+      "pluginId": "cordova-plugin-sms-receive",
+      "clobbers": [
+        "window.SMSReceive"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -323,6 +331,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-firebasex": "7.0.1",
     "cordova-support-android-plugin": "1.0.1",
     "cordova-support-google-services": "1.3.2",
-    "cordova-plugin-firebase-authentication": "3.0.0"
+    "cordova-plugin-firebase-authentication": "3.0.0",
+    "cordova-plugin-sms-receive": "1.0.2"
   };
 });

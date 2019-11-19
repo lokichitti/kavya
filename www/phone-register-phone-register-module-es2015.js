@@ -110,7 +110,7 @@ PhoneRegisterPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".error-message {\n  color: red;\n  font-size: 14px;\n  margin-left: 10px;\n  margin-top: 10px;\n}\n\n.submit-btn {\n  margin-top: 40px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2htZWNkMDAxNTIzL2lvbmljLWRvbnQtZGVsZXRlL2ZpcmViYXNlLXdvcmtpbmcvcHJvZ3Jlc3Mvc3JjL2FwcC9waG9uZS1yZWdpc3Rlci9waG9uZS1yZWdpc3Rlci5wYWdlLnNjc3MiLCJzcmMvYXBwL3Bob25lLXJlZ2lzdGVyL3Bob25lLXJlZ2lzdGVyLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVFLFVBQUE7RUFDQSxlQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtBQ0FGOztBREdBO0VBQ0UsZ0JBQUE7QUNBRiIsImZpbGUiOiJzcmMvYXBwL3Bob25lLXJlZ2lzdGVyL3Bob25lLXJlZ2lzdGVyLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5lcnJvci1tZXNzYWdlXG57XG4gIGNvbG9yOiByZWQ7XG4gIGZvbnQtc2l6ZTogMTRweDtcbiAgbWFyZ2luLWxlZnQ6IDEwcHg7XG4gIG1hcmdpbi10b3A6IDEwcHg7XG59XG5cbi5zdWJtaXQtYnRuIHtcbiAgbWFyZ2luLXRvcDogNDBweDtcbn0iLCIuZXJyb3ItbWVzc2FnZSB7XG4gIGNvbG9yOiByZWQ7XG4gIGZvbnQtc2l6ZTogMTRweDtcbiAgbWFyZ2luLWxlZnQ6IDEwcHg7XG4gIG1hcmdpbi10b3A6IDEwcHg7XG59XG5cbi5zdWJtaXQtYnRuIHtcbiAgbWFyZ2luLXRvcDogNDBweDtcbn0iXX0= */"
+module.exports = ".error-message {\n  color: red;\n  font-size: 14px;\n  margin-left: 10px;\n  margin-top: 10px;\n}\n\n.submit-btn {\n  margin-top: 40px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9JT05JQy9sb2thcHBhL2thdnlhL3NyYy9hcHAvcGhvbmUtcmVnaXN0ZXIvcGhvbmUtcmVnaXN0ZXIucGFnZS5zY3NzIiwic3JjL2FwcC9waG9uZS1yZWdpc3Rlci9waG9uZS1yZWdpc3Rlci5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFFRSxVQUFBO0VBQ0EsZUFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0JBQUE7QUNBRjs7QURHQTtFQUNFLGdCQUFBO0FDQUYiLCJmaWxlIjoic3JjL2FwcC9waG9uZS1yZWdpc3Rlci9waG9uZS1yZWdpc3Rlci5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZXJyb3ItbWVzc2FnZVxue1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE0cHg7XG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuXG4uc3VibWl0LWJ0biB7XG4gIG1hcmdpbi10b3A6IDQwcHg7XG59IiwiLmVycm9yLW1lc3NhZ2Uge1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE0cHg7XG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuXG4uc3VibWl0LWJ0biB7XG4gIG1hcmdpbi10b3A6IDQwcHg7XG59Il19 */"
 
 /***/ }),
 
@@ -126,13 +126,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PhoneRegisterPage", function() { return PhoneRegisterPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _models_country_phone_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/country-phone.model */ "./src/app/models/country-phone.model.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _ionic_native_firebase_x_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/firebase-x/ngx */ "./node_modules/@ionic-native/firebase-x/ngx/index.js");
-/* harmony import */ var _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/firebase-authentication/ngx */ "./node_modules/@ionic-native/firebase-authentication/ngx/index.js");
-/* harmony import */ var _models_validators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../models/validators */ "./src/app/models/validators.ts");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../models/country-phone.model */ "./src/app/models/country-phone.model.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ionic_native_firebase_x_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/firebase-x/ngx */ "./node_modules/@ionic-native/firebase-x/ngx/index.js");
+/* harmony import */ var _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/firebase-authentication/ngx */ "./node_modules/@ionic-native/firebase-authentication/ngx/index.js");
+/* harmony import */ var _models_validators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../models/validators */ "./src/app/models/validators.ts");
+
 
 
 
@@ -144,12 +145,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PhoneRegisterPage = class PhoneRegisterPage {
-    constructor(formBuilder, router, firebaseX, firebaseAuthentication, alertCtrl) {
+    constructor(formBuilder, router, firebaseX, firebaseAuthentication, alertCtrl, toastCtrl) {
         this.formBuilder = formBuilder;
         this.router = router;
         this.firebaseX = firebaseX;
         this.firebaseAuthentication = firebaseAuthentication;
         this.alertCtrl = alertCtrl;
+        this.toastCtrl = toastCtrl;
+        this.OTP = '';
+        this.showOTPInput = false;
+        this.OTPmessage = 'An OTP is sent to your number. You should receive it in 15 s';
         this.validation_messages = {
             'phone': [
                 { type: 'required', message: 'Phone is required.' },
@@ -161,16 +166,16 @@ let PhoneRegisterPage = class PhoneRegisterPage {
         //  We just use a few random countries, however, you can use the countries you need by just adding them to this list.
         // also you can use a library to get all the countries from the world.
         this.countries = [
-            new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_3__["CountryPhone"]('IN', 'India'),
-            new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_3__["CountryPhone"]('US', 'United States'),
-            new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_3__["CountryPhone"]('BR', 'Brasil')
+            new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('IN', 'India'),
+            new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('US', 'United States'),
+            new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('BR', 'Brasil')
         ];
-        let country = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](this.countries[0], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required);
-        let phone = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
-            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
-            _models_validators__WEBPACK_IMPORTED_MODULE_7__["PhoneValidator"].validCountryPhone(country)
+        let country = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](this.countries[0], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required);
+        let phone = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required,
+            _models_validators__WEBPACK_IMPORTED_MODULE_8__["PhoneValidator"].validCountryPhone(country)
         ]));
-        this.country_phone_group = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+        this.country_phone_group = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
             country: country,
             phone: phone
         });
@@ -185,6 +190,7 @@ let PhoneRegisterPage = class PhoneRegisterPage {
     }
     getOTP(values) {
         console.log("Get OTP called");
+        this.presentAlertPrompt();
         this.firebaseAuthentication.verifyPhoneNumber("+918073990063", 3000).then(function (verificationId) {
             this.verificationId1 = verificationId;
             console.log("OTP Successfully Sent");
@@ -194,80 +200,53 @@ let PhoneRegisterPage = class PhoneRegisterPage {
         });
     }
     verify() {
+        console.log("verify called");
         this.firebaseAuthentication.signInWithVerificationId(this.verificationId1, this.code);
     }
     presentAlertPrompt() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            console.log("presentAlertPrompt called");
             const alert = yield this.alertCtrl.create({
-                header: 'Prompt!',
+                header: 'OTP Sent Successfully',
                 inputs: [
                     {
-                        name: 'name1',
+                        name: 'OTP',
                         type: 'text',
-                        placeholder: 'Placeholder 1'
-                    },
-                    {
-                        name: 'name2',
-                        type: 'text',
-                        id: 'name2-id',
-                        value: 'hello',
-                        placeholder: 'Placeholder 2'
-                    },
-                    {
-                        name: 'name3',
-                        value: 'http://ionicframework.com',
-                        type: 'url',
-                        placeholder: 'Favorite site ever'
-                    },
-                    // input date with min & max
-                    {
-                        name: 'name4',
-                        type: 'date',
-                        min: '2017-03-01',
-                        max: '2018-01-12'
-                    },
-                    // input date without min nor max
-                    {
-                        name: 'name5',
-                        type: 'date'
-                    },
-                    {
-                        name: 'name6',
-                        type: 'number',
-                        min: -5,
-                        max: 10
-                    },
-                    {
-                        name: 'name7',
-                        type: 'number'
+                        placeholder: 'Enter OTP'
                     }
                 ],
                 buttons: [
                     {
                         text: 'Cancel',
                         role: 'cancel',
-                        cssClass: 'secondary',
+                        cssClass: 'primary',
                         handler: () => {
                             console.log('Confirm Cancel');
                         }
                     }, {
                         text: 'Ok',
-                        handler: () => {
+                        handler: (angularFireDatabase) => {
+                            this.verify();
                             console.log('Confirm Ok');
                         }
                     }
-                ]
+                ],
+                backdropDismiss: false
             });
             yield alert.present();
+            setTimeout(() => {
+                alert.dismiss();
+            }, 60000);
         });
     }
 };
 PhoneRegisterPage.ctorParameters = () => [
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: _ionic_native_firebase_x_ngx__WEBPACK_IMPORTED_MODULE_5__["FirebaseX"] },
-    { type: _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_6__["FirebaseAuthentication"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["AlertController"] }
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
+    { type: _ionic_native_firebase_x_ngx__WEBPACK_IMPORTED_MODULE_6__["FirebaseX"] },
+    { type: _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_7__["FirebaseAuthentication"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"] }
 ];
 PhoneRegisterPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -275,11 +254,12 @@ PhoneRegisterPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./phone-register.page.html */ "./node_modules/raw-loader/index.js!./src/app/phone-register/phone-register.page.html"),
         styles: [__webpack_require__(/*! ./phone-register.page.scss */ "./src/app/phone-register/phone-register.page.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-        _ionic_native_firebase_x_ngx__WEBPACK_IMPORTED_MODULE_5__["FirebaseX"],
-        _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_6__["FirebaseAuthentication"],
-        _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["AlertController"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
+        _ionic_native_firebase_x_ngx__WEBPACK_IMPORTED_MODULE_6__["FirebaseX"],
+        _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_7__["FirebaseAuthentication"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"]])
 ], PhoneRegisterPage);
 
 

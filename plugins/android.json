@@ -61,6 +61,9 @@
     "cordova-plugin-firebase-authentication": {
       "FIREBASE_AUTH_VERSION": "18.0.+",
       "PACKAGE_NAME": "com.loki.meandmyshop"
+    },
+    "cordova-plugin-sms-receive": {
+      "PACKAGE_NAME": "com.loki.meandmyshop"
     }
   },
   "dependent_plugins": {

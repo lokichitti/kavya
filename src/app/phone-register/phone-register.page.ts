@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 import libphonenumber from 'google-libphonenumber';
@@ -14,6 +15,7 @@ import {
   import * as firebase from 'firebase';
   import { AlertController } from '@ionic/angular';
 
+  declare var SMSReceive: any;
 @Component({
   selector: 'app-phone-register',
   templateUrl: './phone-register.page.html',
@@ -21,6 +23,9 @@ import {
 })
 export class PhoneRegisterPage implements OnInit {
 
+  OTP: string = '';
+  showOTPInput: boolean = false;
+  OTPmessage: string = 'An OTP is sent to your number. You should receive it in 15 s'
   verificationId1: any;
   code: number;
   validations_form: FormGroup;
@@ -32,7 +37,8 @@ export class PhoneRegisterPage implements OnInit {
     private router: Router,
     private firebaseX: FirebaseX,
     private firebaseAuthentication: FirebaseAuthentication,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private toastCtrl: ToastController
   ) { }
 
   ngOnInit() {
@@ -73,6 +79,7 @@ createProfile(values)
   }
   getOTP(values){
     console.log("Get OTP called");
+    this.presentAlertPrompt();
     this.firebaseAuthentication.verifyPhoneNumber("+918073990063", 3000).then (function(verificationId) {
     this.verificationId1 = verificationId;
     console.log("OTP Successfully Sent");
@@ -83,72 +90,44 @@ createProfile(values)
 }
 
   verify(){
+    console.log("verify called");
     this.firebaseAuthentication.signInWithVerificationId(this.verificationId1 , this.code);
-  
+    
   }
   async presentAlertPrompt() {
+    console.log("presentAlertPrompt called");
     const alert = await this.alertCtrl.create({
-      header: 'Prompt!',
+      header: 'OTP Sent Successfully',
       inputs: [
         {
-          name: 'name1',
+          name: 'OTP',
           type: 'text',
-          placeholder: 'Placeholder 1'
-        },
-        {
-          name: 'name2',
-          type: 'text',
-          id: 'name2-id',
-          value: 'hello',
-          placeholder: 'Placeholder 2'
-        },
-        {
-          name: 'name3',
-          value: 'http://ionicframework.com',
-          type: 'url',
-          placeholder: 'Favorite site ever'
-        },
-        // input date with min & max
-        {
-          name: 'name4',
-          type: 'date',
-          min: '2017-03-01',
-          max: '2018-01-12'
-        },
-        // input date without min nor max
-        {
-          name: 'name5',
-          type: 'date'
-        },
-        {
-          name: 'name6',
-          type: 'number',
-          min: -5,
-          max: 10
-        },
-        {
-          name: 'name7',
-          type: 'number'
+          placeholder: 'Enter OTP'
         }
       ],
       buttons: [
         {
           text: 'Cancel',
           role: 'cancel',
-          cssClass: 'secondary',
+          cssClass: 'primary',
           handler: () => {
             console.log('Confirm Cancel');
           }
         }, {
           text: 'Ok',
-          handler: () => {
+          handler: (angularFireDatabase) => {
+            this.verify();
             console.log('Confirm Ok');
           }
         }
-      ]
+      ],
+      backdropDismiss: false
     });
 
     await alert.present();
+    setTimeout(()=>{
+      alert.dismiss();
+  }, 60000);
   }
 
 }
