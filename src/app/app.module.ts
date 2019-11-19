@@ -20,6 +20,7 @@ import { FirebaseX } from "@ionic-native/firebase-x/ngx";
 import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
 import { Validators, FormBuilder} from '@angular/forms';
 import * as firebase from 'firebase';
+import { AlertController } from '@ionic/angular';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -39,6 +40,7 @@ import * as firebase from 'firebase';
     FirebaseAuthentication,
     FirebaseX,
     FormBuilder,
+    AlertController,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

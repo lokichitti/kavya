@@ -12,7 +12,7 @@ import {
   PhoneValidator, 
   PasswordValidator } from '../models/validators';
   import * as firebase from 'firebase';
-
+  import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-phone-register',
@@ -21,8 +21,7 @@ import {
 })
 export class PhoneRegisterPage implements OnInit {
 
-  signInWithVerificationId: string;
-  verificationId: any;
+  verificationId1: any;
   code: number;
   validations_form: FormGroup;
   country_phone_group: FormGroup;
@@ -32,7 +31,8 @@ export class PhoneRegisterPage implements OnInit {
     public formBuilder: FormBuilder,
     private router: Router,
     private firebaseX: FirebaseX,
-    private firebaseAuthentication: FirebaseAuthentication
+    private firebaseAuthentication: FirebaseAuthentication,
+    private alertCtrl: AlertController
   ) { }
 
   ngOnInit() {
@@ -74,15 +74,81 @@ createProfile(values)
   getOTP(values){
     console.log("Get OTP called");
     this.firebaseAuthentication.verifyPhoneNumber("+918073990063", 3000).then (function(verificationId) {
-    this.verificationId = verificationId.verificationId;
+    this.verificationId1 = verificationId;
     console.log("OTP Successfully Sent");
-    }); 
+    this.presentAlertPrompt();
+    }).catch(e => {
+      console.log(e);
+  }); 
 }
 
   verify(){
-    this.firebaseAuthentication.signInWithVerificationId(this.verificationId , this.code);
+    this.firebaseAuthentication.signInWithVerificationId(this.verificationId1 , this.code);
   
   }
+  async presentAlertPrompt() {
+    const alert = await this.alertCtrl.create({
+      header: 'Prompt!',
+      inputs: [
+        {
+          name: 'name1',
+          type: 'text',
+          placeholder: 'Placeholder 1'
+        },
+        {
+          name: 'name2',
+          type: 'text',
+          id: 'name2-id',
+          value: 'hello',
+          placeholder: 'Placeholder 2'
+        },
+        {
+          name: 'name3',
+          value: 'http://ionicframework.com',
+          type: 'url',
+          placeholder: 'Favorite site ever'
+        },
+        // input date with min & max
+        {
+          name: 'name4',
+          type: 'date',
+          min: '2017-03-01',
+          max: '2018-01-12'
+        },
+        // input date without min nor max
+        {
+          name: 'name5',
+          type: 'date'
+        },
+        {
+          name: 'name6',
+          type: 'number',
+          min: -5,
+          max: 10
+        },
+        {
+          name: 'name7',
+          type: 'number'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Ok',
+          handler: () => {
+            console.log('Confirm Ok');
+          }
+        }
+      ]
+    });
 
+    await alert.present();
+  }
 
 }
