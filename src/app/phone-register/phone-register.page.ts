@@ -13,9 +13,11 @@ import {
   PhoneValidator, 
   PasswordValidator } from '../models/validators';
   import * as firebase from 'firebase';
+
   import { AlertController } from '@ionic/angular';
 import { ToastMsg } from '../models/toast-msg'
   declare var SMSReceive: any;
+  var self = this;
 @Component({
   selector: 'app-phone-register',
   templateUrl: './phone-register.page.html',
@@ -23,6 +25,7 @@ import { ToastMsg } from '../models/toast-msg'
 })
 export class PhoneRegisterPage implements OnInit {
 
+  public recaptchaVerifier:firebase.auth.RecaptchaVerifier;
   OTP: string = '';
   showOTPInput: boolean = false;
   OTPmessage: string = 'An OTP is sent to your number. You should receive it in 15 s'
@@ -42,6 +45,7 @@ export class PhoneRegisterPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
      //  We just use a few random countries, however, you can use the countries you need by just adding them to this list.
     // also you can use a library to get all the countries from the world.
     this.countries = [
@@ -77,12 +81,12 @@ createProfile(values)
       this.angularFireDatabase.list(`profile/${auth.uid}`).push
     });*/
   }
-  getOTP(values){
+  getOTP1(values){
     console.log("Get OTP called");
-    this.presentAlertPrompt();
-    this.firebaseAuthentication.verifyPhoneNumber("+918073990063", 3000).then (function(verificationId) {
-    this.verificationId1 = verificationId;
-    console.log("OTP Successfully Sent");
+    this.register();
+    self.firebaseAuthentication.verifyPhoneNumber("+918073990063", 60).then ((credential) => {
+      self.verificationId1 = credential.verificationId;
+    console.log(credential);
     this.presentAlertPrompt();
     }).catch(e => {
       console.log(e);
@@ -97,7 +101,7 @@ createProfile(values)
   async presentAlertPrompt() {
     console.log("presentAlertPrompt called");
     const alert = await this.alertCtrl.create({
-      header: 'OTP Sent Successfully',
+      header: 'Enter OTP',
       inputs: [
         {
           name: 'OTP',
@@ -186,8 +190,46 @@ createProfile(values)
       this.presentToast('You are successfully registered', false, 'top', 1500);
     }
     else {
-      this.presentToast('Your OTP is not valid', false, 'bottom', 1500);
+      this.presentToast('Your OTP is not valid', false, 'top', 1500);
     }
+  }
+
+  //signIn(phoneNumber: number){
+    getOTP(values){
+    const appVerifier = this.recaptchaVerifier;
+    const phoneNumberString = "+918073990063";
+    firebase.auth().signInWithPhoneNumber(phoneNumberString, appVerifier)
+      .then( async confirmationResult => {
+        // SMS sent. Prompt user to type the code from the message, then sign the
+        // user in with confirmationResult.confirm(code).
+        const prompt = await this.alertCtrl.create({
+        header: 'Enter the Confirmation code',
+        inputs: [{ name: 'confirmationCode', placeholder: 'Confirmation Code' }],
+        buttons: [
+          { text: 'Cancel',
+            handler: data => { console.log('Cancel clicked'); }
+          },
+          { text: 'Send',
+            handler: data => {
+              confirmationResult.confirm(data.confirmationCode)
+                .then(function (result) {
+                  // User signed in successfully.
+                  console.log(result.user);
+                  // ...
+                }).catch(function (error) {
+                  // User couldn't sign in (bad verification code?)
+                  // ...
+                });
+            }
+          }
+        ]
+      });
+      await prompt.present();
+    })
+    .catch(function (error) {
+      console.error("SMS not sent", error);
+    });
+    
   }
 
 }
