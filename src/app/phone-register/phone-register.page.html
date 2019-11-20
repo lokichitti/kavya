@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content padding class="form-content">
+    <div id="recaptcha-container"></div>
   <form [formGroup]="validations_form"  (ngSubmit)="getOTP(validations_form.value)">
      <div formGroupName="country_phone">
       <ion-item>

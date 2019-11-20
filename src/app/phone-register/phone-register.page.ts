@@ -45,7 +45,7 @@ export class PhoneRegisterPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    //this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
      //  We just use a few random countries, however, you can use the countries you need by just adding them to this list.
     // also you can use a library to get all the countries from the world.
     this.countries = [
@@ -81,24 +81,33 @@ createProfile(values)
       this.angularFireDatabase.list(`profile/${auth.uid}`).push
     });*/
   }
-  getOTP1(values){
+  onAuthStateChanged(callback){
+    self.firebaseAuthentication.onAuthStateChanged((userInfo) => {
+      if (userInfo) {
+          // user was signed in
+      } else {
+          // user was signed out
+      }
+  });
+  }
+  getOTP(values){
     console.log("Get OTP called");
     this.register();
-    self.firebaseAuthentication.verifyPhoneNumber("+918073990063", 60).then ((credential) => {
-      self.verificationId1 = credential.verificationId;
+    self.firebaseAuthentication.verifyPhoneNumber("+918073990063", 30000).then (function (credential: string) {
+      //self.verificationId1 = credential.verificationId;
     console.log(credential);
-    this.presentAlertPrompt();
+    this.presentAlertPrompt(credential);
     }).catch(e => {
       console.log(e);
   }); 
 }
 
-  verify(){
+  verify(credential: string){
     console.log("verify called");
     this.firebaseAuthentication.signInWithVerificationId(this.verificationId1 , this.code);
     
   }
-  async presentAlertPrompt() {
+  async presentAlertPrompt(credential: string) {
     console.log("presentAlertPrompt called");
     const alert = await this.alertCtrl.create({
       header: 'Enter OTP',
@@ -119,8 +128,8 @@ createProfile(values)
           }
         }, {
           text: 'Ok',
-          handler: (angularFireDatabase) => {
-            this.verify();
+          handler: (data) => {
+            this.firebaseAuthentication.signInWithVerificationId(credential , data.OTP);
             console.log('Confirm Ok');
           }
         }
@@ -195,11 +204,11 @@ createProfile(values)
   }
 
   //signIn(phoneNumber: number){
-    getOTP(values){
+    getOTP1(values){
     const appVerifier = this.recaptchaVerifier;
     const phoneNumberString = "+918073990063";
-    firebase.auth().signInWithPhoneNumber(phoneNumberString, appVerifier)
-      .then( async confirmationResult => {
+    self.firebaseAuthentication.verifyPhoneNumber("+918073990063", 30000).then ( async (credential) => {
+      self.verificationId1 = credential.verificationId;
         // SMS sent. Prompt user to type the code from the message, then sign the
         // user in with confirmationResult.confirm(code).
         const prompt = await this.alertCtrl.create({
@@ -211,9 +220,10 @@ createProfile(values)
           },
           { text: 'Send',
             handler: data => {
-              confirmationResult.confirm(data.confirmationCode)
+              this.firebaseAuthentication.signInWithVerificationId(credential, data.confirmationCode)
                 .then(function (result) {
                   // User signed in successfully.
+                  console.log("User signed in successfully.");
                   console.log(result.user);
                   // ...
                 }).catch(function (error) {
