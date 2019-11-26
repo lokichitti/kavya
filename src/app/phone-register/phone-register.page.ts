@@ -16,6 +16,8 @@ import {
   import { AlertController } from '@ionic/angular';
 
   declare var SMSReceive: any;
+  var phoneSignInWithVerificationId: any;
+  var OTPcode: 123456;
 @Component({
   selector: 'app-phone-register',
   templateUrl: './phone-register.page.html',
@@ -28,6 +30,7 @@ export class PhoneRegisterPage implements OnInit {
   OTPmessage: string = 'An OTP is sent to your number. You should receive it in 15 s'
   verificationId1: any;
   code: number;
+  OTPcode1: number;
   validations_form: FormGroup;
   country_phone_group: FormGroup;
 
@@ -79,10 +82,10 @@ createProfile(values)
   }
   getOTP(values){
     console.log("Get OTP called");
-    this.presentAlertPrompt();
+    //this.presentAlertPrompt();
     this.firebaseAuthentication.verifyPhoneNumber("+918073990063", 3000).then (function(verificationId) {
-    this.verificationId1 = verificationId;
-    console.log("OTP Successfully Sent");
+      phoneSignInWithVerificationId = verificationId;
+    console.log("OTP Successfully Sent " + verificationId);
     this.presentAlertPrompt();
     }).catch(e => {
       console.log(e);
@@ -90,9 +93,9 @@ createProfile(values)
 }
 
   verify(){
-    console.log("verify called");
-    this.firebaseAuthentication.signInWithVerificationId(this.verificationId1 , this.code);
-    
+    console.log("verify called Entered OTP is "+ this.OTPcode1);
+    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode1);
+    console.log("OTP Successfully Sent " + phoneSignInWithVerificationId);
   }
   async presentAlertPrompt() {
     console.log("presentAlertPrompt called");
