@@ -10,11 +10,11 @@
               <ion-icon slot="icon-only" name="information-circle"></ion-icon>
             </ion-button>
           </ion-buttons>
-      <ion-title size="large" text-center>Me&MyShop</ion-title>
+      <ion-title size="large" text-center>Me&My</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" text-center color="danger"> 
+<ion-content class="ion-padding" text-center color="white"> 
     <div text-center> Welcome</div>
     <div text-center>within your circle</div>
   <div>
@@ -41,4 +41,9 @@
         phone register
       </button>
     </div>
+    <div>
+      <button shape="round" [routerLink]="['/send-sms']" class = "button button-full"> 
+          send sms
+        </button>
+      </div>
 </ion-content>

@@ -58,6 +58,10 @@ var map = {
 		"default~phone-register-phone-register-module~register-register-module",
 		"register-register-module"
 	],
+	"./send-sms/send-sms.module": [
+		"./src/app/send-sms/send-sms.module.ts",
+		"send-sms-send-sms-module"
+	],
 	"./sign-in/sign-in.module": [
 		"./src/app/sign-in/sign-in.module.ts",
 		"sign-in-sign-in-module"
@@ -545,6 +549,7 @@ var routes = [
     { path: 'phone-login', loadChildren: './phone-login/phone-login.module#PhoneLoginPageModule' },
     { path: 'google-maps', loadChildren: './google-maps/google-maps.module#GoogleMapsPageModule' },
     { path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
+    { path: 'send-sms', loadChildren: './send-sms/send-sms.module#SendSmsPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -603,6 +608,7 @@ var AppComponent = /** @class */ (function () {
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
         this.initializeApp();
+        //this.backgroundMode.enable();
     }
     AppComponent.prototype.initializeApp = function () {
         var _this = this;
@@ -796,7 +802,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/lokesh/ionic-dont-delete/kavyamma/lokappa/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/hmecd001523/ionic-dont-delete/firebase-working/progress/src/main.ts */"./src/main.ts");
 
 
 /***/ })

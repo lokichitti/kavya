@@ -314,6 +314,31 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.SMSReceive"
       ]
+    },
+    {
+      "id": "cordova-sms-plugin.Sms",
+      "file": "plugins/cordova-sms-plugin/www/sms.js",
+      "pluginId": "cordova-sms-plugin",
+      "clobbers": [
+        "window.sms"
+      ]
+    },
+    {
+      "id": "cordova-plugin-sms-retriever-manager.AndroidSmsRetriever",
+      "file": "plugins/cordova-plugin-sms-retriever-manager/www/smsRetriever.js",
+      "pluginId": "cordova-plugin-sms-retriever-manager",
+      "clobbers": [
+        "cordova.plugins.smsRetriever"
+      ]
+    },
+    {
+      "id": "cordova-plugin-background-mode.BackgroundMode",
+      "file": "plugins/cordova-plugin-background-mode/www/background-mode.js",
+      "pluginId": "cordova-plugin-background-mode",
+      "clobbers": [
+        "cordova.plugins.backgroundMode",
+        "plugin.backgroundMode"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -332,6 +357,9 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-support-android-plugin": "1.0.1",
     "cordova-support-google-services": "1.3.2",
     "cordova-plugin-firebase-authentication": "3.0.0",
-    "cordova-plugin-sms-receive": "1.0.2"
+    "cordova-plugin-sms-receive": "1.0.2",
+    "cordova-sms-plugin": "1.0.0",
+    "cordova-plugin-sms-retriever-manager": "0.0.2",
+    "cordova-plugin-background-mode": "0.7.3"
   };
 });

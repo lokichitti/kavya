@@ -64,6 +64,16 @@
     },
     "cordova-plugin-sms-receive": {
       "PACKAGE_NAME": "com.loki.meandmyshop"
+    },
+    "cordova-sms-plugin": {
+      "PACKAGE_NAME": "com.loki.meandmyshop"
+    },
+    "cordova-plugin-sms-retriever-manager": {
+      "PLAY_SERVICES_VERSION": "15.0.1",
+      "PACKAGE_NAME": "com.loki.meandmyshop"
+    },
+    "cordova-plugin-background-mode": {
+      "PACKAGE_NAME": "com.loki.meandmyshop"
     }
   },
   "dependent_plugins": {

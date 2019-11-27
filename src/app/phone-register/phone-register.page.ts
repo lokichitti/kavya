@@ -14,10 +14,12 @@ import {
   PasswordValidator } from '../models/validators';
   import * as firebase from 'firebase';
   import { AlertController } from '@ionic/angular';
+import { stringify } from 'querystring';
 
   declare var SMSReceive: any;
   var phoneSignInWithVerificationId: any;
   var OTPcode: 123456;
+  var phoneNumber: string;
 @Component({
   selector: 'app-phone-register',
   templateUrl: './phone-register.page.html',
@@ -82,11 +84,13 @@ createProfile(values)
     });*/
   }
   getOTP(values){
+    phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
     console.log("Get OTP called");
+    console.log(phoneNumber);
     this.disableGetOTPButton = true;
     this.disableVerifyButton = false;
     this.presentAlertPrompt();
-    this.firebaseAuthentication.verifyPhoneNumber("+918073990063", 3000).then (function(verificationId) {
+    this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000).then (function(verificationId) {
       phoneSignInWithVerificationId = verificationId;
     console.log("OTP Successfully Sent " + verificationId);
     this.presentAlertPrompt();

@@ -21,6 +21,8 @@ import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ng
 import { Validators, FormBuilder} from '@angular/forms';
 import * as firebase from 'firebase';
 import { AlertController } from '@ionic/angular';
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

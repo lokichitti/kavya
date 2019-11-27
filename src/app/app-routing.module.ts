@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'phone-login', loadChildren: './phone-login/phone-login.module#PhoneLoginPageModule' },
   { path: 'google-maps', loadChildren: './google-maps/google-maps.module#GoogleMapsPageModule' },
   { path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
+  { path: 'send-sms', loadChildren: './send-sms/send-sms.module#SendSmsPageModule' },
 ];
 
 @NgModule({

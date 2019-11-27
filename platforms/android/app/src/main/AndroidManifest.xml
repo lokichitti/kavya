@@ -24,6 +24,7 @@
         <meta-data android:name="firebase_analytics_collection_enabled" android:value="true" />
         <meta-data android:name="firebase_performance_collection_enabled" android:value="true" />
         <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="true" />
+        <service android:name="de.appplant.cordova.plugin.background.ForegroundService" />
     </application>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
