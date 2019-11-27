@@ -18,6 +18,7 @@ import {
   declare var SMSReceive: any;
   var phoneSignInWithVerificationId: any;
   var OTPcode: 123456;
+  var phoneNumber: string;
 @Component({
   selector: 'app-phone-register',
   templateUrl: './phone-register.page.html',
@@ -81,12 +82,14 @@ createProfile(values)
       this.angularFireDatabase.list(`profile/${auth.uid}`).push
     });*/
   }
+  
   getOTP(values){
-    console.log("Get OTP called");
+    phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
+    console.log("Get OTP called " + phoneNumber);
     this.disableGetOTPButton = true;
     this.disableVerifyButton = false;
     this.presentAlertPrompt();
-    this.firebaseAuthentication.verifyPhoneNumber("+918073990063", 3000).then (function(verificationId) {
+    this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000).then (function(verificationId) {
       phoneSignInWithVerificationId = verificationId;
     console.log("OTP Successfully Sent " + verificationId);
     this.presentAlertPrompt();
