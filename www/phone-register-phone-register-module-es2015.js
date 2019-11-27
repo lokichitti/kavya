@@ -197,7 +197,7 @@ let PhoneRegisterPage = class PhoneRegisterPage {
         this.disableGetOTPButton = true;
         this.disableVerifyButton = false;
         this.presentAlertPrompt();
-        this.firebaseAuthentication.verifyPhoneNumber("+08073990063", 3000).then(function (verificationId) {
+        this.firebaseAuthentication.verifyPhoneNumber("+918073990063", 3000).then(function (verificationId) {
             phoneSignInWithVerificationId = verificationId;
             console.log("OTP Successfully Sent " + verificationId);
             this.presentAlertPrompt();
@@ -232,7 +232,8 @@ let PhoneRegisterPage = class PhoneRegisterPage {
                         }
                     }, {
                         text: 'Ok',
-                        handler: (angularFireDatabase) => {
+                        handler: (data) => {
+                            this.OTPcode1 = data.OTP;
                             this.verify();
                             console.log('Confirm Ok');
                         }
