@@ -33,7 +33,8 @@ export class PhoneRegisterPage implements OnInit {
   OTPcode1: number;
   validations_form: FormGroup;
   country_phone_group: FormGroup;
-
+  disableVerifyButton: boolean = true;
+  disableGetOTPButton: boolean = false;
   countries: Array<CountryPhone>;
   constructor(
     public formBuilder: FormBuilder,
@@ -82,7 +83,9 @@ createProfile(values)
   }
   getOTP(values){
     console.log("Get OTP called");
-    //this.presentAlertPrompt();
+    this.disableGetOTPButton = true;
+    this.disableVerifyButton = false;
+    this.presentAlertPrompt();
     this.firebaseAuthentication.verifyPhoneNumber("+918073990063", 3000).then (function(verificationId) {
       phoneSignInWithVerificationId = verificationId;
     console.log("OTP Successfully Sent " + verificationId);
@@ -118,7 +121,8 @@ createProfile(values)
           }
         }, {
           text: 'Ok',
-          handler: (angularFireDatabase) => {
+          handler: (data) => {
+            this.OTPcode1 = data.OTP;
             this.verify();
             console.log('Confirm Ok');
           }
