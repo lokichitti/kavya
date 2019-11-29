@@ -8,6 +8,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./edit-profile/edit-profile.module": [
+		"./src/app/edit-profile/edit-profile.module.ts",
+		"edit-profile-edit-profile-module"
+	],
 	"./google-maps/google-maps.module": [
 		"./src/app/google-maps/google-maps.module.ts",
 		"google-maps-google-maps-module"
@@ -545,6 +549,7 @@ var routes = [
     { path: 'phone-login', loadChildren: './phone-login/phone-login.module#PhoneLoginPageModule' },
     { path: 'google-maps', loadChildren: './google-maps/google-maps.module#GoogleMapsPageModule' },
     { path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
+    { path: 'edit-profile', loadChildren: './edit-profile/edit-profile.module#EditProfilePageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -671,6 +676,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_firebase_x_ngx__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ionic-native/firebase-x/ngx */ "./node_modules/@ionic-native/firebase-x/ngx/index.js");
 /* harmony import */ var _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @ionic-native/firebase-authentication/ngx */ "./node_modules/@ionic-native/firebase-authentication/ngx/index.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _services_user_user_services__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./services/user/user.services */ "./src/app/services/user/user.services.ts");
+/* harmony import */ var _services_alert__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/alert */ "./src/app/services/alert.ts");
+
+
 
 
 
@@ -716,12 +725,102 @@ var AppModule = /** @class */ (function () {
                 _ionic_native_firebase_x_ngx__WEBPACK_IMPORTED_MODULE_16__["FirebaseX"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_18__["FormBuilder"],
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"],
+                _services_user_user_services__WEBPACK_IMPORTED_MODULE_19__["UserService"],
+                _services_alert__WEBPACK_IMPORTED_MODULE_20__["AlertService"],
                 { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/alert.ts":
+/*!***********************************!*\
+  !*** ./src/app/services/alert.ts ***!
+  \***********************************/
+/*! exports provided: AlertService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AlertService", function() { return AlertService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
+var AlertService = /** @class */ (function () {
+    function AlertService(alertController) {
+        this.alertController = alertController;
+    }
+    AlertService.prototype.presentAlert = function (title, content) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var alert;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.alertController.create({
+                            header: title,
+                            message: content,
+                            buttons: ['OK']
+                        })];
+                    case 1:
+                        alert = _a.sent();
+                        return [4 /*yield*/, alert.present()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    AlertService.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] }
+    ]; };
+    AlertService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"]])
+    ], AlertService);
+    return AlertService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/user/user.services.ts":
+/*!************************************************!*\
+  !*** ./src/app/services/user/user.services.ts ***!
+  \************************************************/
+/*! exports provided: UserService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var UserService = /** @class */ (function () {
+    function UserService() {
+    }
+    UserService.prototype.setUser = function (user) {
+        this.user = user;
+    };
+    UserService.prototype.getUid = function () {
+        return this.user.uid;
+    };
+    UserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], UserService);
+    return UserService;
 }());
 
 
@@ -799,7 +898,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/lokesh/ionic-dont-delete/kavyamma/lokappa/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/hmecd001523/ionic-dont-delete/firebase-working/progress/src/main.ts */"./src/main.ts");
 
 
 /***/ })

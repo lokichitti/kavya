@@ -24,6 +24,7 @@ import * as firebase from 'firebase';
 import { AlertController } from '@ionic/angular';
 import { UserService } from './services/user/user.services';
 import { AlertService } from './services/alert';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -34,6 +35,7 @@ import { AlertService } from './services/alert';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [

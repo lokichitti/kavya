@@ -143,19 +143,20 @@ export class RegisterPage implements OnInit {
   username: string = ""
   async onSubmit(values){
     const { username} = this
+    this.username = values.username.toString();
     console.log(values);
     try{
-      const res = await this.angularFireAuth.auth.createUserWithEmailAndPassword(values.email, values.matching_passwords.password);
+      const res = await this.angularFireAuth.auth.createUserWithEmailAndPassword(values.username + '@meandmyshop.com', values.matching_passwords.password);
       console.log(res);
       this.afstore.doc(`users/${res.user.uid}`).set({
-        username = values.email.replace('@', '');
+        username
       })
       this.user.setUser({
 				username,
 				uid: res.user.uid
       })
       this.alert.presentAlert('Success', 'You are registered!')
-      this.router.navigate(["/main-page"]);
+      this.router.navigate(["/profile"]);
 
     }
     catch(e){
