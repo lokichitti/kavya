@@ -22,6 +22,8 @@ import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ng
 import { Validators, FormBuilder} from '@angular/forms';
 import * as firebase from 'firebase';
 import { AlertController } from '@ionic/angular';
+import { UserService } from './services/user/user.services';
+import { AlertService } from './services/alert';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -43,6 +45,8 @@ import { AlertController } from '@ionic/angular';
     FirebaseX,
     FormBuilder,
     AlertController,
+    UserService,
+    AlertService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

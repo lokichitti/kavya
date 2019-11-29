@@ -5,14 +5,16 @@ import libphonenumber from 'google-libphonenumber';
 import { CountryPhone } from './country-phone.model';
 import { Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
-import { AngularFireAuth } from 'angularfire2/auth';
+//import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth } from '@angular/fire/auth'
 import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFirestore } from '@angular/fire/firestore'
 import { 
   UsernameValidator, 
   PhoneValidator, 
   PasswordValidator } from '../models/validators';
-
-
+import { UserService } from '../services/user/user.services';
+import { AlertService } from '../services/alert';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -32,7 +34,10 @@ export class RegisterPage implements OnInit {
     public formBuilder: FormBuilder,
     private router: Router,
     private angularFireAuth: AngularFireAuth,
-    private angularFireDatabase: AngularFireDatabase
+    private angularFireDatabase: AngularFireDatabase,
+    public user: UserService,
+    public alert: AlertService,
+    public afstore: AngularFirestore,
   ) { }
 
   ngOnInit() {
@@ -135,13 +140,23 @@ export class RegisterPage implements OnInit {
       this.angularFireDatabase.list(`profile/${auth.uid}`).push
     });*/
   }
+  username: string = ""
   async onSubmit(values){
+    const { username} = this
     console.log(values);
     try{
-      const result = await this.angularFireAuth.auth.createUserWithEmailAndPassword(values.email, values.matching_passwords.password);
-      console.log(result);
-      this.createProfile(values);
+      const res = await this.angularFireAuth.auth.createUserWithEmailAndPassword(values.email, values.matching_passwords.password);
+      console.log(res);
+      this.afstore.doc(`users/${res.user.uid}`).set({
+        username = values.email.replace('@', '');
+      })
+      this.user.setUser({
+				username,
+				uid: res.user.uid
+      })
+      this.alert.presentAlert('Success', 'You are registered!')
       this.router.navigate(["/main-page"]);
+
     }
     catch(e){
       console.error(e);
