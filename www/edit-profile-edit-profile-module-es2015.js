@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>EditProfile</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>EditProfile</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n\n\t\t<div class=\"profile-info\">\n\t\t\t<ion-item>\n\t\t\t\t<ion-label position=\"floating\">Username</ion-label>\n\t\t\t\t<ion-input [(ngModel)]=\"username\"></ion-input>\n\t\t\t</ion-item>\n\n\t\t\t<ion-item>\n\t\t\t\t<ion-label position=\"floating\">New Password?</ion-label>\n\t\t\t\t<ion-input [(ngModel)]=\"newpassword\"></ion-input>\n\t\t\t</ion-item>\n\n\t\t\t<ion-item>\n\t\t\t\t<ion-label position=\"floating\">Enter old password</ion-label>\n\t\t\t\t<ion-input [(ngModel)]=\"password\"></ion-input>\n\t\t\t</ion-item>\n\n\t\t\t<ion-button fill=\"solid\" expand=\"block\" color=\"dark\" (click)=\"updateDetails()\">Save</ion-button>\n\t\t</div>\n\n\t</div>\n\n</ion-content>"
 
 /***/ }),
 
@@ -66,7 +66,7 @@ EditProfilePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2VkaXQtcHJvZmlsZS9lZGl0LXByb2ZpbGUucGFnZS5zY3NzIn0= */"
+module.exports = ".filebtn {\n  opacity: 0;\n  position: absolute;\n  top: -100em;\n  left: -100em;\n}\n\n.profile-pic {\n  width: 200px;\n  height: 200px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2htZWNkMDAxNTIzL2lvbmljLWRvbnQtZGVsZXRlL2ZpcmViYXNlLXdvcmtpbmcvcHJvZ3Jlc3Mvc3JjL2FwcC9lZGl0LXByb2ZpbGUvZWRpdC1wcm9maWxlLnBhZ2Uuc2NzcyIsInNyYy9hcHAvZWRpdC1wcm9maWxlL2VkaXQtcHJvZmlsZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxVQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtBQ0NEOztBREVBO0VBQ0MsWUFBQTtFQUNBLGFBQUE7QUNDRCIsImZpbGUiOiJzcmMvYXBwL2VkaXQtcHJvZmlsZS9lZGl0LXByb2ZpbGUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmZpbGVidG4ge1xuXHRvcGFjaXR5OiAwO1xuXHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdHRvcDogLTEwMGVtO1xuXHRsZWZ0OiAtMTAwZW07XG59XG5cbi5wcm9maWxlLXBpYyB7XG5cdHdpZHRoOiAyMDBweDtcblx0aGVpZ2h0OiAyMDBweDtcbn0iLCIuZmlsZWJ0biB7XG4gIG9wYWNpdHk6IDA7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdG9wOiAtMTAwZW07XG4gIGxlZnQ6IC0xMDBlbTtcbn1cblxuLnByb2ZpbGUtcGljIHtcbiAgd2lkdGg6IDIwMHB4O1xuICBoZWlnaHQ6IDIwMHB4O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -82,20 +82,92 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditProfilePage", function() { return EditProfilePage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/es2015/index.js");
+/* harmony import */ var _services_user_user_services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/user/user.services */ "./src/app/services/user/user.services.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_alert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/alert */ "./src/app/services/alert.ts");
+
+
+
+
+
 
 
 let EditProfilePage = class EditProfilePage {
-    constructor() { }
+    constructor(user, alert, afs, router, alertController) {
+        this.user = user;
+        this.alert = alert;
+        this.afs = afs;
+        this.router = router;
+        this.alertController = alertController;
+        this.busy = false;
+        this.mainuser = afs.doc(`users/${user.getUid()}`);
+        this.sub = this.mainuser.valueChanges().subscribe(event => {
+            this.username = event.username;
+            this.profilePic = event.profilePic;
+        });
+    }
     ngOnInit() {
     }
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
+    updateDetails() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            /*	this.busy = true
+        
+                if(!this.password) {
+                    this.busy = false
+                    return this.presentAlert('Error!', 'You have to enter a password')
+                }
+        
+                try {
+                    await this.user.reAuth(this.user.getUsername(), this.password)
+                } catch(error) {
+                    this.busy = false
+                    return this.presentAlert('Error!', 'Wrong password!')
+                }
+        
+                if(this.newpassword) {
+                    await this.user.updatePassword(this.newpassword)
+                }
+        
+                if(this.username !== this.user.getUsername()) {
+                    await this.user.updateEmail(this.username)
+                    this.mainuser.update({
+                        username: this.username
+                    })
+                }
+        
+                this.password = ""
+                this.newpassword = ""
+                this.busy = false
+        
+                await this.presentAlert('Done!', 'Your profile was updated!')
+        
+                this.router.navigate(['/tabs/feed'])*/
+        });
+    }
 };
+EditProfilePage.ctorParameters = () => [
+    { type: _services_user_user_services__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: _services_alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"] },
+    { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"] }
+];
 EditProfilePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-edit-profile',
         template: __webpack_require__(/*! raw-loader!./edit-profile.page.html */ "./node_modules/raw-loader/index.js!./src/app/edit-profile/edit-profile.page.html"),
         styles: [__webpack_require__(/*! ./edit-profile.page.scss */ "./src/app/edit-profile/edit-profile.page.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_user_user_services__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        _services_alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"],
+        _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"]])
 ], EditProfilePage);
 
 

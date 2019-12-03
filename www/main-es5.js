@@ -678,6 +678,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _services_user_user_services__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./services/user/user.services */ "./src/app/services/user/user.services.ts");
 /* harmony import */ var _services_alert__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/alert */ "./src/app/services/alert.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
 
 
 
@@ -714,6 +716,7 @@ var AppModule = /** @class */ (function () {
                 angularfire2_auth__WEBPACK_IMPORTED_MODULE_13__["AngularFireAuthModule"],
                 angularfire2_database__WEBPACK_IMPORTED_MODULE_14__["AngularFireDatabaseModule"],
                 _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_15__["AngularFirestoreModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_21__["HttpClientModule"],
                 angularfire2__WEBPACK_IMPORTED_MODULE_11__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_12__["environment"].firebaseConfig)
             ],
             providers: [
