@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ListUsers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card
+    *ngFor="let user of userList | async"
+    routerLink="/detail/{{User.id}}"
+  >
+    <ion-card-header>
+      {{ User.userName }}
+    </ion-card-header>
+    <ion-card-content>
+      Artist Name: {{ User.email }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

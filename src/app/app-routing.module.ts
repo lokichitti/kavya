@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'google-maps', loadChildren: './google-maps/google-maps.module#GoogleMapsPageModule' },
   { path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
   { path: 'edit-profile', loadChildren: './edit-profile/edit-profile.module#EditProfilePageModule' },
+  { path: 'list-users', loadChildren: './list-users/list-users.module#ListUsersPageModule' },
 ];
 
 @NgModule({

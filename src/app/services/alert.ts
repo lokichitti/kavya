@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { LoadingController, AlertController } from '@ionic/angular';
 @Injectable()
 export class AlertService{
     
     constructor(
-        private alertController: AlertController
+        private alertController: AlertController,
+        public loadingCtrl: LoadingController,
     ){
 
     }

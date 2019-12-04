@@ -5,16 +5,21 @@ import libphonenumber from 'google-libphonenumber';
 import { CountryPhone } from './country-phone.model';
 import { Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
-//import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireAuth } from '@angular/fire/auth'
-import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFirestore } from '@angular/fire/firestore'
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire';
+import { FirestoreService } from '../services/data/firestore.service';
+import { LoadingController, AlertController } from '@ionic/angular';
+
+import { Observable } from 'rxjs';
 import { 
   UsernameValidator, 
   PhoneValidator, 
   PasswordValidator } from '../models/validators';
 import { UserService } from '../services/user/user.services';
 import { AlertService } from '../services/alert';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -38,6 +43,8 @@ export class RegisterPage implements OnInit {
     public user: UserService,
     public alert: AlertService,
     public afstore: AngularFirestore,
+    public firestoreService: FirestoreService,
+    public loadingCtrl: LoadingController,
   ) { }
 
   ngOnInit() {
@@ -134,19 +141,39 @@ export class RegisterPage implements OnInit {
     ],
   };
 
-  createProfile(values)
+  async createProfile(values)
   {
-    /*this.angularFireAuth.authState.subscribe(auth=>{
-      this.angularFireDatabase.list(`profile/${auth.uid}`).push
-    });*/
+      const loading = await this.loadingCtrl.create();    
+      const userName = values.username;
+      const email = values.email;
+      const phone = values.country_phone.phone;
+      const fName = values.name;
+      const lName = values.lastname;
+      const gender = values.gender;
+    
+      this.firestoreService
+        .createUser(userName, email, phone, fName, lName, gender )
+        .then(
+          () => {
+            loading.dismiss().then(() => {
+              this.router.navigateByUrl('');
+            });
+          },
+          error => {
+            console.error(error);
+          }
+        );
+    
+      return await loading.present();
   }
   username: string = ""
+
   async onSubmit(values){
     const { username} = this
     this.username = values.username.toString();
     console.log(values);
     try{
-      const res = await this.angularFireAuth.auth.createUserWithEmailAndPassword(values.username + '@meandmyshop.com', values.matching_passwords.password);
+      const res = await this.angularFireAuth.auth.createUserWithEmailAndPassword(values.email, values.matching_passwords.password);
       console.log(res);
       this.afstore.doc(`users/${res.user.uid}`).set({
         username
@@ -156,6 +183,7 @@ export class RegisterPage implements OnInit {
 				uid: res.user.uid
       })
       this.alert.presentAlert('Success', 'You are registered!')
+      this.createProfile(values);
       this.router.navigate(["/profile"]);
 
     }
