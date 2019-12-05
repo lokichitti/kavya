@@ -18,7 +18,7 @@ export class FirestoreService {
     lName: string,gender: string): Promise<void> {
       const id = this.firestore.createId();
     
-      return this.firestore.doc(`userList/${id}`).set({
+      return this.firestore.doc(`${userName}/${id}`).set({
         id,
         userName,
         email,
@@ -28,7 +28,20 @@ export class FirestoreService {
         gender
       });
     }
+//Added for purpose
+    getUserData( userName: string ): AngularFirestoreCollection<User> {
+      return this.firestore.collection(`${userName}`);
+    }
 
+    getUserInfo(userName: string , userId: string): AngularFirestoreDocument<User> {
+      return this.firestore.collection(`${userName}`).doc(userId);
+    }
+
+    thrashUser(userName: string, userId: string): Promise<void> {
+      return this.firestore.doc(`${userName}/${userId}`).delete();
+    }
+
+  //Extras
     getUserList(): AngularFirestoreCollection<User> {
       return this.firestore.collection(`userList`);
     }
