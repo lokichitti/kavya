@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore, 
+  AngularFirestoreCollection,
+  AngularFirestoreDocument
+ } from '@angular/fire/firestore';
 import { User } from '../../models/user.interface';
 
 @Injectable({
@@ -25,4 +28,16 @@ export class FirestoreService {
         gender
       });
     }
+
+    getUserList(): AngularFirestoreCollection<User> {
+      return this.firestore.collection(`userList`);
+    }
+    getUserDetail(userId: string): AngularFirestoreDocument<User> {
+      return this.firestore.collection('userList').doc(userId);
+    }
+
+    deleteUser(userId: string): Promise<void> {
+      return this.firestore.doc(`userList/${userId}`).delete();
+    }
+    
 }

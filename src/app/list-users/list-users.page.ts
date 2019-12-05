@@ -18,7 +18,7 @@ constructor(
 ) {}
 
   ngOnInit() {
-    this.songList = this.firestoreProvider.getSongList().valueChanges();
+    //this.songList = this.firestoreProvider.getSongList().valueChanges();
   }
 
 }

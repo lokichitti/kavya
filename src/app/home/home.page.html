@@ -41,4 +41,18 @@
         phone register
       </button>
     </div>
+
+    <div>
+      <ion-card
+    *ngFor="let user of userList | async"
+    routerLink="/{{user.id}}"
+  >
+    <ion-card-header>
+      {{ user.userName }}
+    </ion-card-header>
+    <ion-card-content>
+      email: {{ user.email }}
+    </ion-card-content>
+  </ion-card>
+    </div>
 </ion-content>

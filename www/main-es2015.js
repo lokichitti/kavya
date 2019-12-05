@@ -20,6 +20,11 @@ var map = {
 		"./src/app/info/info.module.ts",
 		"info-info-module"
 	],
+	"./list-users/list-users.module": [
+		"./src/app/list-users/list-users.module.ts",
+		"common",
+		"list-users-list-users-module"
+	],
 	"./login/login.module": [
 		"./src/app/login/login.module.ts",
 		"login-login-module"
@@ -60,6 +65,7 @@ var map = {
 	"./register/register.module": [
 		"./src/app/register/register.module.ts",
 		"default~phone-register-phone-register-module~register-register-module",
+		"common",
 		"register-register-module"
 	],
 	"./sign-in/sign-in.module": [
@@ -544,6 +550,7 @@ const routes = [
     { path: 'google-maps', loadChildren: './google-maps/google-maps.module#GoogleMapsPageModule' },
     { path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
     { path: 'edit-profile', loadChildren: './edit-profile/edit-profile.module#EditProfilePageModule' },
+    { path: 'list-users', loadChildren: './list-users/list-users.module#ListUsersPageModule' },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -745,8 +752,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AlertService = class AlertService {
-    constructor(alertController) {
+    constructor(alertController, loadingCtrl) {
         this.alertController = alertController;
+        this.loadingCtrl = loadingCtrl;
     }
     presentAlert(title, content) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -760,11 +768,13 @@ let AlertService = class AlertService {
     }
 };
 AlertService.ctorParameters = () => [
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"] }
 ];
 AlertService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"]])
 ], AlertService);
 
 
@@ -875,7 +885,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/hmecd001523/ionic-dont-delete/firebase-working/progress/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/lokesh/ionic-dont-delete/kavyamma/lokappa/src/main.ts */"./src/main.ts");
 
 
 /***/ })

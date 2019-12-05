@@ -115,7 +115,7 @@ var RegisterPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".error-message {\n  color: red;\n  font-size: 14px;\n  margin-left: 10px;\n  margin-top: 10px;\n}\n\n.submit-btn {\n  margin-top: 40px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2htZWNkMDAxNTIzL2lvbmljLWRvbnQtZGVsZXRlL2ZpcmViYXNlLXdvcmtpbmcvcHJvZ3Jlc3Mvc3JjL2FwcC9yZWdpc3Rlci9yZWdpc3Rlci5wYWdlLnNjc3MiLCJzcmMvYXBwL3JlZ2lzdGVyL3JlZ2lzdGVyLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVFLFVBQUE7RUFDQSxlQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtBQ0FGOztBREdBO0VBQ0UsZ0JBQUE7QUNBRiIsImZpbGUiOiJzcmMvYXBwL3JlZ2lzdGVyL3JlZ2lzdGVyLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5lcnJvci1tZXNzYWdlXG57XG4gIGNvbG9yOiByZWQ7XG4gIGZvbnQtc2l6ZTogMTRweDtcbiAgbWFyZ2luLWxlZnQ6IDEwcHg7XG4gIG1hcmdpbi10b3A6IDEwcHg7XG59XG5cbi5zdWJtaXQtYnRuIHtcbiAgbWFyZ2luLXRvcDogNDBweDtcbn0iLCIuZXJyb3ItbWVzc2FnZSB7XG4gIGNvbG9yOiByZWQ7XG4gIGZvbnQtc2l6ZTogMTRweDtcbiAgbWFyZ2luLWxlZnQ6IDEwcHg7XG4gIG1hcmdpbi10b3A6IDEwcHg7XG59XG5cbi5zdWJtaXQtYnRuIHtcbiAgbWFyZ2luLXRvcDogNDBweDtcbn0iXX0= */"
+module.exports = ".error-message {\n  color: red;\n  font-size: 14px;\n  margin-left: 10px;\n  margin-top: 10px;\n}\n\n.submit-btn {\n  margin-top: 40px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9pb25pYy1kb250LWRlbGV0ZS9rYXZ5YW1tYS9sb2thcHBhL3NyYy9hcHAvcmVnaXN0ZXIvcmVnaXN0ZXIucGFnZS5zY3NzIiwic3JjL2FwcC9yZWdpc3Rlci9yZWdpc3Rlci5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFFRSxVQUFBO0VBQ0EsZUFBQTtFQUNBLGlCQUFBO0VBQ0EsZ0JBQUE7QUNBRjs7QURHQTtFQUNFLGdCQUFBO0FDQUYiLCJmaWxlIjoic3JjL2FwcC9yZWdpc3Rlci9yZWdpc3Rlci5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZXJyb3ItbWVzc2FnZVxue1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE0cHg7XG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuXG4uc3VibWl0LWJ0biB7XG4gIG1hcmdpbi10b3A6IDQwcHg7XG59IiwiLmVycm9yLW1lc3NhZ2Uge1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE0cHg7XG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuXG4uc3VibWl0LWJ0biB7XG4gIG1hcmdpbi10b3A6IDQwcHg7XG59Il19 */"
 
 /***/ }),
 
@@ -135,19 +135,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _country_phone_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./country-phone.model */ "./src/app/register/country-phone.model.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/index.js");
-/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! angularfire2/database */ "./node_modules/angularfire2/database/index.js");
-/* harmony import */ var angularfire2_database__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(angularfire2_database__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/fire/database */ "./node_modules/@angular/fire/database/index.js");
 /* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/index.js");
-/* harmony import */ var _models_validators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../models/validators */ "./src/app/models/validators.ts");
-/* harmony import */ var _services_user_user_services__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/user/user.services */ "./src/app/services/user/user.services.ts");
-/* harmony import */ var _services_alert__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../services/alert */ "./src/app/services/alert.ts");
+/* harmony import */ var _services_data_firestore_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/data/firestore.service */ "./src/app/services/data/firestore.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _models_validators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../models/validators */ "./src/app/models/validators.ts");
+/* harmony import */ var _services_user_user_services__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../services/user/user.services */ "./src/app/services/user/user.services.ts");
+/* harmony import */ var _services_alert__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../services/alert */ "./src/app/services/alert.ts");
 
 
 
 
 
 
-//import { AngularFireAuth } from 'angularfire2/auth';
+
+
 
 
 
@@ -155,7 +157,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var RegisterPage = /** @class */ (function () {
-    function RegisterPage(formBuilder, router, angularFireAuth, angularFireDatabase, user, alert, afstore) {
+    function RegisterPage(formBuilder, router, angularFireAuth, angularFireDatabase, user, alert, afstore, firestoreService, loadingCtrl) {
         this.formBuilder = formBuilder;
         this.router = router;
         this.angularFireAuth = angularFireAuth;
@@ -163,6 +165,8 @@ var RegisterPage = /** @class */ (function () {
         this.user = user;
         this.alert = alert;
         this.afstore = afstore;
+        this.firestoreService = firestoreService;
+        this.loadingCtrl = loadingCtrl;
         this.validation_messages = {
             'username': [
                 { type: 'required', message: 'Username is required.' },
@@ -222,12 +226,12 @@ var RegisterPage = /** @class */ (function () {
             ])),
             confirm_password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required)
         }, function (formGroup) {
-            return _models_validators__WEBPACK_IMPORTED_MODULE_8__["PasswordValidator"].areEqual(formGroup);
+            return _models_validators__WEBPACK_IMPORTED_MODULE_10__["PasswordValidator"].areEqual(formGroup);
         });
         var country = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](this.countries[0], _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required);
         var phone = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
-            _models_validators__WEBPACK_IMPORTED_MODULE_8__["PhoneValidator"].validCountryPhone(country)
+            _models_validators__WEBPACK_IMPORTED_MODULE_10__["PhoneValidator"].validCountryPhone(country)
         ]));
         this.country_phone_group = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
             country: country,
@@ -235,7 +239,7 @@ var RegisterPage = /** @class */ (function () {
         });
         this.validations_form = this.formBuilder.group({
             username: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
-                _models_validators__WEBPACK_IMPORTED_MODULE_8__["UsernameValidator"].validUsername,
+                _models_validators__WEBPACK_IMPORTED_MODULE_10__["UsernameValidator"].validUsername,
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(25),
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(5),
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
@@ -254,9 +258,34 @@ var RegisterPage = /** @class */ (function () {
         });
     };
     RegisterPage.prototype.createProfile = function (values) {
-        /*this.angularFireAuth.authState.subscribe(auth=>{
-          this.angularFireDatabase.list(`profile/${auth.uid}`).push
-        });*/
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var loading, userName, email, phone, fName, lName, gender;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.loadingCtrl.create()];
+                    case 1:
+                        loading = _a.sent();
+                        userName = values.username;
+                        email = values.email;
+                        phone = values.country_phone.phone;
+                        fName = values.name;
+                        lName = values.lastname;
+                        gender = values.gender;
+                        this.firestoreService
+                            .createUser(userName, email, phone, fName, lName, gender)
+                            .then(function () {
+                            loading.dismiss().then(function () {
+                                _this.router.navigateByUrl('');
+                            });
+                        }, function (error) {
+                            console.error(error);
+                        });
+                        return [4 /*yield*/, loading.present()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
     };
     RegisterPage.prototype.onSubmit = function (values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
@@ -270,7 +299,7 @@ var RegisterPage = /** @class */ (function () {
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 3, , 4]);
-                        return [4 /*yield*/, this.angularFireAuth.auth.createUserWithEmailAndPassword(values.username + '@meandmyshop.com', values.matching_passwords.password)];
+                        return [4 /*yield*/, this.angularFireAuth.auth.createUserWithEmailAndPassword(values.email, values.matching_passwords.password)];
                     case 2:
                         res = _a.sent();
                         console.log(res);
@@ -282,6 +311,7 @@ var RegisterPage = /** @class */ (function () {
                             uid: res.user.uid
                         });
                         this.alert.presentAlert('Success', 'You are registered!');
+                        this.createProfile(values);
                         this.router.navigate(["/profile"]);
                         return [3 /*break*/, 4];
                     case 3:
@@ -297,10 +327,12 @@ var RegisterPage = /** @class */ (function () {
         { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
         { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuth"] },
-        { type: angularfire2_database__WEBPACK_IMPORTED_MODULE_6__["AngularFireDatabase"] },
-        { type: _services_user_user_services__WEBPACK_IMPORTED_MODULE_9__["UserService"] },
-        { type: _services_alert__WEBPACK_IMPORTED_MODULE_10__["AlertService"] },
-        { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_7__["AngularFirestore"] }
+        { type: _angular_fire_database__WEBPACK_IMPORTED_MODULE_6__["AngularFireDatabase"] },
+        { type: _services_user_user_services__WEBPACK_IMPORTED_MODULE_11__["UserService"] },
+        { type: _services_alert__WEBPACK_IMPORTED_MODULE_12__["AlertService"] },
+        { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_7__["AngularFirestore"] },
+        { type: _services_data_firestore_service__WEBPACK_IMPORTED_MODULE_8__["FirestoreService"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_9__["LoadingController"] }
     ]; };
     RegisterPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -311,10 +343,12 @@ var RegisterPage = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
             _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuth"],
-            angularfire2_database__WEBPACK_IMPORTED_MODULE_6__["AngularFireDatabase"],
-            _services_user_user_services__WEBPACK_IMPORTED_MODULE_9__["UserService"],
-            _services_alert__WEBPACK_IMPORTED_MODULE_10__["AlertService"],
-            _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_7__["AngularFirestore"]])
+            _angular_fire_database__WEBPACK_IMPORTED_MODULE_6__["AngularFireDatabase"],
+            _services_user_user_services__WEBPACK_IMPORTED_MODULE_11__["UserService"],
+            _services_alert__WEBPACK_IMPORTED_MODULE_12__["AlertService"],
+            _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_7__["AngularFirestore"],
+            _services_data_firestore_service__WEBPACK_IMPORTED_MODULE_8__["FirestoreService"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_9__["LoadingController"]])
     ], RegisterPage);
     return RegisterPage;
 }());

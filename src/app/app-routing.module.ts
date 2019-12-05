@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
   { path: 'edit-profile', loadChildren: './edit-profile/edit-profile.module#EditProfilePageModule' },
   { path: 'list-users', loadChildren: './list-users/list-users.module#ListUsersPageModule' },
+  { path: 'detail', loadChildren: './detail/detail.module#DetailPageModule' },
 ];
 
 @NgModule({
