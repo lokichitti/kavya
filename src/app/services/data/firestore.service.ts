@@ -32,9 +32,12 @@ export class FirestoreService {
         gender
       });
     }
+    
+    
 //Added for purpose
     getUserData( userName: string ): AngularFirestoreCollection<User> {
       return this.firestore.collection(`${userName}`);
+      
     }
 
     getUserEmail(userName: string, emailId: string): AngularFirestoreDocument<User> {
