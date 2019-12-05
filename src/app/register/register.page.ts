@@ -87,7 +87,7 @@ export class RegisterPage implements OnInit {
         UsernameValidator.validUsername,
         Validators.maxLength(25),
         Validators.minLength(5),
-        Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
+        Validators.pattern('^(?=.*[a-zA-Z])(?=.*)[a-zA-Z0-9]+$'),
         Validators.required
       ])),
       name: new FormControl('', Validators.required),

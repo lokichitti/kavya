@@ -10,11 +10,20 @@ import { FirestoreService } from '../services/data/firestore.service';
 })
 export class HomePage {
   public userList;
-
+  user: Observable<User>;
   constructor(
   private firestoreService: FirestoreService,
   ) {}
   ngOnInit() {
     this.userList = this.firestoreService.getUserList().valueChanges();
+    
   }
+  getData()
+  {
+    this.userList = this.firestoreService.getUserList().valueChanges();
+    this.userList.subscribe(result=>{
+			console.log(result.email);
+		});
+  }
+
 }

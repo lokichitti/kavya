@@ -4,14 +4,18 @@ import { AngularFirestore,
   AngularFirestoreDocument
  } from '@angular/fire/firestore';
 import { User } from '../../models/user.interface';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
 
+  public user: Observable<User>;
   constructor(
-    public firestore: AngularFirestore
+    public firestore: AngularFirestore,
+    private route: ActivatedRoute
     ) { }
 
     createUser( userName: string, email: string,phone: string,fName: string,
@@ -33,8 +37,9 @@ export class FirestoreService {
       return this.firestore.collection(`${userName}`);
     }
 
-    getUserInfo(userName: string , userId: string): AngularFirestoreDocument<User> {
-      return this.firestore.collection(`${userName}`).doc(userId);
+    getUserEmail(userName: string, emailId: string): AngularFirestoreDocument<User> {
+      const userId: string = this.route.snapshot.paramMap.get('id');
+      return this.firestore.collection(`${userName}`). doc(emailId);
     }
 
     thrashUser(userName: string, userId: string): Promise<void> {

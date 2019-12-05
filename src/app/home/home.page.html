@@ -45,7 +45,6 @@
     <div>
       <ion-card
     *ngFor="let user of userList | async"
-    routerLink="/{{user.id}}"
   >
     <ion-card-header>
       {{ user.userName }}
@@ -55,4 +54,5 @@
     </ion-card-content>
   </ion-card>
     </div>
+    <ion-button fill="solid" expand="block" color="dark" (click)="getData()">getData</ion-button>
 </ion-content>
