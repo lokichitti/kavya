@@ -25,5 +25,19 @@ export class HomePage {
 			console.log(result.email);
 		});
   }
+  signupUser(credentials){
+   // try {
+   /*   const user: firebase.User = await this.authService.createAdminUser(
+        credentials.email,
+        credentials.password
+      );
+      this.authService.userId = user.uid;
+      await this.signupForm.hideLoading();
+      this.router.navigateByUrl('');
+    } catch (error) {
+      await this.signupForm.hideLoading();
+     // this.signupForm.handleError(error);*/
+    //}
+  }
 
 }

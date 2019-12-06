@@ -1,29 +1,5 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>{{ (user | async)?.userName }}</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content padding>
-  <h3>Name</h3>
-  <p>
-    The user {{ user | async)?.userName }} was released by {{ (user |
-    async)?.fName }}.
-  </p>
-
-  <h3>Email</h3>
-  <p>
-    It was part of the {{ (email | async)?.email }} email.
-  </p>
-
-  <h3>phone</h3>
-  <p>
-    {{ (user | async)?.phone }}
-  </p>
-  <ion-button expand="block" (click)="deleteUser()">
-    DELETE USER
-  </ion-button>
-</ion-content>
+    <ion-toolbar>
+      <ion-title>ListUsers</ion-title>
+    </ion-toolbar>
+  </ion-header>

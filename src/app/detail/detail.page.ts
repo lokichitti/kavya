@@ -18,8 +18,10 @@ export class DetailPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    const userId: string = this.route.snapshot.paramMap.get('id');
-    this.user = this.firestoreService.getUserDetail(userId).valueChanges();
+    //const userId: string = this.route.snapshot.paramMap.get('id');
+    //this.user = this.firestoreService.getUserDetail(userId).valueChanges();
+    //console.log('DETAIL PAGE USER DATA');
+    //console.log(this.user);
   }
 
   async deleteUser() {    

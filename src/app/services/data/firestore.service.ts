@@ -22,7 +22,8 @@ export class FirestoreService {
     lName: string,gender: string): Promise<void> {
       const id = this.firestore.createId();
     
-      return this.firestore.doc(`${userName}/${id}`).set({
+      //return this.firestore.doc(`${userName}/${id}`).set({
+      return this.firestore.doc(`userList/${id}`).set({
         id,
         userName,
         email,

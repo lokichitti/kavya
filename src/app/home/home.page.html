@@ -10,7 +10,7 @@
               <ion-icon slot="icon-only" name="information-circle"></ion-icon>
             </ion-button>
           </ion-buttons>
-      <ion-title size="large" text-center>Me&MyShop</ion-title>
+      <ion-title size="large" text-center>Me&MyHome</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -43,16 +43,21 @@
     </div>
 
     <div>
-      <ion-card
-    *ngFor="let user of userList | async"
-  >
-    <ion-card-header>
-      {{ user.userName }}
-    </ion-card-header>
-    <ion-card-content>
-      email: {{ user.email }}
-    </ion-card-content>
-  </ion-card>
+        <ion-card
+        *ngFor="let user of userList | async"
+        routerLink="/detail/{{user.id}}"
+      >
+        <ion-card-header>
+          {{ user.userName }}
+        </ion-card-header>
+        <ion-card-content>
+          Mail ID: {{ user.email }}
+        </ion-card-content>
+      </ion-card>
     </div>
-    <ion-button fill="solid" expand="block" color="dark" (click)="getData()">getData</ion-button>
+    <div>
+        <button shape="round" [routerLink]="['/detail']" class = "button button-full"> 
+            Detail
+          </button>
+        </div>
 </ion-content>
