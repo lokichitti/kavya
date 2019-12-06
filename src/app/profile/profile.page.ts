@@ -28,7 +28,7 @@ export class ProfilePage implements OnInit {
 	  }
 
 	  logOut(): void {
-		this.authService.logoutUser().then( () => {
+		this.authService.logout().then( () => {
 		  this.router.navigateByUrl('login');
 		});
 	  }

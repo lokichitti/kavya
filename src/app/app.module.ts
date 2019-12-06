@@ -25,6 +25,8 @@ import { AlertController } from '@ionic/angular';
 import { UserService } from './services/user/user.services';
 import { AlertService } from './services/alert';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -49,6 +51,7 @@ import { HttpClientModule } from '@angular/common/http';
     AlertController,
     UserService,
     AlertService,
+    AngularFireAuthGuard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
