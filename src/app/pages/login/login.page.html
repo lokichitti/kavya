@@ -11,11 +11,12 @@
     [actionButtonText]="'Login'"
   ></app-auth-form>
 
-  <ion-button expand="block" fill="clear" routerLink="/signup">
-    Create a new account
-  </ion-button>
+  <button [routerLink]="['/register']" align="center" class="register-margin">
+    <img src="assets/image/register.png">
+  </button>
 
-  <ion-button expand="block" fill="clear" routerLink="/reset-password">
-    I forgot my password :(
-  </ion-button>
+  <button [routerLink]="['/reset-password']" align="center" class="register-margin">
+    <img src="assets/image/forgot-password.png">
+  </button>
+  
 </ion-content>

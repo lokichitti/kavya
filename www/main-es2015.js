@@ -8,69 +8,86 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./edit-profile/edit-profile.module": [
-		"./src/app/edit-profile/edit-profile.module.ts",
-		"edit-profile-edit-profile-module"
-	],
-	"./google-maps/google-maps.module": [
-		"./src/app/google-maps/google-maps.module.ts",
-		"google-maps-google-maps-module"
-	],
 	"./info/info.module": [
 		"./src/app/info/info.module.ts",
 		"info-info-module"
 	],
-	"./list-users/list-users.module": [
-		"./src/app/list-users/list-users.module.ts",
-		"common",
-		"list-users-list-users-module"
+	"./pages/first/first.module": [
+		"./src/app/pages/first/first.module.ts",
+		"pages-first-first-module"
 	],
-	"./login/login.module": [
-		"./src/app/login/login.module.ts",
-		"login-login-module"
+	"./pages/google-login/google-login.module": [
+		"./src/app/pages/google-login/google-login.module.ts",
+		"pages-google-login-google-login-module"
 	],
-	"./main-page/main-page.module": [
-		"./src/app/main-page/main-page.module.ts",
-		"main-page-main-page-module"
+	"./pages/home/home.module": [
+		"./src/app/pages/home/home.module.ts",
+		"pages-home-home-module"
 	],
-	"./map/map.module": [
-		"./src/app/map/map.module.ts",
-		"map-map-module"
+	"./pages/login/login.module": [
+		"./src/app/pages/login/login.module.ts",
+		"default~pages-login-login-module~pages-reset-password-reset-password-module~pages-signup-signup-module",
+		"pages-login-login-module"
 	],
-	"./myshop/myshop.module": [
-		"./src/app/myshop/myshop.module.ts",
-		"myshop-myshop-module"
+	"./pages/loginMethod/email/email.module": [
+		"./src/app/pages/loginMethod/email/email.module.ts",
+		"pages-loginMethod-email-email-module"
 	],
-	"./phone-login/phone-login.module": [
-		"./src/app/phone-login/phone-login.module.ts",
-		"phone-login-phone-login-module"
+	"./pages/loginMethod/facebook/facebook.module": [
+		"./src/app/pages/loginMethod/facebook/facebook.module.ts",
+		"pages-loginMethod-facebook-facebook-module"
 	],
-	"./phone-register/phone-register.module": [
-		"./src/app/phone-register/phone-register.module.ts",
-		"default~phone-register-phone-register-module~register-register-module",
-		"phone-register-phone-register-module"
+	"./pages/loginMethod/google/google.module": [
+		"./src/app/pages/loginMethod/google/google.module.ts",
+		"pages-loginMethod-google-google-module"
 	],
-	"./private-shop/private-shop.module": [
-		"./src/app/private-shop/private-shop.module.ts",
-		"private-shop-private-shop-module"
+	"./pages/loginMethod/phone/phone.module": [
+		"./src/app/pages/loginMethod/phone/phone.module.ts",
+		"pages-loginMethod-phone-phone-module"
 	],
-	"./profile/profile.module": [
-		"./src/app/profile/profile.module.ts",
-		"profile-profile-module"
+	"./pages/profile/profile.module": [
+		"./src/app/pages/profile/profile.module.ts",
+		"pages-profile-profile-module"
 	],
-	"./public-shop/public-shop.module": [
-		"./src/app/public-shop/public-shop.module.ts",
-		"public-shop-public-shop-module"
+	"./pages/register/register.module": [
+		"./src/app/pages/register/register.module.ts",
+		"default~pages-register-register-module~pages-registerMethod-r-email-r-email-module",
+		"pages-register-register-module"
 	],
-	"./register/register.module": [
-		"./src/app/register/register.module.ts",
-		"default~phone-register-phone-register-module~register-register-module",
-		"common",
-		"register-register-module"
+	"./pages/registerMethod/r-email/r-email.module": [
+		"./src/app/pages/registerMethod/r-email/r-email.module.ts",
+		"default~pages-register-register-module~pages-registerMethod-r-email-r-email-module",
+		"pages-registerMethod-r-email-r-email-module"
 	],
-	"./sign-in/sign-in.module": [
-		"./src/app/sign-in/sign-in.module.ts",
-		"sign-in-sign-in-module"
+	"./pages/registerMethod/r-facebook/r-facebook.module": [
+		"./src/app/pages/registerMethod/r-facebook/r-facebook.module.ts",
+		"pages-registerMethod-r-facebook-r-facebook-module"
+	],
+	"./pages/registerMethod/r-google/r-google.module": [
+		"./src/app/pages/registerMethod/r-google/r-google.module.ts",
+		"pages-registerMethod-r-google-r-google-module"
+	],
+	"./pages/registerMethod/r-phone/r-phone.module": [
+		"./src/app/pages/registerMethod/r-phone/r-phone.module.ts",
+		"pages-registerMethod-r-phone-r-phone-module"
+	],
+	"./pages/reset-password/reset-password.module": [
+		"./src/app/pages/reset-password/reset-password.module.ts",
+		"default~pages-login-login-module~pages-reset-password-reset-password-module~pages-signup-signup-module",
+		"pages-reset-password-reset-password-module"
+	],
+	"./pages/shop/shop.module": [
+		"./src/app/pages/shop/shop.module.ts",
+		"pages-shop-shop-module"
+	],
+	"./pages/sign-in/sign-in.module": [
+		"./src/app/pages/sign-in/sign-in.module.ts",
+		"pages-sign-in-sign-in-module"
+	],
+	"./pages/signup/signup.module": [
+		"./src/app/pages/signup/signup.module.ts",
+		"default~pages-login-login-module~pages-reset-password-reset-password-module~pages-signup-signup-module",
+		"pages-signup-signup-module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -530,27 +547,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire/auth-guard */ "./node_modules/@angular/fire/auth-guard/es2015/index.js");
 
 
 
+
+const redirectToLogin = Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["redirectUnauthorizedTo"])(['login']);
 const routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', loadChildren: () => __webpack_require__.e(/*! import() | home-home-module */ "home-home-module").then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomePageModule) },
-    { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-    { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
-    { path: 'myshop', loadChildren: './myshop/myshop.module#MyshopPageModule' },
-    { path: 'public-shop', loadChildren: './public-shop/public-shop.module#PublicShopPageModule' },
-    { path: 'private-shop', loadChildren: './private-shop/private-shop.module#PrivateShopPageModule' },
-    { path: 'main-page', loadChildren: './main-page/main-page.module#MainPagePageModule' },
-    { path: 'map', loadChildren: './map/map.module#MapPageModule' },
-    { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
-    { path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule' },
-    { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
-    { path: 'phone-login', loadChildren: './phone-login/phone-login.module#PhoneLoginPageModule' },
-    { path: 'google-maps', loadChildren: './google-maps/google-maps.module#GoogleMapsPageModule' },
-    { path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
-    { path: 'edit-profile', loadChildren: './edit-profile/edit-profile.module#EditProfilePageModule' },
-    { path: 'list-users', loadChildren: './list-users/list-users.module#ListUsersPageModule' },
+    { path: '', redirectTo: 'first', pathMatch: 'full' },
+    Object.assign({ path: 'info', loadChildren: './info/info.module#InfoPageModule' }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["canActivate"])(redirectToLogin)),
+    //{ path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule' },
+    //{ path: 'phone-login', loadChildren: './phone-login/phone-login.module#PhoneLoginPageModule' },
+    //{ path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
+    { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+    { path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
+    { path: 'reset-password', loadChildren: './pages/reset-password/reset-password.module#ResetPasswordPageModule' },
+    Object.assign({ path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["canActivate"])(redirectToLogin)),
+    { path: 'sign-in', loadChildren: './pages/sign-in/sign-in.module#SignInPageModule' },
+    { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
+    { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
+    { path: 'first', loadChildren: './pages/first/first.module#FirstPageModule' },
+    { path: 'google-login', loadChildren: './pages/google-login/google-login.module#GoogleLoginPageModule' },
+    { path: 'email', loadChildren: './pages/loginMethod/email/email.module#EmailPageModule' },
+    { path: 'google', loadChildren: './pages/loginMethod/google/google.module#GooglePageModule' },
+    { path: 'facebook', loadChildren: './pages/loginMethod/facebook/facebook.module#FacebookPageModule' },
+    { path: 'phone', loadChildren: './pages/loginMethod/phone/phone.module#PhonePageModule' },
+    { path: 'r-phone', loadChildren: './pages/registerMethod/r-phone/r-phone.module#RPhonePageModule' },
+    { path: 'r-email', loadChildren: './pages/registerMethod/r-email/r-email.module#REmailPageModule' },
+    { path: 'r-google', loadChildren: './pages/registerMethod/r-google/r-google.module#RGooglePageModule' },
+    { path: 'r-facebook', loadChildren: './pages/registerMethod/r-facebook/r-facebook.module#RFacebookPageModule' },
+    { path: 'shop', loadChildren: './pages/shop/shop.module#ShopPageModule' },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -559,7 +585,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         imports: [
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, { preloadingStrategy: _angular_router__WEBPACK_IMPORTED_MODULE_2__["PreloadAllModules"] })
         ],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
     })
 ], AppRoutingModule);
 
@@ -675,6 +701,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_user_user_services__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./services/user/user.services */ "./src/app/services/user/user.services.ts");
 /* harmony import */ var _services_alert__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/alert */ "./src/app/services/alert.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/fire/auth-guard */ "./node_modules/@angular/fire/auth-guard/es2015/index.js");
+
 
 
 
@@ -725,6 +753,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"],
             _services_user_user_services__WEBPACK_IMPORTED_MODULE_19__["UserService"],
             _services_alert__WEBPACK_IMPORTED_MODULE_20__["AlertService"],
+            _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AngularFireAuthGuard"],
             { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]

@@ -28,8 +28,8 @@ export class ProfileService {
   return this.userProfile.valueChanges();
  }
 
- updateName(fullName: string): Promise<void> {
-  return this.userProfile.update({ fullName });
+ updateName(fName: string): Promise<void> {
+  return this.userProfile.update({ fName });
  }
 
  async updateEmail(newEmail: string, password: string): Promise<void> {

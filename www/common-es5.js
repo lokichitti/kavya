@@ -403,67 +403,40 @@ var findCheckedOption = function (el, tagName) {
 
 /***/ }),
 
-/***/ "./node_modules/angularfire2/firestore/index.js":
-/*!******************************************************!*\
-  !*** ./node_modules/angularfire2/firestore/index.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/index.js"));
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi93cmFwcGVyL3NyYy9maXJlc3RvcmUvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBQSw2Q0FBd0MifQ==
-
-/***/ }),
-
-/***/ "./src/app/services/data/firestore.service.ts":
-/*!****************************************************!*\
-  !*** ./src/app/services/data/firestore.service.ts ***!
-  \****************************************************/
-/*! exports provided: FirestoreService */
+/***/ "./src/app/shared-modules/auth.module.ts":
+/*!***********************************************!*\
+  !*** ./src/app/shared-modules/auth.module.ts ***!
+  \***********************************************/
+/*! exports provided: AuthModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirestoreService", function() { return FirestoreService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthModule", function() { return AuthModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angularfire2/firestore */ "./node_modules/angularfire2/firestore/index.js");
-/* harmony import */ var angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var src_app_components_auth_form_auth_form_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/components/auth-form/auth-form.component */ "./src/app/components/auth-form/auth-form.component.ts");
 
 
 
-var FirestoreService = /** @class */ (function () {
-    function FirestoreService(firestore) {
-        this.firestore = firestore;
+
+
+
+var AuthModule = /** @class */ (function () {
+    function AuthModule() {
     }
-    FirestoreService.prototype.createUser = function (userName, email, phone, fName, lName, gender) {
-        var id = this.firestore.createId();
-        return this.firestore.doc("userList/" + id).set({
-            id: id,
-            userName: userName,
-            email: email,
-            phone: phone,
-            fName: fName,
-            lName: lName,
-            gender: gender
-        });
-    };
-    FirestoreService.ctorParameters = function () { return [
-        { type: angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] }
-    ]; };
-    FirestoreService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-            providedIn: 'root'
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"]])
-    ], FirestoreService);
-    return FirestoreService;
+    AuthModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"]],
+            declarations: [src_app_components_auth_form_auth_form_component__WEBPACK_IMPORTED_MODULE_5__["AuthFormComponent"]],
+            exports: [src_app_components_auth_form_auth_form_component__WEBPACK_IMPORTED_MODULE_5__["AuthFormComponent"]],
+            entryComponents: [src_app_components_auth_form_auth_form_component__WEBPACK_IMPORTED_MODULE_5__["AuthFormComponent"]]
+        })
+    ], AuthModule);
+    return AuthModule;
 }());
 
 

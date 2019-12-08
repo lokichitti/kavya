@@ -1,0 +1,43 @@
+<ion-header align="center">
+  <ion-toolbar >
+      <ion-buttons slot="end">
+          <ion-button [routerLink]="['/sign-in']">
+            <ion-icon slot="icon-only" name="log-in"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="start">
+            <ion-button [routerLink]="['/info']">
+              <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+      <ion-title size="large" text-center>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+    
+    <div>
+        <ion-card color="secondary">
+    <button [routerLink]="['/phone']" align="center"  class="login-margin">
+      <img src="assets/image/continue-with-phone.png">
+  </button>
+    <button [routerLink]="['/email']" align="center"  class="login-margin">
+      <img src="assets/image/continue-with-email.png">
+    </button>
+  <button [routerLink]="['/google']" align="center"  class="login-margin">
+    <img src="assets/image/continue-with-google.png">
+</button>
+<button [routerLink]="['/facebook']" align="center"  class="login-margin">
+  <img src="assets/image/continue-with-facebook.png">
+</button>
+<button [routerLink]="['/register']" align="center" class="register-margin">
+  <img src="assets/image/register.png">
+</button>
+<button [routerLink]="['/reset-password']" align="center" class="login-margin">
+  <img src="assets/image/forgot-password.png">
+</button>
+</ion-card>
+</div>
+
+<div text-center color="tertiary"> Welcome to Me&MyShop </div>
+</ion-content>

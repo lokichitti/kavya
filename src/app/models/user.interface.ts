@@ -8,3 +8,9 @@ export interface User {
     lName: string;
     gender: string;
   }
+
+  export interface UsersList{
+    phone: number;
+    email: string;
+    password: string;
+  }

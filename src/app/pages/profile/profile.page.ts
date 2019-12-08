@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/user/auth.service';
 import { Router } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
-import { AlertController } from '@ionic/angular';
+import { LoadingController, AlertController } from '@ionic/angular';
 import { UserProfile } from 'src/app/models/user';
 
 @Component({
@@ -16,7 +16,7 @@ export class ProfilePage implements OnInit {
  private authService: AuthService,
  private router: Router,
  private profileService: ProfileService,
- private alertCtrl: AlertController
+ private alertCtrl: AlertController,
  ) {}
 
  ngOnInit() {
@@ -38,9 +38,9 @@ async logOut(): Promise<void> {
   inputs: [
   {
   type: 'text',
-  name: 'fullName',
-  placeholder: 'Your full name',
-  value: this.userProfile.fullName
+  name: 'first Name',
+  placeholder: 'Your first name',
+  value: this.userProfile.fName
   }
   ],
   buttons: [

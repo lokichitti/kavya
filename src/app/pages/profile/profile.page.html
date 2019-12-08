@@ -6,31 +6,56 @@
     <ion-title>Profile Page</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="logOut()">
-        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+        <ion-icon slot="icon-only" name="log-out"> Logout</ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-list>
-    <ion-list-header> Personal Information </ion-list-header>
+    <ion-list-header> Hello {{userProfile?.fName}} {{userProfile?.lName}}
+    </ion-list-header>
   </ion-list>
   <ion-item (click)="updateName()">
     <ion-label>
       <ion-grid>
         <ion-row>
-          <ion-col class="ion-text-start" size="5"> Name </ion-col>
+          <ion-col class="ion-text-start" size="5"> First Name </ion-col>
           <ion-col
-            class="ion-text-center"
+             class="ion-text-center"
             size="7"
-            *ngIf="userProfile?.fullName"
+            *ngIf="userProfile?.fName"
           >
-            {{userProfile?.fullName}}
+            {{userProfile?.fName}}
           </ion-col>
           <ion-col
             size="7"
             class="placeholder-profile ion-text-center"
-            *ngIf="!userProfile?.fullName"
+            *ngIf="!userProfile?.fName"
+          >
+            <span> Tap here to edit. </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-label>
+  </ion-item>
+
+  <ion-item (click)="updateName()">
+    <ion-label>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-start" size="5"> Last Name </ion-col>
+          <ion-col
+             class="ion-text-center"
+            size="7"
+            *ngIf="userProfile?.lName"
+          >
+            {{userProfile?.lName}}
+          </ion-col>
+          <ion-col
+            size="7"
+            class="placeholder-profile ion-text-center"
+            *ngIf="!userProfile?.lName"
           >
             <span> Tap here to edit. </span>
           </ion-col>

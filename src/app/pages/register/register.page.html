@@ -1,0 +1,40 @@
+<ion-header align="center">
+    <ion-toolbar >
+        <ion-buttons slot="end">
+            <ion-button [routerLink]="['/sign-in']">
+              <ion-icon slot="icon-only" name="log-in"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-buttons slot="start">
+              <ion-button [routerLink]="['/info']">
+                <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+        <ion-title size="large" text-center>Register</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content >
+      
+      <div>
+          <ion-card color="secondary">
+      <button [routerLink]="['/r-phone']" align="center"  class="login-margin">
+        <img src="assets/image/continue-with-phone.png">
+    </button>
+      <button [routerLink]="['/r-email']" align="center"  class="login-margin">
+        <img src="assets/image/continue-with-email.png">
+      </button>
+    <button [routerLink]="['/r-google']" align="center"  class="login-margin">
+      <img src="assets/image/continue-with-google.png">
+  </button>
+  <button [routerLink]="['/r-facebook']" align="center"  class="login-margin">
+    <img src="assets/image/continue-with-facebook.png">
+</button>
+  <button [routerLink]="['/first']" align="center" class="register-margin">
+    <img src="assets/image/login.png">
+  </button>
+  </ion-card>
+  </div>
+  <div text-center color="tertiary"> Welcome to Me&MyShop </div>
+  </ion-content>
+  
