@@ -60,23 +60,25 @@ export class AuthService {
       return await loading.present();
   }
 
-  async createUser( uId: string, email: string, fName: string,
+  async createUser( uId: string, email: string, phone: string, fName: string,
     lName: string, password: string): Promise<void> {
-
+    
       await this.firestore.doc(`userProfile/${uId}`).set({
         uId,
         email,
+        phone,
         fName,
         lName,
         password
       });
     }
 
-    async createPhoneUser( uId: string, phone: string, fName: string,
+    async createPhoneUser( uId: string,email: string, phone: string, fName: string,
       lName: string, password: string): Promise<void> {
   
         await this.firestore.doc(`userProfile/${uId}`).set({
           uId,
+          email,
           phone,
           fName,
           lName,

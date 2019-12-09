@@ -302,7 +302,7 @@ let AuthService = class AuthService {
     }
     createPhoneUser(uId, phone, fName, lName, password) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.firestore.doc(`userProfile/${phone}`).set({
+            yield this.firestore.doc(`userProfile/${uId}`).set({
                 uId,
                 phone,
                 fName,
