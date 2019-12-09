@@ -25,7 +25,8 @@ export class AuthService {
       const fName = values.name;
       const lName = values.lastname;
       const password = values.matching_passwords.password;
-      this.createUser(uId,email, fName, lName, password )
+      const phone ="";
+      this.createUser(uId,email, phone, fName, lName, password )
         .then(
           () => {
             loading.dismiss().then(() => {
@@ -46,7 +47,8 @@ export class AuthService {
       const fName = values.value.name;
       const lName = values.value.lastname;
       const password = values.value.matching_passwords.password;
-      this.createPhoneUser(uId,phone, fName, lName, password )
+      const email ="";
+      this.createPhoneUser(uId, email, phone, fName, lName, password )
         .then(
           () => {
             loading.dismiss().then(() => {

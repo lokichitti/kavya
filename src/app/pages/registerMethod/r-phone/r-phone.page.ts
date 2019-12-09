@@ -130,28 +130,32 @@ export class RPhonePage implements OnInit {
 
 async register(values): Promise<void> {
     
-  try {
-    
-    const userCredential: firebase.auth.UserCredential = await this.authService.signupWithPhone(
+  try {    
+      const userCredential: firebase.auth.UserCredential = await this.authService.signupWithPhone(
       values
     );
-    
+    await this.alert.hideLoading();
     this.authService.userId = userCredential.user.uid;
     this.alert.presentAlert('Success', 'You are registered!')
     this.authService.createPhoneUserProfile(this.authService.userId, values);
     this.router.navigate(["/home"]);
   } catch (error) {
-    this.alert.presentAlert('Error', 'Something went wrong, please try again!')
+    await this.alert.hideLoading();
+    this.alert.handleError(error);
+    //this.alert.presentAlert('Error', 'Something went wrong, please try again!')
   }
   
 }
   async verify(values){
     console.log("verify called Entered OTP is "+ this.OTPcode);
     try{
+      this.alert.showLoading();
       this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode);
       this.register(values);
     }catch (error) {
-      this.alert.presentAlert('Error', 'Invalid phone or password!')
+      await this.alert.hideLoading();
+      this.alert.handleError(error);
+      //this.alert.presentAlert('Error', 'Invalid phone or password!')
     }
   }
   

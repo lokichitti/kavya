@@ -22,6 +22,7 @@ export class EmailPage implements OnInit {
  
   async loginUser(email: string, password: string): Promise<void> {
   try {
+    this.alert.showLoading();
   const userCredential: firebase.auth.UserCredential = await this.authService.login(
   email,
   password
@@ -30,7 +31,9 @@ export class EmailPage implements OnInit {
       this.alert.presentAlert('Success', 'You are logged in!')
       this.router.navigate(["/home"]);
     } catch (error) {
-      this.alert.presentAlert('Error', 'Invalid email or password!')
+      await this.alert.hideLoading();
+      this.alert.handleError(error);
+    //  this.alert.presentAlert('Error', 'Invalid email or password!')
     }
     
   }

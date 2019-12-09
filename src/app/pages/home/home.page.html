@@ -1,22 +1,22 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header >
+  <ion-toolbar color = "primary">
       <ion-buttons slot="start">
           <ion-button [routerLink]="['/profile']">
-            <ion-icon slot="icon-only" name="person" color="danger"></ion-icon>
+            <ion-icon slot="icon-only" name="settings"  color = "light"></ion-icon>
           </ion-button>
         </ion-buttons>
         <ion-buttons slot="end">
             <ion-button [routerLink]="['/shop']">
-              <ion-icon slot="icon-only" name="menu" color="danger"></ion-icon>
+              <ion-icon slot="icon-only" name="menu"  color = "light"></ion-icon>
             </ion-button>
           </ion-buttons>
-      <ion-title size="large" text-center>My Shop</ion-title>
+      <ion-title color = "light" size="medium" text-center>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <div>
         <!-- Searchbar with a placeholder -->
-    <ion-searchbar shape="round" placeholder="Items/services near by"></ion-searchbar>
+    <ion-searchbar shape="round" placeholder="What you are looking for..."></ion-searchbar>
       </div>
 </ion-content>

@@ -572,10 +572,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore
-const redirectToLogin = Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["redirectUnauthorizedTo"])(['login']);
+const redirectToLogin = Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["redirectUnauthorizedTo"])(['first']);
 const routes = [
     { path: '', redirectTo: 'first', pathMatch: 'full' },
-    Object.assign({ path: 'info', loadChildren: './info/info.module#InfoPageModule' }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["canActivate"])(redirectToLogin)),
+    //{ path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+    //{ path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
+    { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
     //{ path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule' },
     { path: 'phone-login', loadChildren: './phone-login/phone-login.module#PhoneLoginPageModule' },
     { path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
@@ -801,16 +803,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AlertService = class AlertService {
-    constructor(alertController, loadingCtrl) {
-        this.alertController = alertController;
+    constructor(alertCtrl, loadingCtrl) {
+        this.alertCtrl = alertCtrl;
         this.loadingCtrl = loadingCtrl;
     }
     presentAlert(title, content) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            const alert = yield this.alertController.create({
+            const alert = yield this.alertCtrl.create({
                 header: title,
                 message: content,
                 buttons: ['OK']
+            });
+            yield alert.present();
+        });
+    }
+    showLoading() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            this.loading = yield this.loadingCtrl.create();
+            yield this.loading.present();
+        });
+    }
+    hideLoading() {
+        return this.loading.dismiss();
+    }
+    handleError(error) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const alert = yield this.alertCtrl.create({
+                message: error.message,
+                buttons: [{ text: 'Ok', role: 'cancel' }]
             });
             yield alert.present();
         });
@@ -934,7 +954,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/hmecd001523/ionic-dont-delete/firebase-working/progress/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/lokesh/ionic-dont-delete/kavyamma/lokappa/src/main.ts */"./src/main.ts");
 
 
 /***/ })

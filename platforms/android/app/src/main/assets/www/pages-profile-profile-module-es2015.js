@@ -66,7 +66,7 @@ ProfilePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "ion-list-header {\n  background-color: #ececec;\n}\n\n.placeholder-profile {\n  color: #cccccc;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2htZWNkMDAxNTIzL2lvbmljLWRvbnQtZGVsZXRlL2ZpcmViYXNlLXdvcmtpbmcvcHJvZ3Jlc3Mvc3JjL2FwcC9wYWdlcy9wcm9maWxlL3Byb2ZpbGUucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9wcm9maWxlL3Byb2ZpbGUucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0kseUJBQUE7QUNDSjs7QURFRTtFQUNFLGNBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3Byb2ZpbGUvcHJvZmlsZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tbGlzdC1oZWFkZXIge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNlY2VjZWM7XG4gIH1cbiAgXG4gIC5wbGFjZWhvbGRlci1wcm9maWxlIHtcbiAgICBjb2xvcjogI2NjY2NjYztcbiAgfSIsImlvbi1saXN0LWhlYWRlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNlY2VjZWM7XG59XG5cbi5wbGFjZWhvbGRlci1wcm9maWxlIHtcbiAgY29sb3I6ICNjY2NjY2M7XG59Il19 */"
+module.exports = "ion-list-header {\n  background-color: #ececec;\n}\n\n.placeholder-profile {\n  color: #cccccc;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9pb25pYy1kb250LWRlbGV0ZS9rYXZ5YW1tYS9sb2thcHBhL3NyYy9hcHAvcGFnZXMvcHJvZmlsZS9wcm9maWxlLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvcHJvZmlsZS9wcm9maWxlLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHlCQUFBO0FDQ0o7O0FERUU7RUFDRSxjQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9wcm9maWxlL3Byb2ZpbGUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWxpc3QtaGVhZGVyIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWNlY2VjO1xuICB9XG4gIFxuICAucGxhY2Vob2xkZXItcHJvZmlsZSB7XG4gICAgY29sb3I6ICNjY2NjY2M7XG4gIH0iLCJpb24tbGlzdC1oZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWNlY2VjO1xufVxuXG4ucGxhY2Vob2xkZXItcHJvZmlsZSB7XG4gIGNvbG9yOiAjY2NjY2NjO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -326,7 +326,8 @@ let AuthService = class AuthService {
             const fName = values.name;
             const lName = values.lastname;
             const password = values.matching_passwords.password;
-            this.createUser(uId, email, fName, lName, password)
+            const phone = "";
+            this.createUser(uId, email, phone, fName, lName, password)
                 .then(() => {
                 loading.dismiss().then(() => {
                 });
@@ -343,7 +344,8 @@ let AuthService = class AuthService {
             const fName = values.value.name;
             const lName = values.value.lastname;
             const password = values.value.matching_passwords.password;
-            this.createPhoneUser(uId, phone, fName, lName, password)
+            const email = "";
+            this.createPhoneUser(uId, email, phone, fName, lName, password)
                 .then(() => {
                 loading.dismiss().then(() => {
                 });
@@ -353,21 +355,23 @@ let AuthService = class AuthService {
             return yield loading.present();
         });
     }
-    createUser(uId, email, fName, lName, password) {
+    createUser(uId, email, phone, fName, lName, password) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield this.firestore.doc(`userProfile/${uId}`).set({
                 uId,
                 email,
+                phone,
                 fName,
                 lName,
                 password
             });
         });
     }
-    createPhoneUser(uId, phone, fName, lName, password) {
+    createPhoneUser(uId, email, phone, fName, lName, password) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield this.firestore.doc(`userProfile/${uId}`).set({
                 uId,
+                email,
                 phone,
                 fName,
                 lName,

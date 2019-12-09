@@ -92,17 +92,20 @@ export class REmailPage implements OnInit {
   async onSubmit(values): Promise<void> {
     
     try {
-      //const loading = await this.loadingCtrl.create(); 
+      this.alert.showLoading();
       const userCredential: firebase.auth.UserCredential = await this.authService.signup(
         values
       );
-      //return await loading.present();
+
       this.authService.userId = userCredential.user.uid;
+      await this.alert.hideLoading();
       this.alert.presentAlert('Success', 'You are registered!')
       this.authService.createProfile(this.authService.userId, values);
       this.router.navigate(["/home"]);
     } catch (error) {
-      this.alert.presentAlert('Error', 'Something went wrong, please try again!')
+        await this.alert.hideLoading();
+        this.alert.handleError(error);
+      //this.alert.presentAlert('Error', 'Something went wrong, please try again!')
     }
     
   }

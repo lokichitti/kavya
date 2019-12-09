@@ -3,13 +3,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
 
 //keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore
-const redirectToLogin = redirectUnauthorizedTo(['login']);
+const redirectToLogin = redirectUnauthorizedTo(['first']);
 const routes: Routes = [
   { path: '', redirectTo: 'first', pathMatch: 'full' },
   //{ path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   //{ path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
-  { path: 'info', loadChildren: './info/info.module#InfoPageModule' ,
-  ...canActivate(redirectToLogin)  },
+  { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
   //{ path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule' },
   { path: 'phone-login', loadChildren: './phone-login/phone-login.module#PhoneLoginPageModule' },
   { path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
