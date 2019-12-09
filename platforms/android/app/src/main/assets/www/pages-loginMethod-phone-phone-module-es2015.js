@@ -184,17 +184,15 @@ let PhonePage = class PhonePage {
     }
     loginUser(values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            /*try {
-            const userCredential: firebase.auth.UserCredential = await this.authService.login(
-              values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com",
-              values.value.password
-              );
-            this.authService.userId = userCredential.user.uid;
-                this.alert.presentAlert('Success', 'You are logged in!')
+            try {
+                const userCredential = yield this.authService.login(values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com", values.value.password);
+                this.authService.userId = userCredential.user.uid;
+                this.alert.presentAlert('Success', 'You are logged in!');
                 this.router.navigate(["/home"]);
-              } catch (error) {
-                this.alert.presentAlert('Error', 'Invalid phone or password!')
-              }*/
+            }
+            catch (error) {
+                this.alert.presentAlert('Error', 'Invalid phone or password!');
+            }
         });
     }
 };
@@ -304,7 +302,7 @@ let AuthService = class AuthService {
     }
     createPhoneUser(uId, phone, fName, lName, password) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.firestore.doc(`PhoneUserProfile/${phone}`).set({
+            yield this.firestore.doc(`userProfile/${phone}`).set({
                 uId,
                 phone,
                 fName,

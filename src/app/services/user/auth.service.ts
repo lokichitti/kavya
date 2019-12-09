@@ -75,7 +75,7 @@ export class AuthService {
     async createPhoneUser( uId: string, phone: string, fName: string,
       lName: string, password: string): Promise<void> {
   
-        await this.firestore.doc(`PhoneUserProfile/${phone}`).set({
+        await this.firestore.doc(`userProfile/${uId}`).set({
           uId,
           phone,
           fName,

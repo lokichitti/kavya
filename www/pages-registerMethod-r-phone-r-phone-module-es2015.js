@@ -211,13 +211,15 @@ let RPhonePage = class RPhonePage {
         });
     }
     verify(values) {
-        console.log("verify called Entered OTP is " + this.OTPcode);
-        this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode)
-            .then(function (result) {
-            this.register(values);
-            // ...
-        }).catch(function (error) {
-            this.alert.presentAlert('Error', 'Something went wrong, please try again!');
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            console.log("verify called Entered OTP is " + this.OTPcode);
+            try {
+                this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode);
+                this.register(values);
+            }
+            catch (error) {
+                this.alert.presentAlert('Error', 'Invalid phone or password!');
+            }
         });
     }
     presentAlertPrompt(values) {
@@ -364,7 +366,7 @@ let AuthService = class AuthService {
     }
     createPhoneUser(uId, phone, fName, lName, password) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.firestore.doc(`PhoneUserProfile/${phone}`).set({
+            yield this.firestore.doc(`userProfile/${phone}`).set({
                 uId,
                 phone,
                 fName,

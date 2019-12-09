@@ -145,16 +145,16 @@ async register(values): Promise<void> {
   }
   
 }
-  verify(values){
+  async verify(values){
     console.log("verify called Entered OTP is "+ this.OTPcode);
-    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
-    .then(function (result) {
+    try{
+      this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode);
       this.register(values);
-      // ...
-    }).catch(function (error) {
-      this.alert.presentAlert('Error', 'Something went wrong, please try again!')
-    });
+    }catch (error) {
+      this.alert.presentAlert('Error', 'Invalid phone or password!')
+    }
   }
+  
   async presentAlertPrompt(values) {
     console.log("presentAlertPrompt called");
     const alert = await this.alertCtrl.create({

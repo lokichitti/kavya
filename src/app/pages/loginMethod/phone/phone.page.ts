@@ -126,7 +126,7 @@ export class PhonePage implements OnInit {
   };
 
   async loginUser(values): Promise<void> {
-    /*try {
+    try {
     const userCredential: firebase.auth.UserCredential = await this.authService.login(
       values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com",
       values.value.password    
@@ -136,7 +136,7 @@ export class PhonePage implements OnInit {
         this.router.navigate(["/home"]);
       } catch (error) {
         this.alert.presentAlert('Error', 'Invalid phone or password!')
-      }*/
+      }
       
     }
 }

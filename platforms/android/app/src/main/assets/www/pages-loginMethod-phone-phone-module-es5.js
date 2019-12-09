@@ -187,8 +187,24 @@ var PhonePage = /** @class */ (function () {
     };
     PhonePage.prototype.loginUser = function (values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var userCredential, error_1;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.authService.login(values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com", values.value.password)];
+                    case 1:
+                        userCredential = _a.sent();
+                        this.authService.userId = userCredential.user.uid;
+                        this.alert.presentAlert('Success', 'You are logged in!');
+                        this.router.navigate(["/home"]);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_1 = _a.sent();
+                        this.alert.presentAlert('Error', 'Invalid phone or password!');
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
             });
         });
     };
@@ -325,7 +341,7 @@ var AuthService = /** @class */ (function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.firestore.doc("PhoneUserProfile/" + phone).set({
+                    case 0: return [4 /*yield*/, this.firestore.doc("userProfile/" + phone).set({
                             uId: uId,
                             phone: phone,
                             fName: fName,

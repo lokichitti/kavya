@@ -227,13 +227,18 @@ var RPhonePage = /** @class */ (function () {
         });
     };
     RPhonePage.prototype.verify = function (values) {
-        console.log("verify called Entered OTP is " + this.OTPcode);
-        this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode)
-            .then(function (result) {
-            this.register(values);
-            // ...
-        }).catch(function (error) {
-            this.alert.presentAlert('Error', 'Something went wrong, please try again!');
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                console.log("verify called Entered OTP is " + this.OTPcode);
+                try {
+                    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode);
+                    this.register(values);
+                }
+                catch (error) {
+                    this.alert.presentAlert('Error', 'Invalid phone or password!');
+                }
+                return [2 /*return*/];
+            });
         });
     };
     RPhonePage.prototype.presentAlertPrompt = function (values) {
@@ -418,7 +423,7 @@ var AuthService = /** @class */ (function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.firestore.doc("PhoneUserProfile/" + phone).set({
+                    case 0: return [4 /*yield*/, this.firestore.doc("userProfile/" + phone).set({
                             uId: uId,
                             phone: phone,
                             fName: fName,
