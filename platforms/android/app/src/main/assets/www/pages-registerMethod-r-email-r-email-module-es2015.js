@@ -11,99 +11,6 @@ module.exports = "<ion-header>\n  <ion-toolbar color=\"primary\">\n    <ion-titl
 
 /***/ }),
 
-/***/ "./src/app/models/validators.ts":
-/*!**************************************!*\
-  !*** ./src/app/models/validators.ts ***!
-  \**************************************/
-/*! exports provided: UsernameValidator, PhoneValidator, PasswordValidator */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsernameValidator", function() { return UsernameValidator; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PhoneValidator", function() { return PhoneValidator; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PasswordValidator", function() { return PasswordValidator; });
-/* harmony import */ var google_libphonenumber__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! google-libphonenumber */ "./node_modules/google-libphonenumber/dist/libphonenumber.js");
-/* harmony import */ var google_libphonenumber__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(google_libphonenumber__WEBPACK_IMPORTED_MODULE_0__);
-
-class UsernameValidator {
-    static validUsername(fc) {
-        if (fc.value.toLowerCase() === "abc123" || fc.value.toLowerCase() === "123abc") {
-            return {
-                validUsername: true
-            };
-        }
-        else {
-            return null;
-        }
-    }
-}
-class PhoneValidator {
-}
-// Inspired on: https://github.com/yuyang041060120/ng2-validation/blob/master/src/equal-to/validator.ts
-PhoneValidator.validCountryPhone = (countryControl) => {
-    let subscribe = false;
-    return (phoneControl) => {
-        if (!subscribe) {
-            subscribe = true;
-            countryControl.valueChanges.subscribe(() => {
-                phoneControl.updateValueAndValidity();
-            });
-        }
-        if (phoneControl.value !== "") {
-            try {
-                const phoneUtil = google_libphonenumber__WEBPACK_IMPORTED_MODULE_0___default.a.PhoneNumberUtil.getInstance();
-                let phoneNumber = "" + phoneControl.value + "", region = countryControl.value.iso, number = phoneUtil.parse(phoneNumber, region), isValidNumber = phoneUtil.isValidNumber(number);
-                if (isValidNumber) {
-                    return null;
-                }
-            }
-            catch (e) {
-                // console.log(e);
-                return {
-                    validCountryPhone: true
-                };
-            }
-            return {
-                validCountryPhone: true
-            };
-        }
-        else {
-            return null;
-        }
-    };
-};
-class PasswordValidator {
-    // Inspired on: http://plnkr.co/edit/Zcbg2T3tOxYmhxs7vaAm?p=preview
-    static areEqual(formGroup) {
-        let val;
-        let valid = true;
-        for (let key in formGroup.controls) {
-            if (formGroup.controls.hasOwnProperty(key)) {
-                let control = formGroup.controls[key];
-                if (val === undefined) {
-                    val = control.value;
-                }
-                else {
-                    if (val !== control.value) {
-                        valid = false;
-                        break;
-                    }
-                }
-            }
-        }
-        if (valid) {
-            return null;
-        }
-        return {
-            areEqual: true
-        };
-    }
-}
-
-
-/***/ }),
-
 /***/ "./src/app/pages/registerMethod/r-email/r-email.module.ts":
 /*!****************************************************************!*\
   !*** ./src/app/pages/registerMethod/r-email/r-email.module.ts ***!
@@ -337,11 +244,39 @@ let AuthService = class AuthService {
             return yield loading.present();
         });
     }
+    createPhoneUserProfile(uId, values) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const loading = yield this.loadingCtrl.create();
+            const phone = values.value.country_phone.country.code + values.value.country_phone.phone;
+            const fName = values.value.name;
+            const lName = values.value.lastname;
+            const password = values.value.matching_passwords.password;
+            this.createPhoneUser(uId, phone, fName, lName, password)
+                .then(() => {
+                loading.dismiss().then(() => {
+                });
+            }, error => {
+                console.error(error);
+            });
+            return yield loading.present();
+        });
+    }
     createUser(uId, email, fName, lName, password) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield this.firestore.doc(`userProfile/${uId}`).set({
                 uId,
                 email,
+                fName,
+                lName,
+                password
+            });
+        });
+    }
+    createPhoneUser(uId, phone, fName, lName, password) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield this.firestore.doc(`PhoneUserProfile/${phone}`).set({
+                uId,
+                phone,
                 fName,
                 lName,
                 password
@@ -357,18 +292,12 @@ let AuthService = class AuthService {
     signup(values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             const newUserCredential = yield this.afAuth.auth.createUserWithEmailAndPassword(values.email, values.matching_passwords.password);
-            /* const email = values.email;
-             const password = values.matching_passwords.password;
-             const firstName = values.fName;
-             const lastName = values.lName;
-             await this.firestore
-             .doc(`userProfile/${newUserCredential.user.uid}`)
-             .set({
-               email,
-               password,
-               firstName,
-               lastName
-             });*/
+            return newUserCredential;
+        });
+    }
+    signupWithPhone(values) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const newUserCredential = yield this.afAuth.auth.createUserWithEmailAndPassword(values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com", values.value.matching_passwords.password);
             return newUserCredential;
         });
     }

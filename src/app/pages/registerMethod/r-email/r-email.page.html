@@ -88,6 +88,11 @@
       </ng-container>
     </div>
 
-    <ion-button color="primary" class="submit-btn" expand="full" type="submit" [disabled]="!validations_form.valid">Submit</ion-button>
+    <ion-button color="primary" class="login-margin" expand="full" type="submit" [disabled]="!validations_form.valid">Submit</ion-button>
   </form>
+  <div>
+      <button [routerLink]="['/first']" align="center" class="login-margin">
+        <img src="assets/image/login.png">
+      </button>
+    </div>
 </ion-content>

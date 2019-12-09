@@ -39,6 +39,27 @@ export class AuthService {
       return await loading.present();
   }
 
+  async createPhoneUserProfile(uId, values)
+  {
+      const loading = await this.loadingCtrl.create();    
+      const phone = values.value.country_phone.country.code + values.value.country_phone.phone;
+      const fName = values.value.name;
+      const lName = values.value.lastname;
+      const password = values.value.matching_passwords.password;
+      this.createPhoneUser(uId,phone, fName, lName, password )
+        .then(
+          () => {
+            loading.dismiss().then(() => {
+            });
+          },
+          error => {
+            console.error(error);
+          }
+        );
+    
+      return await loading.present();
+  }
+
   async createUser( uId: string, email: string, fName: string,
     lName: string, password: string): Promise<void> {
 
@@ -50,6 +71,18 @@ export class AuthService {
         password
       });
     }
+
+    async createPhoneUser( uId: string, phone: string, fName: string,
+      lName: string, password: string): Promise<void> {
+  
+        await this.firestore.doc(`PhoneUserProfile/${phone}`).set({
+          uId,
+          phone,
+          fName,
+          lName,
+          password
+        });
+      }
   getUser(): Promise<firebase.User> {
     return this.afAuth.authState.pipe(first()).toPromise();
    }
@@ -66,18 +99,14 @@ export class AuthService {
       values.email,
       values.matching_passwords.password
     );
-   /* const email = values.email;
-    const password = values.matching_passwords.password;
-    const firstName = values.fName;
-    const lastName = values.lName;
-    await this.firestore
-    .doc(`userProfile/${newUserCredential.user.uid}`)
-    .set({ 
-      email,
-      password,
-      firstName,
-      lastName
-    });*/
+    return newUserCredential;
+   }
+
+   async signupWithPhone(values): Promise<firebase.auth.UserCredential> {
+    const newUserCredential: firebase.auth.UserCredential = await this.afAuth.auth.createUserWithEmailAndPassword(
+      values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com",
+      values.value.matching_passwords.password
+    );
     return newUserCredential;
    }
 

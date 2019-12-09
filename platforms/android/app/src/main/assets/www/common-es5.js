@@ -403,6 +403,155 @@ var findCheckedOption = function (el, tagName) {
 
 /***/ }),
 
+/***/ "./src/app/models/country-phone.model.ts":
+/*!***********************************************!*\
+  !*** ./src/app/models/country-phone.model.ts ***!
+  \***********************************************/
+/*! exports provided: CountryPhone */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CountryPhone", function() { return CountryPhone; });
+/* harmony import */ var google_libphonenumber__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! google-libphonenumber */ "./node_modules/google-libphonenumber/dist/libphonenumber.js");
+/* harmony import */ var google_libphonenumber__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(google_libphonenumber__WEBPACK_IMPORTED_MODULE_0__);
+
+var CountryPhone = /** @class */ (function () {
+    function CountryPhone(iso, name) {
+        this.iso = iso;
+        this.name = name;
+        var phoneUtil = google_libphonenumber__WEBPACK_IMPORTED_MODULE_0___default.a.PhoneNumberUtil.getInstance(), PNF = google_libphonenumber__WEBPACK_IMPORTED_MODULE_0___default.a.PhoneNumberFormat, PNT = google_libphonenumber__WEBPACK_IMPORTED_MODULE_0___default.a.PhoneNumberType, country_example_number = phoneUtil.getExampleNumberForType(this.iso, PNT.MOBILE), 
+        // We need to define what kind of country phone number type we are going to use as a mask.
+        // You can choose between many types including:
+        //    - FIXED_LINE
+        //    - MOBILE
+        //    - For more types please refer to google libphonenumber repo (https://github.com/googlei18n/libphonenumber/blob/f9e9424769964ce1970c6ed2bd60b25b976dfe6f/javascript/i18n/phonenumbers/phonenumberutil.js#L913)
+        example_number_formatted = phoneUtil.format(country_example_number, PNF.NATIONAL);
+        // We need to define how are we going to format the phone number
+        // You can choose between many formats including:
+        //    - NATIONAL
+        //    - INTERNATIONAL
+        //    - E164
+        //    - RFC3966
+        this.sample_phone = example_number_formatted;
+        this.code = "+" + country_example_number.getCountryCode();
+    }
+    CountryPhone.ctorParameters = function () { return [
+        { type: String },
+        { type: String }
+    ]; };
+    return CountryPhone;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/models/validators.ts":
+/*!**************************************!*\
+  !*** ./src/app/models/validators.ts ***!
+  \**************************************/
+/*! exports provided: UsernameValidator, PhoneValidator, PasswordValidator */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsernameValidator", function() { return UsernameValidator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PhoneValidator", function() { return PhoneValidator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PasswordValidator", function() { return PasswordValidator; });
+/* harmony import */ var google_libphonenumber__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! google-libphonenumber */ "./node_modules/google-libphonenumber/dist/libphonenumber.js");
+/* harmony import */ var google_libphonenumber__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(google_libphonenumber__WEBPACK_IMPORTED_MODULE_0__);
+
+var UsernameValidator = /** @class */ (function () {
+    function UsernameValidator() {
+    }
+    UsernameValidator.validUsername = function (fc) {
+        if (fc.value.toLowerCase() === "abc123" || fc.value.toLowerCase() === "123abc") {
+            return {
+                validUsername: true
+            };
+        }
+        else {
+            return null;
+        }
+    };
+    return UsernameValidator;
+}());
+
+var PhoneValidator = /** @class */ (function () {
+    function PhoneValidator() {
+    }
+    // Inspired on: https://github.com/yuyang041060120/ng2-validation/blob/master/src/equal-to/validator.ts
+    PhoneValidator.validCountryPhone = function (countryControl) {
+        var subscribe = false;
+        return function (phoneControl) {
+            if (!subscribe) {
+                subscribe = true;
+                countryControl.valueChanges.subscribe(function () {
+                    phoneControl.updateValueAndValidity();
+                });
+            }
+            if (phoneControl.value !== "") {
+                try {
+                    var phoneUtil = google_libphonenumber__WEBPACK_IMPORTED_MODULE_0___default.a.PhoneNumberUtil.getInstance();
+                    var phoneNumber = "" + phoneControl.value + "", region = countryControl.value.iso, number = phoneUtil.parse(phoneNumber, region), isValidNumber = phoneUtil.isValidNumber(number);
+                    if (isValidNumber) {
+                        return null;
+                    }
+                }
+                catch (e) {
+                    // console.log(e);
+                    return {
+                        validCountryPhone: true
+                    };
+                }
+                return {
+                    validCountryPhone: true
+                };
+            }
+            else {
+                return null;
+            }
+        };
+    };
+    return PhoneValidator;
+}());
+
+var PasswordValidator = /** @class */ (function () {
+    function PasswordValidator() {
+    }
+    // Inspired on: http://plnkr.co/edit/Zcbg2T3tOxYmhxs7vaAm?p=preview
+    PasswordValidator.areEqual = function (formGroup) {
+        var val;
+        var valid = true;
+        for (var key in formGroup.controls) {
+            if (formGroup.controls.hasOwnProperty(key)) {
+                var control = formGroup.controls[key];
+                if (val === undefined) {
+                    val = control.value;
+                }
+                else {
+                    if (val !== control.value) {
+                        valid = false;
+                        break;
+                    }
+                }
+            }
+        }
+        if (valid) {
+            return null;
+        }
+        return {
+            areEqual: true
+        };
+    };
+    return PasswordValidator;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared-modules/auth.module.ts":
 /*!***********************************************!*\
   !*** ./src/app/shared-modules/auth.module.ts ***!

@@ -45,6 +45,8 @@ var map = {
 	],
 	"./pages/loginMethod/phone/phone.module": [
 		"./src/app/pages/loginMethod/phone/phone.module.ts",
+		"default~pages-loginMethod-phone-phone-module~pages-register-register-module~pages-registerMethod-r-e~a6f0d9d7",
+		"common",
 		"pages-loginMethod-phone-phone-module"
 	],
 	"./pages/profile/profile.module": [
@@ -53,12 +55,13 @@ var map = {
 	],
 	"./pages/register/register.module": [
 		"./src/app/pages/register/register.module.ts",
-		"default~pages-register-register-module~pages-registerMethod-r-email-r-email-module",
+		"default~pages-loginMethod-phone-phone-module~pages-register-register-module~pages-registerMethod-r-e~a6f0d9d7",
 		"pages-register-register-module"
 	],
 	"./pages/registerMethod/r-email/r-email.module": [
 		"./src/app/pages/registerMethod/r-email/r-email.module.ts",
-		"default~pages-register-register-module~pages-registerMethod-r-email-r-email-module",
+		"default~pages-loginMethod-phone-phone-module~pages-register-register-module~pages-registerMethod-r-e~a6f0d9d7",
+		"common",
 		"pages-registerMethod-r-email-r-email-module"
 	],
 	"./pages/registerMethod/r-facebook/r-facebook.module": [
@@ -71,6 +74,8 @@ var map = {
 	],
 	"./pages/registerMethod/r-phone/r-phone.module": [
 		"./src/app/pages/registerMethod/r-phone/r-phone.module.ts",
+		"default~pages-loginMethod-phone-phone-module~pages-register-register-module~pages-registerMethod-r-e~a6f0d9d7",
+		"common",
 		"pages-registerMethod-r-phone-r-phone-module"
 	],
 	"./pages/reset-password/reset-password.module": [
@@ -92,6 +97,16 @@ var map = {
 		"default~pages-login-login-module~pages-loginMethod-email-email-module~pages-reset-password-reset-pas~dbf27d2a",
 		"common",
 		"pages-signup-signup-module"
+	],
+	"./phone-login/phone-login.module": [
+		"./src/app/phone-login/phone-login.module.ts",
+		"phone-login-phone-login-module"
+	],
+	"./phone-register/phone-register.module": [
+		"./src/app/phone-register/phone-register.module.ts",
+		"default~pages-loginMethod-phone-phone-module~pages-register-register-module~pages-registerMethod-r-e~a6f0d9d7",
+		"common",
+		"phone-register-phone-register-module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -567,8 +582,8 @@ var routes = [
     { path: '', redirectTo: 'first', pathMatch: 'full' },
     tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ path: 'info', loadChildren: './info/info.module#InfoPageModule' }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["canActivate"])(redirectToLogin)),
     //{ path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule' },
-    //{ path: 'phone-login', loadChildren: './phone-login/phone-login.module#PhoneLoginPageModule' },
-    //{ path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
+    { path: 'phone-login', loadChildren: './phone-login/phone-login.module#PhoneLoginPageModule' },
+    { path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
     { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
     { path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
     { path: 'reset-password', loadChildren: './pages/reset-password/reset-password.module#ResetPasswordPageModule' },
@@ -944,7 +959,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/lokesh/ionic-dont-delete/kavyamma/lokappa/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/hmecd001523/ionic-dont-delete/firebase-working/progress/src/main.ts */"./src/main.ts");
 
 
 /***/ })

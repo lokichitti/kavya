@@ -69,7 +69,7 @@ var ProfilePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "ion-list-header {\n  background-color: #ececec;\n}\n\n.placeholder-profile {\n  color: #cccccc;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9pb25pYy1kb250LWRlbGV0ZS9rYXZ5YW1tYS9sb2thcHBhL3NyYy9hcHAvcGFnZXMvcHJvZmlsZS9wcm9maWxlLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvcHJvZmlsZS9wcm9maWxlLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHlCQUFBO0FDQ0o7O0FERUU7RUFDRSxjQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9wcm9maWxlL3Byb2ZpbGUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLWxpc3QtaGVhZGVyIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWNlY2VjO1xuICB9XG4gIFxuICAucGxhY2Vob2xkZXItcHJvZmlsZSB7XG4gICAgY29sb3I6ICNjY2NjY2M7XG4gIH0iLCJpb24tbGlzdC1oZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWNlY2VjO1xufVxuXG4ucGxhY2Vob2xkZXItcHJvZmlsZSB7XG4gIGNvbG9yOiAjY2NjY2NjO1xufSJdfQ== */"
+module.exports = "ion-list-header {\n  background-color: #ececec;\n}\n\n.placeholder-profile {\n  color: #cccccc;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2htZWNkMDAxNTIzL2lvbmljLWRvbnQtZGVsZXRlL2ZpcmViYXNlLXdvcmtpbmcvcHJvZ3Jlc3Mvc3JjL2FwcC9wYWdlcy9wcm9maWxlL3Byb2ZpbGUucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9wcm9maWxlL3Byb2ZpbGUucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0kseUJBQUE7QUNDSjs7QURFRTtFQUNFLGNBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3Byb2ZpbGUvcHJvZmlsZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tbGlzdC1oZWFkZXIge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNlY2VjZWM7XG4gIH1cbiAgXG4gIC5wbGFjZWhvbGRlci1wcm9maWxlIHtcbiAgICBjb2xvcjogI2NjY2NjYztcbiAgfSIsImlvbi1saXN0LWhlYWRlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNlY2VjZWM7XG59XG5cbi5wbGFjZWhvbGRlci1wcm9maWxlIHtcbiAgY29sb3I6ICNjY2NjY2M7XG59Il19 */"
 
 /***/ }),
 
@@ -421,6 +421,31 @@ var AuthService = /** @class */ (function () {
             });
         });
     };
+    AuthService.prototype.createPhoneUserProfile = function (uId, values) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var loading, phone, fName, lName, password;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.loadingCtrl.create()];
+                    case 1:
+                        loading = _a.sent();
+                        phone = values.value.country_phone.country.code + values.value.country_phone.phone;
+                        fName = values.value.name;
+                        lName = values.value.lastname;
+                        password = values.value.matching_passwords.password;
+                        this.createPhoneUser(uId, phone, fName, lName, password)
+                            .then(function () {
+                            loading.dismiss().then(function () {
+                            });
+                        }, function (error) {
+                            console.error(error);
+                        });
+                        return [4 /*yield*/, loading.present()];
+                    case 2: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
     AuthService.prototype.createUser = function (uId, email, fName, lName, password) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
@@ -428,6 +453,24 @@ var AuthService = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.firestore.doc("userProfile/" + uId).set({
                             uId: uId,
                             email: email,
+                            fName: fName,
+                            lName: lName,
+                            password: password
+                        })];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    AuthService.prototype.createPhoneUser = function (uId, phone, fName, lName, password) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.firestore.doc("PhoneUserProfile/" + phone).set({
+                            uId: uId,
+                            phone: phone,
                             fName: fName,
                             lName: lName,
                             password: password
@@ -453,18 +496,19 @@ var AuthService = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.afAuth.auth.createUserWithEmailAndPassword(values.email, values.matching_passwords.password)];
                     case 1:
                         newUserCredential = _a.sent();
-                        /* const email = values.email;
-                         const password = values.matching_passwords.password;
-                         const firstName = values.fName;
-                         const lastName = values.lName;
-                         await this.firestore
-                         .doc(`userProfile/${newUserCredential.user.uid}`)
-                         .set({
-                           email,
-                           password,
-                           firstName,
-                           lastName
-                         });*/
+                        return [2 /*return*/, newUserCredential];
+                }
+            });
+        });
+    };
+    AuthService.prototype.signupWithPhone = function (values) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var newUserCredential;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.afAuth.auth.createUserWithEmailAndPassword(values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com", values.value.matching_passwords.password)];
+                    case 1:
+                        newUserCredential = _a.sent();
                         return [2 /*return*/, newUserCredential];
                 }
             });
