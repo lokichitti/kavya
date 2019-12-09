@@ -577,6 +577,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+//keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore
 var redirectToLogin = Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["redirectUnauthorizedTo"])(['login']);
 var routes = [
     { path: '', redirectTo: 'first', pathMatch: 'full' },

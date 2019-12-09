@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
 
+//keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore
 const redirectToLogin = redirectUnauthorizedTo(['login']);
 const routes: Routes = [
   { path: '', redirectTo: 'first', pathMatch: 'full' },

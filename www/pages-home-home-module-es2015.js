@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-button [routerLink]=\"['/profile']\">\n            <ion-icon slot=\"icon-only\" name=\"person\" color=\"danger\"></ion-icon>\n          </ion-button>\n        </ion-buttons>\n        <ion-buttons slot=\"end\">\n            <ion-button [routerLink]=\"['/shop']\">\n              <ion-icon slot=\"icon-only\" name=\"menu\" color=\"danger\"></ion-icon>\n            </ion-button>\n          </ion-buttons>\n      <ion-title size=\"large\" text-center>My Shop</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-button [routerLink]=\"['/profile']\">\n            <ion-icon slot=\"icon-only\" name=\"person\" color=\"danger\"></ion-icon>\n          </ion-button>\n        </ion-buttons>\n        <ion-buttons slot=\"end\">\n            <ion-button [routerLink]=\"['/shop']\">\n              <ion-icon slot=\"icon-only\" name=\"menu\" color=\"danger\"></ion-icon>\n            </ion-button>\n          </ion-buttons>\n      <ion-title size=\"large\" text-center>My Shop</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <div>\n        <!-- Searchbar with a placeholder -->\n    <ion-searchbar shape=\"round\" placeholder=\"Items/services near by\"></ion-searchbar>\n      </div>\n</ion-content>\n"
 
 /***/ }),
 
