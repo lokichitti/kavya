@@ -56,9 +56,35 @@ export class PhonePage implements OnInit {
     this.countries = [
       new CountryPhone('IN', 'India'),
       new CountryPhone('US', 'United States'),
-      new CountryPhone('BR', 'Brasil')
+      new CountryPhone('BR', 'Brasil'),
+      new CountryPhone('AF', 'Afganistan'),
+      new CountryPhone('AL', 'Albania'),
+      new CountryPhone('DZ', 'Algeria'),
+      new CountryPhone('AS', 'American Samoa'),
+      new CountryPhone('AD', 'Andorra'),
+      new CountryPhone('AO', 'Angola'),
+      new CountryPhone('AI', 'Anguilla'),
+      /*new CountryPhone('AQ', 'Antarctica'),
+      new CountryPhone('AG', 'Antigua and Barbuda'),
+      new CountryPhone('AR', 'Argentina'),
+      new CountryPhone('AM', 'Armenia'),
+      new CountryPhone('AW', 'Aruba'),
+      new CountryPhone('AU', 'Australia'),
+      new CountryPhone('AT', 'Austria'),
+      new CountryPhone('AZ', 'Azerbaijan'),*/
     ];
-    
+
+    this.matching_passwords_group = new FormGroup({
+      password: new FormControl('', Validators.compose([
+        Validators.minLength(5),
+        Validators.required,
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
+      ])),
+      confirm_password: new FormControl('', Validators.required)
+    }, (formGroup: FormGroup) => {
+      return PasswordValidator.areEqual(formGroup);
+    });
+
     let country = new FormControl(this.countries[0], Validators.required);
     let phone = new FormControl('', Validators.compose([
       Validators.required,
@@ -69,22 +95,38 @@ export class PhonePage implements OnInit {
       phone: phone
     });
 
-    this.validations_form = this.formBuilder.group({
+    this.validations_form = this.formBuilder.group({      
       country_phone: this.country_phone_group,
-      password: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
     });
   }
-  validation_messages = {    
+  validation_messages = {
+    'name': [
+      { type: 'required', message: 'Name is required.' }
+    ],
+    'lastname': [
+      { type: 'required', message: 'Last name is required.' }
+    ],
     'phone': [
       { type: 'required', message: 'Phone is required.' },
+      { type: 'validCountryPhone', message: 'The phone is incorrect for the selected country.' }
     ],
     'password': [
       { type: 'required', message: 'Password is required.' },
-    ]
+    ],
+    'confirm_password': [
+      { type: 'required', message: 'Confirm password is required.' }
+    ],
+    'matching_passwords': [
+      { type: 'areEqual', message: 'Password mismatch.' }
+    ],
+    'terms': [
+      { type: 'pattern', message: 'You must accept terms and conditions.' }
+    ],
   };
 
   async loginUser(values): Promise<void> {
-    try {
+    /*try {
     const userCredential: firebase.auth.UserCredential = await this.authService.login(
       values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com",
       values.value.password    
@@ -94,7 +136,7 @@ export class PhonePage implements OnInit {
         this.router.navigate(["/home"]);
       } catch (error) {
         this.alert.presentAlert('Error', 'Invalid phone or password!')
-      }
+      }*/
       
     }
 }

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n    <ion-toolbar color=\"primary\">\n      <ion-title>Login</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  \n  <ion-content padding class=\"form-content\">\n    <form [formGroup]=\"validations_form\"  (ngSubmit)=\"loginUser(validations_form)\">\n       <div formGroupName=\"country_phone\">\n        <ion-item>\n          <ion-label position=\"floating\" color=\"primary\">Country</ion-label>\n          <ion-select formControlName=\"country\" cancelText=\"Cancel\" okText=\"OK\">\n            <ion-select-option *ngFor=\"let item of countries\" [value]=\"item\">{{item.name}}</ion-select-option>\n          </ion-select>\n        </ion-item>\n        <ion-item>\n          <ion-label position=\"floating\" color=\"primary\">Phone</ion-label>\n          <ion-input placeholder=\"{{ validations_form.value.country_phone.country.code }}\" type=\"text\" formControlName=\"phone\"></ion-input>\n        </ion-item>\n        <div class=\"validation-errors\">\n          <ng-container *ngFor=\"let validation of validation_messages.phone\">\n            <div class=\"error-message\" *ngIf=\"validations_form.get('country_phone').get('phone').hasError(validation.type) && (validations_form.get('country_phone').get('phone').dirty || validations_form.get('country_phone').get('phone').touched)\">\n              <ion-icon name=\"information-circle-outline\"></ion-icon> {{ validation.message }}\n            </div>\n          </ng-container>\n        </div>\n      </div>\n\n      <ion-item>\n        <ion-label position=\"floating\" color=\"primary\">Password</ion-label>\n        <ion-input type=\"text\" formControlName=\"name\"></ion-input>\n      </ion-item>\n      <div class=\"validation-errors\">\n        <ng-container *ngFor=\"let validation of validation_messages.name\">\n          <div class=\"error-message\" *ngIf=\"validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)\">\n            <ion-icon name=\"information-circle-outline\"></ion-icon> {{ validation.message }}\n          </div>\n        </ng-container>\n      </div>\n          <ion-button color=\"primary\" class=\"login-margin\" expand=\"full\" type=\"submit\" [disabled]=\"!validations_form.valid\">Get OTP</ion-button>\n    </form>\n    <div>\n        <button [routerLink]=\"['/register']\" align=\"center\" class=\"register-margin\">\n          <img src=\"assets/image/register.png\">\n        </button>\n      \n        <button [routerLink]=\"['/reset-password']\" align=\"center\" class=\"register-margin\">\n          <img src=\"assets/image/forgot-password.png\">\n        </button>\n      </div>\n  </ion-content>"
+module.exports = "<ion-header>\n    <ion-toolbar color=\"primary\">\n      <ion-title>Login</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  \n  <ion-content padding class=\"form-content\">\n      <form [formGroup]=\"validations_form\"  (ngSubmit)=\"loginUser(validations_form)\">\n                   \n            <div formGroupName=\"country_phone\">\n              <ion-item>\n                <ion-label position=\"floating\" color=\"primary\">Country</ion-label>\n                <ion-select formControlName=\"country\" cancelText=\"Cancel\" okText=\"OK\">\n                  <ion-select-option *ngFor=\"let item of countries\" [value]=\"item\">{{item.name}}</ion-select-option>\n                </ion-select>\n              </ion-item>\n              <ion-item>\n                <ion-label position=\"floating\" color=\"primary\">Phone</ion-label>\n                <ion-input placeholder=\"Enter 10 digit mobile number\" type=\"text\" formControlName=\"phone\"></ion-input>\n              </ion-item>\n              <div class=\"validation-errors\">\n                <ng-container *ngFor=\"let validation of validation_messages.phone\">\n                  <div class=\"error-message\" *ngIf=\"validations_form.get('country_phone').get('phone').hasError(validation.type) && (validations_form.get('country_phone').get('phone').dirty || validations_form.get('country_phone').get('phone').touched)\">\n                    <ion-icon name=\"information-circle-outline\"></ion-icon> {{ validation.message }}\n                  </div>\n                </ng-container>\n              </div>\n            </div>\n            <ion-item>\n                <ion-label position=\"floating\" color=\"primary\">Password</ion-label>\n                <ion-input type=\"text\" formControlName=\"password\"></ion-input>\n              </ion-item>\n              <div class=\"validation-errors\">\n                <ng-container *ngFor=\"let validation of validation_messages.password\">\n                  <div class=\"error-message\" *ngIf=\"validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)\">\n                    <ion-icon name=\"information-circle-outline\"></ion-icon> {{ validation.message }}\n                  </div>\n                </ng-container>\n              </div>\n            <ion-button color=\"primary\" class=\"login-margin\" expand=\"full\" type=\"submit\" [disabled]=\"!validations_form.valid\" [disabled]=\"disableGetOTPButton\">Submit</ion-button>\n      </form>\n\n      <div>\n        <button [routerLink]=\"['/first']\" align=\"center\" class=\"login-margin\">\n          <img src=\"assets/image/login.png\">\n        </button>\n      </div>\n    </ion-content>"
 
 /***/ }),
 
@@ -35,6 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var routes = [
     {
         path: '',
@@ -50,6 +51,7 @@ var PhonePageModule = /** @class */ (function () {
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
             ],
             declarations: [_phone_page__WEBPACK_IMPORTED_MODULE_6__["PhonePage"]]
@@ -122,20 +124,53 @@ var PhonePage = /** @class */ (function () {
         this.disableVerifyButton = true;
         this.disableGetOTPButton = false;
         this.validation_messages = {
+            'name': [
+                { type: 'required', message: 'Name is required.' }
+            ],
+            'lastname': [
+                { type: 'required', message: 'Last name is required.' }
+            ],
             'phone': [
                 { type: 'required', message: 'Phone is required.' },
+                { type: 'validCountryPhone', message: 'The phone is incorrect for the selected country.' }
             ],
             'password': [
                 { type: 'required', message: 'Password is required.' },
-            ]
+            ],
+            'confirm_password': [
+                { type: 'required', message: 'Confirm password is required.' }
+            ],
+            'matching_passwords': [
+                { type: 'areEqual', message: 'Password mismatch.' }
+            ],
+            'terms': [
+                { type: 'pattern', message: 'You must accept terms and conditions.' }
+            ],
         };
     }
     PhonePage.prototype.ngOnInit = function () {
         this.countries = [
             new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('IN', 'India'),
             new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('US', 'United States'),
-            new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('BR', 'Brasil')
+            new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('BR', 'Brasil'),
+            new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('AF', 'Afganistan'),
+            new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('AL', 'Albania'),
+            new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('DZ', 'Algeria'),
+            new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('AS', 'American Samoa'),
+            new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('AD', 'Andorra'),
+            new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('AO', 'Angola'),
+            new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('AI', 'Anguilla'),
         ];
+        this.matching_passwords_group = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
+            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(5),
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
+            ])),
+            confirm_password: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required)
+        }, function (formGroup) {
+            return _models_validators__WEBPACK_IMPORTED_MODULE_7__["PasswordValidator"].areEqual(formGroup);
+        });
         var country = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](this.countries[0], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required);
         var phone = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required,
@@ -147,29 +182,13 @@ var PhonePage = /** @class */ (function () {
         });
         this.validations_form = this.formBuilder.group({
             country_phone: this.country_phone_group,
-            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required),
+            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required)
         });
     };
     PhonePage.prototype.loginUser = function (values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var userCredential, error_1;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.authService.login(values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com", values.value.password)];
-                    case 1:
-                        userCredential = _a.sent();
-                        this.authService.userId = userCredential.user.uid;
-                        this.alert.presentAlert('Success', 'You are logged in!');
-                        this.router.navigate(["/home"]);
-                        return [3 /*break*/, 3];
-                    case 2:
-                        error_1 = _a.sent();
-                        this.alert.presentAlert('Error', 'Invalid phone or password!');
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
-                }
+                return [2 /*return*/];
             });
         });
     };
