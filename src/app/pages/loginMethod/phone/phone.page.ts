@@ -135,7 +135,7 @@ export class PhonePage implements OnInit {
         this.authService.userId = userCredential.user.uid;
         await this.alert.hideLoading();
         this.alert.presentAlert('Success', 'You are logged in!')
-        this.router.navigate(["/home"]);
+        this.router.navigate(["/menu/home"]);
       } catch (error) {
         await this.alert.hideLoading();
         this.alert.handleError(error);

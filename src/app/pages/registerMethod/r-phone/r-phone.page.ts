@@ -138,7 +138,7 @@ async register(values): Promise<void> {
     this.authService.userId = userCredential.user.uid;
     this.alert.presentAlert('Success', 'You are registered!')
     this.authService.createPhoneUserProfile(this.authService.userId, values);
-    this.router.navigate(["/home"]);
+    this.router.navigate(["/menu/home"]);
   } catch (error) {
     await this.alert.hideLoading();
     this.alert.handleError(error);

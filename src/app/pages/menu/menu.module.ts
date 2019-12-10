@@ -9,9 +9,26 @@ import { MenuPage } from './menu.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: MenuPage
-  }
+    path:'',
+    component: MenuPage,
+    children:[
+      {
+        path: 'home', loadChildren: '../home/home.module#HomePageModule'
+      },
+      {
+        path: 'profile', loadChildren: '../profile/profile.module#ProfilePageModule'
+      },
+      {
+        path: 'shop', loadChildren: '../shop/shop.module#ShopPageModule'
+      }
+    ]
+
+  },
+  {
+    path: '', 
+    redirectTo: '/menu/home'
+
+  },
 ];
 
 @NgModule({

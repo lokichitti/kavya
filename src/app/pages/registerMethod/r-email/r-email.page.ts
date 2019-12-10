@@ -101,7 +101,7 @@ export class REmailPage implements OnInit {
       await this.alert.hideLoading();
       this.alert.presentAlert('Success', 'You are registered!')
       this.authService.createProfile(this.authService.userId, values);
-      this.router.navigate(["/home"]);
+      this.router.navigate(["/menu/home"]);
     } catch (error) {
         await this.alert.hideLoading();
         this.alert.handleError(error);

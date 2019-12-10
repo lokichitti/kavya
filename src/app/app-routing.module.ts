@@ -2,14 +2,10 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
 
-//import { first } from 'rxjs/operators';
-
 //keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore
-//const redirectToLogin = redirectUnauthorizedTo(['first']);
+const redirectToLogin = redirectUnauthorizedTo(['first']);
 const routes: Routes = [
-  { path: '', loadChildren: './pages/menu/menu.module#MenuPageModule' },
-  /*
- // { path: '', redirectTo: 'menu', pathMatch: 'full' },
+  { path: '', redirectTo: 'first', pathMatch: 'full' },
   //{ path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   //{ path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
@@ -19,11 +15,11 @@ const routes: Routes = [
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
   { path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
   { path: 'reset-password', loadChildren: './pages/reset-password/reset-password.module#ResetPasswordPageModule' },
-  { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule',
-  ...canActivate(redirectToLogin) },
+  //{ path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule',
+ // ...canActivate(redirectToLogin) },
   { path: 'sign-in', loadChildren: './pages/sign-in/sign-in.module#SignInPageModule' },
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
-  { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
+  //{ path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
   { path: 'first', loadChildren: './pages/first/first.module#FirstPageModule' },
   { path: 'google-login', loadChildren: './pages/google-login/google-login.module#GoogleLoginPageModule' },
   { path: 'email', loadChildren: './pages/loginMethod/email/email.module#EmailPageModule' },
@@ -34,10 +30,8 @@ const routes: Routes = [
   { path: 'r-email', loadChildren: './pages/registerMethod/r-email/r-email.module#REmailPageModule' },
   { path: 'r-google', loadChildren: './pages/registerMethod/r-google/r-google.module#RGooglePageModule' },
   { path: 'r-facebook', loadChildren: './pages/registerMethod/r-facebook/r-facebook.module#RFacebookPageModule' },
-  { path: 'shop', loadChildren: './pages/shop/shop.module#ShopPageModule' },
-  //{ path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },
-  //{ path: 'first', loadChildren: './first/first.module#FirstPageModule' },
-  //{ path: 'second', loadChildren: './second/second.module#SecondPageModule' },*/
+  //{ path: 'shop', loadChildren: './pages/shop/shop.module#ShopPageModule' },
+  { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },
 ];
 
 @NgModule({
