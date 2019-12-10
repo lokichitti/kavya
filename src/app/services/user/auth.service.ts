@@ -102,13 +102,13 @@ export class AuthService {
     const newUserCredential: firebase.auth.UserCredential = await this.afAuth.auth.createUserWithEmailAndPassword(
       values.email,
       values.matching_passwords.password
-    );
+    );    
     return newUserCredential;
    }
 
    async signupWithPhone(values): Promise<firebase.auth.UserCredential> {
     const newUserCredential: firebase.auth.UserCredential = await this.afAuth.auth.createUserWithEmailAndPassword(
-      values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com",
+      values.value.country_phone.country.code + values.value.country_phone.phone,
       values.value.matching_passwords.password
     );
     return newUserCredential;
@@ -120,5 +120,9 @@ export class AuthService {
    
    logout(): Promise<void> {
     return this.afAuth.auth.signOut();
+   }
+
+   sendVerificationMail()   {
+    //return this.afAuth.auth.sendEmailVerification();
    }
 }

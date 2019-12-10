@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
 
+//import { first } from 'rxjs/operators';
+
 //keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore
-const redirectToLogin = redirectUnauthorizedTo(['first']);
+//const redirectToLogin = redirectUnauthorizedTo(['first']);
 const routes: Routes = [
-  { path: '', redirectTo: 'first', pathMatch: 'full' },
+  { path: '', loadChildren: './pages/menu/menu.module#MenuPageModule' },
+  /*
+ // { path: '', redirectTo: 'menu', pathMatch: 'full' },
   //{ path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   //{ path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
@@ -31,6 +35,9 @@ const routes: Routes = [
   { path: 'r-google', loadChildren: './pages/registerMethod/r-google/r-google.module#RGooglePageModule' },
   { path: 'r-facebook', loadChildren: './pages/registerMethod/r-facebook/r-facebook.module#RFacebookPageModule' },
   { path: 'shop', loadChildren: './pages/shop/shop.module#ShopPageModule' },
+  //{ path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },
+  //{ path: 'first', loadChildren: './first/first.module#FirstPageModule' },
+  //{ path: 'second', loadChildren: './second/second.module#SecondPageModule' },*/
 ];
 
 @NgModule({
