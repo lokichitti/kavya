@@ -125,11 +125,80 @@ export class PhonePage implements OnInit {
     ],
   };
 
+  async onSubmit(values): Promise<void> {
+    phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
+    console.log("Get OTP called " + phoneNumber);
+    this.disableGetOTPButton = true;
+    this.disableVerifyButton = false;
+    this.presentAlertPrompt(values);
+    this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000).then (function(verificationId) {
+      phoneSignInWithVerificationId = verificationId;
+    this.presentAlertPrompt(values);
+    }).catch(e => {
+      console.log(e);
+  }); 
+}
+
+async verify(values){
+  console.log("verify called Entered OTP is "+ this.OTPcode);
+  try{
+    //await this.alert.hideLoading();
+    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
+    .then ( (res) =>{
+      this.router.navigate(["/menu/home"]);      
+    });
+  }catch (error) {
+    //await this.alert.hideLoading();
+    this.alert.handleError(error);
+    //this.alert.presentAlert('Error', 'Invalid phone or password!')
+  }
+  await this.alert.hideLoading();
+}
+
+async presentAlertPrompt(values) {
+  console.log("presentAlertPrompt called");
+  const alert = await this.alertCtrl.create({
+    header: 'OTP Sent Successfully',
+    inputs: [
+      {
+        name: 'OTP',
+        type: 'text',
+        placeholder: 'Enter OTP'
+      }
+    ],
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        cssClass: 'primary',
+        handler: () => {
+          console.log('Confirm Cancel');
+          this.alert.showLoading();                
+        }
+      }, {
+        text: 'Ok',
+        handler: (data) => {
+          this.OTPcode = data.OTP;
+          this.verify(values);
+          console.log('Confirm Ok');
+        }
+      }
+    ],
+    backdropDismiss: false
+  });
+
+  await alert.present();
+  setTimeout(()=>{
+    this.alert.hideLoading();
+    this.alert.presentAlert('Try again', 'Thanks for your patience'); 
+    alert.dismiss();
+}, 30000);
+}
   async loginUser(values): Promise<void> {
     try {
       this.alert.showLoading();
       const userCredential: firebase.auth.UserCredential = await this.authService.login(
-      values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com",
+      values.value.country_phone.country.code + values.value.country_phone.phone,
       values.value.password    
       );
         this.authService.userId = userCredential.user.uid;

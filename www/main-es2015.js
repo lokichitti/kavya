@@ -8,13 +8,25 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"../basket/basket.module": [
+		"./src/app/pages/basket/basket.module.ts",
+		"basket-basket-module"
+	],
 	"../home/home.module": [
 		"./src/app/pages/home/home.module.ts",
 		"home-home-module"
 	],
+	"../orders/orders.module": [
+		"./src/app/pages/orders/orders.module.ts",
+		"orders-orders-module"
+	],
 	"../profile/profile.module": [
 		"./src/app/pages/profile/profile.module.ts",
 		"profile-profile-module"
+	],
+	"../search/search.module": [
+		"./src/app/pages/search/search.module.ts",
+		"search-search-module"
 	],
 	"../shop/shop.module": [
 		"./src/app/pages/shop/shop.module.ts",

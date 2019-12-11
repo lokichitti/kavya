@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n    <ion-toolbar color=\"primary\">\n      <ion-title>Login</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  \n  <ion-content padding class=\"form-content\">\n      <form [formGroup]=\"validations_form\"  (ngSubmit)=\"loginUser(validations_form)\">\n                   \n            <div formGroupName=\"country_phone\">\n              <ion-item>\n                <ion-label position=\"floating\" color=\"primary\">Country</ion-label>\n                <ion-select formControlName=\"country\" cancelText=\"Cancel\" okText=\"OK\">\n                  <ion-select-option *ngFor=\"let item of countries\" [value]=\"item\">{{item.name}}</ion-select-option>\n                </ion-select>\n              </ion-item>\n              <ion-item>\n                <ion-label position=\"floating\" color=\"primary\">Phone</ion-label>\n                <ion-input placeholder=\"Enter 10 digit mobile number\" type=\"text\" formControlName=\"phone\"></ion-input>\n              </ion-item>\n              <div class=\"validation-errors\">\n                <ng-container *ngFor=\"let validation of validation_messages.phone\">\n                  <div class=\"error-message\" *ngIf=\"validations_form.get('country_phone').get('phone').hasError(validation.type) && (validations_form.get('country_phone').get('phone').dirty || validations_form.get('country_phone').get('phone').touched)\">\n                    <ion-icon name=\"information-circle-outline\"></ion-icon> {{ validation.message }}\n                  </div>\n                </ng-container>\n              </div>\n            </div>\n            <ion-item>\n                <ion-label position=\"floating\" color=\"primary\">Password</ion-label>\n                <ion-input type=\"text\" formControlName=\"password\"></ion-input>\n              </ion-item>\n              <div class=\"validation-errors\">\n                <ng-container *ngFor=\"let validation of validation_messages.password\">\n                  <div class=\"error-message\" *ngIf=\"validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)\">\n                    <ion-icon name=\"information-circle-outline\"></ion-icon> {{ validation.message }}\n                  </div>\n                </ng-container>\n              </div>\n            <ion-button color=\"primary\" class=\"login-margin\" expand=\"full\" type=\"submit\" [disabled]=\"!validations_form.valid\" [disabled]=\"disableGetOTPButton\">Submit</ion-button>\n      </form>\n\n      <div>\n        <button [routerLink]=\"['/register']\" align=\"center\" class=\"login-margin\">\n          <img src=\"assets/image/register.png\">\n        </button>\n      </div>\n    </ion-content>"
+module.exports = "<ion-header>\n    <ion-toolbar color=\"primary\">\n      <ion-title>Login</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  \n  <ion-content padding class=\"form-content\">\n      <form [formGroup]=\"validations_form\"  (ngSubmit)=\"onSubmit(validations_form)\">\n                   \n            <div formGroupName=\"country_phone\">\n              <ion-item>\n                <ion-label position=\"floating\" color=\"primary\">Country</ion-label>\n                <ion-select formControlName=\"country\" cancelText=\"Cancel\" okText=\"OK\">\n                  <ion-select-option *ngFor=\"let item of countries\" [value]=\"item\">{{item.name}}</ion-select-option>\n                </ion-select>\n              </ion-item>\n              <ion-item>\n                <ion-label position=\"floating\" color=\"primary\">Phone</ion-label>\n                <ion-input placeholder=\"Enter 10 digit mobile number\" type=\"text\" formControlName=\"phone\"></ion-input>\n              </ion-item>\n              <div class=\"validation-errors\">\n                <ng-container *ngFor=\"let validation of validation_messages.phone\">\n                  <div class=\"error-message\" *ngIf=\"validations_form.get('country_phone').get('phone').hasError(validation.type) && (validations_form.get('country_phone').get('phone').dirty || validations_form.get('country_phone').get('phone').touched)\">\n                    <ion-icon name=\"information-circle-outline\"></ion-icon> {{ validation.message }}\n                  </div>\n                </ng-container>\n              </div>\n            </div>\n            <ion-item>\n                <ion-label position=\"floating\" color=\"primary\">Password</ion-label>\n                <ion-input type=\"password\" formControlName=\"password\"></ion-input>\n              </ion-item>\n              <div class=\"validation-errors\">\n                <ng-container *ngFor=\"let validation of validation_messages.password\">\n                  <div class=\"error-message\" *ngIf=\"validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)\">\n                    <ion-icon name=\"information-circle-outline\"></ion-icon> {{ validation.message }}\n                  </div>\n                </ng-container>\n              </div>\n            <ion-button color=\"primary\" class=\"login-margin\" expand=\"full\" type=\"submit\" [disabled]=\"!validations_form.valid\" [disabled]=\"disableGetOTPButton\">Submit</ion-button>\n      </form>\n      <ion-item>\n          <ion-label position=\"floating\">OTP</ion-label>\n          <ion-input color = \"primary\" type=\"text\" placeholder=\"Enter code\" [(ngModel)]=\"OTPcode\"></ion-input>\n        </ion-item>\n        \n      <ion-button class=\"login-margin\" expand=\"full\" (click)=\"verify(validations_form)\" [disabled]=\"disableVerifyButton\">Verify OTP</ion-button>\n    \n      <div>\n          <button [routerLink]=\"['/register']\" align=\"center\" class=\"register-margin\">\n            <img src=\"assets/image/register.png\">\n          </button>\n        \n          <button [routerLink]=\"['/reset-password']\" align=\"center\" class=\"register-margin\">\n            <img src=\"assets/image/forgot-password.png\">\n          </button>\n        </div>\n    </ion-content>"
 
 /***/ }),
 
@@ -182,11 +182,86 @@ let PhonePage = class PhonePage {
             password: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required)
         });
     }
+    onSubmit(values) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
+            console.log("Get OTP called " + phoneNumber);
+            this.disableGetOTPButton = true;
+            this.disableVerifyButton = false;
+            this.presentAlertPrompt(values);
+            this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000).then(function (verificationId) {
+                phoneSignInWithVerificationId = verificationId;
+                this.presentAlertPrompt(values);
+            }).catch(e => {
+                console.log(e);
+            });
+        });
+    }
+    verify(values) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            console.log("verify called Entered OTP is " + this.OTPcode);
+            try {
+                yield this.alert.hideLoading();
+                this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode)
+                    .then((res) => {
+                    this.router.navigate(["/menu/home"]);
+                });
+            }
+            catch (error) {
+                yield this.alert.hideLoading();
+                this.alert.handleError(error);
+                //this.alert.presentAlert('Error', 'Invalid phone or password!')
+            }
+            yield this.alert.hideLoading();
+        });
+    }
+    presentAlertPrompt(values) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            console.log("presentAlertPrompt called");
+            const alert = yield this.alertCtrl.create({
+                header: 'OTP Sent Successfully',
+                inputs: [
+                    {
+                        name: 'OTP',
+                        type: 'text',
+                        placeholder: 'Enter OTP'
+                    }
+                ],
+                buttons: [
+                    {
+                        text: 'Cancel',
+                        role: 'cancel',
+                        cssClass: 'primary',
+                        handler: () => {
+                            console.log('Confirm Cancel');
+                            this.alert.presentAlert('Try again', 'Thanks for your patience')
+                                .then(() => {
+                            });
+                            this.alert.showLoading();
+                        }
+                    }, {
+                        text: 'Ok',
+                        handler: (data) => {
+                            this.OTPcode = data.OTP;
+                            this.verify(values);
+                            console.log('Confirm Ok');
+                        }
+                    }
+                ],
+                backdropDismiss: false
+            });
+            yield alert.present();
+            setTimeout(() => {
+                this.alert.hideLoading();
+                alert.dismiss();
+            }, 30000);
+        });
+    }
     loginUser(values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             try {
                 this.alert.showLoading();
-                const userCredential = yield this.authService.login(values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com", values.value.password);
+                const userCredential = yield this.authService.login(values.value.country_phone.country.code + values.value.country_phone.phone, values.value.password);
                 this.authService.userId = userCredential.user.uid;
                 yield this.alert.hideLoading();
                 this.alert.presentAlert('Success', 'You are logged in!');

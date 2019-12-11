@@ -204,30 +204,27 @@ var RPhonePage = /** @class */ (function () {
     };
     RPhonePage.prototype.register = function (values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var userCredential, error_1;
+            var error_1;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 3, , 5]);
-                        return [4 /*yield*/, this.authService.signupWithPhone(values)];
-                    case 1:
-                        userCredential = _a.sent();
+                        _a.trys.push([0, 2, , 4]);
                         return [4 /*yield*/, this.alert.hideLoading()];
-                    case 2:
+                    case 1:
                         _a.sent();
-                        this.authService.userId = userCredential.user.uid;
                         this.alert.presentAlert('Success', 'You are registered!');
-                        this.authService.createPhoneUserProfile(this.authService.userId, values);
-                        this.router.navigate(["/menu/home"]);
-                        return [3 /*break*/, 5];
-                    case 3:
+                        this.authService.createPhoneUserProfile(this.authService.userId, values)
+                            .then(function () {
+                        });
+                        return [3 /*break*/, 4];
+                    case 2:
                         error_1 = _a.sent();
                         return [4 /*yield*/, this.alert.hideLoading()];
-                    case 4:
+                    case 3:
                         _a.sent();
                         this.alert.handleError(error_1);
-                        return [3 /*break*/, 5];
-                    case 5: return [2 /*return*/];
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
                 }
             });
         });
@@ -235,6 +232,7 @@ var RPhonePage = /** @class */ (function () {
     RPhonePage.prototype.verify = function (values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var error_2;
+            var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -243,8 +241,11 @@ var RPhonePage = /** @class */ (function () {
                     case 1:
                         _a.trys.push([1, 2, , 4]);
                         this.alert.showLoading();
-                        this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode);
-                        this.register(values);
+                        this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode)
+                            .then(function (res) {
+                            _this.register(values);
+                            _this.router.navigate(["/menu/home"]);
+                        });
                         return [3 /*break*/, 4];
                     case 2:
                         error_2 = _a.sent();

@@ -10,10 +10,22 @@ export class MenuPage implements OnInit {
 
   pages=[
     {
+      icon:"home",
+      title:"Home",
+      url:"/menu/home"
+    },
+    {
+      icon:"basket",
       title:"Shop",
       url:"/menu/shop"
     },
     {
+      icon:"basket",
+      title:"Orders",
+      url:"/menu/orders"
+    },
+    {
+      icon:"person",
       title:"Profile",
       url:"/menu/profile"
     },
@@ -21,7 +33,7 @@ export class MenuPage implements OnInit {
   selectedPath='';
 
   constructor(
-    //public menuCtrl: MenuController,
+    public menuCtrl: MenuController,
     private router: Router,
   ) 
   {
@@ -31,6 +43,9 @@ export class MenuPage implements OnInit {
    }
 
   ngOnInit() {
+  }
+  closeMenu(){
+    this.menuCtrl.close();
   }
 
 }

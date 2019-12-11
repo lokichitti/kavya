@@ -199,17 +199,16 @@ let RPhonePage = class RPhonePage {
     register(values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             try {
-                const userCredential = yield this.authService.signupWithPhone(values);
                 yield this.alert.hideLoading();
-                this.authService.userId = userCredential.user.uid;
                 this.alert.presentAlert('Success', 'You are registered!');
-                this.authService.createPhoneUserProfile(this.authService.userId, values);
-                this.router.navigate(["/menu/home"]);
+                this.authService.createPhoneUserProfile(this.authService.userId, values)
+                    .then(() => {
+                });
+                //this.router.navigate(["/menu/home"]);
             }
             catch (error) {
                 yield this.alert.hideLoading();
                 this.alert.handleError(error);
-                //this.alert.presentAlert('Error', 'Something went wrong, please try again!')
             }
         });
     }
@@ -218,8 +217,11 @@ let RPhonePage = class RPhonePage {
             console.log("verify called Entered OTP is " + this.OTPcode);
             try {
                 this.alert.showLoading();
-                this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode);
-                this.register(values);
+                this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode)
+                    .then((res) => {
+                    this.register(values);
+                    this.router.navigate(["/menu/home"]);
+                });
             }
             catch (error) {
                 yield this.alert.hideLoading();

@@ -5,7 +5,7 @@
   </ion-header>
   
   <ion-content padding class="form-content">
-      <form [formGroup]="validations_form"  (ngSubmit)="loginUser(validations_form)">
+      <form [formGroup]="validations_form"  (ngSubmit)="onSubmit(validations_form)">
                    
             <div formGroupName="country_phone">
               <ion-item>
@@ -28,7 +28,7 @@
             </div>
             <ion-item>
                 <ion-label position="floating" color="primary">Password</ion-label>
-                <ion-input type="text" formControlName="password"></ion-input>
+                <ion-input type="password" formControlName="password"></ion-input>
               </ion-item>
               <div class="validation-errors">
                 <ng-container *ngFor="let validation of validation_messages.password">
@@ -39,10 +39,20 @@
               </div>
             <ion-button color="primary" class="login-margin" expand="full" type="submit" [disabled]="!validations_form.valid" [disabled]="disableGetOTPButton">Submit</ion-button>
       </form>
-
+      <ion-item>
+          <ion-label position="floating">OTP</ion-label>
+          <ion-input color = "primary" type="text" placeholder="Enter code" [(ngModel)]="OTPcode"></ion-input>
+        </ion-item>
+        
+      <ion-button class="login-margin" expand="full" (click)="verify(validations_form)" [disabled]="disableVerifyButton">Verify OTP</ion-button>
+    
       <div>
-        <button [routerLink]="['/register']" align="center" class="login-margin">
-          <img src="assets/image/register.png">
-        </button>
-      </div>
+          <button [routerLink]="['/register']" align="center" class="register-margin">
+            <img src="assets/image/register.png">
+          </button>
+        
+          <button [routerLink]="['/reset-password']" align="center" class="register-margin">
+            <img src="assets/image/forgot-password.png">
+          </button>
+        </div>
     </ion-content>

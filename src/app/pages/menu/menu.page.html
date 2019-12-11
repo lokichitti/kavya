@@ -1,20 +1,30 @@
 <ion-split-pane>
   <ion-menu contentId = "content">
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar  color = "secondary">
           <ion-buttons slot="start">
-              <ion-menu-button></ion-menu-button>
+              <ion-menu-button color = "dark"></ion-menu-button>
             </ion-buttons>
-        <ion-title>Menu</ion-title>
+            <ion-buttons slot="end">
+                <ion-button (click)="closeMenu()">
+                    <ion-icon slot= "icon-only" name="arrow-dropleft" color="dark"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+        <ion-title color = "dark" size="medium" text-center>Menu</ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <ion-content>
+    <ion-content >
       <ion-list>
         <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
-          <ion-item [routerLink] = "p.url" routerDirection="root" [class.active-item]="selectedPath === p.url">
-            {{p.title}}
+          <ion-card color = "tertiary">
+          <ion-item color = "light" [routerLink] = "p.url" routerDirection="root" [class.active-item]="selectedPath === p.url">
+              <ion-col class="ion-text-start" size="5">
+                  <ion-icon [name]="p.icon" item-left></ion-icon>
+              </ion-col>
+              <ion-col class="ion-text-start" size="5"> {{p.title}} </ion-col>
           </ion-item>
+        </ion-card>
         </ion-menu-toggle>
       </ion-list>
     </ion-content>

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header >\n  <ion-toolbar color = \"primary\">\n      <ion-buttons slot=\"start\">\n          <ion-menu-button></ion-menu-button>\n        </ion-buttons>\n        <ion-buttons slot=\"end\">\n            <ion-button [routerLink]=\"['/menu']\">\n              <ion-icon slot=\"icon-only\" name=\"menu\"  color = \"light\"></ion-icon>\n            </ion-button>\n          </ion-buttons>\n      <ion-title color = \"light\" size=\"medium\" text-center>Home</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <div>\n        <!-- Searchbar with a placeholder -->\n    <ion-searchbar shape=\"round\" placeholder=\"What you are looking for...\"></ion-searchbar>\n      </div>\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar color = \"primary\">\n      <ion-buttons slot=\"start\">\n          <ion-menu-button></ion-menu-button>\n        </ion-buttons>\n        <ion-buttons slot=\"end\">\n            <ion-button [routerLink]=\"['/menu/basket']\">\n              <ion-icon slot=\"icon-only\" name=\"basket\" color = \"light\"></ion-icon>\n            </ion-button>\n          </ion-buttons>\n          <ion-buttons  slot=\"primary\">\n              <ion-button [routerLink]=\"['/menu/search']\">\n                <ion-icon slot=\"icon-only\" name=\"search\"></ion-icon>\n              </ion-button>\n            </ion-buttons>\n      <ion-title color = \"light\" size=\"medium\" text-start>Me&Me</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n    <ion-text color=\"secondary\">\n        <h1>Home</h1>\n      </ion-text>\n</ion-content>\n"
 
 /***/ }),
 
@@ -82,20 +82,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePage", function() { return HomePage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
 
 
 let HomePage = class HomePage {
-    constructor() { }
+    constructor(plt) {
+        this.plt = plt;
+        if (this.plt.is('ios')) {
+            // This will only print when on iOS
+            console.log('I am an iOS device!');
+        }
+        else if (this.plt.is('android')) {
+            // This will only print when on iOS
+            console.log('I am an Android device!');
+        }
+        else {
+            // This will only print when on iOS
+            console.log('I am an web browser device!');
+        }
+    }
     ngOnInit() {
     }
 };
+HomePage.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] }
+];
 HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-home',
         template: __webpack_require__(/*! raw-loader!./home.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/home/home.page.html"),
         styles: [__webpack_require__(/*! ./home.page.scss */ "./src/app/pages/home/home.page.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"]])
 ], HomePage);
 
 

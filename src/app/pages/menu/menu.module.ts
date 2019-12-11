@@ -12,15 +12,12 @@ const routes: Routes = [
     path:'',
     component: MenuPage,
     children:[
-      {
-        path: 'home', loadChildren: '../home/home.module#HomePageModule'
-      },
-      {
-        path: 'profile', loadChildren: '../profile/profile.module#ProfilePageModule'
-      },
-      {
-        path: 'shop', loadChildren: '../shop/shop.module#ShopPageModule'
-      }
+      { path: 'home', loadChildren: '../home/home.module#HomePageModule'},
+      { path: 'profile', loadChildren: '../profile/profile.module#ProfilePageModule'},
+      { path: 'shop', loadChildren: '../shop/shop.module#ShopPageModule'},
+      { path: 'basket', loadChildren: '../basket/basket.module#BasketPageModule' },
+      { path: 'orders', loadChildren: '../orders/orders.module#OrdersPageModule' },
+      { path: 'search', loadChildren: '../search/search.module#SearchPageModule' },
     ]
 
   },

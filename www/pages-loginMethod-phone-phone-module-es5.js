@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n    <ion-toolbar color=\"primary\">\n      <ion-title>Login</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  \n  <ion-content padding class=\"form-content\">\n      <form [formGroup]=\"validations_form\"  (ngSubmit)=\"loginUser(validations_form)\">\n                   \n            <div formGroupName=\"country_phone\">\n              <ion-item>\n                <ion-label position=\"floating\" color=\"primary\">Country</ion-label>\n                <ion-select formControlName=\"country\" cancelText=\"Cancel\" okText=\"OK\">\n                  <ion-select-option *ngFor=\"let item of countries\" [value]=\"item\">{{item.name}}</ion-select-option>\n                </ion-select>\n              </ion-item>\n              <ion-item>\n                <ion-label position=\"floating\" color=\"primary\">Phone</ion-label>\n                <ion-input placeholder=\"Enter 10 digit mobile number\" type=\"text\" formControlName=\"phone\"></ion-input>\n              </ion-item>\n              <div class=\"validation-errors\">\n                <ng-container *ngFor=\"let validation of validation_messages.phone\">\n                  <div class=\"error-message\" *ngIf=\"validations_form.get('country_phone').get('phone').hasError(validation.type) && (validations_form.get('country_phone').get('phone').dirty || validations_form.get('country_phone').get('phone').touched)\">\n                    <ion-icon name=\"information-circle-outline\"></ion-icon> {{ validation.message }}\n                  </div>\n                </ng-container>\n              </div>\n            </div>\n            <ion-item>\n                <ion-label position=\"floating\" color=\"primary\">Password</ion-label>\n                <ion-input type=\"text\" formControlName=\"password\"></ion-input>\n              </ion-item>\n              <div class=\"validation-errors\">\n                <ng-container *ngFor=\"let validation of validation_messages.password\">\n                  <div class=\"error-message\" *ngIf=\"validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)\">\n                    <ion-icon name=\"information-circle-outline\"></ion-icon> {{ validation.message }}\n                  </div>\n                </ng-container>\n              </div>\n            <ion-button color=\"primary\" class=\"login-margin\" expand=\"full\" type=\"submit\" [disabled]=\"!validations_form.valid\" [disabled]=\"disableGetOTPButton\">Submit</ion-button>\n      </form>\n\n      <div>\n        <button [routerLink]=\"['/register']\" align=\"center\" class=\"login-margin\">\n          <img src=\"assets/image/register.png\">\n        </button>\n      </div>\n    </ion-content>"
+module.exports = "<ion-header>\n    <ion-toolbar color=\"primary\">\n      <ion-title>Login</ion-title>\n    </ion-toolbar>\n  </ion-header>\n  \n  <ion-content padding class=\"form-content\">\n      <form [formGroup]=\"validations_form\"  (ngSubmit)=\"onSubmit(validations_form)\">\n                   \n            <div formGroupName=\"country_phone\">\n              <ion-item>\n                <ion-label position=\"floating\" color=\"primary\">Country</ion-label>\n                <ion-select formControlName=\"country\" cancelText=\"Cancel\" okText=\"OK\">\n                  <ion-select-option *ngFor=\"let item of countries\" [value]=\"item\">{{item.name}}</ion-select-option>\n                </ion-select>\n              </ion-item>\n              <ion-item>\n                <ion-label position=\"floating\" color=\"primary\">Phone</ion-label>\n                <ion-input placeholder=\"Enter 10 digit mobile number\" type=\"text\" formControlName=\"phone\"></ion-input>\n              </ion-item>\n              <div class=\"validation-errors\">\n                <ng-container *ngFor=\"let validation of validation_messages.phone\">\n                  <div class=\"error-message\" *ngIf=\"validations_form.get('country_phone').get('phone').hasError(validation.type) && (validations_form.get('country_phone').get('phone').dirty || validations_form.get('country_phone').get('phone').touched)\">\n                    <ion-icon name=\"information-circle-outline\"></ion-icon> {{ validation.message }}\n                  </div>\n                </ng-container>\n              </div>\n            </div>\n            <ion-item>\n                <ion-label position=\"floating\" color=\"primary\">Password</ion-label>\n                <ion-input type=\"password\" formControlName=\"password\"></ion-input>\n              </ion-item>\n              <div class=\"validation-errors\">\n                <ng-container *ngFor=\"let validation of validation_messages.password\">\n                  <div class=\"error-message\" *ngIf=\"validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)\">\n                    <ion-icon name=\"information-circle-outline\"></ion-icon> {{ validation.message }}\n                  </div>\n                </ng-container>\n              </div>\n            <ion-button color=\"primary\" class=\"login-margin\" expand=\"full\" type=\"submit\" [disabled]=\"!validations_form.valid\" [disabled]=\"disableGetOTPButton\">Submit</ion-button>\n      </form>\n      <ion-item>\n          <ion-label position=\"floating\">OTP</ion-label>\n          <ion-input color = \"primary\" type=\"text\" placeholder=\"Enter code\" [(ngModel)]=\"OTPcode\"></ion-input>\n        </ion-item>\n        \n      <ion-button class=\"login-margin\" expand=\"full\" (click)=\"verify(validations_form)\" [disabled]=\"disableVerifyButton\">Verify OTP</ion-button>\n    \n      <div>\n          <button [routerLink]=\"['/register']\" align=\"center\" class=\"register-margin\">\n            <img src=\"assets/image/register.png\">\n          </button>\n        \n          <button [routerLink]=\"['/reset-password']\" align=\"center\" class=\"register-margin\">\n            <img src=\"assets/image/forgot-password.png\">\n          </button>\n        </div>\n    </ion-content>"
 
 /***/ }),
 
@@ -185,15 +185,121 @@ var PhonePage = /** @class */ (function () {
             password: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required)
         });
     };
+    PhonePage.prototype.onSubmit = function (values) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
+                console.log("Get OTP called " + phoneNumber);
+                this.disableGetOTPButton = true;
+                this.disableVerifyButton = false;
+                this.presentAlertPrompt(values);
+                this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000).then(function (verificationId) {
+                    phoneSignInWithVerificationId = verificationId;
+                    this.presentAlertPrompt(values);
+                }).catch(function (e) {
+                    console.log(e);
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    PhonePage.prototype.verify = function (values) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var error_1;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        console.log("verify called Entered OTP is " + this.OTPcode);
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 5]);
+                        return [4 /*yield*/, this.alert.hideLoading()];
+                    case 2:
+                        _a.sent();
+                        this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode)
+                            .then(function (res) {
+                            _this.router.navigate(["/menu/home"]);
+                        });
+                        return [3 /*break*/, 5];
+                    case 3:
+                        error_1 = _a.sent();
+                        return [4 /*yield*/, this.alert.hideLoading()];
+                    case 4:
+                        _a.sent();
+                        this.alert.handleError(error_1);
+                        return [3 /*break*/, 5];
+                    case 5: return [4 /*yield*/, this.alert.hideLoading()];
+                    case 6:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    PhonePage.prototype.presentAlertPrompt = function (values) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var alert;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        console.log("presentAlertPrompt called");
+                        return [4 /*yield*/, this.alertCtrl.create({
+                                header: 'OTP Sent Successfully',
+                                inputs: [
+                                    {
+                                        name: 'OTP',
+                                        type: 'text',
+                                        placeholder: 'Enter OTP'
+                                    }
+                                ],
+                                buttons: [
+                                    {
+                                        text: 'Cancel',
+                                        role: 'cancel',
+                                        cssClass: 'primary',
+                                        handler: function () {
+                                            console.log('Confirm Cancel');
+                                            _this.alert.presentAlert('Try again', 'Thanks for your patience')
+                                                .then(function () {
+                                            });
+                                            _this.alert.showLoading();
+                                        }
+                                    }, {
+                                        text: 'Ok',
+                                        handler: function (data) {
+                                            _this.OTPcode = data.OTP;
+                                            _this.verify(values);
+                                            console.log('Confirm Ok');
+                                        }
+                                    }
+                                ],
+                                backdropDismiss: false
+                            })];
+                    case 1:
+                        alert = _a.sent();
+                        return [4 /*yield*/, alert.present()];
+                    case 2:
+                        _a.sent();
+                        setTimeout(function () {
+                            _this.alert.hideLoading();
+                            alert.dismiss();
+                        }, 30000);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     PhonePage.prototype.loginUser = function (values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var userCredential, error_1;
+            var userCredential, error_2;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 5]);
                         this.alert.showLoading();
-                        return [4 /*yield*/, this.authService.login(values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com", values.value.password)];
+                        return [4 /*yield*/, this.authService.login(values.value.country_phone.country.code + values.value.country_phone.phone, values.value.password)];
                     case 1:
                         userCredential = _a.sent();
                         this.authService.userId = userCredential.user.uid;
@@ -204,11 +310,11 @@ var PhonePage = /** @class */ (function () {
                         this.router.navigate(["/menu/home"]);
                         return [3 /*break*/, 5];
                     case 3:
-                        error_1 = _a.sent();
+                        error_2 = _a.sent();
                         return [4 /*yield*/, this.alert.hideLoading()];
                     case 4:
                         _a.sent();
-                        this.alert.handleError(error_1);
+                        this.alert.handleError(error_2);
                         return [3 /*break*/, 5];
                     case 5: return [2 /*return*/];
                 }
