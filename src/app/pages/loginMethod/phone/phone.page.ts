@@ -124,7 +124,6 @@ export class PhonePage implements OnInit {
       { type: 'pattern', message: 'You must accept terms and conditions.' }
     ],
   };
-
   async onSubmit(values): Promise<void> {
     phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
     console.log("Get OTP called " + phoneNumber);
