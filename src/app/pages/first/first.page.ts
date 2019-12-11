@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/user/auth.service';
 import { Router } from '@angular/router';
 import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
-
+import * as firebase from 'firebase';
 @Component({
   selector: 'app-first',
   templateUrl: './first.page.html',
@@ -22,12 +22,20 @@ export class FirstPage implements OnInit {
     if(currentUser){
       this.router.navigate(["/menu/home"]);
     }*/
-    const userInfo = this.firebaseAuthentication.onAuthStateChanged();
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        this.router.navigate(["/menu/home"]);
+      } else {
+        this.router.navigate(["/menu/shop"]);
+      }
+    });
+/*    const userInfo = this.firebaseAuthentication.onAuthStateChanged();
       if (userInfo) {
+        console.log(userInfo);
           this.router.navigate(["/menu/home"]);
       } else {
           // user was signed out
-      }
+      }*/
   }
 
 }
