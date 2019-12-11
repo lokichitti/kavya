@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"/login\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Forgot your password?</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <app-auth-form\n    #resetPasswordForm\n    (formSubmitted)=\"resetPassword($event)\"\n    [actionButtonText]=\"'Reset Password'\"\n    [isPasswordResetPage]=\"true\"\n  ></app-auth-form>\n</ion-content>"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"/login\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Forgot your password?</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <app-auth-form\n    #resetPasswordForm\n    (formSubmitted)=\"resetPassword($event)\"\n    [actionButtonText]=\"'Reset Password'\"\n    [isPasswordResetPage]=\"true\"\n  ></app-auth-form>\n</ion-content>\n\n"
 
 /***/ }),
 

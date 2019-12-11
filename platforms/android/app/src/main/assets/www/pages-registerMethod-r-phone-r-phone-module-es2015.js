@@ -203,8 +203,8 @@ let RPhonePage = class RPhonePage {
                 this.alert.presentAlert('Success', 'You are registered!');
                 this.authService.createPhoneUserProfile(this.authService.userId, values)
                     .then(() => {
+                    this.router.navigate(["/menu/home"]);
                 });
-                //this.router.navigate(["/menu/home"]);
             }
             catch (error) {
                 yield this.alert.hideLoading();
@@ -216,7 +216,7 @@ let RPhonePage = class RPhonePage {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             console.log("verify called Entered OTP is " + this.OTPcode);
             try {
-                this.alert.showLoading();
+                //this.alert.showLoading();
                 this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode)
                     .then((res) => {
                     this.register(values);
@@ -224,7 +224,7 @@ let RPhonePage = class RPhonePage {
                 });
             }
             catch (error) {
-                yield this.alert.hideLoading();
+                // await this.alert.hideLoading();
                 this.alert.handleError(error);
                 //this.alert.presentAlert('Error', 'Invalid phone or password!')
             }
@@ -249,6 +249,7 @@ let RPhonePage = class RPhonePage {
                         cssClass: 'primary',
                         handler: () => {
                             console.log('Confirm Cancel');
+                            this.alert.showLoading();
                         }
                     }, {
                         text: 'Ok',
@@ -263,8 +264,10 @@ let RPhonePage = class RPhonePage {
             });
             yield alert.present();
             setTimeout(() => {
+                this.alert.hideLoading();
+                this.alert.presentAlert('Try again', 'Thanks for your patience');
                 alert.dismiss();
-            }, 60000);
+            }, 30000);
         });
     }
 };

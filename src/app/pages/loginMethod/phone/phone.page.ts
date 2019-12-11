@@ -142,15 +142,15 @@ export class PhonePage implements OnInit {
 async verify(values){
   console.log("verify called Entered OTP is "+ this.OTPcode);
   try{
-    //await this.alert.hideLoading();
+    await this.alert.hideLoading();
     this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
     .then ( (res) =>{
       this.router.navigate(["/menu/home"]);      
     });
   }catch (error) {
-    //await this.alert.hideLoading();
+    await this.alert.hideLoading();
     this.alert.handleError(error);
-    //this.alert.presentAlert('Error', 'Invalid phone or password!')
+    this.alert.presentAlert('Error', 'Invalid phone or password!')
   }
   await this.alert.hideLoading();
 }
@@ -173,7 +173,8 @@ async presentAlertPrompt(values) {
         cssClass: 'primary',
         handler: () => {
           console.log('Confirm Cancel');
-          this.alert.showLoading();                
+          this.alert.showLoading(); 
+          this.alert.presentAlert('Please wait', 'Thanks for your patience');                
         }
       }, {
         text: 'Ok',
@@ -181,6 +182,7 @@ async presentAlertPrompt(values) {
           this.OTPcode = data.OTP;
           this.verify(values);
           console.log('Confirm Ok');
+          this.alert.hideLoading();
         }
       }
     ],
@@ -189,8 +191,7 @@ async presentAlertPrompt(values) {
 
   await alert.present();
   setTimeout(()=>{
-    this.alert.hideLoading();
-    this.alert.presentAlert('Try again', 'Thanks for your patience'); 
+    this.alert.hideLoading();    
     alert.dismiss();
 }, 30000);
 }

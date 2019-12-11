@@ -234,9 +234,6 @@ let PhonePage = class PhonePage {
                         cssClass: 'primary',
                         handler: () => {
                             console.log('Confirm Cancel');
-                            this.alert.presentAlert('Try again', 'Thanks for your patience')
-                                .then(() => {
-                            });
                             this.alert.showLoading();
                         }
                     }, {
@@ -253,6 +250,7 @@ let PhonePage = class PhonePage {
             yield alert.present();
             setTimeout(() => {
                 this.alert.hideLoading();
+                this.alert.presentAlert('Try again', 'Thanks for your patience');
                 alert.dismiss();
             }, 30000);
         });

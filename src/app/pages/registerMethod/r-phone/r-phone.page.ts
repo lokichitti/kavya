@@ -131,15 +131,15 @@ export class RPhonePage implements OnInit {
 async register(values): Promise<void> {
     
   try {  
-    //await this.alert.hideLoading();
+    await this.alert.hideLoading();
     this.alert.presentAlert('Success', 'You are registered!')
     this.authService.createPhoneUserProfile(this.authService.userId, values)
     .then (()=>{
-      
+      this.router.navigate(["/menu/home"]);
     });
-    //this.router.navigate(["/menu/home"]);
+    
   } catch (error) {
-    //await this.alert.hideLoading();
+    await this.alert.hideLoading();
     this.alert.handleError(error);
   }
   
@@ -154,9 +154,9 @@ async verify(values){
       this.router.navigate(["/menu/home"]);      
     });
   }catch (error) {
-   // await this.alert.hideLoading();
+    await this.alert.hideLoading();
     this.alert.handleError(error);
-    //this.alert.presentAlert('Error', 'Invalid phone or password!')
+    this.alert.presentAlert('Error', 'Phone number exist, try login!')
   }
   
 }

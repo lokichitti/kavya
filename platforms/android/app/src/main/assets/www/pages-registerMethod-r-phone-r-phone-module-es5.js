@@ -205,6 +205,7 @@ var RPhonePage = /** @class */ (function () {
     RPhonePage.prototype.register = function (values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var error_1;
+            var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -215,6 +216,7 @@ var RPhonePage = /** @class */ (function () {
                         this.alert.presentAlert('Success', 'You are registered!');
                         this.authService.createPhoneUserProfile(this.authService.userId, values)
                             .then(function () {
+                            _this.router.navigate(["/menu/home"]);
                         });
                         return [3 /*break*/, 4];
                     case 2:
@@ -231,31 +233,23 @@ var RPhonePage = /** @class */ (function () {
     };
     RPhonePage.prototype.verify = function (values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var error_2;
             var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        console.log("verify called Entered OTP is " + this.OTPcode);
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 2, , 4]);
-                        this.alert.showLoading();
-                        this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode)
-                            .then(function (res) {
-                            _this.register(values);
-                            _this.router.navigate(["/menu/home"]);
-                        });
-                        return [3 /*break*/, 4];
-                    case 2:
-                        error_2 = _a.sent();
-                        return [4 /*yield*/, this.alert.hideLoading()];
-                    case 3:
-                        _a.sent();
-                        this.alert.handleError(error_2);
-                        return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/];
+                console.log("verify called Entered OTP is " + this.OTPcode);
+                try {
+                    //this.alert.showLoading();
+                    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode)
+                        .then(function (res) {
+                        _this.register(values);
+                        _this.router.navigate(["/menu/home"]);
+                    });
                 }
+                catch (error) {
+                    // await this.alert.hideLoading();
+                    this.alert.handleError(error);
+                    //this.alert.presentAlert('Error', 'Invalid phone or password!')
+                }
+                return [2 /*return*/];
             });
         });
     };
@@ -283,6 +277,7 @@ var RPhonePage = /** @class */ (function () {
                                         cssClass: 'primary',
                                         handler: function () {
                                             console.log('Confirm Cancel');
+                                            _this.alert.showLoading();
                                         }
                                     }, {
                                         text: 'Ok',
@@ -301,8 +296,10 @@ var RPhonePage = /** @class */ (function () {
                     case 2:
                         _a.sent();
                         setTimeout(function () {
+                            _this.alert.hideLoading();
+                            _this.alert.presentAlert('Try again', 'Thanks for your patience');
                             alert.dismiss();
-                        }, 60000);
+                        }, 30000);
                         return [2 /*return*/];
                 }
             });

@@ -261,9 +261,6 @@ var PhonePage = /** @class */ (function () {
                                         cssClass: 'primary',
                                         handler: function () {
                                             console.log('Confirm Cancel');
-                                            _this.alert.presentAlert('Try again', 'Thanks for your patience')
-                                                .then(function () {
-                                            });
                                             _this.alert.showLoading();
                                         }
                                     }, {
@@ -284,6 +281,7 @@ var PhonePage = /** @class */ (function () {
                         _a.sent();
                         setTimeout(function () {
                             _this.alert.hideLoading();
+                            _this.alert.presentAlert('Try again', 'Thanks for your patience');
                             alert.dismiss();
                         }, 30000);
                         return [2 /*return*/];
