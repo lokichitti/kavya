@@ -17,6 +17,7 @@ import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/user/auth.service';
 import { AlertService } from '../../../services/alert';
 import { Storage } from '@ionic/storage';
+import { userInfo } from 'os';
 
   var phoneSignInWithVerificationId: any;
   var phoneNumber: string;
@@ -132,7 +133,7 @@ export class PhonePage implements OnInit {
     this.disableGetOTPButton = true;
     this.disableVerifyButton = false;
     this.presentAlertPrompt(values);
-    this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000).then (function(verificationId) {
+    this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 60000).then (function(verificationId) {
       phoneSignInWithVerificationId = verificationId;
     this.presentAlertPrompt(values);
     }).catch(e => {
@@ -146,14 +147,25 @@ async verify(values){
     await this.alert.showLoading();
     this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
     .then (async  (res) =>{
+      console.log("signInWithVerificationId called");
       await this.alert.hideLoading();
-      this.router.navigate(["/menu/home"]);      
+      this.router.navigate(["/menu/home"]);     
     });
   }catch (error) {
+    console.log("signInWithVerificationId error");
     await this.alert.hideLoading();
     this.alert.handleError(error);
     this.alert.presentAlert('Error', 'Invalid phone or password!')
   }
+//public userInfo: Observable<any>;
+  this.firebaseAuthentication.onAuthStateChanged()
+  .then( (Info)=> {
+    if (Info) {
+      // user was signed in
+  } else {
+      // user was signed out
+  }
+  }); 
   await this.alert.hideLoading();
 }
 
@@ -175,8 +187,8 @@ async presentAlertPrompt(values) {
         cssClass: 'primary',
         handler: () => {
           console.log('Confirm Cancel');
-          this.alert.showLoading(); 
-          this.alert.presentAlert('Please wait', 'Thanks for your patience');                
+          //this.alert.showLoading(); 
+          //this.alert.presentAlert('Please wait', 'Thanks for your patience');                
         }
       }, {
         text: 'Ok',
@@ -192,9 +204,9 @@ async presentAlertPrompt(values) {
 
   await alert.present();
   setTimeout(()=>{
-    this.alert.hideLoading();    
+    //this.alert.hideLoading();    
     alert.dismiss();
-}, 15000);
+}, 60000);
 }
   async loginUser(values): Promise<void> {
     try {

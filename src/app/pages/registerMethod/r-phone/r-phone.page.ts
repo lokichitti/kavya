@@ -122,7 +122,7 @@ export class RPhonePage implements OnInit {
     this.disableGetOTPButton = true;
     this.disableVerifyButton = false;
     this.presentAlertPrompt(values);
-    this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000).then (function(verificationId) {
+    this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 60000).then (function(verificationId) {
       phoneSignInWithVerificationId = verificationId;
     this.presentAlertPrompt(values);
     }).catch(e => {
@@ -133,7 +133,7 @@ export class RPhonePage implements OnInit {
 async register(values): Promise<void> {
     
   try {  
-    await this.alert.hideLoading();
+    //await this.alert.hideLoading();
     this.alert.presentAlert('Success', 'You are registered!')
     this.authService.createPhoneUserProfile(this.authService.userId, values)
     .then (()=>{
@@ -141,7 +141,7 @@ async register(values): Promise<void> {
     });
     
   } catch (error) {
-    await this.alert.hideLoading();
+    //await this.alert.hideLoading();
     this.alert.handleError(error);
   }
   
@@ -149,14 +149,17 @@ async register(values): Promise<void> {
 async verify(values){
   console.log("verify called Entered OTP is "+ this.OTPcode);
   try{
-    //this.alert.showLoading();
+    this.alert.showLoading();
     this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
-    .then ( (res) =>{
+    .then (async (res) =>{
+      console.log("signInWithVerificationId called");
+      await this.alert.hideLoading();
       this.storage.set('userCredential', res);
       this.register(values);
       this.router.navigate(["/menu/home"]);      
     });
   }catch (error) {
+    console.log("signInWithVerificationId error");
     await this.alert.hideLoading();
     this.alert.handleError(error);
     this.alert.presentAlert('Error', 'Phone number exist, try login!')
@@ -182,7 +185,7 @@ async verify(values){
           cssClass: 'primary',
           handler: () => {
             console.log('Confirm Cancel');
-            this.alert.showLoading(); 
+            //this.alert.showLoading(); 
           }
         }, {
           text: 'Ok',
@@ -198,10 +201,10 @@ async verify(values){
 
     await alert.present();
     setTimeout(()=>{
-      this.alert.hideLoading();
-    this.alert.presentAlert('Try again', 'Thanks for your patience'); 
+      //this.alert.hideLoading();
+    //this.alert.presentAlert('Try again', 'Thanks for your patience'); 
       alert.dismiss();
-  }, 30000);
+  }, 60000);
   }
 
 }

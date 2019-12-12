@@ -18,7 +18,16 @@
   </ion-header>
 
 <ion-content>
+    <ion-item>
     <ion-text color="secondary">
         <h1>Shop</h1>
       </ion-text>
+    </ion-item>
+      <ion-item>
+        <ion-buttons  slot="primary">
+          <ion-button [routerLink]="['/create-shop']">
+            <ion-icon slot="icon-only" name="search"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
 </ion-content>

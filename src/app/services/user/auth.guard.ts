@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
 import {
   CanActivate,
   ActivatedRouteSnapshot,
@@ -13,7 +14,12 @@ import 'firebase/auth';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router) {}
+
+  constructor(
+    private router: Router,
+    private firebaseAuthentication: FirebaseAuthentication,
+    ) {}
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -30,5 +36,11 @@ export class AuthGuard implements CanActivate {
         }
       });
     });
+  }
+
+  getCurrentUser(){
+    this.firebaseAuthentication.getCurrentUser().then(function(userInfo) {
+      // user information or null if not logged in
+  })
   }
 }

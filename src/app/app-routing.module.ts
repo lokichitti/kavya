@@ -33,6 +33,7 @@ const routes: Routes = [
   { path: 'r-facebook', loadChildren: './pages/registerMethod/r-facebook/r-facebook.module#RFacebookPageModule' },
   //{ path: 'shop', loadChildren: './pages/shop/shop.module#ShopPageModule' },
   { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule',},
+  { path: 'create-shop', loadChildren: './pages/create-shop/create-shop.module#CreateShopPageModule' },
 
 
 ];
