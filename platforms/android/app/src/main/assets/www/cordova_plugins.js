@@ -314,6 +314,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.SMSReceive"
       ]
+    },
+    {
+      "id": "cordova-sqlite-storage.SQLitePlugin",
+      "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
+      "pluginId": "cordova-sqlite-storage",
+      "clobbers": [
+        "SQLitePlugin"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -332,6 +340,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-support-android-plugin": "1.0.1",
     "cordova-support-google-services": "1.3.2",
     "cordova-plugin-firebase-authentication": "3.0.0",
-    "cordova-plugin-sms-receive": "1.0.2"
+    "cordova-plugin-sms-receive": "1.0.2",
+    "cordova-sqlite-storage": "4.0.0"
   };
 });

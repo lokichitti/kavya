@@ -64,6 +64,9 @@
     },
     "cordova-plugin-sms-receive": {
       "PACKAGE_NAME": "com.loki.meandmyshop"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "com.loki.meandmyshop"
     }
   },
   "dependent_plugins": {

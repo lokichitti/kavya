@@ -133,4 +133,7 @@
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyBHSK40wgWSOtksVfjDtxAAlIxyUiAFwME" />
     <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyBHSK40wgWSOtksVfjDtxAAlIxyUiAFwME" />
+    <feature name="SQLitePlugin">
+        <param name="android-package" value="io.sqlc.SQLitePlugin" />
+    </feature>
 </widget>

@@ -12,7 +12,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
 import { FirestoreService } from '../../../services/data/firestore.service';
 import { LoadingController, AlertController } from '@ionic/angular';
-
+import { Storage } from '@ionic/storage';
 import { Observable } from 'rxjs';
 import {
   PasswordValidator } from '../../../models/validators';
@@ -35,6 +35,7 @@ export class REmailPage implements OnInit {
     public loadingCtrl: LoadingController,
     private authService: AuthService,
     public alert: AlertService,
+    private storage: Storage
   ) { }
 
   ngOnInit() {
@@ -96,7 +97,8 @@ export class REmailPage implements OnInit {
       const userCredential: firebase.auth.UserCredential = await this.authService.signup(
         values
       );
-
+      this.storage.set('email', values.email);
+      this.storage.set('password', values.matching_passwords.password);
       this.authService.userId = userCredential.user.uid;
       await this.alert.hideLoading();
       this.alert.presentAlert('Success', 'You are registered!')

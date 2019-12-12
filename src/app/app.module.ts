@@ -26,6 +26,7 @@ import { UserService } from './services/user/user.services';
 import { AlertService } from './services/alert';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +34,7 @@ import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
+    IonicStorageModule.forRoot(),
     AppRoutingModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,

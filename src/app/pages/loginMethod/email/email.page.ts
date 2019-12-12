@@ -27,6 +27,7 @@ export class EmailPage implements OnInit {
   email,
   password
   );
+  await this.alert.hideLoading();
   this.authService.userId = userCredential.user.uid;
       this.alert.presentAlert('Success', 'You are logged in!')
       this.router.navigate(["/menu/home"]);
