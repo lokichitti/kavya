@@ -590,7 +590,7 @@ __webpack_require__.r(__webpack_exports__);
 //keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore
 const redirectToFirst = Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["redirectUnauthorizedTo"])(['first']);
 const routes = [
-    Object.assign({ path: '', redirectTo: 'menu/home', pathMatch: 'full' }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["canActivate"])(redirectToFirst)),
+    { path: '', redirectTo: 'menu/home', pathMatch: 'full', },
     //{ path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
     //{ path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
     { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
@@ -615,7 +615,8 @@ const routes = [
     { path: 'r-email', loadChildren: './pages/registerMethod/r-email/r-email.module#REmailPageModule' },
     { path: 'r-google', loadChildren: './pages/registerMethod/r-google/r-google.module#RGooglePageModule' },
     { path: 'r-facebook', loadChildren: './pages/registerMethod/r-facebook/r-facebook.module#RFacebookPageModule' },
-    Object.assign({ path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["canActivate"])(redirectToFirst)),
+    //{ path: 'shop', loadChildren: './pages/shop/shop.module#ShopPageModule' },
+    { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule', },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };

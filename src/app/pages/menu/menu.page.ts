@@ -16,7 +16,7 @@ export class MenuPage implements OnInit {
     },
     {
       icon:"basket",
-      title:"Shop",
+      title:"My shop",
       url:"/menu/shop"
     },
     {

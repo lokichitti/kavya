@@ -26,8 +26,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _menu_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./menu.page */ "./src/app/pages/menu/menu.page.ts");
+/* harmony import */ var _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/fire/auth-guard */ "./node_modules/@angular/fire/auth-guard/es2015/index.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _menu_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./menu.page */ "./src/app/pages/menu/menu.page.ts");
 
 
 
@@ -35,14 +36,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+const redirectToFirst = Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_5__["redirectUnauthorizedTo"])(['first']);
 const routes = [
     {
         path: '',
-        component: _menu_page__WEBPACK_IMPORTED_MODULE_6__["MenuPage"],
+        component: _menu_page__WEBPACK_IMPORTED_MODULE_7__["MenuPage"],
         children: [
             { path: 'home', loadChildren: '../home/home.module#HomePageModule' },
-            { path: 'profile', loadChildren: '../profile/profile.module#ProfilePageModule' },
-            { path: 'shop', loadChildren: '../shop/shop.module#ShopPageModule' },
+            Object.assign({ path: 'profile', loadChildren: '../profile/profile.module#ProfilePageModule' }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_5__["canActivate"])(redirectToFirst)),
+            Object.assign({ path: 'shop', loadChildren: '../shop/shop.module#ShopPageModule' }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_5__["canActivate"])(redirectToFirst)),
             { path: 'basket', loadChildren: '../basket/basket.module#BasketPageModule' },
             { path: 'orders', loadChildren: '../orders/orders.module#OrdersPageModule' },
             { path: 'search', loadChildren: '../search/search.module#SearchPageModule' },
@@ -60,10 +63,10 @@ MenuPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicModule"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
         ],
-        declarations: [_menu_page__WEBPACK_IMPORTED_MODULE_6__["MenuPage"]]
+        declarations: [_menu_page__WEBPACK_IMPORTED_MODULE_7__["MenuPage"]]
     })
 ], MenuPageModule);
 
