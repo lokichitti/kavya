@@ -115,7 +115,7 @@ let MenuPage = class MenuPage {
             },
             {
                 icon: "basket",
-                title: "Shop",
+                title: "My shop",
                 url: "/menu/shop"
             },
             {

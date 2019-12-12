@@ -119,7 +119,7 @@ var MenuPage = /** @class */ (function () {
             },
             {
                 icon: "basket",
-                title: "Shop",
+                title: "My shop",
                 url: "/menu/shop"
             },
             {
