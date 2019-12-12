@@ -4,9 +4,9 @@ import { redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
 import { AuthGuard } from './services/user/auth.guard';
 
 //keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore
-const redirectToLogin = redirectUnauthorizedTo(['first']);
+const redirectToFirst = redirectUnauthorizedTo(['first']);
 const routes: Routes = [
-  { path: '', redirectTo: 'menu', pathMatch: 'full',},
+  { path: '', redirectTo: 'menu/home', pathMatch: 'full',...canActivate(redirectToFirst)},
   //{ path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   //{ path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
@@ -32,8 +32,7 @@ const routes: Routes = [
   { path: 'r-google', loadChildren: './pages/registerMethod/r-google/r-google.module#RGooglePageModule' },
   { path: 'r-facebook', loadChildren: './pages/registerMethod/r-facebook/r-facebook.module#RFacebookPageModule' },
   //{ path: 'shop', loadChildren: './pages/shop/shop.module#ShopPageModule' },
-  { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule',
-  canActivate: [AuthGuard],},
+  { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule',...canActivate(redirectToFirst)},
 
 
 ];

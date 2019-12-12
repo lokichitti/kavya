@@ -89,6 +89,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_components_auth_form_auth_form_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/components/auth-form/auth-form.component */ "./src/app/components/auth-form/auth-form.component.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_alert__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/alert */ "./src/app/services/alert.ts");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+
 
 
 
@@ -96,10 +98,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var EmailPage = /** @class */ (function () {
-    function EmailPage(authService, router, alert) {
+    function EmailPage(authService, router, alert, storage) {
         this.authService = authService;
         this.router = router;
         this.alert = alert;
+        this.storage = storage;
     }
     EmailPage.prototype.ngOnInit = function () { };
     EmailPage.prototype.loginUser = function (email, password) {
@@ -108,23 +111,27 @@ var EmailPage = /** @class */ (function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 2, , 4]);
+                        _a.trys.push([0, 3, , 5]);
                         this.alert.showLoading();
                         return [4 /*yield*/, this.authService.login(email, password)];
                     case 1:
                         userCredential = _a.sent();
-                        this.authService.userId = userCredential.user.uid;
-                        this.alert.presentAlert('Success', 'You are logged in!');
-                        this.router.navigate(["/menu/home"]);
-                        return [3 /*break*/, 4];
+                        return [4 /*yield*/, this.alert.hideLoading()];
                     case 2:
+                        _a.sent();
+                        this.authService.userId = userCredential.user.uid;
+                        this.storage.set('userCredential', userCredential);
+                        //this.alert.presentAlert('Success', 'You are logged in!')
+                        this.router.navigate(["/menu/home"]);
+                        return [3 /*break*/, 5];
+                    case 3:
                         error_1 = _a.sent();
                         return [4 /*yield*/, this.alert.hideLoading()];
-                    case 3:
+                    case 4:
                         _a.sent();
                         this.alert.handleError(error_1);
-                        return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/];
+                        return [3 /*break*/, 5];
+                    case 5: return [2 /*return*/];
                 }
             });
         });
@@ -132,7 +139,8 @@ var EmailPage = /** @class */ (function () {
     EmailPage.ctorParameters = function () { return [
         { type: src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-        { type: _services_alert__WEBPACK_IMPORTED_MODULE_5__["AlertService"] }
+        { type: _services_alert__WEBPACK_IMPORTED_MODULE_5__["AlertService"] },
+        { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_6__["Storage"] }
     ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(src_app_components_auth_form_auth_form_component__WEBPACK_IMPORTED_MODULE_3__["AuthFormComponent"], { static: false }),
@@ -146,7 +154,8 @@ var EmailPage = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-            _services_alert__WEBPACK_IMPORTED_MODULE_5__["AlertService"]])
+            _services_alert__WEBPACK_IMPORTED_MODULE_5__["AlertService"],
+            _ionic_storage__WEBPACK_IMPORTED_MODULE_6__["Storage"]])
     ], EmailPage);
     return EmailPage;
 }());

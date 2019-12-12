@@ -594,9 +594,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore
-var redirectToLogin = Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["redirectUnauthorizedTo"])(['first']);
+var redirectToFirst = Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["redirectUnauthorizedTo"])(['first']);
 var routes = [
-    { path: '', redirectTo: 'first', pathMatch: 'full' },
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ path: '', redirectTo: 'menu/home', pathMatch: 'full' }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["canActivate"])(redirectToFirst)),
     //{ path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
     //{ path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
     { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
@@ -621,8 +621,7 @@ var routes = [
     { path: 'r-email', loadChildren: './pages/registerMethod/r-email/r-email.module#REmailPageModule' },
     { path: 'r-google', loadChildren: './pages/registerMethod/r-google/r-google.module#RGooglePageModule' },
     { path: 'r-facebook', loadChildren: './pages/registerMethod/r-facebook/r-facebook.module#RFacebookPageModule' },
-    //{ path: 'shop', loadChildren: './pages/shop/shop.module#ShopPageModule' },
-    { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["canActivate"])(redirectToFirst)),
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -753,6 +752,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_alert__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/alert */ "./src/app/services/alert.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/fire/auth-guard */ "./node_modules/@angular/fire/auth-guard/index.js");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+
 
 
 
@@ -787,6 +788,7 @@ var AppModule = /** @class */ (function () {
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
+                _ionic_storage__WEBPACK_IMPORTED_MODULE_23__["IonicStorageModule"].forRoot(),
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"],
                 angularfire2_auth__WEBPACK_IMPORTED_MODULE_13__["AngularFireAuthModule"],
                 angularfire2_database__WEBPACK_IMPORTED_MODULE_14__["AngularFireDatabaseModule"],

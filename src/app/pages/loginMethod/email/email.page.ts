@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/user/auth.service';
 import { AuthFormComponent } from 'src/app/components/auth-form/auth-form.component';
 import { Router } from '@angular/router';
 import { AlertService } from '../../../services/alert';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-email',
@@ -16,6 +17,7 @@ export class EmailPage implements OnInit {
     private authService: AuthService, 
     private router: Router,
     public alert: AlertService,
+    private storage: Storage
     ) {}
  
   ngOnInit() {}
@@ -29,7 +31,8 @@ export class EmailPage implements OnInit {
   );
   await this.alert.hideLoading();
   this.authService.userId = userCredential.user.uid;
-      this.alert.presentAlert('Success', 'You are logged in!')
+  this.storage.set('userCredential', userCredential);
+      //this.alert.presentAlert('Success', 'You are logged in!')
       this.router.navigate(["/menu/home"]);
     } catch (error) {
       await this.alert.hideLoading();

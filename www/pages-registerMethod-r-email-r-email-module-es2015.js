@@ -88,8 +88,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _models_validators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../models/validators */ "./src/app/models/validators.ts");
-/* harmony import */ var _services_alert__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../services/alert */ "./src/app/services/alert.ts");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm2015/ionic-storage.js");
+/* harmony import */ var _models_validators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../models/validators */ "./src/app/models/validators.ts");
+/* harmony import */ var _services_alert__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../services/alert */ "./src/app/services/alert.ts");
+
 
 
 
@@ -100,12 +102,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let REmailPage = class REmailPage {
-    constructor(formBuilder, router, loadingCtrl, authService, alert) {
+    constructor(formBuilder, router, loadingCtrl, authService, alert, storage) {
         this.formBuilder = formBuilder;
         this.router = router;
         this.loadingCtrl = loadingCtrl;
         this.authService = authService;
         this.alert = alert;
+        this.storage = storage;
         this.validation_messages = {
             'name': [
                 { type: 'required', message: 'Name is required.' }
@@ -142,7 +145,7 @@ let REmailPage = class REmailPage {
             ])),
             confirm_password: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required)
         }, (formGroup) => {
-            return _models_validators__WEBPACK_IMPORTED_MODULE_6__["PasswordValidator"].areEqual(formGroup);
+            return _models_validators__WEBPACK_IMPORTED_MODULE_7__["PasswordValidator"].areEqual(formGroup);
         });
         this.validations_form = this.formBuilder.group({
             name: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required),
@@ -160,9 +163,13 @@ let REmailPage = class REmailPage {
             try {
                 this.alert.showLoading();
                 const userCredential = yield this.authService.signup(values);
+                this.storage.set('email', values.email);
+                this.storage.set('password', values.matching_passwords.password);
                 this.authService.userId = userCredential.user.uid;
+                this.storage.set('userCredential', userCredential);
                 yield this.alert.hideLoading();
                 this.alert.presentAlert('Success', 'You are registered!');
+                this.authService.sendVerificationMail();
                 this.authService.createProfile(this.authService.userId, values);
                 this.router.navigate(["/menu/home"]);
             }
@@ -179,7 +186,8 @@ REmailPage.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["LoadingController"] },
     { type: src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
-    { type: _services_alert__WEBPACK_IMPORTED_MODULE_7__["AlertService"] }
+    { type: _services_alert__WEBPACK_IMPORTED_MODULE_8__["AlertService"] },
+    { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_6__["Storage"] }
 ];
 REmailPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -191,7 +199,8 @@ REmailPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["LoadingController"],
         src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
-        _services_alert__WEBPACK_IMPORTED_MODULE_7__["AlertService"]])
+        _services_alert__WEBPACK_IMPORTED_MODULE_8__["AlertService"],
+        _ionic_storage__WEBPACK_IMPORTED_MODULE_6__["Storage"]])
 ], REmailPage);
 
 
@@ -314,7 +323,45 @@ let AuthService = class AuthService {
         return this.afAuth.auth.signOut();
     }
     sendVerificationMail() {
-        //return this.afAuth.auth.sendEmailVerification();
+        var actionCodeSettings = {
+            url: 'https://www.example.com/?email=' + this.afAuth.auth.currentUser.email,
+            iOS: {
+                bundleId: 'com.example.ios'
+            },
+            android: {
+                packageName: 'com.example.android',
+                installApp: true,
+                minimumVersion: '12'
+            },
+            handleCodeInApp: true,
+            // When multiple custom dynamic link domains are defined, specify which
+            // one to use.
+            dynamicLinkDomain: "example.page.link"
+        };
+        return this.afAuth.auth.currentUser.sendEmailVerification().then(function () {
+            console.log("Verification email sent.");
+        })
+            .catch(function (error) {
+            console.log("Error occurred. Inspect error.code.");
+        });
+    }
+    signInWithUserCredentials(userCredential) {
+        this.afAuth.auth.signInWithCredential(userCredential).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            if (errorCode === 'auth/account-exists-with-different-credential') {
+                alert('Email already associated with another account.');
+                // Handle account linking here, if using.
+            }
+            else {
+                console.error(error);
+            }
+        });
     }
 };
 AuthService.ctorParameters = () => [

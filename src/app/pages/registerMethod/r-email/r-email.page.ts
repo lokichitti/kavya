@@ -100,8 +100,10 @@ export class REmailPage implements OnInit {
       this.storage.set('email', values.email);
       this.storage.set('password', values.matching_passwords.password);
       this.authService.userId = userCredential.user.uid;
+      this.storage.set('userCredential', userCredential);
       await this.alert.hideLoading();
       this.alert.presentAlert('Success', 'You are registered!')
+      this.authService.sendVerificationMail();
       this.authService.createProfile(this.authService.userId, values);
       this.router.navigate(["/menu/home"]);
     } catch (error) {

@@ -16,6 +16,7 @@ import * as firebase from 'firebase';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/user/auth.service';
 import { AlertService } from '../../../services/alert';
+import { Storage } from '@ionic/storage';
 
   var phoneSignInWithVerificationId: any;
   var phoneNumber: string;
@@ -48,6 +49,7 @@ export class RPhonePage implements OnInit {
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
     public alert: AlertService,
+    private storage: Storage
   ) { }
 
   ngOnInit() {
@@ -150,6 +152,7 @@ async verify(values){
     //this.alert.showLoading();
     this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
     .then ( (res) =>{
+      this.storage.set('userCredential', res);
       this.register(values);
       this.router.navigate(["/menu/home"]);      
     });

@@ -123,6 +123,44 @@ export class AuthService {
    }
 
    sendVerificationMail()   {
-    //return this.afAuth.auth.sendEmailVerification();
+    var actionCodeSettings = {
+      url: 'https://www.example.com/?email=' + this.afAuth.auth.currentUser.email,
+      iOS: {
+        bundleId: 'com.example.ios'
+      },
+      android: {
+        packageName: 'com.example.android',
+        installApp: true,
+        minimumVersion: '12'
+      },
+      handleCodeInApp: true,
+      // When multiple custom dynamic link domains are defined, specify which
+      // one to use.
+      dynamicLinkDomain: "example.page.link"
+    };
+    return this.afAuth.auth.currentUser.sendEmailVerification().then(function() {
+      console.log("Verification email sent.");
+           })
+           .catch(function(error) {
+            console.log("Error occurred. Inspect error.code.");
+           });
+   }
+
+   signInWithUserCredentials(userCredential){
+    this.afAuth.auth.signInWithCredential(userCredential).catch(function(error) {
+         // Handle Errors here.
+         var errorCode = error.code;
+         var errorMessage = error.message;
+         // The email of the user's account used.
+         var email = error.email;
+         // The firebase.auth.AuthCredential type that was used.
+         var credential = error.credential;
+         if (errorCode === 'auth/account-exists-with-different-credential') {
+           alert('Email already associated with another account.');
+           // Handle account linking here, if using.
+         } else {
+           console.error(error);
+         }
+        });
    }
 }

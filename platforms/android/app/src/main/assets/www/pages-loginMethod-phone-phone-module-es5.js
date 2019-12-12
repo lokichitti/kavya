@@ -95,6 +95,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _models_validators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../models/validators */ "./src/app/models/validators.ts");
 /* harmony import */ var src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/user/auth.service */ "./src/app/services/user/auth.service.ts");
 /* harmony import */ var _services_alert__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../services/alert */ "./src/app/services/alert.ts");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+
 
 
 
@@ -110,7 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 var phoneSignInWithVerificationId;
 var phoneNumber;
 var PhonePage = /** @class */ (function () {
-    function PhonePage(formBuilder, router, authService, firebaseAuthentication, alertCtrl, toastCtrl, alert) {
+    function PhonePage(formBuilder, router, authService, firebaseAuthentication, alertCtrl, toastCtrl, alert, storage) {
         this.formBuilder = formBuilder;
         this.router = router;
         this.authService = authService;
@@ -118,6 +120,7 @@ var PhonePage = /** @class */ (function () {
         this.alertCtrl = alertCtrl;
         this.toastCtrl = toastCtrl;
         this.alert = alert;
+        this.storage = storage;
         this.OTP = '';
         this.showOTPInput = false;
         this.OTPmessage = 'An OTP is sent to your number. You should receive it in 15 s';
@@ -214,13 +217,21 @@ var PhonePage = /** @class */ (function () {
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 3, , 5]);
-                        return [4 /*yield*/, this.alert.hideLoading()];
+                        return [4 /*yield*/, this.alert.showLoading()];
                     case 2:
                         _a.sent();
                         this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode)
-                            .then(function (res) {
-                            _this.router.navigate(["/menu/home"]);
-                        });
+                            .then(function (res) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
+                            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                                switch (_a.label) {
+                                    case 0: return [4 /*yield*/, this.alert.hideLoading()];
+                                    case 1:
+                                        _a.sent();
+                                        this.router.navigate(["/menu/home"]);
+                                        return [2 /*return*/];
+                                }
+                            });
+                        }); });
                         return [3 /*break*/, 5];
                     case 3:
                         error_1 = _a.sent();
@@ -271,7 +282,6 @@ var PhonePage = /** @class */ (function () {
                                             _this.OTPcode = data.OTP;
                                             _this.verify(values);
                                             console.log('Confirm Ok');
-                                            _this.alert.hideLoading();
                                         }
                                     }
                                 ],
@@ -285,7 +295,7 @@ var PhonePage = /** @class */ (function () {
                         setTimeout(function () {
                             _this.alert.hideLoading();
                             alert.dismiss();
-                        }, 30000);
+                        }, 15000);
                         return [2 /*return*/];
                 }
             });
@@ -328,7 +338,8 @@ var PhonePage = /** @class */ (function () {
         { type: _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_6__["FirebaseAuthentication"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"] },
-        { type: _services_alert__WEBPACK_IMPORTED_MODULE_9__["AlertService"] }
+        { type: _services_alert__WEBPACK_IMPORTED_MODULE_9__["AlertService"] },
+        { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_10__["Storage"] }
     ]; };
     PhonePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -342,7 +353,8 @@ var PhonePage = /** @class */ (function () {
             _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_6__["FirebaseAuthentication"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"],
-            _services_alert__WEBPACK_IMPORTED_MODULE_9__["AlertService"]])
+            _services_alert__WEBPACK_IMPORTED_MODULE_9__["AlertService"],
+            _ionic_storage__WEBPACK_IMPORTED_MODULE_10__["Storage"]])
     ], PhonePage);
     return PhonePage;
 }());
@@ -511,7 +523,45 @@ var AuthService = /** @class */ (function () {
         return this.afAuth.auth.signOut();
     };
     AuthService.prototype.sendVerificationMail = function () {
-        //return this.afAuth.auth.sendEmailVerification();
+        var actionCodeSettings = {
+            url: 'https://www.example.com/?email=' + this.afAuth.auth.currentUser.email,
+            iOS: {
+                bundleId: 'com.example.ios'
+            },
+            android: {
+                packageName: 'com.example.android',
+                installApp: true,
+                minimumVersion: '12'
+            },
+            handleCodeInApp: true,
+            // When multiple custom dynamic link domains are defined, specify which
+            // one to use.
+            dynamicLinkDomain: "example.page.link"
+        };
+        return this.afAuth.auth.currentUser.sendEmailVerification().then(function () {
+            console.log("Verification email sent.");
+        })
+            .catch(function (error) {
+            console.log("Error occurred. Inspect error.code.");
+        });
+    };
+    AuthService.prototype.signInWithUserCredentials = function (userCredential) {
+        this.afAuth.auth.signInWithCredential(userCredential).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            if (errorCode === 'auth/account-exists-with-different-credential') {
+                alert('Email already associated with another account.');
+                // Handle account linking here, if using.
+            }
+            else {
+                console.error(error);
+            }
+        });
     };
     AuthService.ctorParameters = function () { return [
         { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"] },

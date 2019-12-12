@@ -76,6 +76,9 @@
     <feature name="SMSReceive">
         <param name="android-package" value="com.andreszs.cordova.sms.SMSReceive" />
     </feature>
+    <feature name="SQLitePlugin">
+        <param name="android-package" value="io.sqlc.SQLitePlugin" />
+    </feature>
     <feature name="CDVIonicKeyboard">
         <param name="android-package" onload="true" value="io.ionic.keyboard.CDVIonicKeyboard" />
     </feature>
@@ -133,7 +136,4 @@
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyBHSK40wgWSOtksVfjDtxAAlIxyUiAFwME" />
     <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyBHSK40wgWSOtksVfjDtxAAlIxyUiAFwME" />
-    <feature name="SQLitePlugin">
-        <param name="android-package" value="io.sqlc.SQLitePlugin" />
-    </feature>
 </widget>

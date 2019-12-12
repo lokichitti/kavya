@@ -1,16 +1,19 @@
-<ion-header align="center">
-    <ion-toolbar >
+<ion-header >
+    <ion-toolbar color = "primary" >
+        <ion-buttons slot="primary">
+            <ion-button [routerLink]="['/menu/home']">Skip</ion-button>
+          </ion-buttons>
         <ion-buttons slot="end">
-            <ion-button [routerLink]="['/sign-in']">
-              <ion-icon slot="icon-only" name="log-in"></ion-icon>
+            <ion-button [routerLink]="['/menu/home']">
+              <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
             </ion-button>
           </ion-buttons>
           <ion-buttons slot="start">
               <ion-button [routerLink]="['/info']">
-                <ion-icon slot="icon-only" name="information-circle"></ion-icon>
+                <ion-icon color = "light" slot="icon-only" name="information-circle"></ion-icon>
               </ion-button>
             </ion-buttons>
-        <ion-title size="large" text-center>Register</ion-title>
+        <ion-title color = "light" size="large" text-center>Register</ion-title>
     </ion-toolbar>
   </ion-header>
   

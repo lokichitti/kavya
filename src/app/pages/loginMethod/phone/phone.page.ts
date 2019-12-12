@@ -16,6 +16,7 @@ import * as firebase from 'firebase';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/user/auth.service';
 import { AlertService } from '../../../services/alert';
+import { Storage } from '@ionic/storage';
 
   var phoneSignInWithVerificationId: any;
   var phoneNumber: string;
@@ -50,6 +51,7 @@ export class PhonePage implements OnInit {
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
     public alert: AlertService,
+    private storage: Storage
   ) { }
 
   ngOnInit() {
@@ -141,9 +143,10 @@ export class PhonePage implements OnInit {
 async verify(values){
   console.log("verify called Entered OTP is "+ this.OTPcode);
   try{
-    await this.alert.hideLoading();
+    await this.alert.showLoading();
     this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
-    .then ( (res) =>{
+    .then (async  (res) =>{
+      await this.alert.hideLoading();
       this.router.navigate(["/menu/home"]);      
     });
   }catch (error) {
@@ -181,7 +184,6 @@ async presentAlertPrompt(values) {
           this.OTPcode = data.OTP;
           this.verify(values);
           console.log('Confirm Ok');
-          this.alert.hideLoading();
         }
       }
     ],
@@ -192,7 +194,7 @@ async presentAlertPrompt(values) {
   setTimeout(()=>{
     this.alert.hideLoading();    
     alert.dismiss();
-}, 30000);
+}, 15000);
 }
   async loginUser(values): Promise<void> {
     try {
