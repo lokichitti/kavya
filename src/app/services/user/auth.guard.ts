@@ -9,6 +9,7 @@ import {
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,7 @@ export class AuthGuard implements CanActivate {
   constructor(
     private router: Router,
     private firebaseAuthentication: FirebaseAuthentication,
+    private fireAuth: AngularFireAuth
     ) {}
 
   canActivate(
@@ -25,7 +27,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): boolean | Observable<boolean> | Promise<boolean> {
     return new Promise((resolve, reject) => {
-      firebase.auth().onAuthStateChanged((user: firebase.User) => {
+      this.fireAuth.auth.onAuthStateChanged((user: firebase.User) => {
         if (user) {
           console.log('User is logged in now');
           resolve(true);
@@ -39,8 +41,8 @@ export class AuthGuard implements CanActivate {
   }
 
   getCurrentUser(){
-    this.firebaseAuthentication.getCurrentUser().then(function(userInfo) {
+    //this.firebaseAuthentication.getCurrentUser().then(function(userInfo) {
       // user information or null if not logged in
-  })
+ // })
   }
 }

@@ -22,6 +22,7 @@ var map = {
 	],
 	"../profile/profile.module": [
 		"./src/app/pages/profile/profile.module.ts",
+		"default~pages-first-first-module~pages-login-login-module~pages-loginMethod-email-email-module~pages~c93f2175",
 		"profile-profile-module"
 	],
 	"../search/search.module": [
@@ -36,8 +37,13 @@ var map = {
 		"./src/app/info/info.module.ts",
 		"info-info-module"
 	],
+	"./pages/create-shop/create-shop.module": [
+		"./src/app/pages/create-shop/create-shop.module.ts",
+		"pages-create-shop-create-shop-module"
+	],
 	"./pages/first/first.module": [
 		"./src/app/pages/first/first.module.ts",
+		"default~pages-first-first-module~pages-login-login-module~pages-loginMethod-email-email-module~pages~c93f2175",
 		"pages-first-first-module"
 	],
 	"./pages/google-login/google-login.module": [
@@ -46,13 +52,14 @@ var map = {
 	],
 	"./pages/login/login.module": [
 		"./src/app/pages/login/login.module.ts",
-		"default~pages-login-login-module~pages-loginMethod-email-email-module~pages-reset-password-reset-pas~dbf27d2a",
+		"default~pages-first-first-module~pages-login-login-module~pages-loginMethod-email-email-module~pages~c93f2175",
 		"common",
 		"pages-login-login-module"
 	],
 	"./pages/loginMethod/email/email.module": [
 		"./src/app/pages/loginMethod/email/email.module.ts",
-		"default~pages-login-login-module~pages-loginMethod-email-email-module~pages-reset-password-reset-pas~dbf27d2a",
+		"default~pages-first-first-module~pages-login-login-module~pages-loginMethod-email-email-module~pages~c93f2175",
+		"common",
 		"pages-loginMethod-email-email-module"
 	],
 	"./pages/loginMethod/facebook/facebook.module": [
@@ -65,13 +72,22 @@ var map = {
 	],
 	"./pages/loginMethod/phone/phone.module": [
 		"./src/app/pages/loginMethod/phone/phone.module.ts",
+		"default~pages-first-first-module~pages-login-login-module~pages-loginMethod-email-email-module~pages~c93f2175",
 		"default~pages-loginMethod-phone-phone-module~pages-register-register-module~pages-registerMethod-r-e~a6f0d9d7",
 		"common",
 		"pages-loginMethod-phone-phone-module"
 	],
+	"./pages/loginMethod/phone/web/web.module": [
+		"./src/app/pages/loginMethod/phone/web/web.module.ts",
+		"pages-loginMethod-phone-web-web-module"
+	],
 	"./pages/menu/menu.module": [
 		"./src/app/pages/menu/menu.module.ts",
 		"pages-menu-menu-module"
+	],
+	"./pages/phone/web/web.module": [
+		"./src/app/pages/phone/web/web.module.ts",
+		"pages-phone-web-web-module"
 	],
 	"./pages/register/register.module": [
 		"./src/app/pages/register/register.module.ts",
@@ -80,6 +96,7 @@ var map = {
 	],
 	"./pages/registerMethod/r-email/r-email.module": [
 		"./src/app/pages/registerMethod/r-email/r-email.module.ts",
+		"default~pages-first-first-module~pages-login-login-module~pages-loginMethod-email-email-module~pages~c93f2175",
 		"default~pages-loginMethod-phone-phone-module~pages-register-register-module~pages-registerMethod-r-e~a6f0d9d7",
 		"common",
 		"pages-registerMethod-r-email-r-email-module"
@@ -94,13 +111,19 @@ var map = {
 	],
 	"./pages/registerMethod/r-phone/r-phone.module": [
 		"./src/app/pages/registerMethod/r-phone/r-phone.module.ts",
+		"default~pages-first-first-module~pages-login-login-module~pages-loginMethod-email-email-module~pages~c93f2175",
 		"default~pages-loginMethod-phone-phone-module~pages-register-register-module~pages-registerMethod-r-e~a6f0d9d7",
 		"common",
 		"pages-registerMethod-r-phone-r-phone-module"
 	],
+	"./pages/registerMethod/r-phone/web/web.module": [
+		"./src/app/pages/registerMethod/r-phone/web/web.module.ts",
+		"default~pages-first-first-module~pages-login-login-module~pages-loginMethod-email-email-module~pages~c93f2175",
+		"pages-registerMethod-r-phone-web-web-module"
+	],
 	"./pages/reset-password/reset-password.module": [
 		"./src/app/pages/reset-password/reset-password.module.ts",
-		"default~pages-login-login-module~pages-loginMethod-email-email-module~pages-reset-password-reset-pas~dbf27d2a",
+		"default~pages-first-first-module~pages-login-login-module~pages-loginMethod-email-email-module~pages~c93f2175",
 		"common",
 		"pages-reset-password-reset-password-module"
 	],
@@ -110,7 +133,7 @@ var map = {
 	],
 	"./pages/signup/signup.module": [
 		"./src/app/pages/signup/signup.module.ts",
-		"default~pages-login-login-module~pages-loginMethod-email-email-module~pages-reset-password-reset-pas~dbf27d2a",
+		"default~pages-first-first-module~pages-login-login-module~pages-loginMethod-email-email-module~pages~c93f2175",
 		"common",
 		"pages-signup-signup-module"
 	],
@@ -623,6 +646,10 @@ var routes = [
     { path: 'r-facebook', loadChildren: './pages/registerMethod/r-facebook/r-facebook.module#RFacebookPageModule' },
     //{ path: 'shop', loadChildren: './pages/shop/shop.module#ShopPageModule' },
     { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule', },
+    { path: 'create-shop', loadChildren: './pages/create-shop/create-shop.module#CreateShopPageModule' },
+    { path: 'web', loadChildren: './pages/phone/web/web.module#WebPageModule' },
+    { path: 'web', loadChildren: './pages/loginMethod/phone/web/web.module#WebPageModule' },
+    { path: 'web', loadChildren: './pages/registerMethod/r-phone/web/web.module#WebPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -1023,7 +1050,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/lokesh/ionic-dont-delete/kavyamma/lokappa/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/hmecd001523/ionic-dont-delete/firebase-working/progress/src/main.ts */"./src/main.ts");
 
 
 /***/ })

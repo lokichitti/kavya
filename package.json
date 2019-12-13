@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
     "@ionic-native/core": "^5.0.0",
-    "@ionic-native/firebase-authentication": "^5.16.0",
+    "@ionic-native/firebase-authentication": "^5.18.0",
     "@ionic-native/firebase-x": "^5.16.0",
     "@ionic-native/geolocation": "^5.16.0",
     "@ionic-native/google-maps": "^5.0.0-beta.27",
@@ -93,9 +93,7 @@
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {
-        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
-      },
+      "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-geolocation": {},
       "cordova-plugin-nativegeocoder": {},

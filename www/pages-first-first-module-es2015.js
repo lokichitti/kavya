@@ -66,7 +66,7 @@ FirstPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".home-style {\n  text-align: center;\n  margin-top: 2000px;\n}\n\n.login-margin {\n  margin-top: 10px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n\n.register-margin {\n  margin-top: 100px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9pb25pYy1kb250LWRlbGV0ZS9rYXZ5YW1tYS9sb2thcHBhL3NyYy9hcHAvcGFnZXMvZmlyc3QvZmlyc3QucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9maXJzdC9maXJzdC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFFRSxrQkFBQTtFQUNBLGtCQUFBO0FDREY7O0FESUE7RUFFRSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7QUNGRjs7QURLQTtFQUVFLGlCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtBQ0hGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvZmlyc3QvZmlyc3QucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG4uaG9tZS1zdHlsZVxue1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbi10b3A6IDIwMDBweDtcbn1cblxuLmxvZ2luLW1hcmdpblxue1xuICBtYXJnaW4tdG9wOiAxMHB4O1xuICBtYXJnaW4tbGVmdDogMjBweDtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuXG4ucmVnaXN0ZXItbWFyZ2luXG57XG4gIG1hcmdpbi10b3A6IDEwMHB4O1xuICBtYXJnaW4tbGVmdDogMjBweDtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuIiwiLmhvbWUtc3R5bGUge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbi10b3A6IDIwMDBweDtcbn1cblxuLmxvZ2luLW1hcmdpbiB7XG4gIG1hcmdpbi10b3A6IDEwcHg7XG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG59XG5cbi5yZWdpc3Rlci1tYXJnaW4ge1xuICBtYXJnaW4tdG9wOiAxMDBweDtcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbn0iXX0= */"
+module.exports = ".home-style {\n  text-align: center;\n  margin-top: 2000px;\n}\n\n.login-margin {\n  margin-top: 10px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n\n.register-margin {\n  margin-top: 100px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2htZWNkMDAxNTIzL2lvbmljLWRvbnQtZGVsZXRlL2ZpcmViYXNlLXdvcmtpbmcvcHJvZ3Jlc3Mvc3JjL2FwcC9wYWdlcy9maXJzdC9maXJzdC5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2ZpcnN0L2ZpcnN0LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTtFQUVFLGtCQUFBO0VBQ0Esa0JBQUE7QUNERjs7QURJQTtFQUVFLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtBQ0ZGOztBREtBO0VBRUUsaUJBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0FDSEYiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9maXJzdC9maXJzdC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbi5ob21lLXN0eWxlXG57XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbWFyZ2luLXRvcDogMjAwMHB4O1xufVxuXG4ubG9naW4tbWFyZ2luXG57XG4gIG1hcmdpbi10b3A6IDEwcHg7XG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG59XG5cbi5yZWdpc3Rlci1tYXJnaW5cbntcbiAgbWFyZ2luLXRvcDogMTAwcHg7XG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG59XG4iLCIuaG9tZS1zdHlsZSB7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbWFyZ2luLXRvcDogMjAwMHB4O1xufVxuXG4ubG9naW4tbWFyZ2luIHtcbiAgbWFyZ2luLXRvcDogMTBweDtcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbn1cblxuLnJlZ2lzdGVyLW1hcmdpbiB7XG4gIG1hcmdpbi10b3A6IDEwMHB4O1xuICBtYXJnaW4tbGVmdDogMjBweDtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -87,6 +87,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/firebase-authentication/ngx */ "./node_modules/@ionic-native/firebase-authentication/ngx/index.js");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm2015/ionic-storage.js");
 /* harmony import */ var _services_alert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/alert */ "./src/app/services/alert.ts");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/es2015/index.js");
+
 
 
 
@@ -97,14 +99,16 @@ __webpack_require__.r(__webpack_exports__);
 var email;
 var password;
 let FirstPage = class FirstPage {
-    constructor(authService, router, firebaseAuthentication, storage, alert) {
+    constructor(authService, router, firebaseAuthentication, storage, alert, afAuth) {
         this.authService = authService;
         this.router = router;
         this.firebaseAuthentication = firebaseAuthentication;
         this.storage = storage;
         this.alert = alert;
+        this.afAuth = afAuth;
     }
     ngOnInit() {
+        console.log("your UID is " + this.afAuth.auth.currentUser.uid);
         this.storage.get('password').then((val) => {
             password = val;
             console.log('Your password is', password);
@@ -142,7 +146,8 @@ FirstPage.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
     { type: _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_4__["FirebaseAuthentication"] },
     { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_5__["Storage"] },
-    { type: _services_alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"] }
+    { type: _services_alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"] },
+    { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"] }
 ];
 FirstPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -154,7 +159,8 @@ FirstPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
         _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_4__["FirebaseAuthentication"],
         _ionic_storage__WEBPACK_IMPORTED_MODULE_5__["Storage"],
-        _services_alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"]])
+        _services_alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"],
+        _angular_fire_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"]])
 ], FirstPage);
 
 
@@ -186,11 +192,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AuthService = class AuthService {
-    constructor(afAuth, firestore, loadingCtrl, router) {
+    constructor(afAuth, firestore, loadingCtrl, router, alertCtrl) {
         this.afAuth = afAuth;
         this.firestore = firestore;
         this.loadingCtrl = loadingCtrl;
         this.router = router;
+        this.alertCtrl = alertCtrl;
     }
     createProfile(uId, values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -317,12 +324,46 @@ let AuthService = class AuthService {
             }
         });
     }
+    signInWithPhoneNumber(phoneNumber, appVerifier) {
+        this.afAuth.auth.signInWithPhoneNumber(phoneNumber, appVerifier)
+            .then((confirmationResult) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            // SMS sent. Prompt user to type the code from the message, then sign the
+            // user in with confirmationResult.confirm(code).
+            let prompt = yield this.alertCtrl.create({
+                header: 'Enter the Confirmation code',
+                inputs: [{ name: 'confirmationCode', placeholder: 'Confirmation Code' }],
+                buttons: [
+                    { text: 'Cancel',
+                        handler: data => { console.log('Cancel clicked'); }
+                    },
+                    { text: 'Send',
+                        handler: data => {
+                            confirmationResult.confirm(data.confirmationCode)
+                                .then(function (result) {
+                                // User signed in successfully.
+                                console.log(result.user);
+                                // ...
+                            }).catch(function (error) {
+                                // User couldn't sign in (bad verification code?)
+                                // ...
+                            });
+                        }
+                    }
+                ]
+            });
+            yield prompt.present();
+        }))
+            .catch(function (error) {
+            console.error("SMS not sent", error);
+        });
+    }
 };
 AuthService.ctorParameters = () => [
     { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"] },
     { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["AlertController"] }
 ];
 AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -331,7 +372,8 @@ AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"],
         _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["AlertController"]])
 ], AuthService);
 
 

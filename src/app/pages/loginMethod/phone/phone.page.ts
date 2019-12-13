@@ -17,7 +17,7 @@ import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/user/auth.service';
 import { AlertService } from '../../../services/alert';
 import { Storage } from '@ionic/storage';
-import { userInfo } from 'os';
+//import { userInfo } from 'os';
 
   var phoneSignInWithVerificationId: any;
   var phoneNumber: string;
@@ -128,6 +128,7 @@ export class PhonePage implements OnInit {
     ],
   };
   async onSubmit(values): Promise<void> {
+    
     phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
     console.log("Get OTP called " + phoneNumber);
     this.disableGetOTPButton = true;
@@ -142,31 +143,11 @@ export class PhonePage implements OnInit {
 }
 
 async verify(values){
-  console.log("verify called Entered OTP is "+ this.OTPcode);
-  try{
     await this.alert.showLoading();
-    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
-    .then (async  (res) =>{
+    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode);
       console.log("signInWithVerificationId called");
       await this.alert.hideLoading();
-      this.router.navigate(["/menu/home"]);     
-    });
-  }catch (error) {
-    console.log("signInWithVerificationId error");
-    await this.alert.hideLoading();
-    this.alert.handleError(error);
-    this.alert.presentAlert('Error', 'Invalid phone or password!')
-  }
-//public userInfo: Observable<any>;
-  this.firebaseAuthentication.onAuthStateChanged()
-  .then( (Info)=> {
-    if (Info) {
-      // user was signed in
-  } else {
-      // user was signed out
-  }
-  }); 
-  await this.alert.hideLoading();
+      this.router.navigate(["/menu/home"]); 
 }
 
 async presentAlertPrompt(values) {

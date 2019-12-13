@@ -36,6 +36,10 @@ var map = {
 		"./src/app/info/info.module.ts",
 		"info-info-module"
 	],
+	"./pages/create-shop/create-shop.module": [
+		"./src/app/pages/create-shop/create-shop.module.ts",
+		"pages-create-shop-create-shop-module"
+	],
 	"./pages/first/first.module": [
 		"./src/app/pages/first/first.module.ts",
 		"pages-first-first-module"
@@ -69,9 +73,17 @@ var map = {
 		"common",
 		"pages-loginMethod-phone-phone-module"
 	],
+	"./pages/loginMethod/phone/web/web.module": [
+		"./src/app/pages/loginMethod/phone/web/web.module.ts",
+		"pages-loginMethod-phone-web-web-module"
+	],
 	"./pages/menu/menu.module": [
 		"./src/app/pages/menu/menu.module.ts",
 		"pages-menu-menu-module"
+	],
+	"./pages/phone/web/web.module": [
+		"./src/app/pages/phone/web/web.module.ts",
+		"pages-phone-web-web-module"
 	],
 	"./pages/register/register.module": [
 		"./src/app/pages/register/register.module.ts",
@@ -97,6 +109,10 @@ var map = {
 		"default~pages-loginMethod-phone-phone-module~pages-register-register-module~pages-registerMethod-r-e~a6f0d9d7",
 		"common",
 		"pages-registerMethod-r-phone-r-phone-module"
+	],
+	"./pages/registerMethod/r-phone/web/web.module": [
+		"./src/app/pages/registerMethod/r-phone/web/web.module.ts",
+		"pages-registerMethod-r-phone-web-web-module"
 	],
 	"./pages/reset-password/reset-password.module": [
 		"./src/app/pages/reset-password/reset-password.module.ts",
@@ -617,6 +633,10 @@ const routes = [
     { path: 'r-facebook', loadChildren: './pages/registerMethod/r-facebook/r-facebook.module#RFacebookPageModule' },
     //{ path: 'shop', loadChildren: './pages/shop/shop.module#ShopPageModule' },
     { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule', },
+    { path: 'create-shop', loadChildren: './pages/create-shop/create-shop.module#CreateShopPageModule' },
+    { path: 'web', loadChildren: './pages/phone/web/web.module#WebPageModule' },
+    { path: 'web', loadChildren: './pages/loginMethod/phone/web/web.module#WebPageModule' },
+    { path: 'web', loadChildren: './pages/registerMethod/r-phone/web/web.module#WebPageModule' },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -975,7 +995,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/lokesh/ionic-dont-delete/kavyamma/lokappa/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/hmecd001523/ionic-dont-delete/firebase-working/progress/src/main.ts */"./src/main.ts");
 
 
 /***/ })

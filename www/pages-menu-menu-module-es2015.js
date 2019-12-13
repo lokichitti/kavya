@@ -27,8 +27,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/fire/auth-guard */ "./node_modules/@angular/fire/auth-guard/es2015/index.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _menu_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./menu.page */ "./src/app/pages/menu/menu.page.ts");
+/* harmony import */ var _services_user_auth_guard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/user/auth.guard */ "./src/app/services/user/auth.guard.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _menu_page__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./menu.page */ "./src/app/pages/menu/menu.page.ts");
+
 
 
 
@@ -41,12 +43,13 @@ const redirectToFirst = Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE
 const routes = [
     {
         path: '',
-        component: _menu_page__WEBPACK_IMPORTED_MODULE_7__["MenuPage"],
+        component: _menu_page__WEBPACK_IMPORTED_MODULE_8__["MenuPage"],
         children: [
             { path: 'home', loadChildren: '../home/home.module#HomePageModule' },
-            Object.assign({ path: 'profile', loadChildren: '../profile/profile.module#ProfilePageModule' }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_5__["canActivate"])(redirectToFirst)),
+            { path: 'profile', loadChildren: '../profile/profile.module#ProfilePageModule', },
             Object.assign({ path: 'shop', loadChildren: '../shop/shop.module#ShopPageModule' }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_5__["canActivate"])(redirectToFirst)),
-            { path: 'basket', loadChildren: '../basket/basket.module#BasketPageModule' },
+            { path: 'basket', loadChildren: '../basket/basket.module#BasketPageModule',
+                canActivate: [_services_user_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]] },
             { path: 'orders', loadChildren: '../orders/orders.module#OrdersPageModule' },
             { path: 'search', loadChildren: '../search/search.module#SearchPageModule' },
         ]
@@ -63,10 +66,10 @@ MenuPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["IonicModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["IonicModule"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
         ],
-        declarations: [_menu_page__WEBPACK_IMPORTED_MODULE_7__["MenuPage"]]
+        declarations: [_menu_page__WEBPACK_IMPORTED_MODULE_8__["MenuPage"]]
     })
 ], MenuPageModule);
 
@@ -81,7 +84,7 @@ MenuPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".active-item {\n  border-left: 8px solid var --ion-color-primary;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9pb25pYy1kb250LWRlbGV0ZS9rYXZ5YW1tYS9sb2thcHBhL3NyYy9hcHAvcGFnZXMvbWVudS9tZW51LnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvbWVudS9tZW51LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLDhDQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9tZW51L21lbnUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmFjdGl2ZS1pdGVte1xuICAgIGJvcmRlci1sZWZ0OiA4cHggc29saWQgdmFyICgtLWlvbi1jb2xvci1wcmltYXJ5KTtcbn0iLCIuYWN0aXZlLWl0ZW0ge1xuICBib3JkZXItbGVmdDogOHB4IHNvbGlkIHZhciAtLWlvbi1jb2xvci1wcmltYXJ5O1xufSJdfQ== */"
+module.exports = ".active-item {\n  border-left: 8px solid var --ion-color-primary;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2htZWNkMDAxNTIzL2lvbmljLWRvbnQtZGVsZXRlL2ZpcmViYXNlLXdvcmtpbmcvcHJvZ3Jlc3Mvc3JjL2FwcC9wYWdlcy9tZW51L21lbnUucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9tZW51L21lbnUucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksOENBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL21lbnUvbWVudS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYWN0aXZlLWl0ZW17XG4gICAgYm9yZGVyLWxlZnQ6IDhweCBzb2xpZCB2YXIgKC0taW9uLWNvbG9yLXByaW1hcnkpO1xufSIsIi5hY3RpdmUtaXRlbSB7XG4gIGJvcmRlci1sZWZ0OiA4cHggc29saWQgdmFyIC0taW9uLWNvbG9yLXByaW1hcnk7XG59Il19 */"
 
 /***/ }),
 
@@ -153,6 +156,73 @@ MenuPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
 ], MenuPage);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/user/auth.guard.ts":
+/*!*********************************************!*\
+  !*** ./src/app/services/user/auth.guard.ts ***!
+  \*********************************************/
+/*! exports provided: AuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/firebase-authentication/ngx */ "./node_modules/@ionic-native/firebase-authentication/ngx/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! firebase/auth */ "./node_modules/firebase/auth/dist/index.esm.js");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/es2015/index.js");
+
+
+
+
+
+
+let AuthGuard = class AuthGuard {
+    constructor(router, firebaseAuthentication, fireAuth) {
+        this.router = router;
+        this.firebaseAuthentication = firebaseAuthentication;
+        this.fireAuth = fireAuth;
+    }
+    canActivate(next, state) {
+        return new Promise((resolve, reject) => {
+            this.fireAuth.auth.onAuthStateChanged((user) => {
+                if (user) {
+                    console.log('User is logged in now');
+                    resolve(true);
+                }
+                else {
+                    console.log('User is logged out now');
+                    this.router.navigate(['/first']);
+                    resolve(false);
+                }
+            });
+        });
+    }
+    getCurrentUser() {
+        //this.firebaseAuthentication.getCurrentUser().then(function(userInfo) {
+        // user information or null if not logged in
+        // })
+    }
+};
+AuthGuard.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_2__["FirebaseAuthentication"] },
+    { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuth"] }
+];
+AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root',
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+        _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_2__["FirebaseAuthentication"],
+        _angular_fire_auth__WEBPACK_IMPORTED_MODULE_5__["AngularFireAuth"]])
+], AuthGuard);
 
 
 

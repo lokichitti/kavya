@@ -6,6 +6,7 @@ import * as firebase from 'firebase';
 import { Storage } from '@ionic/storage';
 import { EmailPage } from '../loginMethod/email/email.page';
 import { AlertService } from '../../services/alert';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 var email: string;
 var password: string;
@@ -22,11 +23,12 @@ export class FirstPage implements OnInit {
     private firebaseAuthentication: FirebaseAuthentication,
     private storage: Storage,
     public alert: AlertService,
+    private afAuth: AngularFireAuth,
     //private emailPage: EmailPage
   ) { }
 
   ngOnInit() {
-
+    console.log("your UID is "+this.afAuth.auth.currentUser.uid);
     this.storage.get('password').then((val) => {  
 
       password = val;

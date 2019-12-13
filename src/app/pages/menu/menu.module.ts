@@ -5,7 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { redirectUnauthorizedTo, canActivate } from '@angular/fire/auth-guard';
 import { AuthGuard } from '../../services/user/auth.guard';
 import { IonicModule } from '@ionic/angular';
-
 import { MenuPage } from './menu.page';
 
 const redirectToFirst = redirectUnauthorizedTo(['first']);
@@ -15,9 +14,12 @@ const routes: Routes = [
     component: MenuPage,
     children:[
       { path: 'home', loadChildren: '../home/home.module#HomePageModule'},
-      { path: 'profile', loadChildren: '../profile/profile.module#ProfilePageModule',...canActivate(redirectToFirst)},
+      { path: 'profile', loadChildren: '../profile/profile.module#ProfilePageModule',},
+      //{ path: 'shop', loadChildren: '../shop/shop.module#ShopPageModule',},
+      //{ path: 'profile', loadChildren: '../profile/profile.module#ProfilePageModule',...canActivate(redirectToFirst)},
       { path: 'shop', loadChildren: '../shop/shop.module#ShopPageModule',...canActivate(redirectToFirst)},
-      { path: 'basket', loadChildren: '../basket/basket.module#BasketPageModule' },
+      { path: 'basket', loadChildren: '../basket/basket.module#BasketPageModule',
+      canActivate: [AuthGuard] },
       { path: 'orders', loadChildren: '../orders/orders.module#OrdersPageModule' },
       { path: 'search', loadChildren: '../search/search.module#SearchPageModule' },
     ]

@@ -69,7 +69,7 @@ var FirstPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".home-style {\n  text-align: center;\n  margin-top: 2000px;\n}\n\n.login-margin {\n  margin-top: 10px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n\n.register-margin {\n  margin-top: 100px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9pb25pYy1kb250LWRlbGV0ZS9rYXZ5YW1tYS9sb2thcHBhL3NyYy9hcHAvcGFnZXMvZmlyc3QvZmlyc3QucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9maXJzdC9maXJzdC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFFRSxrQkFBQTtFQUNBLGtCQUFBO0FDREY7O0FESUE7RUFFRSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7QUNGRjs7QURLQTtFQUVFLGlCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtBQ0hGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvZmlyc3QvZmlyc3QucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG4uaG9tZS1zdHlsZVxue1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbi10b3A6IDIwMDBweDtcbn1cblxuLmxvZ2luLW1hcmdpblxue1xuICBtYXJnaW4tdG9wOiAxMHB4O1xuICBtYXJnaW4tbGVmdDogMjBweDtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuXG4ucmVnaXN0ZXItbWFyZ2luXG57XG4gIG1hcmdpbi10b3A6IDEwMHB4O1xuICBtYXJnaW4tbGVmdDogMjBweDtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuIiwiLmhvbWUtc3R5bGUge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbi10b3A6IDIwMDBweDtcbn1cblxuLmxvZ2luLW1hcmdpbiB7XG4gIG1hcmdpbi10b3A6IDEwcHg7XG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG59XG5cbi5yZWdpc3Rlci1tYXJnaW4ge1xuICBtYXJnaW4tdG9wOiAxMDBweDtcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbn0iXX0= */"
+module.exports = ".home-style {\n  text-align: center;\n  margin-top: 2000px;\n}\n\n.login-margin {\n  margin-top: 10px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n\n.register-margin {\n  margin-top: 100px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2htZWNkMDAxNTIzL2lvbmljLWRvbnQtZGVsZXRlL2ZpcmViYXNlLXdvcmtpbmcvcHJvZ3Jlc3Mvc3JjL2FwcC9wYWdlcy9maXJzdC9maXJzdC5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2ZpcnN0L2ZpcnN0LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTtFQUVFLGtCQUFBO0VBQ0Esa0JBQUE7QUNERjs7QURJQTtFQUVFLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtBQ0ZGOztBREtBO0VBRUUsaUJBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0FDSEYiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9maXJzdC9maXJzdC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbi5ob21lLXN0eWxlXG57XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbWFyZ2luLXRvcDogMjAwMHB4O1xufVxuXG4ubG9naW4tbWFyZ2luXG57XG4gIG1hcmdpbi10b3A6IDEwcHg7XG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG59XG5cbi5yZWdpc3Rlci1tYXJnaW5cbntcbiAgbWFyZ2luLXRvcDogMTAwcHg7XG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG59XG4iLCIuaG9tZS1zdHlsZSB7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbWFyZ2luLXRvcDogMjAwMHB4O1xufVxuXG4ubG9naW4tbWFyZ2luIHtcbiAgbWFyZ2luLXRvcDogMTBweDtcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbn1cblxuLnJlZ2lzdGVyLW1hcmdpbiB7XG4gIG1hcmdpbi10b3A6IDEwMHB4O1xuICBtYXJnaW4tbGVmdDogMjBweDtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -90,6 +90,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/firebase-authentication/ngx */ "./node_modules/@ionic-native/firebase-authentication/ngx/index.js");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
 /* harmony import */ var _services_alert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/alert */ "./src/app/services/alert.ts");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/index.js");
+
 
 
 
@@ -100,15 +102,17 @@ __webpack_require__.r(__webpack_exports__);
 var email;
 var password;
 var FirstPage = /** @class */ (function () {
-    function FirstPage(authService, router, firebaseAuthentication, storage, alert) {
+    function FirstPage(authService, router, firebaseAuthentication, storage, alert, afAuth) {
         this.authService = authService;
         this.router = router;
         this.firebaseAuthentication = firebaseAuthentication;
         this.storage = storage;
         this.alert = alert;
+        this.afAuth = afAuth;
     }
     FirstPage.prototype.ngOnInit = function () {
         var _this = this;
+        console.log("your UID is " + this.afAuth.auth.currentUser.uid);
         this.storage.get('password').then(function (val) {
             password = val;
             console.log('Your password is', password);
@@ -153,7 +157,8 @@ var FirstPage = /** @class */ (function () {
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
         { type: _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_4__["FirebaseAuthentication"] },
         { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_5__["Storage"] },
-        { type: _services_alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"] }
+        { type: _services_alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"] },
+        { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"] }
     ]; };
     FirstPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -165,231 +170,10 @@ var FirstPage = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
             _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_4__["FirebaseAuthentication"],
             _ionic_storage__WEBPACK_IMPORTED_MODULE_5__["Storage"],
-            _services_alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"]])
+            _services_alert__WEBPACK_IMPORTED_MODULE_6__["AlertService"],
+            _angular_fire_auth__WEBPACK_IMPORTED_MODULE_7__["AngularFireAuth"]])
     ], FirstPage);
     return FirstPage;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/services/user/auth.service.ts":
-/*!***********************************************!*\
-  !*** ./src/app/services/user/auth.service.ts ***!
-  \***********************************************/
-/*! exports provided: AuthService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/index.js");
-/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-
-
-
-
-
-
-
-var AuthService = /** @class */ (function () {
-    function AuthService(afAuth, firestore, loadingCtrl, router) {
-        this.afAuth = afAuth;
-        this.firestore = firestore;
-        this.loadingCtrl = loadingCtrl;
-        this.router = router;
-    }
-    AuthService.prototype.createProfile = function (uId, values) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var loading, email, fName, lName, password, phone;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.loadingCtrl.create()];
-                    case 1:
-                        loading = _a.sent();
-                        email = values.email;
-                        fName = values.name;
-                        lName = values.lastname;
-                        password = values.matching_passwords.password;
-                        phone = "";
-                        this.createUser(uId, email, phone, fName, lName, password)
-                            .then(function () {
-                            loading.dismiss().then(function () {
-                            });
-                        }, function (error) {
-                            console.error(error);
-                        });
-                        return [4 /*yield*/, loading.present()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    AuthService.prototype.createPhoneUserProfile = function (uId, values) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var loading, phone, fName, lName, password, email;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.loadingCtrl.create()];
-                    case 1:
-                        loading = _a.sent();
-                        phone = values.value.country_phone.country.code + values.value.country_phone.phone;
-                        fName = values.value.name;
-                        lName = values.value.lastname;
-                        password = values.value.matching_passwords.password;
-                        email = "";
-                        this.createPhoneUser(uId, email, phone, fName, lName, password)
-                            .then(function () {
-                            loading.dismiss().then(function () {
-                            });
-                        }, function (error) {
-                            console.error(error);
-                        });
-                        return [4 /*yield*/, loading.present()];
-                    case 2: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    AuthService.prototype.createUser = function (uId, email, phone, fName, lName, password) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.firestore.doc("userProfile/" + uId).set({
-                            uId: uId,
-                            email: email,
-                            phone: phone,
-                            fName: fName,
-                            lName: lName,
-                            password: password
-                        })];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    AuthService.prototype.createPhoneUser = function (uId, email, phone, fName, lName, password) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.firestore.doc("userProfile/" + uId).set({
-                            uId: uId,
-                            email: email,
-                            phone: phone,
-                            fName: fName,
-                            lName: lName,
-                            password: password
-                        })];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    AuthService.prototype.getUser = function () {
-        return this.afAuth.authState.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])()).toPromise();
-    };
-    AuthService.prototype.login = function (email, password) {
-        return this.afAuth.auth.signInWithEmailAndPassword(email, password);
-    };
-    AuthService.prototype.signup = function (values) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var newUserCredential;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.afAuth.auth.createUserWithEmailAndPassword(values.email, values.matching_passwords.password)];
-                    case 1:
-                        newUserCredential = _a.sent();
-                        return [2 /*return*/, newUserCredential];
-                }
-            });
-        });
-    };
-    AuthService.prototype.signupWithPhone = function (values) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var newUserCredential;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.afAuth.auth.createUserWithEmailAndPassword(values.value.country_phone.country.code + values.value.country_phone.phone, values.value.matching_passwords.password)];
-                    case 1:
-                        newUserCredential = _a.sent();
-                        return [2 /*return*/, newUserCredential];
-                }
-            });
-        });
-    };
-    AuthService.prototype.resetPassword = function (email) {
-        return this.afAuth.auth.sendPasswordResetEmail(email);
-    };
-    AuthService.prototype.logout = function () {
-        return this.afAuth.auth.signOut();
-    };
-    AuthService.prototype.sendVerificationMail = function () {
-        var actionCodeSettings = {
-            url: 'https://www.example.com/?email=' + this.afAuth.auth.currentUser.email,
-            iOS: {
-                bundleId: 'com.example.ios'
-            },
-            android: {
-                packageName: 'com.example.android',
-                installApp: true,
-                minimumVersion: '12'
-            },
-            handleCodeInApp: true,
-            // When multiple custom dynamic link domains are defined, specify which
-            // one to use.
-            dynamicLinkDomain: "example.page.link"
-        };
-        return this.afAuth.auth.currentUser.sendEmailVerification().then(function () {
-            console.log("Verification email sent.");
-        })
-            .catch(function (error) {
-            console.log("Error occurred. Inspect error.code.");
-        });
-    };
-    AuthService.prototype.signInWithUserCredentials = function (userCredential) {
-        this.afAuth.auth.signInWithCredential(userCredential).catch(function (error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            if (errorCode === 'auth/account-exists-with-different-credential') {
-                alert('Email already associated with another account.');
-                // Handle account linking here, if using.
-            }
-            else {
-                console.error(error);
-            }
-        });
-    };
-    AuthService.ctorParameters = function () { return [
-        { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"] },
-        { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"] },
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
-    ]; };
-    AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-            providedIn: 'root'
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"],
-            _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_3__["AngularFirestore"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
-    ], AuthService);
-    return AuthService;
 }());
 
 

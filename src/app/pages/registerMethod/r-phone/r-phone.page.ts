@@ -17,7 +17,7 @@ import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/user/auth.service';
 import { AlertService } from '../../../services/alert';
 import { Storage } from '@ionic/storage';
-
+import { AngularFireAuth } from '@angular/fire/auth';
   var phoneSignInWithVerificationId: any;
   var phoneNumber: string;
 //{{ validations_form.value.country_phone.country.code }}
@@ -49,10 +49,12 @@ export class RPhonePage implements OnInit {
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
     public alert: AlertService,
-    private storage: Storage
+    private storage: Storage,
+    private afAuth: AngularFireAuth,
   ) { }
 
   ngOnInit() {
+    //console.log("your UID is "+this.afAuth.auth.currentUser.uid);
     this.countries = [
       new CountryPhone('IN', 'India'),
       new CountryPhone('US', 'United States'),
@@ -117,13 +119,15 @@ export class RPhonePage implements OnInit {
   };
 
   async onSubmit(values): Promise<void> {
+    console.log("your UID is "+this.afAuth.auth.currentUser.uid);
     phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
     console.log("Get OTP called " + phoneNumber);
     this.disableGetOTPButton = true;
     this.disableVerifyButton = false;
     this.presentAlertPrompt(values);
-    this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 60000).then (function(verificationId) {
-      phoneSignInWithVerificationId = verificationId;
+    this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000).then (function(verificationId) {
+      phoneSignInWithVerificationId = verificationId.verificationId;
+    console.log("OTP Successfully Sent " + verificationId);
     this.presentAlertPrompt(values);
     }).catch(e => {
       console.log(e);
@@ -133,21 +137,36 @@ export class RPhonePage implements OnInit {
 async register(values): Promise<void> {
     
   try {  
-    //await this.alert.hideLoading();
+    await this.alert.hideLoading();
     this.alert.presentAlert('Success', 'You are registered!')
-    this.authService.createPhoneUserProfile(this.authService.userId, values)
-    .then (()=>{
+    //this.afAuth.auth.currentUser.uid = phoneSignInWithVerificationId;
+    this.authService.createPhoneUserProfile(this.afAuth.auth.currentUser.uid, values)
+    .then (async ()=>{
+      //await this.alert.hideLoading();
       this.router.navigate(["/menu/home"]);
-    });
-    
+      console.log("your UID is "+this.afAuth.auth.currentUser.uid);
+      //await this.alert.hideLoading();
+      console.log("your UID is "+this.afAuth.auth.currentUser.uid);
+
+    });    
   } catch (error) {
-    //await this.alert.hideLoading();
+    await this.alert.hideLoading();
     this.alert.handleError(error);
   }
   
 }
 async verify(values){
-  console.log("verify called Entered OTP is "+ this.OTPcode);
+    //this.alert.showLoading();
+    console.log("verify called Entered OTP is "+ this.OTPcode);
+    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode);
+    console.log("OTP Successfully Sent " + phoneSignInWithVerificationId);
+    this.alert.presentAlert('Success', 'You are registered!');
+    //await this.alert.hideLoading();
+    this.register(values);
+   // await this.alert.hideLoading();
+    //this.router.navigate(["/menu/home"]); 
+  }
+ /* console.log("verify called Entered OTP is "+ this.OTPcode);
   try{
     this.alert.showLoading();
     this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
@@ -165,7 +184,8 @@ async verify(values){
     this.alert.presentAlert('Error', 'Phone number exist, try login!')
   }
   
-}
+  
+}*/
   
   async presentAlertPrompt(values) {
     console.log("presentAlertPrompt called");

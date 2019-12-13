@@ -5,6 +5,7 @@ import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
 import { LoadingController, AlertController } from '@ionic/angular';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +16,7 @@ export class AuthService {
     private firestore: AngularFirestore,
     public loadingCtrl: LoadingController,
     private router: Router,    
+    public alertCtrl:AlertController,
 
   ) { }
 
@@ -163,4 +165,40 @@ export class AuthService {
          }
         });
    }
+
+   signInWithPhoneNumber(phoneNumber: string, appVerifier){
+    
+    this.afAuth.auth.signInWithPhoneNumber(phoneNumber, appVerifier)
+    .then( async confirmationResult => {
+      // SMS sent. Prompt user to type the code from the message, then sign the
+      // user in with confirmationResult.confirm(code).
+      let prompt = await this.alertCtrl.create({
+      header: 'Enter the Confirmation code',
+      inputs: [{ name: 'confirmationCode', placeholder: 'Confirmation Code' }],
+      buttons: [
+        { text: 'Cancel',
+          handler: data => { console.log('Cancel clicked'); }
+        },
+        { text: 'Send',
+          handler: data => {
+            confirmationResult.confirm(data.confirmationCode)
+            .then(function (result) {
+              // User signed in successfully.
+              console.log(result.user);
+              // ...
+            }).catch(function (error) {
+              // User couldn't sign in (bad verification code?)
+              // ...
+            });
+          }
+        }
+      ]
+    });
+    await prompt.present();
+  })
+  .catch(function (error) {
+    console.error("SMS not sent", error);
+  });
+    
+    }
 }

@@ -34,6 +34,9 @@ const routes: Routes = [
   //{ path: 'shop', loadChildren: './pages/shop/shop.module#ShopPageModule' },
   { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule',},
   { path: 'create-shop', loadChildren: './pages/create-shop/create-shop.module#CreateShopPageModule' },
+  { path: 'web', loadChildren: './pages/phone/web/web.module#WebPageModule' },
+  { path: 'web', loadChildren: './pages/loginMethod/phone/web/web.module#WebPageModule' },
+  { path: 'web', loadChildren: './pages/registerMethod/r-phone/web/web.module#WebPageModule' },
 
 
 ];
