@@ -95,7 +95,8 @@ export class REmailPage implements OnInit {
     try {
       this.alert.showLoading();
       const userCredential: firebase.auth.UserCredential = await this.authService.signup(
-        values
+        values.email,
+        values.matching_passwords.password
       );
       this.storage.set('email', values.email);
       this.storage.set('password', values.matching_passwords.password);

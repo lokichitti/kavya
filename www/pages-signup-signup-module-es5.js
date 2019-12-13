@@ -109,7 +109,7 @@ var SignupPage = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 5]);
-                        return [4 /*yield*/, this.authService.signup(credentials.email)];
+                        return [4 /*yield*/, this.authService.signup(credentials.email, credentials.password)];
                     case 1:
                         userCredential = _a.sent();
                         this.authService.userId = userCredential.user.uid;

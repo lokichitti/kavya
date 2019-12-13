@@ -68,7 +68,7 @@ RPhonePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".error-message {\n  color: red;\n  font-size: 14px;\n  margin-left: 10px;\n  margin-top: 10px;\n}\n\n.submit-btn {\n  margin-top: 40px;\n}\n\n.home-style {\n  text-align: center;\n  margin-top: 2000px;\n}\n\n.login-margin {\n  margin-top: 10px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n\n.register-margin {\n  margin-top: 50px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2htZWNkMDAxNTIzL2lvbmljLWRvbnQtZGVsZXRlL2ZpcmViYXNlLXdvcmtpbmcvcHJvZ3Jlc3Mvc3JjL2FwcC9wYWdlcy9yZWdpc3Rlck1ldGhvZC9yLXBob25lL3ItcGhvbmUucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9yZWdpc3Rlck1ldGhvZC9yLXBob25lL3ItcGhvbmUucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBRUUsVUFBQTtFQUNBLGVBQUE7RUFDQSxpQkFBQTtFQUNBLGdCQUFBO0FDQUY7O0FER0E7RUFDRSxnQkFBQTtBQ0FGOztBRElBO0VBRUUsa0JBQUE7RUFDQSxrQkFBQTtBQ0ZGOztBREtBO0VBRUUsZ0JBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0FDSEY7O0FETUE7RUFFRSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7QUNKRiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3JlZ2lzdGVyTWV0aG9kL3ItcGhvbmUvci1waG9uZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZXJyb3ItbWVzc2FnZVxue1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE0cHg7XG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuXG4uc3VibWl0LWJ0biB7XG4gIG1hcmdpbi10b3A6IDQwcHg7XG59XG5cblxuLmhvbWUtc3R5bGVcbntcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBtYXJnaW4tdG9wOiAyMDAwcHg7XG59XG5cbi5sb2dpbi1tYXJnaW5cbntcbiAgbWFyZ2luLXRvcDogMTBweDtcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbn1cblxuLnJlZ2lzdGVyLW1hcmdpblxue1xuICBtYXJnaW4tdG9wOiA1MHB4O1xuICBtYXJnaW4tbGVmdDogMjBweDtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuIiwiLmVycm9yLW1lc3NhZ2Uge1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE0cHg7XG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuXG4uc3VibWl0LWJ0biB7XG4gIG1hcmdpbi10b3A6IDQwcHg7XG59XG5cbi5ob21lLXN0eWxlIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBtYXJnaW4tdG9wOiAyMDAwcHg7XG59XG5cbi5sb2dpbi1tYXJnaW4ge1xuICBtYXJnaW4tdG9wOiAxMHB4O1xuICBtYXJnaW4tbGVmdDogMjBweDtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuXG4ucmVnaXN0ZXItbWFyZ2luIHtcbiAgbWFyZ2luLXRvcDogNTBweDtcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbn0iXX0= */"
+module.exports = ".error-message {\n  color: red;\n  font-size: 14px;\n  margin-left: 10px;\n  margin-top: 10px;\n}\n\n.submit-btn {\n  margin-top: 40px;\n}\n\n.home-style {\n  text-align: center;\n  margin-top: 2000px;\n}\n\n.login-margin {\n  margin-top: 10px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n\n.register-margin {\n  margin-top: 50px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9pb25pYy1kb250LWRlbGV0ZS9rYXZ5YW1tYS9sb2thcHBhL3NyYy9hcHAvcGFnZXMvcmVnaXN0ZXJNZXRob2Qvci1waG9uZS9yLXBob25lLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvcmVnaXN0ZXJNZXRob2Qvci1waG9uZS9yLXBob25lLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVFLFVBQUE7RUFDQSxlQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtBQ0FGOztBREdBO0VBQ0UsZ0JBQUE7QUNBRjs7QURJQTtFQUVFLGtCQUFBO0VBQ0Esa0JBQUE7QUNGRjs7QURLQTtFQUVFLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtBQ0hGOztBRE1BO0VBRUUsZ0JBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0FDSkYiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9yZWdpc3Rlck1ldGhvZC9yLXBob25lL3ItcGhvbmUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmVycm9yLW1lc3NhZ2VcbntcbiAgY29sb3I6IHJlZDtcbiAgZm9udC1zaXplOiAxNHB4O1xuICBtYXJnaW4tbGVmdDogMTBweDtcbiAgbWFyZ2luLXRvcDogMTBweDtcbn1cblxuLnN1Ym1pdC1idG4ge1xuICBtYXJnaW4tdG9wOiA0MHB4O1xufVxuXG5cbi5ob21lLXN0eWxlXG57XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbWFyZ2luLXRvcDogMjAwMHB4O1xufVxuXG4ubG9naW4tbWFyZ2luXG57XG4gIG1hcmdpbi10b3A6IDEwcHg7XG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG59XG5cbi5yZWdpc3Rlci1tYXJnaW5cbntcbiAgbWFyZ2luLXRvcDogNTBweDtcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbn1cbiIsIi5lcnJvci1tZXNzYWdlIHtcbiAgY29sb3I6IHJlZDtcbiAgZm9udC1zaXplOiAxNHB4O1xuICBtYXJnaW4tbGVmdDogMTBweDtcbiAgbWFyZ2luLXRvcDogMTBweDtcbn1cblxuLnN1Ym1pdC1idG4ge1xuICBtYXJnaW4tdG9wOiA0MHB4O1xufVxuXG4uaG9tZS1zdHlsZSB7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbWFyZ2luLXRvcDogMjAwMHB4O1xufVxuXG4ubG9naW4tbWFyZ2luIHtcbiAgbWFyZ2luLXRvcDogMTBweDtcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbn1cblxuLnJlZ2lzdGVyLW1hcmdpbiB7XG4gIG1hcmdpbi10b3A6IDUwcHg7XG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG59Il19 */"
 
 /***/ }),
 
@@ -155,7 +155,6 @@ let RPhonePage = class RPhonePage {
         };
     }
     ngOnInit() {
-        //console.log("your UID is "+this.afAuth.auth.currentUser.uid);
         this.countries = [
             new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('IN', 'India'),
             new _models_country_phone_model__WEBPACK_IMPORTED_MODULE_4__["CountryPhone"]('US', 'United States'),
@@ -190,7 +189,6 @@ let RPhonePage = class RPhonePage {
     }
     onSubmit(values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            console.log("your UID is " + this.afAuth.auth.currentUser.uid);
             phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
             console.log("Get OTP called " + phoneNumber);
             this.disableGetOTPButton = true;
@@ -215,9 +213,6 @@ let RPhonePage = class RPhonePage {
                     .then(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
                     //await this.alert.hideLoading();
                     this.router.navigate(["/menu/home"]);
-                    console.log("your UID is " + this.afAuth.auth.currentUser.uid);
-                    //await this.alert.hideLoading();
-                    console.log("your UID is " + this.afAuth.auth.currentUser.uid);
                 }));
             }
             catch (error) {
@@ -228,37 +223,24 @@ let RPhonePage = class RPhonePage {
     }
     verify(values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            //this.alert.showLoading();
+            this.alert.showLoading();
             console.log("verify called Entered OTP is " + this.OTPcode);
-            this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode);
-            console.log("OTP Successfully Sent " + phoneSignInWithVerificationId);
-            this.alert.presentAlert('Success', 'You are registered!');
-            //await this.alert.hideLoading();
-            this.register(values);
-            // await this.alert.hideLoading();
-            //this.router.navigate(["/menu/home"]); 
+            try {
+                this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode);
+                console.log("OTP Successfully Sent " + phoneSignInWithVerificationId);
+                this.signUp(values);
+                yield this.alert.hideLoading();
+                //this.authService.createProfile(this.authService.userId, values);
+                //this.router.navigate(["/menu/home"]);
+                //this.alert.presentAlert('Success', 'You are registered!');
+            }
+            catch (error) {
+                console.log("signInWithVerificationId error");
+                yield this.alert.hideLoading();
+                this.alert.handleError(error);
+            }
         });
     }
-    /* console.log("verify called Entered OTP is "+ this.OTPcode);
-     try{
-       this.alert.showLoading();
-       this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
-       .then (async (res) =>{
-         console.log("signInWithVerificationId called");
-         await this.alert.hideLoading();
-         this.storage.set('userCredential', res);
-         this.register(values);
-         this.router.navigate(["/menu/home"]);
-       });
-     }catch (error) {
-       console.log("signInWithVerificationId error");
-       await this.alert.hideLoading();
-       this.alert.handleError(error);
-       this.alert.presentAlert('Error', 'Phone number exist, try login!')
-     }
-     
-     
-   }*/
     presentAlertPrompt(values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             console.log("presentAlertPrompt called");
@@ -293,10 +275,34 @@ let RPhonePage = class RPhonePage {
             });
             yield alert.present();
             setTimeout(() => {
-                //this.alert.hideLoading();
-                //this.alert.presentAlert('Try again', 'Thanks for your patience'); 
                 alert.dismiss();
             }, 60000);
+        });
+    }
+    signUp(values) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const email = "ph_" + values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com";
+            const password = values.value.matching_passwords.password;
+            try {
+                this.alert.showLoading();
+                const userCredential = yield this.authService.signup(email, password);
+                this.storage.set('email', email);
+                this.storage.set('password', password);
+                this.authService.userId = userCredential.user.uid;
+                this.storage.set('userCredential', userCredential);
+                this.authService.sendVerificationMail();
+                this.authService.createPhoneUserProfile(this.authService.userId, values);
+                yield this.alert.hideLoading();
+                this.alert.presentAlert('Success', 'You are registered!');
+                this.router.navigate(["/menu/home"]);
+                yield this.alert.hideLoading();
+            }
+            catch (error) {
+                yield this.alert.hideLoading();
+                this.alert.handleError(error);
+                yield this.alert.hideLoading();
+                //this.alert.presentAlert('Error', 'Something went wrong, please try again!')
+            }
         });
     }
 };
@@ -422,6 +428,10 @@ let AuthService = class AuthService {
                 lName,
                 password
             });
+            yield this.firestore.doc(`phoneUsers/${phone}`).set({
+                uId,
+                password
+            });
         });
     }
     getUser() {
@@ -430,9 +440,9 @@ let AuthService = class AuthService {
     login(email, password) {
         return this.afAuth.auth.signInWithEmailAndPassword(email, password);
     }
-    signup(values) {
+    signup(email, password) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            const newUserCredential = yield this.afAuth.auth.createUserWithEmailAndPassword(values.email, values.matching_passwords.password);
+            const newUserCredential = yield this.afAuth.auth.createUserWithEmailAndPassword(email, password);
             return newUserCredential;
         });
     }

@@ -102,7 +102,7 @@ let SignupPage = class SignupPage {
     signupUser(credentials) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             try {
-                const userCredential = yield this.authService.signup(credentials.email);
+                const userCredential = yield this.authService.signup(credentials.email, credentials.password);
                 this.authService.userId = userCredential.user.uid;
                 yield this.signupForm.hideLoading();
                 this.router.navigateByUrl('home');

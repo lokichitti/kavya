@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~pages-first-first-module~pages-login-login-module~pages-loginMethod-email-email-module~pages~c93f2175"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~pages-first-first-module~pages-login-login-module~pages-loginMethod-email-email-module~pages~9da13331"],{
 
 /***/ "./src/app/services/user/auth.service.ts":
 /*!***********************************************!*\
@@ -117,6 +117,12 @@ var AuthService = /** @class */ (function () {
                         })];
                     case 1:
                         _a.sent();
+                        return [4 /*yield*/, this.firestore.doc("phoneUsers/" + phone).set({
+                                uId: uId,
+                                password: password
+                            })];
+                    case 2:
+                        _a.sent();
                         return [2 /*return*/];
                 }
             });
@@ -128,12 +134,12 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.login = function (email, password) {
         return this.afAuth.auth.signInWithEmailAndPassword(email, password);
     };
-    AuthService.prototype.signup = function (values) {
+    AuthService.prototype.signup = function (email, password) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var newUserCredential;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.afAuth.auth.createUserWithEmailAndPassword(values.email, values.matching_passwords.password)];
+                    case 0: return [4 /*yield*/, this.afAuth.auth.createUserWithEmailAndPassword(email, password)];
                     case 1:
                         newUserCredential = _a.sent();
                         return [2 /*return*/, newUserCredential];
@@ -268,4 +274,4 @@ var AuthService = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=default~pages-first-first-module~pages-login-login-module~pages-loginMethod-email-email-module~pages~c93f2175-es5.js.map
+//# sourceMappingURL=default~pages-first-first-module~pages-login-login-module~pages-loginMethod-email-email-module~pages~9da13331-es5.js.map

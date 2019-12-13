@@ -54,7 +54,6 @@ export class RPhonePage implements OnInit {
   ) { }
 
   ngOnInit() {
-    //console.log("your UID is "+this.afAuth.auth.currentUser.uid);
     this.countries = [
       new CountryPhone('IN', 'India'),
       new CountryPhone('US', 'United States'),
@@ -119,7 +118,6 @@ export class RPhonePage implements OnInit {
   };
 
   async onSubmit(values): Promise<void> {
-    console.log("your UID is "+this.afAuth.auth.currentUser.uid);
     phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
     console.log("Get OTP called " + phoneNumber);
     this.disableGetOTPButton = true;
@@ -144,9 +142,6 @@ async register(values): Promise<void> {
     .then (async ()=>{
       //await this.alert.hideLoading();
       this.router.navigate(["/menu/home"]);
-      console.log("your UID is "+this.afAuth.auth.currentUser.uid);
-      //await this.alert.hideLoading();
-      console.log("your UID is "+this.afAuth.auth.currentUser.uid);
 
     });    
   } catch (error) {
@@ -156,36 +151,22 @@ async register(values): Promise<void> {
   
 }
 async verify(values){
-    //this.alert.showLoading();
-    console.log("verify called Entered OTP is "+ this.OTPcode);
-    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode);
-    console.log("OTP Successfully Sent " + phoneSignInWithVerificationId);
-    this.alert.presentAlert('Success', 'You are registered!');
-    //await this.alert.hideLoading();
-    this.register(values);
-   // await this.alert.hideLoading();
-    //this.router.navigate(["/menu/home"]); 
-  }
- /* console.log("verify called Entered OTP is "+ this.OTPcode);
-  try{
     this.alert.showLoading();
-    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
-    .then (async (res) =>{
-      console.log("signInWithVerificationId called");
+    console.log("verify called Entered OTP is "+ this.OTPcode);
+    try{
+      this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode);
+        console.log("OTP Successfully Sent " + phoneSignInWithVerificationId);
+        this.signUp(values);
+        await this.alert.hideLoading();
+        //this.authService.createProfile(this.authService.userId, values);
+        //this.router.navigate(["/menu/home"]);
+        //this.alert.presentAlert('Success', 'You are registered!');
+    }catch(error){
+      console.log("signInWithVerificationId error");
       await this.alert.hideLoading();
-      this.storage.set('userCredential', res);
-      this.register(values);
-      this.router.navigate(["/menu/home"]);      
-    });
-  }catch (error) {
-    console.log("signInWithVerificationId error");
-    await this.alert.hideLoading();
-    this.alert.handleError(error);
-    this.alert.presentAlert('Error', 'Phone number exist, try login!')
+      this.alert.handleError(error);
+    }
   }
-  
-  
-}*/
   
   async presentAlertPrompt(values) {
     console.log("presentAlertPrompt called");
@@ -221,10 +202,33 @@ async verify(values){
 
     await alert.present();
     setTimeout(()=>{
-      //this.alert.hideLoading();
-    //this.alert.presentAlert('Try again', 'Thanks for your patience'); 
       alert.dismiss();
   }, 60000);
   }
+async signUp(values){
+  const email = "ph_" + values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com"
+  const password =  values.value.matching_passwords.password;
+  try {
+    this.alert.showLoading();
+    const userCredential: firebase.auth.UserCredential = await this.authService.signup(
+      email,password
+    );
+    this.storage.set('email', email);
+    this.storage.set('password', password);
+    this.authService.userId = userCredential.user.uid;
+    this.storage.set('userCredential', userCredential);    
+    this.authService.sendVerificationMail();
+    this.authService.createPhoneUserProfile(this.authService.userId, values);
+    await this.alert.hideLoading();
+    this.alert.presentAlert('Success', 'You are registered!')
+    this.router.navigate(["/menu/home"]);
+    await this.alert.hideLoading();
+  } catch (error) {
+      await this.alert.hideLoading();
+      this.alert.handleError(error);
+      await this.alert.hideLoading();
+    //this.alert.presentAlert('Error', 'Something went wrong, please try again!')
+  }
+}
 
 }

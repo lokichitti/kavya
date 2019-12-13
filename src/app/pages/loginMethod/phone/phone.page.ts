@@ -128,73 +128,15 @@ export class PhonePage implements OnInit {
     ],
   };
   async onSubmit(values): Promise<void> {
-    
-    phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
-    console.log("Get OTP called " + phoneNumber);
-    this.disableGetOTPButton = true;
-    this.disableVerifyButton = false;
-    this.presentAlertPrompt(values);
-    this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 60000).then (function(verificationId) {
-      phoneSignInWithVerificationId = verificationId;
-    this.presentAlertPrompt(values);
-    }).catch(e => {
-      console.log(e);
-  }); 
-}
-
-async verify(values){
-    await this.alert.showLoading();
-    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode);
-      console.log("signInWithVerificationId called");
-      await this.alert.hideLoading();
-      this.router.navigate(["/menu/home"]); 
-}
-
-async presentAlertPrompt(values) {
-  console.log("presentAlertPrompt called");
-  const alert = await this.alertCtrl.create({
-    header: 'OTP Sent Successfully',
-    inputs: [
-      {
-        name: 'OTP',
-        type: 'text',
-        placeholder: 'Enter OTP'
-      }
-    ],
-    buttons: [
-      {
-        text: 'Cancel',
-        role: 'cancel',
-        cssClass: 'primary',
-        handler: () => {
-          console.log('Confirm Cancel');
-          //this.alert.showLoading(); 
-          //this.alert.presentAlert('Please wait', 'Thanks for your patience');                
-        }
-      }, {
-        text: 'Ok',
-        handler: (data) => {
-          this.OTPcode = data.OTP;
-          this.verify(values);
-          console.log('Confirm Ok');
-        }
-      }
-    ],
-    backdropDismiss: false
-  });
-
-  await alert.present();
-  setTimeout(()=>{
-    //this.alert.hideLoading();    
-    alert.dismiss();
-}, 60000);
+    this.loginUser(values);
 }
   async loginUser(values): Promise<void> {
+    const email = "ph_" + values.value.country_phone.country.code + values.value.country_phone.phone + "@meandmyshop.com"
+  const password =  values.value.matching_passwords.password;
     try {
       this.alert.showLoading();
       const userCredential: firebase.auth.UserCredential = await this.authService.login(
-      values.value.country_phone.country.code + values.value.country_phone.phone,
-      values.value.password    
+        email,password    
       );
         this.authService.userId = userCredential.user.uid;
         await this.alert.hideLoading();

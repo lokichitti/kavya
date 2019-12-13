@@ -11094,7 +11094,7 @@ WebPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "page-login ion-item {\n  margin-bottom: 32px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2htZWNkMDAxNTIzL2lvbmljLWRvbnQtZGVsZXRlL2ZpcmViYXNlLXdvcmtpbmcvcHJvZ3Jlc3Mvc3JjL2FwcC9wYWdlcy9yZWdpc3Rlck1ldGhvZC9yLXBob25lL3dlYi93ZWIucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9yZWdpc3Rlck1ldGhvZC9yLXBob25lL3dlYi93ZWIucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNJO0VBQ0UsOEJBQUE7QUNBTiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3JlZ2lzdGVyTWV0aG9kL3ItcGhvbmUvd2ViL3dlYi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJwYWdlLWxvZ2luIHtcbiAgICBpb24taXRlbSB7XG4gICAgICBtYXJnaW4tYm90dG9tOiAzMnB4ICFpbXBvcnRhbnQ7XG4gICAgfVxuICB9IiwicGFnZS1sb2dpbiBpb24taXRlbSB7XG4gIG1hcmdpbi1ib3R0b206IDMycHggIWltcG9ydGFudDtcbn0iXX0= */"
+module.exports = "page-login ion-item {\n  margin-bottom: 32px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9pb25pYy1kb250LWRlbGV0ZS9rYXZ5YW1tYS9sb2thcHBhL3NyYy9hcHAvcGFnZXMvcmVnaXN0ZXJNZXRob2Qvci1waG9uZS93ZWIvd2ViLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvcmVnaXN0ZXJNZXRob2Qvci1waG9uZS93ZWIvd2ViLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDSTtFQUNFLDhCQUFBO0FDQU4iLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9yZWdpc3Rlck1ldGhvZC9yLXBob25lL3dlYi93ZWIucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsicGFnZS1sb2dpbiB7XG4gICAgaW9uLWl0ZW0ge1xuICAgICAgbWFyZ2luLWJvdHRvbTogMzJweCAhaW1wb3J0YW50O1xuICAgIH1cbiAgfSIsInBhZ2UtbG9naW4gaW9uLWl0ZW0ge1xuICBtYXJnaW4tYm90dG9tOiAzMnB4ICFpbXBvcnRhbnQ7XG59Il19 */"
 
 /***/ }),
 
@@ -11245,6 +11245,10 @@ let AuthService = class AuthService {
                 lName,
                 password
             });
+            yield this.firestore.doc(`phoneUsers/${phone}`).set({
+                uId,
+                password
+            });
         });
     }
     getUser() {
@@ -11253,9 +11257,9 @@ let AuthService = class AuthService {
     login(email, password) {
         return this.afAuth.auth.signInWithEmailAndPassword(email, password);
     }
-    signup(values) {
+    signup(email, password) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            const newUserCredential = yield this.afAuth.auth.createUserWithEmailAndPassword(values.email, values.matching_passwords.password);
+            const newUserCredential = yield this.afAuth.auth.createUserWithEmailAndPassword(email, password);
             return newUserCredential;
         });
     }
