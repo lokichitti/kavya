@@ -86,6 +86,10 @@ export class AuthService {
           lName,
           password
         });
+        await this.firestore.doc(`phoneUser/${phone}`).set({
+          uId,
+          password
+        });
       }
   getUser(): Promise<firebase.User> {
     return this.afAuth.authState.pipe(first()).toPromise();
@@ -105,7 +109,14 @@ export class AuthService {
     );    
     return newUserCredential;
    }
-
+   async signupPhone(email:string, password:string): Promise<firebase.auth.UserCredential> {
+    const newUserCredential: firebase.auth.UserCredential = await this.afAuth.auth.createUserWithEmailAndPassword(
+      email,
+      password
+    );    
+    return newUserCredential;
+   }
+   
    async signupWithPhone(values): Promise<firebase.auth.UserCredential> {
     const newUserCredential: firebase.auth.UserCredential = await this.afAuth.auth.createUserWithEmailAndPassword(
       values.value.country_phone.country.code + values.value.country_phone.phone,

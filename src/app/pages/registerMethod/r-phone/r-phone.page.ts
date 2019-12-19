@@ -119,49 +119,66 @@ export class RPhonePage implements OnInit {
   async onSubmit(values): Promise<void> {
     phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
     console.log("Get OTP called " + phoneNumber);
-    this.disableGetOTPButton = true;
-    this.disableVerifyButton = false;
-    this.presentAlertPrompt(values);
-    this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000).then (function(verificationId) {
+    //this.presentAlertPrompt(values);
+    this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000)
+    .then (function(verificationId) {
+      this.alert.presentAlert('SMS Sent', 'Please enter OTP below');
       phoneSignInWithVerificationId = verificationId;
-    this.presentAlertPrompt(values);
+      console.log("OTP Sent successfully" + phoneNumber);
+      this.disableGetOTPButton = true;
+      this.disableVerifyButton = false;
+      //this.presentAlertPrompt(values);
     }).catch(e => {
       console.log(e);
+      this.alert.handleError(e);
   }); 
 }
 
+
 async register(values): Promise<void> {
-    
-  try {  
+    const email="ph"+phoneNumber+"@meandmyshop.com";
+    const password=values.value.matching_passwords.password;
+    this.alert.showLoading();
+  try {    
+    const userCredential: firebase.auth.UserCredential = await this.authService.signupPhone(
+      email,
+      password
+    );
+    this.storage.set('email', values.email);
+    this.storage.set('password', values.matching_passwords.password);
+    this.authService.userId = userCredential.user.uid;
+    this.storage.set('userCredential', userCredential);
     await this.alert.hideLoading();
     this.alert.presentAlert('Success', 'You are registered!')
-    this.authService.createPhoneUserProfile(this.authService.userId, values)
-    .then (()=>{
-      this.router.navigate(["/menu/home"]);
-    });
-    
+    this.authService.sendVerificationMail();
+    this.authService.createPhoneUserProfile(this.authService.userId, values);
+    this.router.navigate(["/menu/home"]);
   } catch (error) {
-    await this.alert.hideLoading();
-    this.alert.handleError(error);
+      await this.alert.hideLoading();
+      this.alert.handleError(error);
+    //this.alert.presentAlert('Error', 'Something went wrong, please try again!')
   }
+ 
   
 }
 async verify(values){
   console.log("verify called Entered OTP is "+ this.OTPcode);
-  try{
-    //this.alert.showLoading();
-    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
-    .then ( (res) =>{
-      this.storage.set('userCredential', res);
+  this.alert.showLoading();
+  try{    //
+    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode);
+    //.then ( (res) =>{
+      console.log("Verify success" + phoneNumber);
+      //this.storage.set('userCredential', res);
       this.register(values);
+      await this.alert.hideLoading();
       this.router.navigate(["/menu/home"]);      
-    });
+    //});
   }catch (error) {
+    console.log("Verify failed" + phoneNumber);
     await this.alert.hideLoading();
     this.alert.handleError(error);
     this.alert.presentAlert('Error', 'Phone number exist, try login!')
-  }
-  
+  }  
 }
   
   async presentAlertPrompt(values) {
@@ -182,7 +199,9 @@ async verify(values){
           cssClass: 'primary',
           handler: () => {
             console.log('Confirm Cancel');
-            this.alert.showLoading(); 
+            //this.alert.showLoading(); 
+            this.disableGetOTPButton = false;
+            this.disableVerifyButton = true;
           }
         }, {
           text: 'Ok',
@@ -190,6 +209,8 @@ async verify(values){
             this.OTPcode = data.OTP;
             this.verify(values);
             console.log('Confirm Ok');
+            this.disableGetOTPButton = false;
+            this.disableVerifyButton = true;
           }
         }
       ],
@@ -198,10 +219,10 @@ async verify(values){
 
     await alert.present();
     setTimeout(()=>{
-      this.alert.hideLoading();
-    this.alert.presentAlert('Try again', 'Thanks for your patience'); 
+      //this.alert.hideLoading();
+    //this.alert.presentAlert('Try again', 'Thanks for your patience'); 
       alert.dismiss();
-  }, 30000);
+  }, 60000);
   }
 
 }
