@@ -146,7 +146,6 @@ export class RPhonePage implements OnInit {
   });   
 }
 
-
 async register(values): Promise<void> {
     const email="ph"+phoneNumber+"@meandmyshop.com";
     const password=values.value.matching_passwords.password;
@@ -171,6 +170,7 @@ async register(values): Promise<void> {
     //this.alert.presentAlert('Error', 'Something went wrong, please try again!')
   }  
 }
+
 async verify(values){
 
   if(this.OTPcode){

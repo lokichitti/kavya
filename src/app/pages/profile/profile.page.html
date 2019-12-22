@@ -38,7 +38,7 @@
             class="placeholder-profile"
             *ngIf="!userProfile?.fName"
           >
-            <span> Tap here to edit. </span>
+            <span> Enter your first name. </span>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -61,7 +61,7 @@
             class="placeholder-profile"
             *ngIf="!userProfile?.lName"
           >
-            <span> Tap here to edit. </span>
+            <span> Enter your last name. </span>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -81,7 +81,27 @@
             class="placeholder-profile"
             *ngIf="!userProfile?.email"
           >
-            <span> Tap here to edit. </span>
+            <span> Enter Email address. </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-label>
+  </ion-item>
+
+  <ion-item (click)="updateEmail()">
+    <ion-label>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-start" size="5"> Phone</ion-col>
+          <ion-col size="7" *ngIf="userProfile?.email">
+            {{userProfile?.phone}}
+          </ion-col>
+          <ion-col
+            size="7"
+            class="placeholder-profile"
+            *ngIf="!userProfile?.email"
+          >
+            <span> Enter phone number. </span>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -94,7 +114,7 @@
         <ion-row>
           <ion-col class="ion-text-start" size="5"> Password </ion-col>
           <ion-col class="placeholder-profile" size="7">
-            <span> Tap here to edit. </span>
+            <span> Change password. </span>
           </ion-col>
         </ion-row>
       </ion-grid>

@@ -36,6 +36,10 @@ var map = {
 		"./src/app/info/info.module.ts",
 		"info-info-module"
 	],
+	"./pages/create-shop/create-shop.module": [
+		"./src/app/pages/create-shop/create-shop.module.ts",
+		"pages-create-shop-create-shop-module"
+	],
 	"./pages/first/first.module": [
 		"./src/app/pages/first/first.module.ts",
 		"pages-first-first-module"
@@ -617,6 +621,7 @@ const routes = [
     { path: 'r-facebook', loadChildren: './pages/registerMethod/r-facebook/r-facebook.module#RFacebookPageModule' },
     //{ path: 'shop', loadChildren: './pages/shop/shop.module#ShopPageModule' },
     { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule', },
+    Object.assign({ path: 'create-shop', loadChildren: './pages/create-shop/create-shop.module#CreateShopPageModule' }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["canActivate"])(redirectToFirst)),
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
