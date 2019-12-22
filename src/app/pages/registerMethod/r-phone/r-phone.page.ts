@@ -128,6 +128,7 @@ export class RPhonePage implements OnInit {
       phoneSignInWithVerificationId = verificationId;
       globalErrorCheck=1;
       console.log("OTP Sent successfully" + phoneNumber);
+      //this.presentAlertPrompt(values);
     }).catch(e => {
       console.log("Get OTP failed ");
       console.log(e);
@@ -138,41 +139,13 @@ export class RPhonePage implements OnInit {
     console.log('This finally block');
     if(globalErrorCheck){
       console.log("Get OTP called ");
-      //this.disableGetOTPButton = true;
-      //this.disableVerifyButton = false;
+      this.disableGetOTPButton = true;
+      this.disableVerifyButton = false;
       this.alert.presentAlert('SMS Sent', 'Please enter 6 digit OTP below');
     } 
-  });
-   
+  });   
 }
 
-async verify(values){
-
-  if(this.OTPcode){
-  console.log("verify called Entered OTP is "+ this.OTPcode);
-  this.alert.showLoading();
- // try{    //
-    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
-    .then ( async (res) =>{
-      console.log("Verify success" + phoneNumber);
-      //this.storage.set('userCredential', res);
-      this.register(values);
-      await this.alert.hideLoading();
-      this.router.navigate(["/menu/home"]);      
-    }).catch (async (error)=>{
-    console.log("Verify failed" + phoneNumber);
-    await this.alert.hideLoading();
-    this.alert.handleError(error);
-    this.alert.presentAlert('Error', 'Verify failed may be entered OTP is wrong!')
-  }).finally(async()=>{
-    await this.alert.hideLoading(); 
-  }); 
-  
-  }
-  else{
-    this.alert.presentAlert('Error', 'Please enter 6 digit OTP!')
-  }
-}
 
 async register(values): Promise<void> {
     const email="ph"+phoneNumber+"@meandmyshop.com";
@@ -190,14 +163,40 @@ async register(values): Promise<void> {
     this.alert.presentAlert('Success', 'You are registered!')
     //this.authService.sendVerificationMail();
     this.authService.createPhoneUserProfile(this.authService.userId, values);
-    this.router.navigate(["/menu/home"]);
+    //this.router.navigate(["/menu/home"]);
   } catch (error) {
       await this.alert.hideLoading();
       this.alert.handleError(error);
+      this.router.navigate(["/first"]);
     //this.alert.presentAlert('Error', 'Something went wrong, please try again!')
-  }
- 
+  }  
+}
+async verify(values){
+
+  if(this.OTPcode){
+  console.log("verify called Entered OTP is "+ this.OTPcode);
+  this.alert.showLoading();
+ // try{    //
+    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
+    .then ( async (res) =>{
+      console.log("Verify success" + phoneNumber);
+      //this.storage.set('userCredential', res);
+      this.register(values);
+      await this.alert.hideLoading();
+      this.router.navigate(["/menu/home"]);      
+    }).catch (async (error)=>{
+    console.log("Verify failed" + phoneNumber);
+    await this.alert.hideLoading();
+    this.alert.handleError(error);
+    //this.alert.presentAlert('Error', 'Phone number exist, try login!')
+  }).finally(async()=>{
+    await this.alert.hideLoading(); 
+  }); 
   
+  }
+  else{
+    this.alert.presentAlert('Error', 'Please enter 6 digit OTP!')
+  }
 }
   
   async presentAlertPrompt(values) {
