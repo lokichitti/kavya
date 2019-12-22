@@ -137,7 +137,7 @@ let RPhonePage = class RPhonePage {
             ],
             'password': [
                 { type: 'required', message: 'Password is required.' },
-                { type: 'minlength', message: 'Password must be at least 5 characters long.' },
+                { type: 'minlength', message: 'Password must be at least 6 characters long.' },
                 { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number.' }
             ],
             'confirm_password': [
@@ -159,7 +159,7 @@ let RPhonePage = class RPhonePage {
         ];
         this.matching_passwords_group = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
             password: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([
-                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(5),
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(6),
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required,
                 _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
             ])),
@@ -186,37 +186,74 @@ let RPhonePage = class RPhonePage {
     }
     onSubmit(values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            var globalErrorCheck = 0;
             phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
             console.log("Get OTP called " + phoneNumber);
-            //this.presentAlertPrompt(values);
+            phoneSignInWithVerificationId = null;
+            this.disableGetOTPButton = true;
+            this.disableVerifyButton = false;
             this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000)
                 .then(function (verificationId) {
-                this.alert.presentAlert('SMS Sent', 'Please enter OTP below');
                 phoneSignInWithVerificationId = verificationId;
+                globalErrorCheck = 1;
                 console.log("OTP Sent successfully" + phoneNumber);
-                this.disableGetOTPButton = true;
-                this.disableVerifyButton = false;
-                //this.presentAlertPrompt(values);
             }).catch(e => {
+                console.log("Get OTP failed ");
                 console.log(e);
+                this.disableGetOTPButton = false;
+                this.disableVerifyButton = true;
                 this.alert.handleError(e);
+            }).finally(function () {
+                console.log('This finally block');
+                if (globalErrorCheck) {
+                    console.log("Get OTP called ");
+                    //this.disableGetOTPButton = true;
+                    //this.disableVerifyButton = false;
+                    this.alert.presentAlert('SMS Sent', 'Please enter 6 digit OTP below');
+                }
             });
+        });
+    }
+    verify(values) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            if (this.OTPcode) {
+                console.log("verify called Entered OTP is " + this.OTPcode);
+                this.alert.showLoading();
+                // try{    //
+                this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode)
+                    .then((res) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                    console.log("Verify success" + phoneNumber);
+                    //this.storage.set('userCredential', res);
+                    this.register(values);
+                    yield this.alert.hideLoading();
+                    this.router.navigate(["/menu/home"]);
+                })).catch((error) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                    console.log("Verify failed" + phoneNumber);
+                    yield this.alert.hideLoading();
+                    this.alert.handleError(error);
+                    this.alert.presentAlert('Error', 'Verify failed may be entered OTP is wrong!');
+                })).finally(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                    yield this.alert.hideLoading();
+                }));
+            }
+            else {
+                this.alert.presentAlert('Error', 'Please enter 6 digit OTP!');
+            }
         });
     }
     register(values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             const email = "ph" + phoneNumber + "@meandmyshop.com";
             const password = values.value.matching_passwords.password;
-            this.alert.showLoading();
             try {
                 const userCredential = yield this.authService.signupPhone(email, password);
-                this.storage.set('email', values.email);
-                this.storage.set('password', values.matching_passwords.password);
-                this.authService.userId = userCredential.user.uid;
-                this.storage.set('userCredential', userCredential);
                 yield this.alert.hideLoading();
+                //this.storage.set('email', values.email);
+                //this.storage.set('password', values.matching_passwords.password);
+                this.authService.userId = userCredential.user.uid;
+                //this.storage.set('userCredential', userCredential);    
                 this.alert.presentAlert('Success', 'You are registered!');
-                this.authService.sendVerificationMail();
+                //this.authService.sendVerificationMail();
                 this.authService.createPhoneUserProfile(this.authService.userId, values);
                 this.router.navigate(["/menu/home"]);
             }
@@ -224,28 +261,6 @@ let RPhonePage = class RPhonePage {
                 yield this.alert.hideLoading();
                 this.alert.handleError(error);
                 //this.alert.presentAlert('Error', 'Something went wrong, please try again!')
-            }
-        });
-    }
-    verify(values) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            console.log("verify called Entered OTP is " + this.OTPcode);
-            this.alert.showLoading();
-            try { //
-                this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId, this.OTPcode);
-                //.then ( (res) =>{
-                console.log("Verify success" + phoneNumber);
-                //this.storage.set('userCredential', res);
-                this.register(values);
-                yield this.alert.hideLoading();
-                this.router.navigate(["/menu/home"]);
-                //});
-            }
-            catch (error) {
-                console.log("Verify failed" + phoneNumber);
-                yield this.alert.hideLoading();
-                this.alert.handleError(error);
-                this.alert.presentAlert('Error', 'Phone number exist, try login!');
             }
         });
     }
@@ -413,7 +428,7 @@ let AuthService = class AuthService {
                 lName,
                 password
             });
-            yield this.firestore.doc(`phoneUser/${phone}`).set({
+            yield this.firestore.doc(`phoneUsers/${phone}`).set({
                 uId,
                 password
             });

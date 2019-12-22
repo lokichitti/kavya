@@ -117,7 +117,7 @@ var ProfilePage = /** @class */ (function () {
                     case 0: return [4 /*yield*/, this.authService.logout()];
                     case 1:
                         _a.sent();
-                        this.router.navigateByUrl('login');
+                        this.router.navigateByUrl('first');
                         return [2 /*return*/];
                 }
             });
@@ -481,7 +481,7 @@ var AuthService = /** @class */ (function () {
                         })];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.firestore.doc("phoneUser/" + phone).set({
+                        return [4 /*yield*/, this.firestore.doc("phoneUsers/" + phone).set({
                                 uId: uId,
                                 password: password
                             })];

@@ -296,7 +296,7 @@ let AuthService = class AuthService {
                 lName,
                 password
             });
-            yield this.firestore.doc(`phoneUser/${phone}`).set({
+            yield this.firestore.doc(`phoneUsers/${phone}`).set({
                 uId,
                 password
             });

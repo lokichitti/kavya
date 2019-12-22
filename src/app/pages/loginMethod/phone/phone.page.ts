@@ -75,18 +75,7 @@ export class PhonePage implements OnInit {
       new CountryPhone('AT', 'Austria'),
       new CountryPhone('AZ', 'Azerbaijan'),*/
     ];
-
-    this.matching_passwords_group = new FormGroup({
-      password: new FormControl('', Validators.compose([
-        Validators.minLength(5),
-        Validators.required,
-        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
-      ])),
-      confirm_password: new FormControl('', Validators.required)
-    }, (formGroup: FormGroup) => {
-      return PasswordValidator.areEqual(formGroup);
-    });
-
+    
     let country = new FormControl(this.countries[0], Validators.required);
     let phone = new FormControl('', Validators.compose([
       Validators.required,
@@ -103,12 +92,6 @@ export class PhonePage implements OnInit {
     });
   }
   validation_messages = {
-    'name': [
-      { type: 'required', message: 'Name is required.' }
-    ],
-    'lastname': [
-      { type: 'required', message: 'Last name is required.' }
-    ],
     'phone': [
       { type: 'required', message: 'Phone is required.' },
       { type: 'validCountryPhone', message: 'The phone is incorrect for the selected country.' }
@@ -116,92 +99,15 @@ export class PhonePage implements OnInit {
     'password': [
       { type: 'required', message: 'Password is required.' },
     ],
-    'confirm_password': [
-      { type: 'required', message: 'Confirm password is required.' }
-    ],
-    'matching_passwords': [
-      { type: 'areEqual', message: 'Password mismatch.' }
-    ],
-    'terms': [
-      { type: 'pattern', message: 'You must accept terms and conditions.' }
-    ],
   };
-  async onSubmit(values): Promise<void> {
-    phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
-    console.log("Get OTP called " + phoneNumber);
-    this.disableGetOTPButton = true;
-    this.disableVerifyButton = false;
-    this.presentAlertPrompt(values);
-    this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000).then (function(verificationId) {
-      phoneSignInWithVerificationId = verificationId;
-    this.presentAlertPrompt(values);
-    }).catch(e => {
-      console.log(e);
-  }); 
-}
 
-async verify(values){
-  console.log("verify called Entered OTP is "+ this.OTPcode);
-  try{
-    await this.alert.showLoading();
-    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
-    .then (async  (res) =>{
-      await this.alert.hideLoading();
-      this.router.navigate(["/menu/home"]);      
-    });
-  }catch (error) {
-    await this.alert.hideLoading();
-    this.alert.handleError(error);
-    this.alert.presentAlert('Error', 'Invalid phone or password!')
-  }
-  await this.alert.hideLoading();
-}
-
-async presentAlertPrompt(values) {
-  console.log("presentAlertPrompt called");
-  const alert = await this.alertCtrl.create({
-    header: 'OTP Sent Successfully',
-    inputs: [
-      {
-        name: 'OTP',
-        type: 'text',
-        placeholder: 'Enter OTP'
-      }
-    ],
-    buttons: [
-      {
-        text: 'Cancel',
-        role: 'cancel',
-        cssClass: 'primary',
-        handler: () => {
-          console.log('Confirm Cancel');
-          this.alert.showLoading(); 
-          this.alert.presentAlert('Please wait', 'Thanks for your patience');                
-        }
-      }, {
-        text: 'Ok',
-        handler: (data) => {
-          this.OTPcode = data.OTP;
-          this.verify(values);
-          console.log('Confirm Ok');
-        }
-      }
-    ],
-    backdropDismiss: false
-  });
-
-  await alert.present();
-  setTimeout(()=>{
-    this.alert.hideLoading();    
-    alert.dismiss();
-}, 15000);
-}
   async loginUser(values): Promise<void> {
+    const email = "ph"+values.value.country_phone.country.code + values.value.country_phone.phone+"@meandmyshop.com";
     try {
       this.alert.showLoading();
       const userCredential: firebase.auth.UserCredential = await this.authService.login(
-      values.value.country_phone.country.code + values.value.country_phone.phone,
-      values.value.password    
+        email,
+        values.value.password    
       );
         this.authService.userId = userCredential.user.uid;
         await this.alert.hideLoading();

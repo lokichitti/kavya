@@ -340,7 +340,7 @@ var AuthService = /** @class */ (function () {
                         })];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.firestore.doc("phoneUser/" + phone).set({
+                        return [4 /*yield*/, this.firestore.doc("phoneUsers/" + phone).set({
                                 uId: uId,
                                 password: password
                             })];

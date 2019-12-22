@@ -61,7 +61,7 @@ export class RPhonePage implements OnInit {
 
     this.matching_passwords_group = new FormGroup({
       password: new FormControl('', Validators.compose([
-        Validators.minLength(5),
+        Validators.minLength(6),
         Validators.required,
         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
       ])),
@@ -102,7 +102,7 @@ export class RPhonePage implements OnInit {
     ],
     'password': [
       { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password must be at least 5 characters long.' },
+      { type: 'minlength', message: 'Password must be at least 6 characters long.' },
       { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number.' }
     ],
     'confirm_password': [
@@ -117,40 +117,78 @@ export class RPhonePage implements OnInit {
   };
 
   async onSubmit(values): Promise<void> {
+    var globalErrorCheck=0;
     phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
     console.log("Get OTP called " + phoneNumber);
-    //this.presentAlertPrompt(values);
+    phoneSignInWithVerificationId = null;
+    this.disableGetOTPButton = true;
+    this.disableVerifyButton = false;
     this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000)
-    .then (function(verificationId) {
-      this.alert.presentAlert('SMS Sent', 'Please enter OTP below');
+    .then (function(verificationId) {      
       phoneSignInWithVerificationId = verificationId;
+      globalErrorCheck=1;
       console.log("OTP Sent successfully" + phoneNumber);
-      this.disableGetOTPButton = true;
-      this.disableVerifyButton = false;
-      //this.presentAlertPrompt(values);
     }).catch(e => {
+      console.log("Get OTP failed ");
       console.log(e);
+      this.disableGetOTPButton = false;
+      this.disableVerifyButton = true;
       this.alert.handleError(e);
-  }); 
+  }).finally(function() {
+    console.log('This finally block');
+    if(globalErrorCheck){
+      console.log("Get OTP called ");
+      //this.disableGetOTPButton = true;
+      //this.disableVerifyButton = false;
+      this.alert.presentAlert('SMS Sent', 'Please enter 6 digit OTP below');
+    } 
+  });
+   
 }
 
+async verify(values){
+
+  if(this.OTPcode){
+  console.log("verify called Entered OTP is "+ this.OTPcode);
+  this.alert.showLoading();
+ // try{    //
+    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
+    .then ( async (res) =>{
+      console.log("Verify success" + phoneNumber);
+      //this.storage.set('userCredential', res);
+      this.register(values);
+      await this.alert.hideLoading();
+      this.router.navigate(["/menu/home"]);      
+    }).catch (async (error)=>{
+    console.log("Verify failed" + phoneNumber);
+    await this.alert.hideLoading();
+    this.alert.handleError(error);
+    this.alert.presentAlert('Error', 'Verify failed may be entered OTP is wrong!')
+  }).finally(async()=>{
+    await this.alert.hideLoading(); 
+  }); 
+  
+  }
+  else{
+    this.alert.presentAlert('Error', 'Please enter 6 digit OTP!')
+  }
+}
 
 async register(values): Promise<void> {
     const email="ph"+phoneNumber+"@meandmyshop.com";
     const password=values.value.matching_passwords.password;
-    this.alert.showLoading();
   try {    
     const userCredential: firebase.auth.UserCredential = await this.authService.signupPhone(
       email,
       password
     );
-    this.storage.set('email', values.email);
-    this.storage.set('password', values.matching_passwords.password);
-    this.authService.userId = userCredential.user.uid;
-    this.storage.set('userCredential', userCredential);
     await this.alert.hideLoading();
+    //this.storage.set('email', values.email);
+    //this.storage.set('password', values.matching_passwords.password);
+    this.authService.userId = userCredential.user.uid;
+    //this.storage.set('userCredential', userCredential);    
     this.alert.presentAlert('Success', 'You are registered!')
-    this.authService.sendVerificationMail();
+    //this.authService.sendVerificationMail();
     this.authService.createPhoneUserProfile(this.authService.userId, values);
     this.router.navigate(["/menu/home"]);
   } catch (error) {
@@ -160,25 +198,6 @@ async register(values): Promise<void> {
   }
  
   
-}
-async verify(values){
-  console.log("verify called Entered OTP is "+ this.OTPcode);
-  this.alert.showLoading();
-  try{    //
-    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode);
-    //.then ( (res) =>{
-      console.log("Verify success" + phoneNumber);
-      //this.storage.set('userCredential', res);
-      this.register(values);
-      await this.alert.hideLoading();
-      this.router.navigate(["/menu/home"]);      
-    //});
-  }catch (error) {
-    console.log("Verify failed" + phoneNumber);
-    await this.alert.hideLoading();
-    this.alert.handleError(error);
-    this.alert.presentAlert('Error', 'Phone number exist, try login!')
-  }  
 }
   
   async presentAlertPrompt(values) {
@@ -216,7 +235,6 @@ async verify(values){
       ],
       backdropDismiss: false
     });
-
     await alert.present();
     setTimeout(()=>{
       //this.alert.hideLoading();

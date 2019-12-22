@@ -109,7 +109,7 @@ let ProfilePage = class ProfilePage {
     logOut() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield this.authService.logout();
-            this.router.navigateByUrl('login');
+            this.router.navigateByUrl('first');
         });
     }
     updateName() {
@@ -377,7 +377,7 @@ let AuthService = class AuthService {
                 lName,
                 password
             });
-            yield this.firestore.doc(`phoneUser/${phone}`).set({
+            yield this.firestore.doc(`phoneUsers/${phone}`).set({
                 uId,
                 password
             });

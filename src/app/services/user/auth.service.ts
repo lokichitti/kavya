@@ -86,7 +86,7 @@ export class AuthService {
           lName,
           password
         });
-        await this.firestore.doc(`phoneUser/${phone}`).set({
+        await this.firestore.doc(`phoneUsers/${phone}`).set({
           uId,
           password
         });
