@@ -38,6 +38,8 @@ var map = {
 	],
 	"./pages/create-shop/create-shop.module": [
 		"./src/app/pages/create-shop/create-shop.module.ts",
+		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~f536c262",
+		"common",
 		"pages-create-shop-create-shop-module"
 	],
 	"./pages/first/first.module": [
@@ -69,7 +71,7 @@ var map = {
 	],
 	"./pages/loginMethod/phone/phone.module": [
 		"./src/app/pages/loginMethod/phone/phone.module.ts",
-		"default~pages-loginMethod-phone-phone-module~pages-register-register-module~pages-registerMethod-r-e~a6f0d9d7",
+		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~f536c262",
 		"common",
 		"pages-loginMethod-phone-phone-module"
 	],
@@ -79,12 +81,12 @@ var map = {
 	],
 	"./pages/register/register.module": [
 		"./src/app/pages/register/register.module.ts",
-		"default~pages-loginMethod-phone-phone-module~pages-register-register-module~pages-registerMethod-r-e~a6f0d9d7",
+		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~f536c262",
 		"pages-register-register-module"
 	],
 	"./pages/registerMethod/r-email/r-email.module": [
 		"./src/app/pages/registerMethod/r-email/r-email.module.ts",
-		"default~pages-loginMethod-phone-phone-module~pages-register-register-module~pages-registerMethod-r-e~a6f0d9d7",
+		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~f536c262",
 		"common",
 		"pages-registerMethod-r-email-r-email-module"
 	],
@@ -98,7 +100,7 @@ var map = {
 	],
 	"./pages/registerMethod/r-phone/r-phone.module": [
 		"./src/app/pages/registerMethod/r-phone/r-phone.module.ts",
-		"default~pages-loginMethod-phone-phone-module~pages-register-register-module~pages-registerMethod-r-e~a6f0d9d7",
+		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~f536c262",
 		"common",
 		"pages-registerMethod-r-phone-r-phone-module"
 	],
@@ -124,7 +126,7 @@ var map = {
 	],
 	"./phone-register/phone-register.module": [
 		"./src/app/phone-register/phone-register.module.ts",
-		"default~pages-loginMethod-phone-phone-module~pages-register-register-module~pages-registerMethod-r-e~a6f0d9d7",
+		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~f536c262",
 		"common",
 		"phone-register-phone-register-module"
 	]

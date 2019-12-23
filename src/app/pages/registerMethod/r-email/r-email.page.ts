@@ -91,9 +91,8 @@ export class REmailPage implements OnInit {
   };
   
   async onSubmit(values): Promise<void> {
-    
-    try {
-      this.alert.showLoading();
+    this.alert.showLoading();
+    try {      
       const userCredential: firebase.auth.UserCredential = await this.authService.signup(
         values
       );

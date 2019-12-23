@@ -5,6 +5,10 @@ import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
 import { LoadingController, AlertController } from '@ionic/angular';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+
+var currentUid:string="";
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +22,52 @@ export class AuthService {
 
   ) { }
 
+  async createShop(values)
+  {      
+      this.getCurrentUser();
+      const loading = await this.loadingCtrl.create();    
+      const shopName = values.value.shopName;
+      const shopCategory = "";
+      const address = values.value.address;
+      const area =  values.value.area;
+      const city =  values.value.city;
+      const state =  values.value.state;
+      const pinCode =  values.value.pinCode;
+      const langitude = "";
+      const latitude ="";
+      const shopPhoto = "";
+      const isVisibleForPublic = values.value.visibility;
+      this.createAShop(
+        currentUid, isVisibleForPublic, shopName, shopCategory, address, 
+        area, city, state, pinCode 
+        )
+        .then(
+          () => {
+            loading.dismiss().then(() => {
+            });
+          },
+          error => {
+            console.error(error);
+          }
+        );
+    
+      return await loading.present();
+  }
+  async createAShop( uId: string, isVisibleForPublic: string, shopName:string, shopCategory: string, shopAddress: string,
+    langitude: string, latitude: string, shopPhoto: string, pinCode:string): Promise<void> {
+    
+      await this.firestore.doc(`userShop/${uId}`).set({
+        uId,
+        isVisibleForPublic,
+        shopName,
+        shopCategory,
+        shopAddress,
+        langitude,
+        latitude,
+        shopPhoto
+      });
+    }
+    
   async createProfile(uId, values)
   {
       const loading = await this.loadingCtrl.create();    
@@ -174,4 +224,15 @@ export class AuthService {
          }
         });
    }
+async getCurrentUser(): Promise<any> {
+   await firebase.auth().onAuthStateChanged((user: firebase.User) => {
+    if (user) {
+      console.log('User is logged in now'+user.uid);
+      currentUid= user.uid;
+    } else {
+      console.log('User is logged out now');
+      this.router.navigate(['/first']);
+    }
+  });
+}
 }

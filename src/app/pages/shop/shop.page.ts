@@ -5,11 +5,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './shop.page.html',
   styleUrls: ['./shop.page.scss'],
 })
-export class ShopPage implements OnInit {
 
+export class ShopPage implements OnInit {
+  hideToolBar: boolean = true;
   constructor() { }
 
   ngOnInit() {
+    this.hideToolBar = true;
   }
+
+  
 
 }

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n    <ion-toolbar color = \"primary\">\n        <ion-buttons slot=\"start\">\n            <ion-menu-button></ion-menu-button>\n          </ion-buttons>\n          <ion-buttons slot=\"end\">\n              <ion-button [routerLink]=\"['/menu/basket']\">\n                <ion-icon slot=\"icon-only\" name=\"basket\" color = \"light\"></ion-icon>\n              </ion-button>\n            </ion-buttons>\n            <ion-buttons  slot=\"primary\">\n                <ion-button [routerLink]=\"['/search']\">\n                  <ion-icon slot=\"icon-only\" name=\"search\" color=\"light\"></ion-icon>\n                </ion-button>\n              </ion-buttons>\n        <ion-title color = \"light\" size=\"medium\" text-start>Me&Me</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header> Hello {{userProfile?.fName}} {{userProfile?.lName}}\n    </ion-list-header>\n  </ion-list>\n  <ion-item (click)=\"updateName()\">\n    <ion-label>\n      <ion-grid>\n        <ion-row>\n          <ion-col class=\"ion-text-start\" size=\"5\"> First Name </ion-col>\n          <ion-col\n            size=\"7\"\n            *ngIf=\"userProfile?.fName\"\n          >\n            {{userProfile?.fName}}\n          </ion-col>\n          <ion-col\n            size=\"7\"\n            class=\"placeholder-profile\"\n            *ngIf=\"!userProfile?.fName\"\n          >\n            <span> Tap here to edit. </span>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </ion-label>\n  </ion-item>\n\n  <ion-item (click)=\"updateName()\">\n    <ion-label>\n      <ion-grid>\n        <ion-row>\n          <ion-col class=\"ion-text-start\" size=\"5\"> Last Name </ion-col>\n          <ion-col\n            size=\"7\"\n            *ngIf=\"userProfile?.lName\"\n          >\n            {{userProfile?.lName}}\n          </ion-col>\n          <ion-col\n            size=\"7\"\n            class=\"placeholder-profile\"\n            *ngIf=\"!userProfile?.lName\"\n          >\n            <span> Tap here to edit. </span>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </ion-label>\n  </ion-item>\n\n  <ion-item (click)=\"updateEmail()\">\n    <ion-label>\n      <ion-grid>\n        <ion-row>\n          <ion-col class=\"ion-text-start\" size=\"5\"> Email </ion-col>\n          <ion-col size=\"7\" *ngIf=\"userProfile?.email\">\n            {{userProfile?.email}}\n          </ion-col>\n          <ion-col\n            size=\"7\"\n            class=\"placeholder-profile\"\n            *ngIf=\"!userProfile?.email\"\n          >\n            <span> Tap here to edit. </span>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </ion-label>\n  </ion-item>\n\n  <ion-item (click)=\"updatePassword()\">\n    <ion-label>\n      <ion-grid>\n        <ion-row>\n          <ion-col class=\"ion-text-start\" size=\"5\"> Password </ion-col>\n          <ion-col class=\"placeholder-profile\" size=\"7\">\n            <span> Tap here to edit. </span>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </ion-label>\n  </ion-item>\n<ion-item>\n  <ion-button class=\"login-margin\" color=\"danger\" (click)=\"logOut()\" expand=\"full\" >Logout</ion-button>\n</ion-item>\n</ion-content>"
+module.exports = "<ion-header>\n    <ion-toolbar color = \"primary\">\n        <ion-buttons slot=\"start\">\n            <ion-menu-button></ion-menu-button>\n          </ion-buttons>\n          <ion-buttons slot=\"end\">\n              <ion-button [routerLink]=\"['/menu/basket']\">\n                <ion-icon slot=\"icon-only\" name=\"basket\" color = \"light\"></ion-icon>\n              </ion-button>\n            </ion-buttons>\n            <ion-buttons  slot=\"primary\">\n                <ion-button [routerLink]=\"['/search']\">\n                  <ion-icon slot=\"icon-only\" name=\"search\" color=\"light\"></ion-icon>\n                </ion-button>\n              </ion-buttons>\n        <ion-title color = \"light\" size=\"medium\" text-start>Me&Me</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header> Hello {{userProfile?.fName}} {{userProfile?.lName}}\n    </ion-list-header>\n  </ion-list>\n  <ion-item (click)=\"updateName()\">\n    <ion-label>\n      <ion-grid>\n        <ion-row>\n          <ion-col class=\"ion-text-start\" size=\"5\"> First Name </ion-col>\n          <ion-col\n            size=\"7\"\n            *ngIf=\"userProfile?.fName\"\n          >\n            {{userProfile?.fName}}\n          </ion-col>\n          <ion-col\n            size=\"7\"\n            class=\"placeholder-profile\"\n            *ngIf=\"!userProfile?.fName\"\n          >\n            <span> Enter your first name. </span>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </ion-label>\n  </ion-item>\n\n  <ion-item (click)=\"updateName()\">\n    <ion-label>\n      <ion-grid>\n        <ion-row>\n          <ion-col class=\"ion-text-start\" size=\"5\"> Last Name </ion-col>\n          <ion-col\n            size=\"7\"\n            *ngIf=\"userProfile?.lName\"\n          >\n            {{userProfile?.lName}}\n          </ion-col>\n          <ion-col\n            size=\"7\"\n            class=\"placeholder-profile\"\n            *ngIf=\"!userProfile?.lName\"\n          >\n            <span> Enter your last name. </span>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </ion-label>\n  </ion-item>\n\n  <ion-item (click)=\"updateEmail()\">\n    <ion-label>\n      <ion-grid>\n        <ion-row>\n          <ion-col class=\"ion-text-start\" size=\"5\"> Email </ion-col>\n          <ion-col size=\"7\" *ngIf=\"userProfile?.email\">\n            {{userProfile?.email}}\n          </ion-col>\n          <ion-col\n            size=\"7\"\n            class=\"placeholder-profile\"\n            *ngIf=\"!userProfile?.email\"\n          >\n            <span> Enter Email address. </span>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </ion-label>\n  </ion-item>\n\n  <ion-item (click)=\"updateEmail()\">\n    <ion-label>\n      <ion-grid>\n        <ion-row>\n          <ion-col class=\"ion-text-start\" size=\"5\"> Phone</ion-col>\n          <ion-col size=\"7\" *ngIf=\"userProfile?.email\">\n            {{userProfile?.phone}}\n          </ion-col>\n          <ion-col\n            size=\"7\"\n            class=\"placeholder-profile\"\n            *ngIf=\"!userProfile?.email\"\n          >\n            <span> Enter phone number. </span>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </ion-label>\n  </ion-item>\n\n  <ion-item (click)=\"updatePassword()\">\n    <ion-label>\n      <ion-grid>\n        <ion-row>\n          <ion-col class=\"ion-text-start\" size=\"5\"> Password </ion-col>\n          <ion-col class=\"placeholder-profile\" size=\"7\">\n            <span> Change password. </span>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n    </ion-label>\n  </ion-item>\n<ion-item>\n  <ion-button class=\"login-margin\" color=\"danger\" (click)=\"logOut()\" expand=\"full\" >Logout</ion-button>\n</ion-item>\n</ion-content>"
 
 /***/ }),
 
@@ -305,6 +305,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! firebase/auth */ "./node_modules/firebase/auth/dist/index.esm.js");
 
 
 
@@ -312,12 +315,54 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+var currentUid = "";
 let AuthService = class AuthService {
     constructor(afAuth, firestore, loadingCtrl, router) {
         this.afAuth = afAuth;
         this.firestore = firestore;
         this.loadingCtrl = loadingCtrl;
         this.router = router;
+    }
+    createShop(values) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            this.getCurrentUser();
+            const loading = yield this.loadingCtrl.create();
+            const shopName = values.value.shopName;
+            const shopCategory = "";
+            const address = values.value.address;
+            const area = values.value.area;
+            const city = values.value.city;
+            const state = values.value.state;
+            const pinCode = values.value.pinCode;
+            const langitude = "";
+            const latitude = "";
+            const shopPhoto = "";
+            const isVisibleForPublic = values.value.visibility;
+            this.createAShop(currentUid, isVisibleForPublic, shopName, shopCategory, address, area, city, state, pinCode)
+                .then(() => {
+                loading.dismiss().then(() => {
+                });
+            }, error => {
+                console.error(error);
+            });
+            return yield loading.present();
+        });
+    }
+    createAShop(uId, isVisibleForPublic, shopName, shopCategory, shopAddress, langitude, latitude, shopPhoto, pinCode) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield this.firestore.doc(`userShop/${uId}`).set({
+                uId,
+                isVisibleForPublic,
+                shopName,
+                shopCategory,
+                shopAddress,
+                langitude,
+                latitude,
+                shopPhoto
+            });
+        });
     }
     createProfile(uId, values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -452,6 +497,20 @@ let AuthService = class AuthService {
             else {
                 console.error(error);
             }
+        });
+    }
+    getCurrentUser() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield firebase_app__WEBPACK_IMPORTED_MODULE_7__["auth"]().onAuthStateChanged((user) => {
+                if (user) {
+                    console.log('User is logged in now' + user.uid);
+                    currentUid = user.uid;
+                }
+                else {
+                    console.log('User is logged out now');
+                    this.router.navigate(['/first']);
+                }
+            });
         });
     }
 };

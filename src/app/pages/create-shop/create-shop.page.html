@@ -1,9 +1,122 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>createShop</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title color="light">Create your shop</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content  padding class="form-content">
+  <form [formGroup]="validations_form"  (ngSubmit)="createMyShop(validations_form)">
+    <ion-item>
+      <ion-label position="floating" color="primary">Name your shop</ion-label>
+      <ion-input type="text" formControlName="shopName"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.shopName">
+        <div class="error-message" *ngIf="validations_form.get('shopName').hasError(validation.type) && (validations_form.get('shopName').dirty || validations_form.get('shopName').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label position="floating" color="primary">Category</ion-label>
+      <ion-select formControlName="category" cancelText="Cancel" okText="OK">
+        <ion-select-option *ngFor="let item of shopCategory" [value]="item">{{item}}</ion-select-option>
+      </ion-select>
+    </ion-item>
 
+    <ion-item>
+      <ion-label position="floating" color="primary">Is your shop available for everyone</ion-label>
+      <ion-select formControlName="visibility" cancelText="Cancel" okText="OK">
+        <ion-select-option *ngFor="let item of isVisibleForPublic" [value]="item">{{item}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating" color="primary">Address</ion-label>
+      <ion-input type="text" formControlName="address"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.address">
+        <div class="error-message" *ngIf="validations_form.get('address').hasError(validation.type) && (validations_form.get('address').dirty || validations_form.get('address').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div> 
+
+    <ion-item>
+      <ion-label position="floating" color="primary">Area</ion-label>
+      <ion-input type="text" formControlName="area"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.area">
+        <div class="error-message" *ngIf="validations_form.get('area').hasError(validation.type) && (validations_form.get('area').dirty || validations_form.get('area').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+
+    <ion-item>
+      <ion-label position="floating" color="primary">City</ion-label>
+      <ion-input type="text" formControlName="city"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.city">
+        <div class="error-message" *ngIf="validations_form.get('city').hasError(validation.type) && (validations_form.get('city').dirty || validations_form.get('city').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating" color="primary">State</ion-label>
+      <ion-input type="text" formControlName="state"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.state">
+        <div class="error-message" *ngIf="validations_form.get('state').hasError(validation.type) && (validations_form.get('state').dirty || validations_form.get('state').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating" color="primary">pinCode</ion-label>
+      <ion-input type="text" formControlName="pinCode"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.pinCode">
+        <div class="error-message" *ngIf="validations_form.get('pinCode').hasError(validation.type) && (validations_form.get('pinCode').dirty || validations_form.get('pinCode').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <div>
+      <ion-button class="locateme-margin" (click)="locateMyShop()">Locate my shop on map</ion-button>
+
+    </div>
+    <div formGroupName="country_phone">
+      <ion-item>
+        <ion-label position="floating" color="primary">Country</ion-label>
+        <ion-select formControlName="country" cancelText="Cancel" okText="OK">
+          <ion-select-option *ngFor="let item of countries" [value]="item">{{item.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" color="primary">Contact phone</ion-label>
+        <ion-input placeholder="Enter 10 digit mobile number" type="text" formControlName="phone"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.phone">
+          <div class="error-message" *ngIf="validations_form.get('country_phone').get('phone').hasError(validation.type) && (validations_form.get('country_phone').get('phone').dirty || validations_form.get('country_phone').get('phone').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <ion-button color="primary" class="login-margin" expand="full" type="submit" [disabled]="!validations_form.valid">Done</ion-button>
+</form>
+<ion-button class="login-margin" expand="full" (click)="locateMyShop()">Locate my shop on map</ion-button>
 </ion-content>
+

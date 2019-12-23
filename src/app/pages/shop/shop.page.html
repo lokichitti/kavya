@@ -16,14 +16,18 @@
         <ion-title color = "light" size="medium" text-start>Me&Me</ion-title>
     </ion-toolbar>
   </ion-header>
-
-<ion-content>
-    <ion-text color="secondary">
-        <h1>Shop</h1>
-      </ion-text>
+<ion-content class="padding">
+    <ion-text > <h2>Shop</h2> </ion-text>      
       <div>
-        <button shape="round" [routerLink]="['/create-shop']" class = "button button-full"> 
-          create a shop
-        </button>
-      </div>
+      <ion-toolbar  *ngIf="hideToolBar" color = "light"  text-center>
+      <ion-text color="secondary" text-center>
+        Create a shop
+      </ion-text>
+      <ion-buttons slot="end">
+        <ion-button [routerLink]="['/create-shop']">
+          <ion-icon color = "danger" slot="icon-only" name="add-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+    </div>
 </ion-content>

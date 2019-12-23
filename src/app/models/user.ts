@@ -14,3 +14,13 @@ export interface UserCredential {
     email: string;
     fName: string;
   }
+  export interface ShopDetails {
+    shopName: string;
+    phoneNumber: string;
+    shopCategory: string;
+    shopAddress: string;
+    langitude: string;
+    latitude: string;
+    shopPhoto: string;
+    isVisibleForPublic: boolean;
+  }
