@@ -56,4 +56,3 @@ const Thumbnail = class {
 /***/ })
 
 }]);
-//# sourceMappingURL=8-es2015.js.map

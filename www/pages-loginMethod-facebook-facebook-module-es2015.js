@@ -1,13 +1,15 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-loginMethod-facebook-facebook-module"],{
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/pages/loginMethod/facebook/facebook.page.html":
-/*!*****************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/pages/loginMethod/facebook/facebook.page.html ***!
-  \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/loginMethod/facebook/facebook.page.html":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/loginMethod/facebook/facebook.page.html ***!
+  \*****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>facebook</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>facebook</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n");
 
 /***/ }),
 
@@ -63,10 +65,12 @@ FacebookPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!***************************************************************!*\
   !*** ./src/app/pages/loginMethod/facebook/facebook.page.scss ***!
   \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2xvZ2luTWV0aG9kL2ZhY2Vib29rL2ZhY2Vib29rLnBhZ2Uuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2xvZ2luTWV0aG9kL2ZhY2Vib29rL2ZhY2Vib29rLnBhZ2Uuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -92,8 +96,8 @@ let FacebookPage = class FacebookPage {
 FacebookPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-facebook',
-        template: __webpack_require__(/*! raw-loader!./facebook.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/loginMethod/facebook/facebook.page.html"),
-        styles: [__webpack_require__(/*! ./facebook.page.scss */ "./src/app/pages/loginMethod/facebook/facebook.page.scss")]
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./facebook.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/loginMethod/facebook/facebook.page.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./facebook.page.scss */ "./src/app/pages/loginMethod/facebook/facebook.page.scss")).default]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
 ], FacebookPage);
@@ -103,4 +107,3 @@ FacebookPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /***/ })
 
 }]);
-//# sourceMappingURL=pages-loginMethod-facebook-facebook-module-es2015.js.map

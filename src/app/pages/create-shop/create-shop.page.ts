@@ -19,8 +19,10 @@ import { AlertService } from '../../services/alert';
 import { Storage } from '@ionic/storage';
 import { ShopDetails } from 'src/app/models/user';
 import { AuthFormComponent } from 'src/app/components/auth-form/auth-form.component';
+//import { Geolocation } from '@ionic-native/geolocation';
 
-
+var Latitude = undefined;
+var Longitude = undefined;
 @Component({
   selector: 'app-create-shop',
   templateUrl: './create-shop.page.html',
@@ -42,7 +44,8 @@ export class CreateShopPage implements OnInit {
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
     public alert: AlertService,
-    private storage: Storage
+    private storage: Storage,
+    private geolocation: Geolocation
   ) { }
 
   ngOnInit() {
@@ -125,8 +128,13 @@ export class CreateShopPage implements OnInit {
   }
 
   locateMyShop(){
-
-  }
+ /*   this.geolocation.getCurrentPosition().then((resp) => {
+       console.log(resp.coords.latitude);
+       console.log(resp.coords.longitude);
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });*/
+  } 
 
 
 }

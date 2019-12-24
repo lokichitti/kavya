@@ -173,4 +173,3 @@ const setPaneClass = (el, isMain) => {
 /***/ })
 
 }]);
-//# sourceMappingURL=65-es2015.js.map

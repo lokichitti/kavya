@@ -448,4 +448,3 @@ const iosTransitionAnimation = (navEl, opts) => {
 /***/ })
 
 }]);
-//# sourceMappingURL=ios-transition-504cdd09-js-es2015.js.map

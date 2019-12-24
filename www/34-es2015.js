@@ -302,4 +302,3 @@ const SkeletonText = class {
 /***/ })
 
 }]);
-//# sourceMappingURL=34-es2015.js.map

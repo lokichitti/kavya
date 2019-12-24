@@ -1,13 +1,15 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-registerMethod-r-google-r-google-module"],{
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/pages/registerMethod/r-google/r-google.page.html":
-/*!********************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/pages/registerMethod/r-google/r-google.page.html ***!
-  \********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/registerMethod/r-google/r-google.page.html":
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/registerMethod/r-google/r-google.page.html ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>R-google</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>R-google</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n");
 
 /***/ }),
 
@@ -63,10 +65,12 @@ RGooglePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!******************************************************************!*\
   !*** ./src/app/pages/registerMethod/r-google/r-google.page.scss ***!
   \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3JlZ2lzdGVyTWV0aG9kL3ItZ29vZ2xlL3ItZ29vZ2xlLnBhZ2Uuc2NzcyJ9 */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3JlZ2lzdGVyTWV0aG9kL3ItZ29vZ2xlL3ItZ29vZ2xlLnBhZ2Uuc2NzcyJ9 */");
 
 /***/ }),
 
@@ -92,8 +96,8 @@ let RGooglePage = class RGooglePage {
 RGooglePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-r-google',
-        template: __webpack_require__(/*! raw-loader!./r-google.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/registerMethod/r-google/r-google.page.html"),
-        styles: [__webpack_require__(/*! ./r-google.page.scss */ "./src/app/pages/registerMethod/r-google/r-google.page.scss")]
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./r-google.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/registerMethod/r-google/r-google.page.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./r-google.page.scss */ "./src/app/pages/registerMethod/r-google/r-google.page.scss")).default]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
 ], RGooglePage);
@@ -103,4 +107,3 @@ RGooglePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /***/ })
 
 }]);
-//# sourceMappingURL=pages-registerMethod-r-google-r-google-module-es2015.js.map

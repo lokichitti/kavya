@@ -308,4 +308,3 @@ const reorderArray = (array, from, to) => {
 /***/ })
 
 }]);
-//# sourceMappingURL=52-es2015.js.map

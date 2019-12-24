@@ -296,4 +296,3 @@ const buttonClass = (button) => {
 /***/ })
 
 }]);
-//# sourceMappingURL=73-es2015.js.map

@@ -7,19 +7,7 @@ import { AuthGuard } from './services/user/auth.guard';
 const redirectToFirst = redirectUnauthorizedTo(['first']);
 const routes: Routes = [
   { path: '', redirectTo: 'menu/home', pathMatch: 'full',},
-  //{ path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
-  //{ path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
-  { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
-  //{ path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule' },
-  { path: 'phone-login', loadChildren: './phone-login/phone-login.module#PhoneLoginPageModule' },
-  { path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
-  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  { path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
   { path: 'reset-password', loadChildren: './pages/reset-password/reset-password.module#ResetPasswordPageModule' },
-  //{ path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule',
- // ...canActivate(redirectToLogin) },
-  { path: 'sign-in', loadChildren: './pages/sign-in/sign-in.module#SignInPageModule' },
-  { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
   //{ path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
   { path: 'first', loadChildren: './pages/first/first.module#FirstPageModule' },
   { path: 'google-login', loadChildren: './pages/google-login/google-login.module#GoogleLoginPageModule' },
@@ -31,7 +19,6 @@ const routes: Routes = [
   { path: 'r-email', loadChildren: './pages/registerMethod/r-email/r-email.module#REmailPageModule' },
   { path: 'r-google', loadChildren: './pages/registerMethod/r-google/r-google.module#RGooglePageModule' },
   { path: 'r-facebook', loadChildren: './pages/registerMethod/r-facebook/r-facebook.module#RFacebookPageModule' },
-  //{ path: 'shop', loadChildren: './pages/shop/shop.module#ShopPageModule' },
   { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule',},
   { path: 'create-shop', loadChildren: './pages/create-shop/create-shop.module#CreateShopPageModule',...canActivate(redirectToFirst) },
 

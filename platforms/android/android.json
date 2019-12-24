@@ -32,10 +32,6 @@
               "count": 1
             },
             {
-              "xml": "<feature name=\"Geolocation\"><param name=\"android-package\" value=\"org.apache.cordova.geolocation.Geolocation\" /></feature>",
-              "count": 1
-            },
-            {
               "xml": "<feature name=\"CordovaGoogleMaps\"><param name=\"android-package\" value=\"plugin.google.maps.CordovaGoogleMaps\" /><param name=\"onload\" value=\"true\" /><param name=\"onreset\" value=\"true\" /></feature>",
               "count": 1
             },
@@ -129,18 +125,6 @@
       "AndroidManifest.xml": {
         "parents": {
           "/*": [
-            {
-              "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
-              "count": 1
-            },
-            {
-              "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
-              "count": 1
-            },
-            {
-              "xml": "<uses-feature android:name=\"android.hardware.location.gps\" />",
-              "count": 1
-            },
             {
               "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
               "count": 2
@@ -290,9 +274,6 @@
     "cordova-plugin-device": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
-    "cordova-plugin-geolocation": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
     "cordova-plugin-googlemaps": {
       "PLAY_SERVICES_VERSION": "15.0.1",
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
@@ -364,20 +345,6 @@
       "clobbers": [
         "device"
       ]
-    },
-    {
-      "id": "cordova-plugin-geolocation.geolocation",
-      "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
-      "pluginId": "cordova-plugin-geolocation",
-      "clobbers": [
-        "navigator.geolocation"
-      ]
-    },
-    {
-      "id": "cordova-plugin-geolocation.PositionError",
-      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
-      "pluginId": "cordova-plugin-geolocation",
-      "runs": true
     },
     {
       "id": "cordova-plugin-googlemaps.Promise",
@@ -683,7 +650,6 @@
   ],
   "plugin_metadata": {
     "cordova-plugin-device": "2.0.2",
-    "cordova-plugin-geolocation": "4.0.2",
     "cordova-plugin-googlemaps": "2.6.2",
     "cordova-plugin-ionic-keyboard": "2.2.0",
     "cordova-plugin-ionic-webview": "4.1.3",

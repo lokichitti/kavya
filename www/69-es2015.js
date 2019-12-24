@@ -204,4 +204,3 @@ const getTab = (tabs, tab) => {
 /***/ })
 
 }]);
-//# sourceMappingURL=69-es2015.js.map

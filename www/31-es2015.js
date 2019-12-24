@@ -435,4 +435,3 @@ const swipeShouldReset = (isResetDirection, isMovingFast, isOnResetZone) => {
 /***/ })
 
 }]);
-//# sourceMappingURL=31-es2015.js.map

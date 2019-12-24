@@ -9,20 +9,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "cordova-plugin-geolocation.geolocation",
-      "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
-      "pluginId": "cordova-plugin-geolocation",
-      "clobbers": [
-        "navigator.geolocation"
-      ]
-    },
-    {
-      "id": "cordova-plugin-geolocation.PositionError",
-      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
-      "pluginId": "cordova-plugin-geolocation",
-      "runs": true
-    },
-    {
       "id": "cordova-plugin-googlemaps.Promise",
       "file": "plugins/cordova-plugin-googlemaps/www/Promise.js",
       "pluginId": "cordova-plugin-googlemaps"
@@ -322,11 +308,24 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "SQLitePlugin"
       ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.geolocation",
+      "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "clobbers": [
+        "navigator.geolocation"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.PositionError",
+      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "runs": true
     }
   ];
   module.exports.metadata = {
     "cordova-plugin-device": "2.0.2",
-    "cordova-plugin-geolocation": "4.0.2",
     "cordova-plugin-googlemaps": "2.6.2",
     "cordova-plugin-ionic-keyboard": "2.2.0",
     "cordova-plugin-ionic-webview": "4.1.3",
@@ -341,6 +340,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-support-google-services": "1.3.2",
     "cordova-plugin-firebase-authentication": "3.0.0",
     "cordova-plugin-sms-receive": "1.0.2",
-    "cordova-sqlite-storage": "4.0.0"
+    "cordova-sqlite-storage": "4.0.0",
+    "cordova-plugin-geolocation": "4.0.2"
   };
 });

@@ -1,13 +1,15 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-menu-menu-module"],{
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/pages/menu/menu.page.html":
-/*!*********************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/pages/menu/menu.page.html ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/menu/menu.page.html":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/menu/menu.page.html ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "<ion-split-pane>\n  <ion-menu contentId = \"content\">\n    <ion-header>\n      <ion-toolbar  color = \"secondary\">\n          <ion-buttons slot=\"start\">\n              <ion-menu-button color = \"dark\"></ion-menu-button>\n            </ion-buttons>\n            <ion-buttons slot=\"end\">\n                <ion-button (click)=\"closeMenu()\">\n                    <ion-icon slot= \"icon-only\" name=\"arrow-dropleft\" color=\"dark\"></ion-icon>\n                </ion-button>\n              </ion-buttons>\n        <ion-title color = \"dark\" size=\"medium\" text-center>Menu</ion-title>\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content >\n      <ion-list>\n        <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of pages\">\n          <ion-card color = \"tertiary\">\n          <ion-item color = \"light\" [routerLink] = \"p.url\" routerDirection=\"root\" [class.active-item]=\"selectedPath === p.url\">\n              <ion-col class=\"ion-text-start\" size=\"5\">\n                  <ion-icon [name]=\"p.icon\" item-left></ion-icon>\n              </ion-col>\n              <ion-col class=\"ion-text-start\" size=\"5\"> {{p.title}} </ion-col>\n          </ion-item>\n        </ion-card>\n        </ion-menu-toggle>\n      </ion-list>\n    </ion-content>\n  </ion-menu>\n  <ion-router-outlet id=\"content\" main>\n\n  </ion-router-outlet>\n</ion-split-pane>"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-split-pane>\n  <ion-menu contentId = \"content\">\n    <ion-header>\n      <ion-toolbar  color = \"secondary\">\n          <ion-buttons slot=\"start\">\n              <ion-menu-button color = \"dark\"></ion-menu-button>\n            </ion-buttons>\n            <ion-buttons slot=\"end\">\n                <ion-button (click)=\"closeMenu()\">\n                    <ion-icon slot= \"icon-only\" name=\"arrow-dropleft\" color=\"dark\"></ion-icon>\n                </ion-button>\n              </ion-buttons>\n        <ion-title color = \"dark\" size=\"medium\" text-center>Menu</ion-title>\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content >\n      <ion-list>\n        <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of pages\">\n          <ion-card color = \"tertiary\">\n          <ion-item color = \"light\" [routerLink] = \"p.url\" routerDirection=\"root\" [class.active-item]=\"selectedPath === p.url\">\n              <ion-col class=\"ion-text-start\" size=\"5\">\n                  <ion-icon [name]=\"p.icon\" item-left></ion-icon>\n              </ion-col>\n              <ion-col class=\"ion-text-start\" size=\"5\"> {{p.title}} </ion-col>\n          </ion-item>\n        </ion-card>\n        </ion-menu-toggle>\n      </ion-list>\n    </ion-content>\n  </ion-menu>\n  <ion-router-outlet id=\"content\" main>\n\n  </ion-router-outlet>\n</ion-split-pane>");
 
 /***/ }),
 
@@ -78,10 +80,12 @@ MenuPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!*******************************************!*\
   !*** ./src/app/pages/menu/menu.page.scss ***!
   \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = ".active-item {\n  border-left: 8px solid var --ion-color-primary;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9pb25pYy1kb250LWRlbGV0ZS9rYXZ5YW1tYS9sb2thcHBhL3NyYy9hcHAvcGFnZXMvbWVudS9tZW51LnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvbWVudS9tZW51LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLDhDQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9tZW51L21lbnUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmFjdGl2ZS1pdGVte1xuICAgIGJvcmRlci1sZWZ0OiA4cHggc29saWQgdmFyICgtLWlvbi1jb2xvci1wcmltYXJ5KTtcbn0iLCIuYWN0aXZlLWl0ZW0ge1xuICBib3JkZXItbGVmdDogOHB4IHNvbGlkIHZhciAtLWlvbi1jb2xvci1wcmltYXJ5O1xufSJdfQ== */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".active-item {\n  border-left: 8px solid var --ion-color-primary;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9pb25pYy1kb250LWRlbGV0ZS9rYXZ5YW1tYS9sb2thcHBhL3NyYy9hcHAvcGFnZXMvbWVudS9tZW51LnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvbWVudS9tZW51LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLDhDQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9tZW51L21lbnUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmFjdGl2ZS1pdGVte1xuICAgIGJvcmRlci1sZWZ0OiA4cHggc29saWQgdmFyICgtLWlvbi1jb2xvci1wcmltYXJ5KTtcbn0iLCIuYWN0aXZlLWl0ZW0ge1xuICBib3JkZXItbGVmdDogOHB4IHNvbGlkIHZhciAtLWlvbi1jb2xvci1wcmltYXJ5O1xufSJdfQ== */");
 
 /***/ }),
 
@@ -147,8 +151,8 @@ MenuPage.ctorParameters = () => [
 MenuPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-menu',
-        template: __webpack_require__(/*! raw-loader!./menu.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/menu/menu.page.html"),
-        styles: [__webpack_require__(/*! ./menu.page.scss */ "./src/app/pages/menu/menu.page.scss")]
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./menu.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/menu/menu.page.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./menu.page.scss */ "./src/app/pages/menu/menu.page.scss")).default]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["MenuController"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
@@ -159,4 +163,3 @@ MenuPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /***/ })
 
 }]);
-//# sourceMappingURL=pages-menu-menu-module-es2015.js.map

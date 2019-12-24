@@ -75,4 +75,3 @@ const renderProgress = (value, buffer) => {
 /***/ })
 
 }]);
-//# sourceMappingURL=45-es2015.js.map

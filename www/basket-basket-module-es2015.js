@@ -1,13 +1,15 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["basket-basket-module"],{
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/pages/basket/basket.page.html":
-/*!*************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/pages/basket/basket.page.html ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/basket/basket.page.html":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/basket/basket.page.html ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "<ion-header>\n    <ion-toolbar color = \"primary\">\n        <ion-buttons slot=\"start\">\n            <ion-menu-button></ion-menu-button>\n          </ion-buttons>\n          <ion-buttons slot=\"end\">\n              <ion-button [routerLink]=\"['/menu/basket']\">\n                <ion-icon slot=\"icon-only\" name=\"basket\" color = \"light\" large></ion-icon>\n              </ion-button>\n            </ion-buttons>\n            <ion-buttons  slot=\"primary\">\n                <ion-button [routerLink]=\"['/menu/search']\" class=\"ion-icon\">\n                  <ion-icon slot=\"icon-only\" name=\"search\" color=\"light\" ></ion-icon>\n                </ion-button>\n              </ion-buttons>\n        <ion-title color = \"light\" size=\"medium\" text-start>Me&Me</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n<ion-content>\n    <ion-text color=\"secondary\">\n        <h1>Basket</h1>\n      </ion-text>\n</ion-content>\n"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n    <ion-toolbar color = \"primary\">\n        <ion-buttons slot=\"start\">\n            <ion-menu-button></ion-menu-button>\n          </ion-buttons>\n          <ion-buttons slot=\"end\">\n              <ion-button [routerLink]=\"['/menu/basket']\">\n                <ion-icon slot=\"icon-only\" name=\"basket\" color = \"light\" large></ion-icon>\n              </ion-button>\n            </ion-buttons>\n            <ion-buttons  slot=\"primary\">\n                <ion-button [routerLink]=\"['/menu/search']\" class=\"ion-icon\">\n                  <ion-icon slot=\"icon-only\" name=\"search\" color=\"light\" ></ion-icon>\n                </ion-button>\n              </ion-buttons>\n        <ion-title color = \"light\" size=\"medium\" text-start>Me&Me</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n<ion-content>\n    <ion-text color=\"secondary\">\n        <h1>Basket</h1>\n      </ion-text>\n</ion-content>\n");
 
 /***/ }),
 
@@ -63,10 +65,12 @@ BasketPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!***********************************************!*\
   !*** ./src/app/pages/basket/basket.page.scss ***!
   \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = ".ion-icon {\n  zoom: 1.5;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9pb25pYy1kb250LWRlbGV0ZS9rYXZ5YW1tYS9sb2thcHBhL3NyYy9hcHAvcGFnZXMvYmFza2V0L2Jhc2tldC5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2Jhc2tldC9iYXNrZXQucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQVksU0FBQTtBQ0VaIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvYmFza2V0L2Jhc2tldC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW9uLWljb24geyB6b29tOiAxLjUgfSIsIi5pb24taWNvbiB7XG4gIHpvb206IDEuNTtcbn0iXX0= */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".ion-icon {\n  zoom: 1.5;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9pb25pYy1kb250LWRlbGV0ZS9rYXZ5YW1tYS9sb2thcHBhL3NyYy9hcHAvcGFnZXMvYmFza2V0L2Jhc2tldC5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL2Jhc2tldC9iYXNrZXQucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQVksU0FBQTtBQ0VaIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvYmFza2V0L2Jhc2tldC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW9uLWljb24geyB6b29tOiAxLjUgfSIsIi5pb24taWNvbiB7XG4gIHpvb206IDEuNTtcbn0iXX0= */");
 
 /***/ }),
 
@@ -92,8 +96,8 @@ let BasketPage = class BasketPage {
 BasketPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-basket',
-        template: __webpack_require__(/*! raw-loader!./basket.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/basket/basket.page.html"),
-        styles: [__webpack_require__(/*! ./basket.page.scss */ "./src/app/pages/basket/basket.page.scss")]
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./basket.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/basket/basket.page.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./basket.page.scss */ "./src/app/pages/basket/basket.page.scss")).default]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
 ], BasketPage);
@@ -103,4 +107,3 @@ BasketPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /***/ })
 
 }]);
-//# sourceMappingURL=basket-basket-module-es2015.js.map

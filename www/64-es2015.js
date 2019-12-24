@@ -180,4 +180,3 @@ const buildLine = (spinner, duration, index, total) => {
 /***/ })
 
 }]);
-//# sourceMappingURL=64-es2015.js.map

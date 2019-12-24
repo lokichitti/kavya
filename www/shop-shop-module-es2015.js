@@ -1,13 +1,15 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["shop-shop-module"],{
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/pages/shop/shop.page.html":
-/*!*********************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/pages/shop/shop.page.html ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/shop/shop.page.html":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/shop/shop.page.html ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "<ion-header>\n    <ion-toolbar color = \"primary\">\n        <ion-buttons slot=\"start\">\n            <ion-menu-button></ion-menu-button>\n          </ion-buttons>\n          <ion-buttons slot=\"end\">\n              <ion-button [routerLink]=\"['/menu/basket']\">\n                <ion-icon slot=\"icon-only\" name=\"basket\" color = \"light\"></ion-icon>\n              </ion-button>\n            </ion-buttons>\n            <ion-buttons  slot=\"primary\">\n                <ion-button [routerLink]=\"['/menu/search']\">\n                  <ion-icon slot=\"icon-only\" name=\"search\"></ion-icon>\n                </ion-button>\n              </ion-buttons>\n        <ion-title color = \"light\" size=\"medium\" text-start>Me&Me</ion-title>\n    </ion-toolbar>\n  </ion-header>\n<ion-content class=\"padding\">\n    <ion-text > <h2>Shop</h2> </ion-text>      \n      <div>\n      <ion-toolbar  *ngIf=\"hideToolBar\" color = \"light\"  text-center>\n      <ion-text color=\"secondary\" text-center>\n        Create a shop\n      </ion-text>\n      <ion-buttons slot=\"end\">\n        <ion-button [routerLink]=\"['/create-shop']\">\n          <ion-icon color = \"danger\" slot=\"icon-only\" name=\"add-circle\"></ion-icon>\n        </ion-button>\n      </ion-buttons>\n    </ion-toolbar>\n    </div>\n</ion-content>\n"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n    <ion-toolbar color = \"primary\">\n        <ion-buttons slot=\"start\">\n            <ion-menu-button></ion-menu-button>\n          </ion-buttons>\n          <ion-buttons slot=\"end\">\n              <ion-button [routerLink]=\"['/menu/basket']\">\n                <ion-icon slot=\"icon-only\" name=\"basket\" color = \"light\"></ion-icon>\n              </ion-button>\n            </ion-buttons>\n            <ion-buttons  slot=\"primary\">\n                <ion-button [routerLink]=\"['/menu/search']\">\n                  <ion-icon slot=\"icon-only\" name=\"search\"></ion-icon>\n                </ion-button>\n              </ion-buttons>\n        <ion-title color = \"light\" size=\"medium\" text-start>Me&Me</ion-title>\n    </ion-toolbar>\n  </ion-header>\n<ion-content class=\"padding\">\n    <ion-text > <h2>Shop</h2> </ion-text>      \n      <div>\n      <ion-toolbar  *ngIf=\"hideToolBar\" color = \"light\"  text-center>\n      <ion-text color=\"secondary\" text-center>\n        Create a shop\n      </ion-text>\n      <ion-buttons slot=\"end\">\n        <ion-button [routerLink]=\"['/create-shop']\">\n          <ion-icon color = \"danger\" slot=\"icon-only\" name=\"add-circle\"></ion-icon>\n        </ion-button>\n      </ion-buttons>\n    </ion-toolbar>\n    </div>\n</ion-content>\n");
 
 /***/ }),
 
@@ -63,10 +65,12 @@ ShopPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!*******************************************!*\
   !*** ./src/app/pages/shop/shop.page.scss ***!
   \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3Nob3Avc2hvcC5wYWdlLnNjc3MifQ== */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3Nob3Avc2hvcC5wYWdlLnNjc3MifQ== */");
 
 /***/ }),
 
@@ -95,8 +99,8 @@ let ShopPage = class ShopPage {
 ShopPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-shop',
-        template: __webpack_require__(/*! raw-loader!./shop.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/shop/shop.page.html"),
-        styles: [__webpack_require__(/*! ./shop.page.scss */ "./src/app/pages/shop/shop.page.scss")]
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./shop.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/shop/shop.page.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./shop.page.scss */ "./src/app/pages/shop/shop.page.scss")).default]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
 ], ShopPage);
@@ -106,4 +110,3 @@ ShopPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /***/ })
 
 }]);
-//# sourceMappingURL=shop-shop-module-es2015.js.map

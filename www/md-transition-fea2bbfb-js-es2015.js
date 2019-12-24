@@ -78,4 +78,3 @@ const mdTransitionAnimation = (_, opts) => {
 /***/ })
 
 }]);
-//# sourceMappingURL=md-transition-fea2bbfb-js-es2015.js.map

@@ -232,4 +232,3 @@ const buttonClass = (button) => {
 /***/ })
 
 }]);
-//# sourceMappingURL=1-es2015.js.map

@@ -1,13 +1,15 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-google-login-google-login-module"],{
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/pages/google-login/google-login.page.html":
-/*!*************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/pages/google-login/google-login.page.html ***!
-  \*************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/google-login/google-login.page.html":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/google-login/google-login.page.html ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>GoogleLogin</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>GoogleLogin</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n");
 
 /***/ }),
 
@@ -63,10 +65,12 @@ GoogleLoginPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!***********************************************************!*\
   !*** ./src/app/pages/google-login/google-login.page.scss ***!
   \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2dvb2dsZS1sb2dpbi9nb29nbGUtbG9naW4ucGFnZS5zY3NzIn0= */"
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2dvb2dsZS1sb2dpbi9nb29nbGUtbG9naW4ucGFnZS5zY3NzIn0= */");
 
 /***/ }),
 
@@ -92,8 +96,8 @@ let GoogleLoginPage = class GoogleLoginPage {
 GoogleLoginPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-google-login',
-        template: __webpack_require__(/*! raw-loader!./google-login.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/google-login/google-login.page.html"),
-        styles: [__webpack_require__(/*! ./google-login.page.scss */ "./src/app/pages/google-login/google-login.page.scss")]
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./google-login.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/google-login/google-login.page.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./google-login.page.scss */ "./src/app/pages/google-login/google-login.page.scss")).default]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
 ], GoogleLoginPage);
@@ -103,4 +107,3 @@ GoogleLoginPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /***/ })
 
 }]);
-//# sourceMappingURL=pages-google-login-google-login-module-es2015.js.map

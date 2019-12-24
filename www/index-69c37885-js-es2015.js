@@ -1128,4 +1128,3 @@ const create = (animationBuilder, baseEl, opts) => {
 /***/ })
 
 }]);
-//# sourceMappingURL=index-69c37885-js-es2015.js.map

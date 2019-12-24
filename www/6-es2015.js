@@ -897,4 +897,3 @@ const Toolbar = class {
 /***/ })
 
 }]);
-//# sourceMappingURL=6-es2015.js.map

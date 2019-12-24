@@ -241,4 +241,3 @@ const InfiniteScrollContent = class {
 /***/ })
 
 }]);
-//# sourceMappingURL=28-es2015.js.map

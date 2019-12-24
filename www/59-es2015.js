@@ -150,4 +150,3 @@ const SegmentButton = class {
 /***/ })
 
 }]);
-//# sourceMappingURL=59-es2015.js.map

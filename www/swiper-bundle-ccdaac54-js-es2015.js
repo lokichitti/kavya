@@ -5756,4 +5756,3 @@ Swiper.use([pagination, scrollbar, autoplay, zoom]);
 /***/ })
 
 }]);
-//# sourceMappingURL=swiper-bundle-ccdaac54-js-es2015.js.map

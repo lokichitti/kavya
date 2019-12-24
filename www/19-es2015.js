@@ -38,4 +38,3 @@ const Chip = class {
 /***/ })
 
 }]);
-//# sourceMappingURL=19-es2015.js.map
