@@ -22,7 +22,7 @@ var map = {
 	],
 	"../profile/profile.module": [
 		"./src/app/pages/profile/profile.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~86401aa5",
 		"profile-profile-module"
 	],
 	"../search/search.module": [
@@ -31,6 +31,7 @@ var map = {
 	],
 	"../shop/shop.module": [
 		"./src/app/pages/shop/shop.module.ts",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~86401aa5",
 		"shop-shop-module"
 	],
 	"./info/info.module": [
@@ -39,14 +40,14 @@ var map = {
 	],
 	"./pages/create-shop/create-shop.module": [
 		"./src/app/pages/create-shop/create-shop.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~86401aa5",
 		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~be42b49a",
 		"common",
 		"pages-create-shop-create-shop-module"
 	],
 	"./pages/first/first.module": [
 		"./src/app/pages/first/first.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~86401aa5",
 		"pages-first-first-module"
 	],
 	"./pages/google-login/google-login.module": [
@@ -55,7 +56,7 @@ var map = {
 	],
 	"./pages/loginMethod/email/email.module": [
 		"./src/app/pages/loginMethod/email/email.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~86401aa5",
 		"common",
 		"pages-loginMethod-email-email-module"
 	],
@@ -69,7 +70,7 @@ var map = {
 	],
 	"./pages/loginMethod/phone/phone.module": [
 		"./src/app/pages/loginMethod/phone/phone.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~86401aa5",
 		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~be42b49a",
 		"common",
 		"pages-loginMethod-phone-phone-module"
@@ -85,7 +86,7 @@ var map = {
 	],
 	"./pages/registerMethod/r-email/r-email.module": [
 		"./src/app/pages/registerMethod/r-email/r-email.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~86401aa5",
 		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~be42b49a",
 		"common",
 		"pages-registerMethod-r-email-r-email-module"
@@ -100,14 +101,14 @@ var map = {
 	],
 	"./pages/registerMethod/r-phone/r-phone.module": [
 		"./src/app/pages/registerMethod/r-phone/r-phone.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~86401aa5",
 		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~be42b49a",
 		"common",
 		"pages-registerMethod-r-phone-r-phone-module"
 	],
 	"./pages/reset-password/reset-password.module": [
 		"./src/app/pages/reset-password/reset-password.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~86401aa5",
 		"common",
 		"pages-reset-password-reset-password-module"
 	]

@@ -156,7 +156,7 @@ let AuthService = class AuthService {
     }
     createShop(values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            this.getCurrentUser();
+            const user = yield this.getUser();
             const loading = yield this.loadingCtrl.create();
             const shopName = values.value.shopName;
             const shopCategory = "";
@@ -169,7 +169,7 @@ let AuthService = class AuthService {
             const latitude = "";
             const shopPhoto = "";
             const isVisibleForPublic = values.value.visibility;
-            this.createAShop(currentUid, isVisibleForPublic, shopName, shopCategory, address, area, city, state, pinCode)
+            this.createAShop(user.uid, isVisibleForPublic, shopName, shopCategory, address, area, city, state, pinCode)
                 .then(() => {
                 loading.dismiss().then(() => {
                 });

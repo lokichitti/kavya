@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~86401aa5"],{
 
 /***/ "./src/app/services/user/auth.service.ts":
 /*!***********************************************!*\
@@ -39,13 +39,14 @@ var AuthService = /** @class */ (function () {
     }
     AuthService.prototype.createShop = function (values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var loading, shopName, shopCategory, address, area, city, state, pinCode, langitude, latitude, shopPhoto, isVisibleForPublic;
+            var user, loading, shopName, shopCategory, address, area, city, state, pinCode, langitude, latitude, shopPhoto, isVisibleForPublic;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        this.getCurrentUser();
-                        return [4 /*yield*/, this.loadingCtrl.create()];
+                    case 0: return [4 /*yield*/, this.getUser()];
                     case 1:
+                        user = _a.sent();
+                        return [4 /*yield*/, this.loadingCtrl.create()];
+                    case 2:
                         loading = _a.sent();
                         shopName = values.value.shopName;
                         shopCategory = "";
@@ -58,7 +59,7 @@ var AuthService = /** @class */ (function () {
                         latitude = "";
                         shopPhoto = "";
                         isVisibleForPublic = values.value.visibility;
-                        this.createAShop(currentUid, isVisibleForPublic, shopName, shopCategory, address, area, city, state, pinCode)
+                        this.createAShop(user.uid, isVisibleForPublic, shopName, shopCategory, address, area, city, state, pinCode)
                             .then(function () {
                             loading.dismiss().then(function () {
                             });
@@ -66,7 +67,7 @@ var AuthService = /** @class */ (function () {
                             console.error(error);
                         });
                         return [4 /*yield*/, loading.present()];
-                    case 2: return [2 /*return*/, _a.sent()];
+                    case 3: return [2 /*return*/, _a.sent()];
                 }
             });
         });
@@ -325,4 +326,4 @@ var AuthService = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf-es5.js.map
+//# sourceMappingURL=default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~86401aa5-es5.js.map

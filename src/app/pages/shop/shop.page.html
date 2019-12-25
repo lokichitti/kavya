@@ -18,8 +18,8 @@
   </ion-header>
 <ion-content class="padding">
     <ion-text > <h2>Shop</h2> </ion-text>      
-      <div>
-      <ion-toolbar  *ngIf="hideToolBar" color = "light"  text-center>
+      <div   *ngIf="showToolBar" >
+      <ion-toolbar color = "light"  text-center>
       <ion-text color="secondary" text-center>
         Create a shop
       </ion-text>
@@ -30,4 +30,112 @@
       </ion-buttons>
     </ion-toolbar>
     </div>
+
+    <div   *ngIf="!showToolBar">
+    <ion-list>
+      <ion-list-header> Shop name {{shopDetails?.shopName}}
+      </ion-list-header>
+    </ion-list>
+    <ion-item (click)="updateName()">
+      <ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ion-text-start" size="5"> Shop name </ion-col>
+            <ion-col
+              size="7"
+              *ngIf="shopDetails?.shopName"
+            >
+              {{shopDetails?.shopName}}
+            </ion-col>
+            <ion-col
+              size="7"
+              class="placeholder-profile"
+              *ngIf="!shopDetails?.shopName"
+            >
+              <span> Enter your shop name. </span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-label>
+    </ion-item>
+  
+    <ion-item (click)="updateName()">
+      <ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ion-text-start" size="5"> Shop Category </ion-col>
+            <ion-col
+              size="7"
+              *ngIf="shopDetails?.shopCategory"
+            >
+              {{shopDetails?.shopCategory}}
+            </ion-col>
+            <ion-col
+              size="7"
+              class="placeholder-profile"
+              *ngIf="!shopDetails?.shopCategory"
+            >
+              <span> Edit category. </span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-label>
+    </ion-item>
+  
+    <ion-item (click)="updateName()">
+      <ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ion-text-start" size="5"> Shop Address </ion-col>
+            <ion-col size="7" *ngIf="shopDetails?.shopAddress">
+              {{shopDetails?.shopAddress}}
+            </ion-col>
+            <ion-col
+              size="7"
+              class="placeholder-profile"
+              *ngIf="!shopDetails?.shopAddress"
+            >
+              <span> Edit address. </span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-label>
+    </ion-item>
+  
+    <ion-item (click)="updateName()">
+      <ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ion-text-start" size="5"> Phone</ion-col>
+            <ion-col size="7" *ngIf="shopDetails?.phoneNumber">
+              {{shopDetails?.phoneNumber}}
+            </ion-col>
+            <ion-col
+              size="7"
+              class="placeholder-profile"
+              *ngIf="!shopDetails?.phoneNumber"
+            >
+              <span> Enter phone number. </span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-label>
+    </ion-item>
+  
+    <ion-item (click)="updateName()">
+      <ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="ion-text-start" size="5"> isVisibleForPublic </ion-col>
+            <ion-col class="placeholder-profile" size="7">
+              <span> Change isVisibleForPublic. </span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-label>
+    </ion-item>
+  <ion-item>
+    <ion-button class="login-margin" color="danger" (click)="updateName()" expand="full" >Delete your shop</ion-button>
+  </ion-item>
+</div>
 </ion-content>

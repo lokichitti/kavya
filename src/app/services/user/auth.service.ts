@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { ProfileService } from 'src/app/services/profile.service';
+import { ProfileService } from 'src/app/services/user/profile.service';
 import { LoadingController, AlertController } from '@ionic/angular';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
@@ -24,7 +24,7 @@ export class AuthService {
 
   async createShop(values)
   {      
-      this.getCurrentUser();
+    const user: firebase.User = await this.getUser();
       const loading = await this.loadingCtrl.create();    
       const shopName = values.value.shopName;
       const shopCategory = "";
@@ -38,7 +38,7 @@ export class AuthService {
       const shopPhoto = "";
       const isVisibleForPublic = values.value.visibility;
       this.createAShop(
-        currentUid, isVisibleForPublic, shopName, shopCategory, address, 
+        user.uid, isVisibleForPublic, shopName, shopCategory, address, 
         area, city, state, pinCode 
         )
         .then(

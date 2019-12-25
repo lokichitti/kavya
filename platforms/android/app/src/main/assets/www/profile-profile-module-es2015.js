@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/user/auth.service */ "./src/app/services/user/auth.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var src_app_services_profile_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/profile.service */ "./src/app/services/profile.service.ts");
+/* harmony import */ var src_app_services_user_profile_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/user/profile.service */ "./src/app/services/user/profile.service.ts");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 
 
@@ -188,7 +188,7 @@ let ProfilePage = class ProfilePage {
 ProfilePage.ctorParameters = () => [
     { type: src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: src_app_services_profile_service__WEBPACK_IMPORTED_MODULE_4__["ProfileService"] },
+    { type: src_app_services_user_profile_service__WEBPACK_IMPORTED_MODULE_4__["ProfileService"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"] }
 ];
 ProfilePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -199,90 +199,9 @@ ProfilePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-        src_app_services_profile_service__WEBPACK_IMPORTED_MODULE_4__["ProfileService"],
+        src_app_services_user_profile_service__WEBPACK_IMPORTED_MODULE_4__["ProfileService"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"]])
 ], ProfilePage);
-
-
-
-/***/ }),
-
-/***/ "./src/app/services/profile.service.ts":
-/*!*********************************************!*\
-  !*** ./src/app/services/profile.service.ts ***!
-  \*********************************************/
-/*! exports provided: ProfileService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileService", function() { return ProfileService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/es2015/index.js");
-/* harmony import */ var _user_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user/auth.service */ "./src/app/services/user/auth.service.ts");
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! firebase/auth */ "./node_modules/firebase/auth/dist/index.esm.js");
-
-
-
-
-
-
-let ProfileService = class ProfileService {
-    constructor(firestore, authService) {
-        this.firestore = firestore;
-        this.authService = authService;
-    }
-    getUserProfile() {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            const user = yield this.authService.getUser();
-            this.currentUser = user;
-            this.userProfile = this.firestore.doc(`userProfile/${user.uid}`);
-            return this.userProfile.valueChanges();
-        });
-    }
-    updateName(fName) {
-        return this.userProfile.update({ fName });
-    }
-    updateEmail(newEmail, password) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            const credential = firebase_app__WEBPACK_IMPORTED_MODULE_4__["auth"].EmailAuthProvider.credential(this.currentUser.email, password);
-            try {
-                yield this.currentUser.reauthenticateWithCredential(credential);
-                yield this.currentUser.updateEmail(newEmail);
-                return this.userProfile.update({ email: newEmail });
-            }
-            catch (error) {
-                console.error(error);
-            }
-        });
-    }
-    updatePassword(newPassword, oldPassword) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            const credential = firebase_app__WEBPACK_IMPORTED_MODULE_4__["auth"].EmailAuthProvider.credential(this.currentUser.email, oldPassword);
-            try {
-                yield this.currentUser.reauthenticateWithCredential(credential);
-                return this.currentUser.updatePassword(newPassword);
-            }
-            catch (error) {
-                console.error(error);
-            }
-        });
-    }
-};
-ProfileService.ctorParameters = () => [
-    { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] },
-    { type: _user_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] }
-];
-ProfileService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"],
-        _user_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"]])
-], ProfileService);
 
 
 
@@ -327,7 +246,7 @@ let AuthService = class AuthService {
     }
     createShop(values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            this.getCurrentUser();
+            const user = yield this.getUser();
             const loading = yield this.loadingCtrl.create();
             const shopName = values.value.shopName;
             const shopCategory = "";
@@ -340,7 +259,7 @@ let AuthService = class AuthService {
             const latitude = "";
             const shopPhoto = "";
             const isVisibleForPublic = values.value.visibility;
-            this.createAShop(currentUid, isVisibleForPublic, shopName, shopCategory, address, area, city, state, pinCode)
+            this.createAShop(user.uid, isVisibleForPublic, shopName, shopCategory, address, area, city, state, pinCode)
                 .then(() => {
                 loading.dismiss().then(() => {
                 });
@@ -529,6 +448,87 @@ AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["LoadingController"],
         _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
 ], AuthService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/user/profile.service.ts":
+/*!**************************************************!*\
+  !*** ./src/app/services/user/profile.service.ts ***!
+  \**************************************************/
+/*! exports provided: ProfileService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileService", function() { return ProfileService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/es2015/index.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth.service */ "./src/app/services/user/auth.service.ts");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/index.cjs.js");
+/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(firebase_app__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! firebase/auth */ "./node_modules/firebase/auth/dist/index.esm.js");
+
+
+
+
+
+
+let ProfileService = class ProfileService {
+    constructor(firestore, authService) {
+        this.firestore = firestore;
+        this.authService = authService;
+    }
+    getUserProfile() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const user = yield this.authService.getUser();
+            this.currentUser = user;
+            this.userProfile = this.firestore.doc(`userProfile/${user.uid}`);
+            return this.userProfile.valueChanges();
+        });
+    }
+    updateName(fName) {
+        return this.userProfile.update({ fName });
+    }
+    updateEmail(newEmail, password) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const credential = firebase_app__WEBPACK_IMPORTED_MODULE_4__["auth"].EmailAuthProvider.credential(this.currentUser.email, password);
+            try {
+                yield this.currentUser.reauthenticateWithCredential(credential);
+                yield this.currentUser.updateEmail(newEmail);
+                return this.userProfile.update({ email: newEmail });
+            }
+            catch (error) {
+                console.error(error);
+            }
+        });
+    }
+    updatePassword(newPassword, oldPassword) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const credential = firebase_app__WEBPACK_IMPORTED_MODULE_4__["auth"].EmailAuthProvider.credential(this.currentUser.email, oldPassword);
+            try {
+                yield this.currentUser.reauthenticateWithCredential(credential);
+                return this.currentUser.updatePassword(newPassword);
+            }
+            catch (error) {
+                console.error(error);
+            }
+        });
+    }
+};
+ProfileService.ctorParameters = () => [
+    { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] },
+    { type: _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] }
+];
+ProfileService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"],
+        _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"]])
+], ProfileService);
 
 
 
