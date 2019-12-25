@@ -22,7 +22,7 @@ var map = {
 	],
 	"../profile/profile.module": [
 		"./src/app/pages/profile/profile.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-login-login-module~pages~9f1b2c9c",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
 		"profile-profile-module"
 	],
 	"../search/search.module": [
@@ -39,29 +39,23 @@ var map = {
 	],
 	"./pages/create-shop/create-shop.module": [
 		"./src/app/pages/create-shop/create-shop.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-login-login-module~pages~9f1b2c9c",
-		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~f536c262",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
+		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~be42b49a",
 		"common",
 		"pages-create-shop-create-shop-module"
 	],
 	"./pages/first/first.module": [
 		"./src/app/pages/first/first.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-login-login-module~pages~9f1b2c9c",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
 		"pages-first-first-module"
 	],
 	"./pages/google-login/google-login.module": [
 		"./src/app/pages/google-login/google-login.module.ts",
 		"pages-google-login-google-login-module"
 	],
-	"./pages/login/login.module": [
-		"./src/app/pages/login/login.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-login-login-module~pages~9f1b2c9c",
-		"common",
-		"pages-login-login-module"
-	],
 	"./pages/loginMethod/email/email.module": [
 		"./src/app/pages/loginMethod/email/email.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-login-login-module~pages~9f1b2c9c",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
 		"common",
 		"pages-loginMethod-email-email-module"
 	],
@@ -75,8 +69,8 @@ var map = {
 	],
 	"./pages/loginMethod/phone/phone.module": [
 		"./src/app/pages/loginMethod/phone/phone.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-login-login-module~pages~9f1b2c9c",
-		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~f536c262",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
+		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~be42b49a",
 		"common",
 		"pages-loginMethod-phone-phone-module"
 	],
@@ -86,13 +80,13 @@ var map = {
 	],
 	"./pages/register/register.module": [
 		"./src/app/pages/register/register.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~f536c262",
+		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~be42b49a",
 		"pages-register-register-module"
 	],
 	"./pages/registerMethod/r-email/r-email.module": [
 		"./src/app/pages/registerMethod/r-email/r-email.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-login-login-module~pages~9f1b2c9c",
-		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~f536c262",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
+		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~be42b49a",
 		"common",
 		"pages-registerMethod-r-email-r-email-module"
 	],
@@ -106,36 +100,16 @@ var map = {
 	],
 	"./pages/registerMethod/r-phone/r-phone.module": [
 		"./src/app/pages/registerMethod/r-phone/r-phone.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-login-login-module~pages~9f1b2c9c",
-		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~f536c262",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
+		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~be42b49a",
 		"common",
 		"pages-registerMethod-r-phone-r-phone-module"
 	],
 	"./pages/reset-password/reset-password.module": [
 		"./src/app/pages/reset-password/reset-password.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-login-login-module~pages~9f1b2c9c",
+		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~fed03ccf",
 		"common",
 		"pages-reset-password-reset-password-module"
-	],
-	"./pages/sign-in/sign-in.module": [
-		"./src/app/pages/sign-in/sign-in.module.ts",
-		"pages-sign-in-sign-in-module"
-	],
-	"./pages/signup/signup.module": [
-		"./src/app/pages/signup/signup.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-login-login-module~pages~9f1b2c9c",
-		"common",
-		"pages-signup-signup-module"
-	],
-	"./phone-login/phone-login.module": [
-		"./src/app/phone-login/phone-login.module.ts",
-		"phone-login-phone-login-module"
-	],
-	"./phone-register/phone-register.module": [
-		"./src/app/phone-register/phone-register.module.ts",
-		"default~pages-create-shop-create-shop-module~pages-loginMethod-phone-phone-module~pages-register-reg~f536c262",
-		"common",
-		"phone-register-phone-register-module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -610,20 +584,14 @@ __webpack_require__.r(__webpack_exports__);
 var redirectToFirst = Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["redirectUnauthorizedTo"])(['first']);
 var routes = [
     { path: '', redirectTo: 'menu/home', pathMatch: 'full', },
-    //{ path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
-    //{ path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
     { path: 'info', loadChildren: './info/info.module#InfoPageModule' },
-    //{ path: 'sign-in', loadChildren: './sign-in/sign-in.module#SignInPageModule' },
-    { path: 'phone-login', loadChildren: './phone-login/phone-login.module#PhoneLoginPageModule' },
-    { path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
-    { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-    { path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
+    //{ path: 'phone-login', loadChildren: './phone-login/phone-login.module#PhoneLoginPageModule' },
+    //{ path: 'phone-register', loadChildren: './phone-register/phone-register.module#PhoneRegisterPageModule' },
+    //{ path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+    //{ path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
     { path: 'reset-password', loadChildren: './pages/reset-password/reset-password.module#ResetPasswordPageModule' },
-    //{ path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule',
-    // ...canActivate(redirectToLogin) },
-    { path: 'sign-in', loadChildren: './pages/sign-in/sign-in.module#SignInPageModule' },
+    //{ path: 'sign-in', loadChildren: './pages/sign-in/sign-in.module#SignInPageModule' },
     { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
-    //{ path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
     { path: 'first', loadChildren: './pages/first/first.module#FirstPageModule' },
     { path: 'google-login', loadChildren: './pages/google-login/google-login.module#GoogleLoginPageModule' },
     { path: 'email', loadChildren: './pages/loginMethod/email/email.module#EmailPageModule' },
@@ -634,7 +602,6 @@ var routes = [
     { path: 'r-email', loadChildren: './pages/registerMethod/r-email/r-email.module#REmailPageModule' },
     { path: 'r-google', loadChildren: './pages/registerMethod/r-google/r-google.module#RGooglePageModule' },
     { path: 'r-facebook', loadChildren: './pages/registerMethod/r-facebook/r-facebook.module#RFacebookPageModule' },
-    //{ path: 'shop', loadChildren: './pages/shop/shop.module#ShopPageModule' },
     { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule', },
     tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ path: 'create-shop', loadChildren: './pages/create-shop/create-shop.module#CreateShopPageModule' }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["canActivate"])(redirectToFirst)),
 ];
