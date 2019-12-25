@@ -20,20 +20,6 @@ export class ShopService {
     private authService: AuthService
   ) {}
 
-  async checkIfDocExists(shopName:string): Promise<void>{
-    const user: firebase.User = await this.authService.getUser();
-    this.currentUser = user;
-    this.firestore.doc(`userShop/${user.uid}`)
-    .update({shopName})
-    .then(() => {
-      console.log("shop exist");
-      return true;
-    })
-    .catch((error) => {
-      console.log("shop doesnt exist");
-      return false;
-  });
-  }
   async getUserShop(): Promise<Observable<ShopDetails>> {
     const user: firebase.User = await this.authService.getUser();
     this.currentUser = user;

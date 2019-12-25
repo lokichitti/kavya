@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n    <ion-toolbar color = \"primary\">\n        <ion-buttons slot=\"start\">\n            <ion-menu-button></ion-menu-button>\n          </ion-buttons>\n          <ion-buttons slot=\"end\">\n              <ion-button [routerLink]=\"['/menu/basket']\">\n                <ion-icon slot=\"icon-only\" name=\"basket\" color = \"light\"></ion-icon>\n              </ion-button>\n            </ion-buttons>\n            <ion-buttons  slot=\"primary\">\n                <ion-button [routerLink]=\"['/menu/search']\">\n                  <ion-icon slot=\"icon-only\" name=\"search\"></ion-icon>\n                </ion-button>\n              </ion-buttons>\n        <ion-title color = \"light\" size=\"medium\" text-start>Me&Me</ion-title>\n    </ion-toolbar>\n  </ion-header>\n<ion-content class=\"padding\">\n    <ion-text > <h2>Shop</h2> </ion-text>      \n      <div>\n      <ion-toolbar  *ngIf=\"hideToolBar\" color = \"light\"  text-center>\n      <ion-text color=\"secondary\" text-center>\n        Create a shop\n      </ion-text>\n      <ion-buttons slot=\"end\">\n        <ion-button [routerLink]=\"['/create-shop']\">\n          <ion-icon color = \"danger\" slot=\"icon-only\" name=\"add-circle\"></ion-icon>\n        </ion-button>\n      </ion-buttons>\n    </ion-toolbar>\n    </div>\n\n    <div   *ngIf=\"!hideToolBar\">\n    <ion-list>\n      <ion-list-header> Shop name {{shopDetails?.shopName}}\n      </ion-list-header>\n    </ion-list>\n    <ion-item (click)=\"updateName()\">\n      <ion-label>\n        <ion-grid>\n          <ion-row>\n            <ion-col class=\"ion-text-start\" size=\"5\"> Shop name </ion-col>\n            <ion-col\n              size=\"7\"\n              *ngIf=\"shopDetails?.shopName\"\n            >\n              {{shopDetails?.shopName}}\n            </ion-col>\n            <ion-col\n              size=\"7\"\n              class=\"placeholder-profile\"\n              *ngIf=\"!shopDetails?.shopName\"\n            >\n              <span> Enter your shop name. </span>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-label>\n    </ion-item>\n  \n    <ion-item (click)=\"updateName()\">\n      <ion-label>\n        <ion-grid>\n          <ion-row>\n            <ion-col class=\"ion-text-start\" size=\"5\"> Shop Category </ion-col>\n            <ion-col\n              size=\"7\"\n              *ngIf=\"shopDetails?.shopCategory\"\n            >\n              {{shopDetails?.shopCategory}}\n            </ion-col>\n            <ion-col\n              size=\"7\"\n              class=\"placeholder-profile\"\n              *ngIf=\"!shopDetails?.shopCategory\"\n            >\n              <span> Edit category. </span>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-label>\n    </ion-item>\n  \n    <ion-item (click)=\"updateName()\">\n      <ion-label>\n        <ion-grid>\n          <ion-row>\n            <ion-col class=\"ion-text-start\" size=\"5\"> Shop Address </ion-col>\n            <ion-col size=\"7\" *ngIf=\"shopDetails?.shopAddress\">\n              {{shopDetails?.shopAddress}}\n            </ion-col>\n            <ion-col\n              size=\"7\"\n              class=\"placeholder-profile\"\n              *ngIf=\"!shopDetails?.shopAddress\"\n            >\n              <span> Edit address. </span>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-label>\n    </ion-item>\n  \n    <ion-item (click)=\"updateName()\">\n      <ion-label>\n        <ion-grid>\n          <ion-row>\n            <ion-col class=\"ion-text-start\" size=\"5\"> Phone</ion-col>\n            <ion-col size=\"7\" *ngIf=\"shopDetails?.phoneNumber\">\n              {{shopDetails?.phoneNumber}}\n            </ion-col>\n            <ion-col\n              size=\"7\"\n              class=\"placeholder-profile\"\n              *ngIf=\"!shopDetails?.phoneNumber\"\n            >\n              <span> Enter phone number. </span>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-label>\n    </ion-item>\n  \n    <ion-item (click)=\"updateName()\">\n      <ion-label>\n        <ion-grid>\n          <ion-row>\n            <ion-col class=\"ion-text-start\" size=\"5\"> isVisibleForPublic </ion-col>\n            <ion-col class=\"placeholder-profile\" size=\"7\">\n              <span> Change isVisibleForPublic. </span>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-label>\n    </ion-item>\n  <ion-item>\n    <ion-button class=\"login-margin\" color=\"danger\" (click)=\"updateName()\" expand=\"full\" >Delete your shop</ion-button>\n  </ion-item>\n</div>\n</ion-content>\n"
+module.exports = "<ion-header>\n    <ion-toolbar color = \"primary\">\n        <ion-buttons slot=\"start\">\n            <ion-menu-button></ion-menu-button>\n          </ion-buttons>\n          <ion-buttons slot=\"end\">\n              <ion-button [routerLink]=\"['/menu/basket']\">\n                <ion-icon slot=\"icon-only\" name=\"basket\" color = \"light\"></ion-icon>\n              </ion-button>\n            </ion-buttons>\n            <ion-buttons  slot=\"primary\">\n                <ion-button [routerLink]=\"['/menu/search']\">\n                  <ion-icon slot=\"icon-only\" name=\"search\"></ion-icon>\n                </ion-button>\n              </ion-buttons>\n        <ion-title color = \"light\" size=\"medium\" text-start>Me&Me</ion-title>\n    </ion-toolbar>\n  </ion-header>\n<ion-content class=\"padding\">\n    <ion-text > <h2>Shop</h2> </ion-text>      \n      <div   *ngIf=\"showToolBar\" >\n      <ion-toolbar color = \"light\"  text-center>\n      <ion-text color=\"secondary\" text-center>\n        Create a shop\n      </ion-text>\n      <ion-buttons slot=\"end\">\n        <ion-button [routerLink]=\"['/create-shop']\">\n          <ion-icon color = \"danger\" slot=\"icon-only\" name=\"add-circle\"></ion-icon>\n        </ion-button>\n      </ion-buttons>\n    </ion-toolbar>\n    </div>\n\n    <div   *ngIf=\"!showToolBar\">\n    <ion-list>\n      <ion-list-header> Shop name {{shopDetails?.shopName}}\n      </ion-list-header>\n    </ion-list>\n    <ion-item (click)=\"updateName()\">\n      <ion-label>\n        <ion-grid>\n          <ion-row>\n            <ion-col class=\"ion-text-start\" size=\"5\"> Shop name </ion-col>\n            <ion-col\n              size=\"7\"\n              *ngIf=\"shopDetails?.shopName\"\n            >\n              {{shopDetails?.shopName}}\n            </ion-col>\n            <ion-col\n              size=\"7\"\n              class=\"placeholder-profile\"\n              *ngIf=\"!shopDetails?.shopName\"\n            >\n              <span> Enter your shop name. </span>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-label>\n    </ion-item>\n  \n    <ion-item (click)=\"updateName()\">\n      <ion-label>\n        <ion-grid>\n          <ion-row>\n            <ion-col class=\"ion-text-start\" size=\"5\"> Shop Category </ion-col>\n            <ion-col\n              size=\"7\"\n              *ngIf=\"shopDetails?.shopCategory\"\n            >\n              {{shopDetails?.shopCategory}}\n            </ion-col>\n            <ion-col\n              size=\"7\"\n              class=\"placeholder-profile\"\n              *ngIf=\"!shopDetails?.shopCategory\"\n            >\n              <span> Edit category. </span>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-label>\n    </ion-item>\n  \n    <ion-item (click)=\"updateName()\">\n      <ion-label>\n        <ion-grid>\n          <ion-row>\n            <ion-col class=\"ion-text-start\" size=\"5\"> Shop Address </ion-col>\n            <ion-col size=\"7\" *ngIf=\"shopDetails?.shopAddress\">\n              {{shopDetails?.shopAddress}}\n            </ion-col>\n            <ion-col\n              size=\"7\"\n              class=\"placeholder-profile\"\n              *ngIf=\"!shopDetails?.shopAddress\"\n            >\n              <span> Edit address. </span>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-label>\n    </ion-item>\n  \n    <ion-item (click)=\"updateName()\">\n      <ion-label>\n        <ion-grid>\n          <ion-row>\n            <ion-col class=\"ion-text-start\" size=\"5\"> Phone</ion-col>\n            <ion-col size=\"7\" *ngIf=\"shopDetails?.phoneNumber\">\n              {{shopDetails?.phoneNumber}}\n            </ion-col>\n            <ion-col\n              size=\"7\"\n              class=\"placeholder-profile\"\n              *ngIf=\"!shopDetails?.phoneNumber\"\n            >\n              <span> Enter phone number. </span>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-label>\n    </ion-item>\n  \n    <ion-item (click)=\"updateName()\">\n      <ion-label>\n        <ion-grid>\n          <ion-row>\n            <ion-col class=\"ion-text-start\" size=\"5\"> isVisibleForPublic </ion-col>\n            <ion-col class=\"placeholder-profile\" size=\"7\">\n              <span> Change isVisibleForPublic. </span>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-label>\n    </ion-item>\n  <ion-item>\n    <ion-button class=\"login-margin\" color=\"danger\" (click)=\"updateName()\" expand=\"full\" >Delete your shop</ion-button>\n  </ion-item>\n</div>\n</ion-content>\n"
 
 /***/ }),
 
@@ -89,6 +89,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var src_app_services_shop_shop_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/shop/shop.service */ "./src/app/services/shop/shop.service.ts");
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/firestore/index.js");
+
 
 
 
@@ -96,22 +98,57 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ShopPage = /** @class */ (function () {
-    function ShopPage(authService, router, shopService, alertCtrl) {
+    function ShopPage(authService, router, shopService, alertCtrl, firestore) {
         this.authService = authService;
         this.router = router;
         this.shopService = shopService;
         this.alertCtrl = alertCtrl;
-        this.hideToolBar = true;
+        this.firestore = firestore;
+        this.showToolBar = undefined;
     }
     ShopPage.prototype.ngOnInit = function () {
-        var _this = this;
-        this.shopService.getUserShop().then(function (shop$) {
-            shop$.subscribe(function (userShop) {
-                _this.shopDetails = userShop;
-                _this.hideToolBar = true;
+        this.checkIfDocExists("nothing");
+    };
+    ShopPage.prototype.getShopDetails = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                this.shopService.getUserShop().then(function (shop$) {
+                    shop$.subscribe(function (userShop) {
+                        _this.shopDetails = userShop;
+                        _this.showToolBar = false;
+                    });
+                }).catch(function (error) {
+                    _this.showToolBar = true;
+                });
+                return [2 /*return*/];
             });
-        }).catch(function (error) {
-            _this.hideToolBar = true;
+        });
+    };
+    ShopPage.prototype.checkIfDocExists = function (data) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var user;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.authService.getUser()];
+                    case 1:
+                        user = _a.sent();
+                        this.currentUser = user.uid;
+                        this.firestore.doc("userShop/" + user.uid)
+                            .update({ data: data })
+                            .then(function () {
+                            console.log("shop exist");
+                            _this.showToolBar = false;
+                            _this.getShopDetails();
+                        })
+                            .catch(function (error) {
+                            console.log("shop doesnt exist");
+                            _this.showToolBar = true;
+                        });
+                        return [2 /*return*/];
+                }
+            });
         });
     };
     ShopPage.prototype.updateName = function () {
@@ -125,7 +162,8 @@ var ShopPage = /** @class */ (function () {
         { type: src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
         { type: src_app_services_shop_shop_service__WEBPACK_IMPORTED_MODULE_5__["ShopService"] },
-        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"] }
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"] },
+        { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_6__["AngularFirestore"] }
     ]; };
     ShopPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -136,7 +174,8 @@ var ShopPage = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
             src_app_services_shop_shop_service__WEBPACK_IMPORTED_MODULE_5__["ShopService"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"]])
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"],
+            _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_6__["AngularFirestore"]])
     ], ShopPage);
     return ShopPage;
 }());
@@ -170,6 +209,30 @@ var ShopService = /** @class */ (function () {
         this.firestore = firestore;
         this.authService = authService;
     }
+    ShopService.prototype.checkIfDocExists = function (shopName) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var user;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.authService.getUser()];
+                    case 1:
+                        user = _a.sent();
+                        this.currentUser = user;
+                        this.firestore.doc("userShop/" + user.uid)
+                            .update({ shopName: shopName })
+                            .then(function () {
+                            console.log("shop exist");
+                            return true;
+                        })
+                            .catch(function (error) {
+                            console.log("shop doesnt exist");
+                            return false;
+                        });
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     ShopService.prototype.getUserShop = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var user;
