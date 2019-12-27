@@ -15,8 +15,10 @@ import {
 import * as firebase from 'firebase';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/user/auth.service';
+import { PlatformService } from 'src/app/services/platform/platform.service';
 import { AlertService } from '../../../services/alert';
 import { Storage } from '@ionic/storage';
+import { HomePage } from '../../home/home.page';
 
   var phoneSignInWithVerificationId: any;
   var phoneNumber: string;
@@ -33,7 +35,7 @@ export class RPhonePage implements OnInit {
   OTPmessage: string = 'An OTP is sent to your number. You should receive it in 15 s'
   verificationId1: any;
   code: number;
-  OTPcode: number;
+  OTPcode: number=undefined;
   validations_form: FormGroup;
   country_phone_group: FormGroup;
   disableVerifyButton: boolean = true;
@@ -49,7 +51,8 @@ export class RPhonePage implements OnInit {
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
     public alert: AlertService,
-    private storage: Storage
+    private storage: Storage,
+    private platformService:PlatformService
   ) { }
 
   ngOnInit() {
@@ -117,12 +120,15 @@ export class RPhonePage implements OnInit {
   };
 
   async onSubmit(values): Promise<void> {
+    if(this.platformService.DEVICE_TYPE != "BROWSER"){
     var globalErrorCheck=0;
     phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
     console.log("Get OTP called " + phoneNumber);
     phoneSignInWithVerificationId = null;
     this.disableGetOTPButton = true;
     this.disableVerifyButton = false;
+    
+    this.alert.presentAlert('SMS Sent', 'Please enter 6 digit OTP below');
     this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000)
     .then (function(verificationId) {      
       phoneSignInWithVerificationId = verificationId;
@@ -144,6 +150,10 @@ export class RPhonePage implements OnInit {
       this.alert.presentAlert('SMS Sent', 'Please enter 6 digit OTP below');
     } 
   });   
+}
+else{
+  this.alert.presentAlert('SMS not sent', "Try from mobile devices (browser doesn't support this feature)");
+}
 }
 
 async register(values): Promise<void> {
@@ -173,73 +183,28 @@ async register(values): Promise<void> {
 
 async verify(values){
 
-  if(this.OTPcode){
-  console.log("verify called Entered OTP is "+ this.OTPcode);
-  this.alert.showLoading();
- // try{    //
-    this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
-    .then ( async (res) =>{
-      console.log("Verify success" + phoneNumber);
-      //this.storage.set('userCredential', res);
-      this.register(values);
-      await this.alert.hideLoading();
-      this.router.navigate(["/menu/home"]);      
-    }).catch (async (error)=>{
-    console.log("Verify failed" + phoneNumber);
-    await this.alert.hideLoading();
-    this.alert.handleError(error);
-    //this.alert.presentAlert('Error', 'Phone number exist, try login!')
-  }).finally(async()=>{
-    await this.alert.hideLoading(); 
-  }); 
-  
+    if(this.OTPcode && this.OTPcode<=999999 ){
+      console.log("verify called Entered OTP is "+ this.OTPcode);
+      this.alert.showLoading();
+    // try{    //
+      this.firebaseAuthentication.signInWithVerificationId(phoneSignInWithVerificationId ,this.OTPcode)
+      .then ( async (res) =>{
+        console.log("Verify success" + res.uid);
+        //this.storage.set('userCredential', res);
+        this.register(values);
+        await this.alert.hideLoading();
+        this.router.navigate(["/menu/home"]);      
+      }).catch (async (error)=>{
+        console.log("Verify failed" + phoneNumber);
+        await this.alert.hideLoading();
+        this.alert.handleError(error);
+      }).finally(async()=>{
+        await this.alert.hideLoading(); 
+      }); 
+    
+    }
+    else{
+      this.alert.presentAlert('Check your sms', 'Please enter 6 digit OTP!')
+    }
   }
-  else{
-    this.alert.presentAlert('Error', 'Please enter 6 digit OTP!')
-  }
-}
-  
-  async presentAlertPrompt(values) {
-    console.log("presentAlertPrompt called");
-    const alert = await this.alertCtrl.create({
-      header: 'OTP Sent Successfully',
-      inputs: [
-        {
-          name: 'OTP',
-          type: 'text',
-          placeholder: 'Enter OTP'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          cssClass: 'primary',
-          handler: () => {
-            console.log('Confirm Cancel');
-            //this.alert.showLoading(); 
-            this.disableGetOTPButton = false;
-            this.disableVerifyButton = true;
-          }
-        }, {
-          text: 'Ok',
-          handler: (data) => {
-            this.OTPcode = data.OTP;
-            this.verify(values);
-            console.log('Confirm Ok');
-            this.disableGetOTPButton = false;
-            this.disableVerifyButton = true;
-          }
-        }
-      ],
-      backdropDismiss: false
-    });
-    await alert.present();
-    setTimeout(()=>{
-      //this.alert.hideLoading();
-    //this.alert.presentAlert('Try again', 'Thanks for your patience'); 
-      alert.dismiss();
-  }, 60000);
-  }
-
 }

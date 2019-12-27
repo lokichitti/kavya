@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Platform } from '@ionic/angular';
 
-@Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+@Injectable({
+  providedIn: 'root'
 })
-export class HomePage implements OnInit {
+export class PlatformService {
+
   DEVICE_TYPE:string=undefined;
   constructor(
     public plt: Platform
@@ -27,8 +26,4 @@ export class HomePage implements OnInit {
         this.DEVICE_TYPE = "BROWSER";
       }
      }
-
-  ngOnInit() {
-  }
-
 }

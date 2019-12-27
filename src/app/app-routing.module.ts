@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: 'r-facebook', loadChildren: './pages/registerMethod/r-facebook/r-facebook.module#RFacebookPageModule' },
   { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule',},
   { path: 'create-shop', loadChildren: './pages/create-shop/create-shop.module#CreateShopPageModule',...canActivate(redirectToFirst) },
+  { path: 'location', loadChildren: './pages/location/location.module#LocationPageModule' },
 
 ];
 
