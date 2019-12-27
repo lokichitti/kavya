@@ -71,7 +71,7 @@ var RPhonePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".error-message {\n  color: red;\n  font-size: 14px;\n  margin-left: 10px;\n  margin-top: 10px;\n}\n\n.submit-btn {\n  margin-top: 40px;\n}\n\n.home-style {\n  text-align: center;\n  margin-top: 2000px;\n}\n\n.login-margin {\n  margin-top: 10px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n\n.register-margin {\n  margin-top: 50px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xva2VzaC9pb25pYy1kb250LWRlbGV0ZS9rYXZ5YW1tYS9sb2thcHBhL3NyYy9hcHAvcGFnZXMvcmVnaXN0ZXJNZXRob2Qvci1waG9uZS9yLXBob25lLnBhZ2Uuc2NzcyIsInNyYy9hcHAvcGFnZXMvcmVnaXN0ZXJNZXRob2Qvci1waG9uZS9yLXBob25lLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVFLFVBQUE7RUFDQSxlQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtBQ0FGOztBREdBO0VBQ0UsZ0JBQUE7QUNBRjs7QURJQTtFQUVFLGtCQUFBO0VBQ0Esa0JBQUE7QUNGRjs7QURLQTtFQUVFLGdCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtBQ0hGOztBRE1BO0VBRUUsZ0JBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0FDSkYiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9yZWdpc3Rlck1ldGhvZC9yLXBob25lL3ItcGhvbmUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmVycm9yLW1lc3NhZ2VcbntcbiAgY29sb3I6IHJlZDtcbiAgZm9udC1zaXplOiAxNHB4O1xuICBtYXJnaW4tbGVmdDogMTBweDtcbiAgbWFyZ2luLXRvcDogMTBweDtcbn1cblxuLnN1Ym1pdC1idG4ge1xuICBtYXJnaW4tdG9wOiA0MHB4O1xufVxuXG5cbi5ob21lLXN0eWxlXG57XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbWFyZ2luLXRvcDogMjAwMHB4O1xufVxuXG4ubG9naW4tbWFyZ2luXG57XG4gIG1hcmdpbi10b3A6IDEwcHg7XG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG59XG5cbi5yZWdpc3Rlci1tYXJnaW5cbntcbiAgbWFyZ2luLXRvcDogNTBweDtcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbn1cbiIsIi5lcnJvci1tZXNzYWdlIHtcbiAgY29sb3I6IHJlZDtcbiAgZm9udC1zaXplOiAxNHB4O1xuICBtYXJnaW4tbGVmdDogMTBweDtcbiAgbWFyZ2luLXRvcDogMTBweDtcbn1cblxuLnN1Ym1pdC1idG4ge1xuICBtYXJnaW4tdG9wOiA0MHB4O1xufVxuXG4uaG9tZS1zdHlsZSB7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgbWFyZ2luLXRvcDogMjAwMHB4O1xufVxuXG4ubG9naW4tbWFyZ2luIHtcbiAgbWFyZ2luLXRvcDogMTBweDtcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbn1cblxuLnJlZ2lzdGVyLW1hcmdpbiB7XG4gIG1hcmdpbi10b3A6IDUwcHg7XG4gIG1hcmdpbi1sZWZ0OiAyMHB4O1xuICBtYXJnaW4tcmlnaHQ6IDIwcHg7XG59Il19 */"
+module.exports = ".error-message {\n  color: red;\n  font-size: 14px;\n  margin-left: 10px;\n  margin-top: 10px;\n}\n\n.submit-btn {\n  margin-top: 40px;\n}\n\n.home-style {\n  text-align: center;\n  margin-top: 2000px;\n}\n\n.login-margin {\n  margin-top: 10px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n\n.register-margin {\n  margin-top: 50px;\n  margin-left: 20px;\n  margin-right: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2htZWNkMDAxNTIzL2lvbmljLWRvbnQtZGVsZXRlL2ZpcmViYXNlLXdvcmtpbmcvcHJvZ3Jlc3Mvc3JjL2FwcC9wYWdlcy9yZWdpc3Rlck1ldGhvZC9yLXBob25lL3ItcGhvbmUucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy9yZWdpc3Rlck1ldGhvZC9yLXBob25lL3ItcGhvbmUucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBRUUsVUFBQTtFQUNBLGVBQUE7RUFDQSxpQkFBQTtFQUNBLGdCQUFBO0FDQUY7O0FER0E7RUFDRSxnQkFBQTtBQ0FGOztBRElBO0VBRUUsa0JBQUE7RUFDQSxrQkFBQTtBQ0ZGOztBREtBO0VBRUUsZ0JBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0FDSEY7O0FETUE7RUFFRSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7QUNKRiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3JlZ2lzdGVyTWV0aG9kL3ItcGhvbmUvci1waG9uZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZXJyb3ItbWVzc2FnZVxue1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE0cHg7XG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuXG4uc3VibWl0LWJ0biB7XG4gIG1hcmdpbi10b3A6IDQwcHg7XG59XG5cblxuLmhvbWUtc3R5bGVcbntcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBtYXJnaW4tdG9wOiAyMDAwcHg7XG59XG5cbi5sb2dpbi1tYXJnaW5cbntcbiAgbWFyZ2luLXRvcDogMTBweDtcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbn1cblxuLnJlZ2lzdGVyLW1hcmdpblxue1xuICBtYXJnaW4tdG9wOiA1MHB4O1xuICBtYXJnaW4tbGVmdDogMjBweDtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuIiwiLmVycm9yLW1lc3NhZ2Uge1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDE0cHg7XG4gIG1hcmdpbi1sZWZ0OiAxMHB4O1xuICBtYXJnaW4tdG9wOiAxMHB4O1xufVxuXG4uc3VibWl0LWJ0biB7XG4gIG1hcmdpbi10b3A6IDQwcHg7XG59XG5cbi5ob21lLXN0eWxlIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBtYXJnaW4tdG9wOiAyMDAwcHg7XG59XG5cbi5sb2dpbi1tYXJnaW4ge1xuICBtYXJnaW4tdG9wOiAxMHB4O1xuICBtYXJnaW4tbGVmdDogMjBweDtcbiAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xufVxuXG4ucmVnaXN0ZXItbWFyZ2luIHtcbiAgbWFyZ2luLXRvcDogNTBweDtcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XG4gIG1hcmdpbi1yaWdodDogMjBweDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -94,8 +94,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/firebase-authentication/ngx */ "./node_modules/@ionic-native/firebase-authentication/ngx/index.js");
 /* harmony import */ var _models_validators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../models/validators */ "./src/app/models/validators.ts");
 /* harmony import */ var src_app_services_user_auth_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/services/user/auth.service */ "./src/app/services/user/auth.service.ts");
-/* harmony import */ var _services_alert__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../services/alert */ "./src/app/services/alert.ts");
-/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+/* harmony import */ var src_app_services_platform_platform_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/services/platform/platform.service */ "./src/app/services/platform/platform.service.ts");
+/* harmony import */ var _services_alert__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../services/alert */ "./src/app/services/alert.ts");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+
 
 
 
@@ -113,7 +115,7 @@ var phoneSignInWithVerificationId;
 var phoneNumber;
 //{{ validations_form.value.country_phone.country.code }}
 var RPhonePage = /** @class */ (function () {
-    function RPhonePage(formBuilder, router, authService, firebaseAuthentication, alertCtrl, toastCtrl, alert, storage) {
+    function RPhonePage(formBuilder, router, authService, firebaseAuthentication, alertCtrl, toastCtrl, alert, storage, platformService) {
         this.formBuilder = formBuilder;
         this.router = router;
         this.authService = authService;
@@ -122,9 +124,11 @@ var RPhonePage = /** @class */ (function () {
         this.toastCtrl = toastCtrl;
         this.alert = alert;
         this.storage = storage;
+        this.platformService = platformService;
         this.OTP = '';
         this.showOTPInput = false;
         this.OTPmessage = 'An OTP is sent to your number. You should receive it in 15 s';
+        this.OTPcode = undefined;
         this.disableVerifyButton = true;
         this.disableGetOTPButton = false;
         this.validation_messages = {
@@ -192,33 +196,39 @@ var RPhonePage = /** @class */ (function () {
             var globalErrorCheck;
             var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                globalErrorCheck = 0;
-                phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
-                console.log("Get OTP called " + phoneNumber);
-                phoneSignInWithVerificationId = null;
-                this.disableGetOTPButton = true;
-                this.disableVerifyButton = false;
-                this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000)
-                    .then(function (verificationId) {
-                    phoneSignInWithVerificationId = verificationId;
-                    globalErrorCheck = 1;
-                    console.log("OTP Sent successfully" + phoneNumber);
-                    //this.presentAlertPrompt(values);
-                }).catch(function (e) {
-                    console.log("Get OTP failed ");
-                    console.log(e);
-                    _this.disableGetOTPButton = false;
-                    _this.disableVerifyButton = true;
-                    _this.alert.handleError(e);
-                }).finally(function () {
-                    console.log('This finally block');
-                    if (globalErrorCheck) {
-                        console.log("Get OTP called ");
-                        this.disableGetOTPButton = true;
-                        this.disableVerifyButton = false;
-                        this.alert.presentAlert('SMS Sent', 'Please enter 6 digit OTP below');
-                    }
-                });
+                if (this.platformService.DEVICE_TYPE != "BROWSER") {
+                    globalErrorCheck = 0;
+                    phoneNumber = values.value.country_phone.country.code + values.value.country_phone.phone;
+                    console.log("Get OTP called " + phoneNumber);
+                    phoneSignInWithVerificationId = null;
+                    this.disableGetOTPButton = true;
+                    this.disableVerifyButton = false;
+                    this.alert.presentAlert('SMS Sent', 'Please enter 6 digit OTP below');
+                    this.firebaseAuthentication.verifyPhoneNumber(phoneNumber, 3000)
+                        .then(function (verificationId) {
+                        phoneSignInWithVerificationId = verificationId;
+                        globalErrorCheck = 1;
+                        console.log("OTP Sent successfully" + phoneNumber);
+                        //this.presentAlertPrompt(values);
+                    }).catch(function (e) {
+                        console.log("Get OTP failed ");
+                        console.log(e);
+                        _this.disableGetOTPButton = false;
+                        _this.disableVerifyButton = true;
+                        _this.alert.handleError(e);
+                    }).finally(function () {
+                        console.log('This finally block');
+                        if (globalErrorCheck) {
+                            console.log("Get OTP called ");
+                            this.disableGetOTPButton = true;
+                            this.disableVerifyButton = false;
+                            this.alert.presentAlert('SMS Sent', 'Please enter 6 digit OTP below');
+                        }
+                    });
+                }
+                else {
+                    this.alert.presentAlert('SMS not sent', "Try from mobile devices (browser doesn't support this feature)");
+                }
                 return [2 /*return*/];
             });
         });
@@ -265,7 +275,7 @@ var RPhonePage = /** @class */ (function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                if (this.OTPcode) {
+                if (this.OTPcode && this.OTPcode <= 999999) {
                     console.log("verify called Entered OTP is " + this.OTPcode);
                     this.alert.showLoading();
                     // try{    //
@@ -274,7 +284,7 @@ var RPhonePage = /** @class */ (function () {
                         return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                             switch (_a.label) {
                                 case 0:
-                                    console.log("Verify success" + phoneNumber);
+                                    console.log("Verify success" + res.uid);
                                     //this.storage.set('userCredential', res);
                                     this.register(values);
                                     return [4 /*yield*/, this.alert.hideLoading()];
@@ -308,65 +318,9 @@ var RPhonePage = /** @class */ (function () {
                     }); });
                 }
                 else {
-                    this.alert.presentAlert('Error', 'Please enter 6 digit OTP!');
+                    this.alert.presentAlert('Check your sms', 'Please enter 6 digit OTP!');
                 }
                 return [2 /*return*/];
-            });
-        });
-    };
-    RPhonePage.prototype.presentAlertPrompt = function (values) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var alert;
-            var _this = this;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        console.log("presentAlertPrompt called");
-                        return [4 /*yield*/, this.alertCtrl.create({
-                                header: 'OTP Sent Successfully',
-                                inputs: [
-                                    {
-                                        name: 'OTP',
-                                        type: 'text',
-                                        placeholder: 'Enter OTP'
-                                    }
-                                ],
-                                buttons: [
-                                    {
-                                        text: 'Cancel',
-                                        role: 'cancel',
-                                        cssClass: 'primary',
-                                        handler: function () {
-                                            console.log('Confirm Cancel');
-                                            //this.alert.showLoading(); 
-                                            _this.disableGetOTPButton = false;
-                                            _this.disableVerifyButton = true;
-                                        }
-                                    }, {
-                                        text: 'Ok',
-                                        handler: function (data) {
-                                            _this.OTPcode = data.OTP;
-                                            _this.verify(values);
-                                            console.log('Confirm Ok');
-                                            _this.disableGetOTPButton = false;
-                                            _this.disableVerifyButton = true;
-                                        }
-                                    }
-                                ],
-                                backdropDismiss: false
-                            })];
-                    case 1:
-                        alert = _a.sent();
-                        return [4 /*yield*/, alert.present()];
-                    case 2:
-                        _a.sent();
-                        setTimeout(function () {
-                            //this.alert.hideLoading();
-                            //this.alert.presentAlert('Try again', 'Thanks for your patience'); 
-                            alert.dismiss();
-                        }, 60000);
-                        return [2 /*return*/];
-                }
             });
         });
     };
@@ -377,8 +331,9 @@ var RPhonePage = /** @class */ (function () {
         { type: _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_6__["FirebaseAuthentication"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] },
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"] },
-        { type: _services_alert__WEBPACK_IMPORTED_MODULE_9__["AlertService"] },
-        { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_10__["Storage"] }
+        { type: _services_alert__WEBPACK_IMPORTED_MODULE_10__["AlertService"] },
+        { type: _ionic_storage__WEBPACK_IMPORTED_MODULE_11__["Storage"] },
+        { type: src_app_services_platform_platform_service__WEBPACK_IMPORTED_MODULE_9__["PlatformService"] }
     ]; };
     RPhonePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -392,10 +347,63 @@ var RPhonePage = /** @class */ (function () {
             _ionic_native_firebase_authentication_ngx__WEBPACK_IMPORTED_MODULE_6__["FirebaseAuthentication"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"],
-            _services_alert__WEBPACK_IMPORTED_MODULE_9__["AlertService"],
-            _ionic_storage__WEBPACK_IMPORTED_MODULE_10__["Storage"]])
+            _services_alert__WEBPACK_IMPORTED_MODULE_10__["AlertService"],
+            _ionic_storage__WEBPACK_IMPORTED_MODULE_11__["Storage"],
+            src_app_services_platform_platform_service__WEBPACK_IMPORTED_MODULE_9__["PlatformService"]])
     ], RPhonePage);
     return RPhonePage;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/platform/platform.service.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/services/platform/platform.service.ts ***!
+  \*******************************************************/
+/*! exports provided: PlatformService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlatformService", function() { return PlatformService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
+var PlatformService = /** @class */ (function () {
+    function PlatformService(plt) {
+        this.plt = plt;
+        this.DEVICE_TYPE = undefined;
+        if (this.plt.is('ios')) {
+            // This will only print when on iOS
+            console.log('I am an iOS device!');
+            this.DEVICE_TYPE = "iOS";
+        }
+        else if (this.plt.is('android')) {
+            // This will only print when on iOS
+            console.log('I am an Android device!');
+            this.DEVICE_TYPE = "ANDROID";
+        }
+        else {
+            // This will only print when on iOS
+            console.log('I am an web browser device!');
+            this.DEVICE_TYPE = "BROWSER";
+        }
+    }
+    PlatformService.ctorParameters = function () { return [
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] }
+    ]; };
+    PlatformService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"]])
+    ], PlatformService);
+    return PlatformService;
 }());
 
 

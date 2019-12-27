@@ -54,6 +54,10 @@ var map = {
 		"./src/app/pages/google-login/google-login.module.ts",
 		"pages-google-login-google-login-module"
 	],
+	"./pages/location/location.module": [
+		"./src/app/pages/location/location.module.ts",
+		"pages-location-location-module"
+	],
 	"./pages/loginMethod/email/email.module": [
 		"./src/app/pages/loginMethod/email/email.module.ts",
 		"default~pages-create-shop-create-shop-module~pages-first-first-module~pages-loginMethod-email-email-~86401aa5",
@@ -605,6 +609,7 @@ var routes = [
     { path: 'r-facebook', loadChildren: './pages/registerMethod/r-facebook/r-facebook.module#RFacebookPageModule' },
     { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule', },
     tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ path: 'create-shop', loadChildren: './pages/create-shop/create-shop.module#CreateShopPageModule' }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["canActivate"])(redirectToFirst)),
+    { path: 'location', loadChildren: './pages/location/location.module#LocationPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -1005,7 +1010,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/lokesh/ionic-dont-delete/kavyamma/lokappa/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/hmecd001523/ionic-dont-delete/firebase-working/progress/src/main.ts */"./src/main.ts");
 
 
 /***/ })
