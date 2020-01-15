@@ -27,13 +27,13 @@ export class AuthService {
     const user: firebase.User = await this.getUser();
       const loading = await this.loadingCtrl.create();    
       const shopName = values.value.shopName;
-      const shopCategory = "";
+      const shopCategory = values.value.shopCategory;
       const address = values.value.address;
       const area =  values.value.area;
       const city =  values.value.city;
       const state =  values.value.state;
       const pinCode =  values.value.pinCode;
-      const langitude = "";
+      const longitude = "";
       const latitude ="";
       const shopPhoto = "";
       const isVisibleForPublic = values.value.visibility;

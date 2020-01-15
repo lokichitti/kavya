@@ -16,9 +16,10 @@
         <ion-title color = "light" size="medium" text-start>Me&Me</ion-title>
     </ion-toolbar>
   </ion-header>
+  
 <ion-content class="padding">
-    <ion-text > <h2>Shop</h2> </ion-text>      
-      <div   *ngIf="showToolBar" >
+      <div   *ngIf="!showShop" >
+      <div text-center> looks like you doesn't have any shops, create one and enjoy selling </div>  
       <ion-toolbar color = "light"  text-center>
       <ion-text color="secondary" text-center>
         Create a shop
@@ -30,8 +31,8 @@
       </ion-buttons>
     </ion-toolbar>
     </div>
-
-    <div   *ngIf="!showToolBar">
+    <ion-text > <h2>Shop</h2> </ion-text>  
+    <div   *ngIf="showShop">
     <ion-list>
       <ion-list-header> Shop name {{shopDetails?.shopName}}
       </ion-list-header>
@@ -126,9 +127,9 @@
       <ion-label>
         <ion-grid>
           <ion-row>
-            <ion-col class="ion-text-start" size="5"> isVisibleForPublic </ion-col>
+            <ion-col class="ion-text-start" size="5">Visibility</ion-col>
             <ion-col class="placeholder-profile" size="7">
-              <span> Change isVisibleForPublic. </span>
+              <span> Change visibility </span>
             </ion-col>
           </ion-row>
         </ion-grid>

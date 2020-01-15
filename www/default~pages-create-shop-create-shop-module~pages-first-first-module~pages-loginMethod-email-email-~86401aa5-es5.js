@@ -39,7 +39,7 @@ var AuthService = /** @class */ (function () {
     }
     AuthService.prototype.createShop = function (values) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var user, loading, shopName, shopCategory, address, area, city, state, pinCode, langitude, latitude, shopPhoto, isVisibleForPublic;
+            var user, loading, shopName, shopCategory, address, area, city, state, pinCode, longitude, latitude, shopPhoto, isVisibleForPublic;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.getUser()];
@@ -49,13 +49,13 @@ var AuthService = /** @class */ (function () {
                     case 2:
                         loading = _a.sent();
                         shopName = values.value.shopName;
-                        shopCategory = "";
+                        shopCategory = values.value.shopCategory;
                         address = values.value.address;
                         area = values.value.area;
                         city = values.value.city;
                         state = values.value.state;
                         pinCode = values.value.pinCode;
-                        langitude = "";
+                        longitude = "";
                         latitude = "";
                         shopPhoto = "";
                         isVisibleForPublic = values.value.visibility;

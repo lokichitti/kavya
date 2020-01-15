@@ -17,7 +17,7 @@ import {
 })
 
 export class ShopPage implements OnInit {
-  showToolBar: boolean = undefined;
+  showShop: boolean = true;
   public shopDetails: ShopDetails;
   currentUser: string ;
   isShopExists: boolean;
@@ -37,12 +37,14 @@ export class ShopPage implements OnInit {
     this.shopService.getUserShop().then(shop$ => {
       shop$.subscribe(userShop => {
         this.shopDetails = userShop;
-        this.showToolBar = false;
+        this.showShop = true;
       });
     }).catch((error)=>{
-      this.showToolBar = true;
+      
+      this.showShop = false;
     }) 
   }
+
   async checkIfDocExists(data:string): Promise<void> {
     const user: firebase.User = await this.authService.getUser();
     this.currentUser = user.uid;
@@ -50,14 +52,15 @@ export class ShopPage implements OnInit {
     .update({data})
     .then(() => {
       console.log("shop exist");
-      this.showToolBar = false;
+      this.showShop = true;
       this.getShopDetails();
     })
     .catch((error) => {
       console.log("shop doesnt exist");
-      this.showToolBar = true;
-  });
+      this.showShop = false;
+    });
   }
+
   async updateName(): Promise<void> {
   
   }
